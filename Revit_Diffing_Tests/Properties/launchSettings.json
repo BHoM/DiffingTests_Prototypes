@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Diffing_Tests_NetStandard": {
+      "commandName": "Executable",
+      "executablePath": "cmd.exe",
+      "commandLineArgs": "/k  Diffing_Tests_NetStandard.dll"
+    }
+  }
+}
