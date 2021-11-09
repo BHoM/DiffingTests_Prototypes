@@ -43,29 +43,31 @@ namespace Tests
             /// Diffing tests
             /// ************************************/
 
-            DiffingTests.HashTest_CostantHash_IdenticalObjs();
+            DiffingTests.HashTest_EqualObjectsHaveSameHash();
 
-            DiffingTests.HashTest_CostantHash_NumericalPrecision();
+            DiffingTests.HashTest_NumericTolerance_SameHash();
 
-            DiffingTests.HashTest_HashComparer();
+            DiffingTests.HashTest_NumericTolerance_DifferentHash();
+
+            DiffingTests.HashTest_HashComparer_AssignHashToFragments();
 
             DiffingTests.HashTest_RemoveDuplicatesByHash();
 
-            DiffingTests.HashTest_CustomDataToConsider_equalObjects();
+            DiffingTests.HashTest_CustomDataToConsider_EqualObjects();
 
-            DiffingTests.HashTest_CustomDataToConsider_differentObjects();
+            DiffingTests.HashTest_CustomDataToConsider_DifferentObjects();
 
-            DiffingTests.HashTest_CustomDataToExclude_equalObjects();
+            DiffingTests.HashTest_CustomDataToExclude_EqualObjects();
 
             DiffingTests.TypeExceptions();
 
-            DiffingTests.HashTest_PropertiesToConsider();
+            DiffingTests.HashTest_PropertiesToConsider_EqualObjects();
 
-            DiffingTests.HashTest_PropertiesToConsider_subProps();
+            DiffingTests.HashTest_PropertiesToConsider_SubProperties_EqualObjects();
 
-            DiffingTests.HashTest_PropertiesToConsider_samePropertyNameAtMultipleLevels();
+            DiffingTests.HashTest_PropertiesToConsider_SamePropertyNameAtMultipleLevels_DifferentObjects();
 
-            DiffingTests.HashTest_PropertyExceptions();
+            DiffingTests.HashTest_PropertyExceptions_EqualObjects();
 
             DiffingTests.HashTest_CheckAgainstStoredHash();
 
