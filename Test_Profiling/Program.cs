@@ -30,16 +30,18 @@ namespace Tests
 {
     class Program
     {
-        static void Main(string[] args = null)
+        public static void Main(string[] args = null)
         {
-            //Console.WriteLine("Press any key to start");
-            //Console.ReadKey();
-
+            Console.WriteLine("\n/**********************************/");
+            Console.WriteLine("\n\t\t\tDIFFING TESTS.");
+            Console.WriteLine("Note: the first time tests are run, the computation time might be slower than in reality due to first loading." +
+                "\nOptionally, try rerunning the tests when prompted." +
+                "\nOtherwise, the subsequent PROFILING will give an accurate performance measure.");
+            Console.WriteLine("\n/**********************************/");
 
             /// ************************************/
             /// Diffing tests
             /// ************************************/
-
 
             DiffingTests.HashTest_CostantHash_IdenticalObjs();
 
@@ -86,14 +88,17 @@ namespace Tests
 
             /// ************************************/
 
-
-            Console.WriteLine("\nPress `SpaceBar` to repeat tests. `Enter` or any other key to to continue on Profiling. `Esc` to exit.");
+            Console.WriteLine("\n/**********************************/");
+            string userInputRequiredMessage = "\nPress `SpaceBar` to repeat tests. `Enter` to continue on Profiling. `Esc` to exit.";
+            Console.WriteLine(userInputRequiredMessage);
+            Console.WriteLine("\n/**********************************/");
 
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             if (keyInfo.Key == ConsoleKey.Spacebar)
                 Main();
-
-            if (keyInfo.Key == ConsoleKey.Escape)
+            else if (keyInfo.Key == ConsoleKey.Escape)
+                Console.WriteLine(userInputRequiredMessage);
+            else if (keyInfo.Key == ConsoleKey.Escape)
                 return;
 
             /// ************************************/
