@@ -40,6 +40,7 @@ using Newtonsoft.Json;
 using BH.Adapter.File;
 using BH.oM.Dimensional;
 using BH.oM.Adapters.File;
+using BH.Engine.Base.Objects;
 
 namespace Tests
 {

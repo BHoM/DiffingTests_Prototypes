@@ -124,14 +124,16 @@ namespace Tests
             Debug.Assert(delta.Diff.AddedObjects.Count() == 1, "Incorrect number of object identified as new/ToBeCreated.");
             Debug.Assert(delta.Diff.ModifiedObjects.Count() == 1, "Incorrect number of object identified as modified/ToBeUpdated.");
             Debug.Assert(delta.Diff.RemovedObjects.Count() == 1, "Incorrect number of object identified as old/ToBeDeleted.");
-            var modifiedPropsPerObj = delta.Diff.ModifiedPropsPerObject?.First().Value;
-            Debug.Assert(modifiedPropsPerObj?.Count == 1, "Incorrect number of changed properties identified by the property-level diffing.");
-            Debug.Assert(modifiedPropsPerObj?.First().Key == "Name", "Error in property-level diffing");
-            Debug.Assert(modifiedPropsPerObj?.First().Value.Item1 as string == "modifiedBar_0", "Error in property-level diffing");
+            var modifiedObjectDifferences = delta.Diff.ModifiedObjectsDifferences.FirstOrDefault().Differences;
+            Debug.Assert(modifiedObjectDifferences.Count() == 1, "Incorrect number of changed properties identified by the property-level diffing.");
+            var identifiedPropertyDifference = modifiedObjectDifferences.FirstOrDefault();
+            Debug.Assert(identifiedPropertyDifference.DisplayName == "Name", $"The modified property should be `Name`, instead it was `{identifiedPropertyDifference.DisplayName}`.");
+            Debug.Assert(identifiedPropertyDifference.FullName == typeof(Bar).FullName + ".Name", $"The modified property should be `{typeof(Bar).FullName + ".Name"}`, instead it was `{identifiedPropertyDifference.FullName}`.");
+            Debug.Assert(identifiedPropertyDifference.PastValue as string == "bar_0", $"The {nameof(PropertyDifference.PastValue)} of the modified property should be `bar_0`, instead it was {identifiedPropertyDifference.PastValue}.");
+            Debug.Assert(identifiedPropertyDifference.FollowingValue as string == "modifiedBar_0", $"The {nameof(PropertyDifference.FollowingValue)} of the modified property should be `modifiedBar_0`, instead it was {identifiedPropertyDifference.FollowingValue}.");
 
             long timespan = sw.ElapsedMilliseconds;
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
-
     }
 }

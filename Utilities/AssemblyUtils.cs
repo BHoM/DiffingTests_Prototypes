@@ -10,7 +10,7 @@ namespace Utilities
 {
     public static class AssemblyUtils
     {
-        public static List<Assembly> LoadAssemblies(string dllDirectory = @"C:\ProgramData\BHoM\Assemblies", bool onlyBHoMAssemblies = true, bool tryLoadWithoutDependencies = false)
+        public static List<Assembly> LoadAssemblies(string dllDirectory = @"C:\ProgramData\BHoM\Assemblies\Assemblies", bool onlyBHoMAssemblies = true, bool tryLoadWithoutDependencies = false)
         {
             var assemblyFiles = Directory.GetFiles(dllDirectory, "*.dll").ToList();
             List<Assembly> assemblies = new List<Assembly>();

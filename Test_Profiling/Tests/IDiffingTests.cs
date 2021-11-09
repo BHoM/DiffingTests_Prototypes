@@ -50,7 +50,7 @@ namespace Tests
             Console.WriteLine($"\nRunning {testName}");
             Stopwatch sw = Stopwatch.StartNew();
 
-            DiffingConfig DiffingConfig = new DiffingConfig();
+            DiffingConfig diffingConfig = new DiffingConfig();
 
             List<IBHoMObject> firstBatch = new List<IBHoMObject>();
             List<IBHoMObject> secondBatch = new List<IBHoMObject>();
@@ -70,15 +70,15 @@ namespace Tests
             }
             
             // This should internally trigger the method "DiffWithHash", which cannot return "modifiedObjects".
-            Diff diff = BH.Engine.Diffing.Compute.IDiffing(firstBatch, secondBatch);
+            Diff diff = BH.Engine.Diffing.Compute.IDiffing(firstBatch, secondBatch, diffingConfig);
             sw.Stop();
             long timespan = sw.ElapsedMilliseconds;
 
-            Debug.Assert(diff.AddedObjects.Count() == 3, "Incorrect number of object identified as new/ToBeCreated.");
-            Debug.Assert(diff.ModifiedObjects == null || diff.ModifiedObjects.Count() == 0, "Incorrect number of object identified as modified/ToBeUpdated.");
-            Debug.Assert(diff.RemovedObjects.Count() == 3, "Incorrect number of object identified as old/ToBeDeleted.");
-            var modifiedPropsPerObj = diff.ModifiedPropsPerObject?.FirstOrDefault().Value;
-            Debug.Assert(modifiedPropsPerObj == null, "Incorrect number of changed properties identified by the property-level diffing.");
+            Debug.Assert(diff.AddedObjects.Count() == 3, "Incorrect number of object identified as new/Added.");
+            Debug.Assert(diff.ModifiedObjects == null || diff.ModifiedObjects.Count() == 0, "Incorrect number of object identified as modified.");
+            Debug.Assert(diff.RemovedObjects.Count() == 3, "Incorrect number of object identified as old/Removed.");
+            var objectDifferences = diff.ModifiedObjectsDifferences?.FirstOrDefault();
+            Debug.Assert(!objectDifferences?.Differences?.Any() ?? true, "HashDiffing cannot return property Differences, but some were returned.");
 
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
@@ -179,7 +179,7 @@ namespace Tests
             Console.WriteLine($"\nRunning {testName}");
             Stopwatch sw = Stopwatch.StartNew();
 
-            DiffingConfig DiffingConfig = new DiffingConfig();
+            DiffingConfig diffingConfig = new DiffingConfig();
 
             List<IBHoMObject> firstBatch = new List<IBHoMObject>();
             List<IBHoMObject> secondBatch = new List<IBHoMObject>();
@@ -212,15 +212,15 @@ namespace Tests
             }
 
             // This should internally trigger the method "DiffWithHash", which cannot return "modifiedObjects".
-            Diff diff = BH.Engine.Diffing.Compute.IDiffing(firstBatch, secondBatch);
+            Diff diff = BH.Engine.Diffing.Compute.IDiffing(firstBatch, secondBatch, diffingConfig);
             sw.Stop();
             long timespan = sw.ElapsedMilliseconds;
 
             Debug.Assert(diff.AddedObjects.Count() == 3, "Incorrect number of object identified as new/ToBeCreated.");
             Debug.Assert(diff.ModifiedObjects == null || diff.ModifiedObjects.Count() == 0, "Incorrect number of object identified as modified/ToBeUpdated.");
             Debug.Assert(diff.RemovedObjects.Count() == 3, "Incorrect number of object identified as old/ToBeDeleted.");
-            var modifiedPropsPerObj = diff.ModifiedPropsPerObject?.FirstOrDefault().Value;
-            Debug.Assert(modifiedPropsPerObj == null, "Incorrect number of changed properties identified by the property-level diffing.");
+            var objectDifferences = diff.ModifiedObjectsDifferences?.FirstOrDefault();
+            Debug.Assert(!objectDifferences.Differences?.Any() ?? true, "Incorrect number of changed properties identified by the property-level diffing.");
 
             Console.WriteLine($"Concluded successfully in {timespan}");
         }

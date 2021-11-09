@@ -87,10 +87,10 @@ namespace Tests
             /// ************************************/
 
 
-            Console.WriteLine("Press `Enter` to repeat tests. `Esc` to exit. Any other key to continue on Profiling.");
+            Console.WriteLine("\nPress `SpaceBar` to repeat tests. `Enter` or any other key to to continue on Profiling. `Esc` to exit.");
 
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-            if (keyInfo.Key == ConsoleKey.Enter)
+            if (keyInfo.Key == ConsoleKey.Spacebar)
                 Main();
 
             if (keyInfo.Key == ConsoleKey.Escape)
