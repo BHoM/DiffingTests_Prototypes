@@ -38,7 +38,7 @@ using System.Diagnostics;
 
 namespace Tests
 {
-    internal static partial class DiffingTests
+    internal static partial class HashTests
     {
         public static void Profiling()
         {

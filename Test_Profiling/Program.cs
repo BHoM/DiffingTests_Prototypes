@@ -39,47 +39,48 @@ namespace Tests
                 "\nOtherwise, the subsequent PROFILING will give an accurate performance measure.");
             Console.WriteLine("\n/**********************************/");
 
-            /// ************************************/
-            /// Diffing tests
-            /// ************************************/
+            /// ***************************************************************************/
+            ///                                 HASH TESTS
+            /// Tests on the Hash computation.
+            /// ***************************************************************************/
 
-            DiffingTests.HashTest_EqualObjectsHaveSameHash();
+            HashTests.EqualObjectsHaveSameHash();
 
-            DiffingTests.HashTest_NumericTolerance_SameHash();
+            HashTests.NumericTolerance_SameHash();
 
-            DiffingTests.HashTest_NumericTolerance_DifferentHash();
+            HashTests.NumericTolerance_DifferentHash();
 
-            DiffingTests.HashTest_HashComparer_AssignHashToFragments();
+            HashTests.HashComparer_AssignHashToFragments();
 
-            DiffingTests.HashTest_RemoveDuplicatesByHash();
+            HashTests.RemoveDuplicatesByHash();
 
-            DiffingTests.HashTest_CustomDataToConsider_EqualObjects();
+            HashTests.CustomDataToConsider_EqualObjects();
 
-            DiffingTests.HashTest_CustomDataToConsider_DifferentObjects();
+            HashTests.CustomDataToConsider_DifferentObjects();
 
-            DiffingTests.HashTest_CustomDataToExclude_EqualObjects();
+            HashTests.CustomDataToExclude_EqualObjects();
 
-            DiffingTests.TypeExceptions();
+            HashTests.TypeExceptions();
 
-            DiffingTests.HashTest_PropertiesToConsider_EqualObjects();
+            HashTests.PropertiesToConsider_TopLevelProperty_EqualObjects();
 
-            DiffingTests.HashTest_PropertiesToConsider_SubProperties_EqualObjects();
+            HashTests.PropertiesToConsider_SubProperties_EqualObjects();
 
-            DiffingTests.HashTest_PropertiesToConsider_SamePropertyNameAtMultipleLevels_DifferentObjects();
+            HashTests.PropertiesToConsider_FullPropertyNames_EqualObjects();
 
-            DiffingTests.HashTest_PropertyExceptions_EqualObjects();
+            HashTests.PropertiesToConsider_SamePropertyNameAtMultipleLevels_DifferentObjects();
 
-            DiffingTests.HashTest_CheckAgainstStoredHash();
+            HashTests.PropertyExceptions_EqualObjects();
 
-            DiffingTests.RevisionTest_CostantHash_IdenticalObjs();
+            HashTests.CheckAgainstStoredHash();
 
-            DiffingTests.RevisionTest_UnchangedObjectsSameHash();
 
-            DiffingTests.RevisionTest_basic();
+            /// ***************************************************************************/
+            ///                              DIFFING TESTS
+            /// Tests on the Diffing methods.
+            /// ***************************************************************************/
 
-            DiffingTests.RevisionTest_advanced();
-
-            DiffingTests.IDiffingTest_HashDiffing();
+            DiffingTests.IDiffing_HashDiffing();
 
             DiffingTests.DiffWithFragmentId_allDifferent();
 
@@ -87,8 +88,20 @@ namespace Tests
 
             //RevitDiffing.RevitDiffing_basic();
 
+            /// ***************************************************************************/
+            ///                              REVISION TESTS
+            /// Tests related to the revision workflow (part of AECDeltas; not really used)
+            /// ***************************************************************************/
 
-            /// ************************************/
+            RevisionTests.CostantHash_IdenticalObjs();
+
+            RevisionTests.UnchangedObjectsSameHash();
+
+            RevisionTests.RevisionWorkflow_basic();
+
+            RevisionTests.RevisionWorkflow_advanced();
+
+            /// ***************************************************************************/
 
             Console.WriteLine("\n/**********************************/");
             string userInputRequiredMessage = "\nPress `SpaceBar` to repeat tests. `Enter` to continue on Profiling. `Esc` to exit.";
@@ -103,13 +116,12 @@ namespace Tests
             else if (keyInfo.Key == ConsoleKey.Escape)
                 return;
 
-            /// ************************************/
-            /// Diffing profiling
-            /// ************************************/
+            /// ***************************************************************************/
+            ///                              DIFFING PROFILING
+            /// Performance profiling on diffing.
+            /// ***************************************************************************/
 
-            DiffingTests.Profiling();
-
-            /// ************************************/
+            HashTests.Profiling();
 
 
             Console.WriteLine("Press `Enter` to repeat all / any other key to close.");

@@ -43,7 +43,7 @@ namespace Tests
 {
     internal static partial class DiffingTests
     {
-        public static void IDiffingTest_HashDiffing(bool logging = false)
+        public static void IDiffing_HashDiffing(bool logging = false)
         {
             string testName = MethodBase.GetCurrentMethod().Name;
 
@@ -224,6 +224,5 @@ namespace Tests
 
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
-
     }
 }

@@ -137,7 +137,6 @@
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\GenerateRandomObjs.cs" />
     <Compile Include="Profiling\Profiling.cs" />
-    <Compile Include="Tests\RevisionTest_advanced.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
