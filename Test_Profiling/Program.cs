@@ -34,7 +34,7 @@ namespace Tests
         {
             Console.WriteLine("\n/**********************************/");
             Console.WriteLine("\n\t\t\tDIFFING TESTS.");
-            Console.WriteLine("Note: the first time tests are run, the computation time might be slower than in reality due to first loading." +
+            Console.WriteLine("Note: the first time tests are run, the computation time might be slower due to first assembly loading." +
                 "\nOptionally, try rerunning the tests when prompted." +
                 "\nOtherwise, the subsequent PROFILING will give an accurate performance measure.");
             Console.WriteLine("\n/**********************************/");
@@ -70,6 +70,8 @@ namespace Tests
 
             HashTests.PropertiesToConsider_SamePropertyNameAtMultipleLevels_DifferentObjects();
 
+            HashTests.PropertiesToConsider_WildCards_Unsupported();
+
             HashTests.PropertyExceptions_EqualObjects();
 
             HashTests.CheckAgainstStoredHash();
@@ -82,9 +84,21 @@ namespace Tests
 
             DiffingTests.IDiffing_HashDiffing();
 
-            DiffingTests.DiffWithFragmentId_allDifferent();
+            DiffingTests.DiffWithFragmentId_allModifiedObjects();
 
-            DiffingTests.DiffWithFragmentId_allEqual();
+            DiffingTests.DiffWithFragmentId_allUnchangedObjects();
+
+            DiffingTests.ObjectDifferences_DifferentBars();
+
+            DiffingTests.DifferentProperties_DifferentBars();
+
+            DiffingTests.ObjectDifferences_PropertiesToInclude_FullName_Equals();
+
+            DiffingTests.ObjectDifferences_PropertiesToInclude_PartialName_Equals();
+
+            DiffingTests.ObjectDifferences_PropertiesToInclude_WildCardPrefix_Equals();
+
+            DiffingTests.ObjectDifferences_PropertiesToInclude_WildCardMiddle_Equals();
 
             //RevitDiffing.RevitDiffing_basic();
 

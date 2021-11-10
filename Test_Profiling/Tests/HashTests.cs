@@ -49,9 +49,8 @@ namespace Tests
     {
         public static void EqualObjectsHaveSameHash(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Create one bar
@@ -80,9 +79,8 @@ namespace Tests
 
         public static void NumericTolerance_SameHash(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Set a numerical tolerance (different from the default value).
@@ -106,9 +104,8 @@ namespace Tests
 
         public static void NumericTolerance_DifferentHash(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Set a numerical tolerance (different from the default value).
@@ -132,9 +129,8 @@ namespace Tests
 
         public static void HashComparer_AssignHashToFragments(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Set numerical precision
@@ -174,9 +170,8 @@ namespace Tests
 
         public static void RemoveDuplicatesByHash(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Set numerical precision
@@ -221,9 +216,8 @@ namespace Tests
 
         public static void CustomDataToConsider_EqualObjects(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Set PropertiesToConsider
@@ -251,9 +245,8 @@ namespace Tests
 
         public static void CustomDataToConsider_DifferentObjects(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Set PropertiesToConsider
@@ -281,9 +274,8 @@ namespace Tests
 
         public static void CustomDataToExclude_EqualObjects(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Set PropertiesToConsider
@@ -311,9 +303,8 @@ namespace Tests
 
         public static void TypeExceptions(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Create one node
@@ -348,9 +339,8 @@ namespace Tests
 
         public static void PropertiesToConsider_TopLevelProperty_EqualObjects(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Set PropertiesToConsider
@@ -380,9 +370,8 @@ namespace Tests
 
         public static void PropertiesToConsider_SubProperties_EqualObjects(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Create one node
@@ -441,9 +430,8 @@ namespace Tests
 
         public static void PropertiesToConsider_FullPropertyNames_EqualObjects(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Create one node
@@ -502,9 +490,8 @@ namespace Tests
 
         public static void PropertiesToConsider_SamePropertyNameAtMultipleLevels_DifferentObjects(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Create one node
@@ -525,7 +512,7 @@ namespace Tests
             // // - Checks on Bars
             // Create two parent Bars for the nodes
             Bar bar1 = new Bar();
-            Bar bar2 = new Bar();
+            Bar bar2 = bar1.DeepClone();
 
             bar1.Name = "bar1";
             bar1.StartNode = node1;
@@ -539,17 +526,14 @@ namespace Tests
             // e.g. it will not look if node1.StartNode.Name is equal or different to node1_diffName.StartNode.Name.
             // In other words, this stops at the topmost matching property.
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
-            var c = new HashComparer<Bar>(cc);
-            Debug.Assert(!c.Equals(bar1, bar2));
+            Debug.Assert(bar1.Hash(cc) != bar2.Hash(cc));
 
-            // Change bar names to make them equal (the StartNode.Name in bar1/bar2 are still different!)
+            // Change bar names (the StartNode.Name in bar1/bar2 are still different!)
             bar1.Name = "bar1";
             bar2.Name = "bar1";
 
-            cc = new ComparisonConfig() { PropertiesToConsider = { "*.Name" } };
-
             // Bars should still be different as StartNode and Endnodes have different `Name`s
-            Debug.Assert(bar1.Hash(cc) != bar2.Hash(cc));
+            //Debug.Assert(bar1.Hash(cc) == bar2.Hash(cc));
 
             sw.Stop();
             long timespan = sw.ElapsedMilliseconds;
@@ -559,9 +543,8 @@ namespace Tests
         [Obsolete("Wildcards support is too tricky to implement consistently when computing the Hash, so it was deprecated. Method kept for reference.")]
         public static void PropertiesToConsider_WildCardPrefix_Different(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Create one node
@@ -602,9 +585,8 @@ namespace Tests
         [Obsolete("Wildcards support is too tricky to implement consistently when computing the Hash, so it was deprecated. Method kept for reference.")]
         public static void PropertiesToConsider_WildCardPrefix_Equals(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Create one node
@@ -642,11 +624,31 @@ namespace Tests
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
+        public static void PropertiesToConsider_WildCards_Unsupported(bool logging = false)
+        {
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
+            Stopwatch sw = Stopwatch.StartNew();
+     
+            Bar bar1 = new Bar();
+
+            // Wildcards in PropertiesToConsider for Hash computation are not supported. An Reflection Error is recorded and an empty string should be returned by Hash().
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "*.Name" } };
+            Debug.Assert(bar1.Hash(cc) == "");
+
+            cc = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.*.Name" } };
+            Debug.Assert(bar1.Hash(cc) == "");
+
+            sw.Stop();
+            long timespan = sw.ElapsedMilliseconds;
+            Console.WriteLine($"Concluded successfully in {timespan}");
+        }
+
+
         public static void PropertyExceptions_EqualObjects(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Set PropertiesToConsider
@@ -680,9 +682,8 @@ namespace Tests
 
         public static void CheckAgainstStoredHash(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Set PropertiesToConsider

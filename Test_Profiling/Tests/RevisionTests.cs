@@ -44,9 +44,8 @@ namespace Tests
     {
         public static void CostantHash_IdenticalObjs(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Create one bar
@@ -76,9 +75,8 @@ namespace Tests
 
         public static void UnchangedObjectsSameHash(bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
 
@@ -108,9 +106,8 @@ namespace Tests
 
         public static void RevisionWorkflow_basic(bool propertyLevelDiffing = true, bool logging = false)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-
-            Console.WriteLine($"\nRunning {testName}");
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             DiffingConfig DiffingConfig = new DiffingConfig() { EnablePropertyDiffing = propertyLevelDiffing, IncludeUnchangedObjects = true };
@@ -168,9 +165,8 @@ namespace Tests
 
         public static void RevisionWorkflow_advanced(bool propertyLevelDiffing = true)
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-
-            Console.WriteLine($"\nRunning {testName}");
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             DiffingConfig DiffingConfig = new DiffingConfig() { EnablePropertyDiffing = propertyLevelDiffing };

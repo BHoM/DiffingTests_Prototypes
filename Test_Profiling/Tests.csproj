@@ -129,10 +129,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tests\IDiffingTests.cs" />
+    <Compile Include="Tests\DiffingTests.cs" />
     <Compile Include="Tests\HashTests.cs" />
     <Compile Include="Tests\RevisionTests.cs" />
-    <Compile Include="Tests\RevitDiffing.cs" />
+    <Compile Include="Tests\RevitDiffingTests.cs" />
     <Compile Include="Utils\Fragments.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\GenerateRandomObjs.cs" />

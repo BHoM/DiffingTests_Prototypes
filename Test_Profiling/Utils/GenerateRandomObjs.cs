@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.Engine.Base;
 using BH.oM.Base;
 using System;
 using System.Collections.Generic;
@@ -29,15 +30,32 @@ using System.Threading.Tasks;
 
 namespace Tests
 {
-    internal static partial class Utils
+    public static partial class Utils
     {
-        internal static List<IBHoMObject> GenerateRandomObjects(Type t, int count)
+        public static List<IBHoMObject> GenerateRandomObjects(Type t, int count, bool assignIdFragment = false, bool setName = false)
         {
             List<IBHoMObject> objs = new List<IBHoMObject>();
 
             for (int i = 0; i < count; i++)
             {
-                objs.Add(BH.Engine.Base.Create.RandomObject(t) as dynamic);
+                IObject obj = BH.Engine.Base.Create.RandomObject(t);
+
+                if (assignIdFragment)
+                {
+                    IBHoMObject bhomObj = obj as IBHoMObject;
+                    TestIdFragment testIdFragment = new TestIdFragment() { Id = i };
+                    bhomObj = bhomObj.AddFragment(testIdFragment);
+                    obj = bhomObj;
+                }
+
+                if (setName)
+                {
+                    IBHoMObject bhomObj = obj as IBHoMObject;
+                    bhomObj.Name = "bar_" + i.ToString();
+                    obj = bhomObj;
+                }
+
+                objs.Add(obj as dynamic);
             }
 
             return objs;

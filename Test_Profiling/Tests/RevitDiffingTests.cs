@@ -13,9 +13,8 @@ namespace Tests
     {
         public static void RevitDiffing_basic()
         {
-            string testName = MethodBase.GetCurrentMethod().Name;
-            Console.WriteLine($"\nRunning {testName}");
-
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
             // Generate random objects
