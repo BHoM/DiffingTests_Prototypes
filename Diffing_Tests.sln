@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffingTests_oM", "DiffingTests_oM\DiffingTests_oM.csproj", "{7BA6A6CE-5D1F-4672-B6B1-7EBAF8197E80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingTests_oM", "DiffingTests_oM\DiffingTests_oM.csproj", "{7BA6A6CE-5D1F-4672-B6B1-7EBAF8197E80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffingTests", "DiffingTests_netCore\DiffingTests.csproj", "{A9D32E44-8048-4238-A9B4-04F476EDF2BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingTests_Engine", "DiffingTests_Engine\DiffingTests_Engine.csproj", "{C3D9E6B0-C7F0-484D-8FFC-392911894F30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffingTests_Engine", "DiffingTests_Engine\DiffingTests_Engine.csproj", "{C3D9E6B0-C7F0-484D-8FFC-392911894F30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingTests", "DiffingTests\DiffingTests.csproj", "{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,18 +22,18 @@ Global
 		{7BA6A6CE-5D1F-4672-B6B1-7EBAF8197E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA6A6CE-5D1F-4672-B6B1-7EBAF8197E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BA6A6CE-5D1F-4672-B6B1-7EBAF8197E80}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9D32E44-8048-4238-A9B4-04F476EDF2BE}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9D32E44-8048-4238-A9B4-04F476EDF2BE}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
-		{A9D32E44-8048-4238-A9B4-04F476EDF2BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9D32E44-8048-4238-A9B4-04F476EDF2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9D32E44-8048-4238-A9B4-04F476EDF2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9D32E44-8048-4238-A9B4-04F476EDF2BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C3D9E6B0-C7F0-484D-8FFC-392911894F30}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
 		{C3D9E6B0-C7F0-484D-8FFC-392911894F30}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
 		{C3D9E6B0-C7F0-484D-8FFC-392911894F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C3D9E6B0-C7F0-484D-8FFC-392911894F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3D9E6B0-C7F0-484D-8FFC-392911894F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3D9E6B0-C7F0-484D-8FFC-392911894F30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
+		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
