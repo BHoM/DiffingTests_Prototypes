@@ -716,6 +716,7 @@ namespace BH.Tests.Diffing
 
             Bar bar = null;
             ComparisonConfig cc = new ComparisonConfig();
+            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
 
             if (resetSerialisedObject)
             {
@@ -723,17 +724,14 @@ namespace BH.Tests.Diffing
                 string generatedObjectHash = bar.Hash(cc); // this stores the Hash on the object Fragments too.
                 bar = bar.SetHashFragment(generatedObjectHash);
 
-                System.IO.File.WriteAllText(filePath, JsonConvert.SerializeObject(bar));
+                System.IO.File.WriteAllText(filePath, JsonConvert.SerializeObject(bar, settings));
             }
 
             if (bar == null)
             {
                 // deserialize JSON directly from a file
                 using (StreamReader file = File.OpenText(filePath))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    bar = (Bar)serializer.Deserialize(file, typeof(Bar));
-                }
+                    bar = JsonConvert.DeserializeObject<Bar>(file.ReadToEnd(), settings);
             }
 
             string hashStoredInSerialisedObject = bar.FindFragment<HashFragment>().Hash;
@@ -745,6 +743,5 @@ namespace BH.Tests.Diffing
             long timespan = sw.ElapsedMilliseconds;
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
-
     }
 }
