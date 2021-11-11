@@ -334,7 +334,7 @@ namespace BH.Tests.Diffing
             };
 
             // Consider ONLY differences in terms of names: `*.Name`.  We should not find any.
-            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "*.Name" } }; 
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "*.Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Debug.Assert(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
@@ -388,6 +388,53 @@ namespace BH.Tests.Diffing
 
             // Consider ONLY differences in terms of StartNode AND EndNode names: `Bar.*.Name`. We should not find any.
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "Bar.*.Name" } };
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
+
+            Debug.Assert(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
+
+            sw.Stop();
+            long timespan = sw.ElapsedMilliseconds;
+            Console.WriteLine($"Concluded successfully in {timespan}");
+        }
+
+        public static void ObjectDifferences_PropertiesExceptions_Equals()
+        {
+            var currentMethod = MethodBase.GetCurrentMethod();
+            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
+            Stopwatch sw = Stopwatch.StartNew();
+
+            Bar bar1 = new Bar()
+            {
+                StartNode = new Node()
+                {
+                    Position = new Point() { X = 0, Y = 0, Z = 0 },
+                    Name = "startNode1"
+                },
+                EndNode = new Node()
+                {
+                    Position = new Point() { X = 0, Y = 0, Z = 99 },
+                    Name = "endNode1"
+                },
+                Name = "bar1"
+            };
+
+            Bar bar2 = new Bar()
+            {
+                StartNode = new Node()
+                {
+                    Position = new Point() { X = 0, Y = 0, Z = 55 }, // DIFFERENT `Bar.StartNode.Position.Z`
+                    Name = "startNode2"  // DIFFERENT `Bar.StartNode.Name`
+                },
+                EndNode = new Node()
+                {
+                    Position = new Point() { X = 0, Y = 0, Z = 77 }, // DIFFERENT `Bar.EndNode.Position.Z`
+                    Name = "endNode2"  // DIFFERENT `Bar.EndNode.Name`
+                },
+                Name = "bar2" // DIFFERENT Bar.Name
+            };
+
+            // Ignore changes in: Bar.StartNode.X; Bar.EndNode.X; Name.
+            ComparisonConfig cc = new ComparisonConfig() { PropertyExceptions = { "Bar.*.Position.Z", "Name" } }; 
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Debug.Assert(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");

@@ -100,6 +100,8 @@ namespace BH.Tests.Diffing
 
             DiffingTests.ObjectDifferences_PropertiesToInclude_WildCardMiddle_Equals();
 
+            DiffingTests.ObjectDifferences_PropertiesExceptions_Equals();
+
             //RevitDiffing.RevitDiffing_basic();
 
             /// ***************************************************************************/
