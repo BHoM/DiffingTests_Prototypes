@@ -32,12 +32,12 @@ namespace BH.Tests.Diffing
     {
         public static void Main(string[] args = null)
         {
-            Console.WriteLine("\n/**********************************/");
+            Console.WriteLine("\n/******************************************************/");
             Console.WriteLine("\n\t\t\tDIFFING TESTS.");
             Console.WriteLine("Note: the first time tests are run, the computation time might be slower due to first assembly loading." +
                 "\nOptionally, try rerunning the tests when prompted." +
                 "\nOtherwise, the subsequent PROFILING will give an accurate performance measure.");
-            Console.WriteLine("\n/**********************************/");
+            Console.WriteLine("\n/******************************************************/");
 
             /// ***************************************************************************/
             ///                                 HASH TESTS
@@ -119,10 +119,10 @@ namespace BH.Tests.Diffing
 
             /// ***************************************************************************/
 
-            Console.WriteLine("\n/**********************************/");
+            Console.WriteLine("\n/******************************************************/");
             string userInputRequiredMessage = "\nPress `SpaceBar` to repeat tests. `Enter` to continue on Profiling. `Esc` to exit.";
             Console.WriteLine(userInputRequiredMessage);
-            Console.WriteLine("\n/**********************************/");
+            Console.WriteLine("\n/******************************************************/");
 
             ConsoleKeyInfo keyInfo = Console.ReadKey(true);
             if (keyInfo.Key == ConsoleKey.Spacebar)
@@ -139,7 +139,9 @@ namespace BH.Tests.Diffing
 
             Profiling.Diffing_GeneralProfiling();
 
+            Console.WriteLine("\n/******************************************************/");
             Console.WriteLine("Press `Enter` to repeat all / any other key to close.");
+            Console.WriteLine("\n/******************************************************/");
 
             keyInfo = Console.ReadKey(true);
             if (keyInfo.Key == ConsoleKey.Enter)

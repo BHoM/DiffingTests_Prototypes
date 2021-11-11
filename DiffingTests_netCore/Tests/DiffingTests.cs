@@ -42,7 +42,7 @@ using BH.oM.Diffing.Test;
 
 namespace BH.Tests.Diffing
 {
-    public static partial class DiffingTests
+    public static class DiffingTests
     {
         public static void IDiffing_HashDiffing()
         {

@@ -46,7 +46,7 @@ using System.Security.Principal;
 
 namespace BH.Tests.Diffing
 {
-    public static partial class HashTests
+    public static class HashTests
     {
         public static void EqualObjectsHaveSameHash()
         {

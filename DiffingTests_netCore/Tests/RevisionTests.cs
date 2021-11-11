@@ -41,7 +41,7 @@ using BH.Engine.Diffing.Tests;
 
 namespace BH.Tests.Diffing
 {
-    public static partial class RevisionTests
+    public static class RevisionTests
     {
         public static void CostantHash_IdenticalObjs(bool logging = false)
         {

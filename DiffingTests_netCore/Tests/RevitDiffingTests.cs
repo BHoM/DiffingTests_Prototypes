@@ -9,7 +9,7 @@ using System.Text;
 
 namespace BH.Tests.Diffing
 {
-    public static partial class RevitDiffingTests // not really implemented yet. Problem with assembly loading.
+    public static class RevitDiffingTests // not really implemented yet. Problem with assembly loading.
     {
         public static void RevitDiffing_basic()
         {
