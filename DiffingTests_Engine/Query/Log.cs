@@ -9,9 +9,9 @@ using System.Diagnostics;
 using System.Collections;
 using BH.oM.Diffing;
 
-namespace BH.Tests.Diffing
+namespace BH.Engine.Diffing.Tests
 {
-    static class Logger
+    public static partial class Query
     {
         public static void Log(object objectsToLog, string fileSuffix, LogOptions logOpt = LogOptions.HashesOnly)
         {

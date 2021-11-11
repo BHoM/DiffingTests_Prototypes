@@ -2,14 +2,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Utilities
+namespace BH.Engine.Diffing.Tests
 {
-    public static class TypeUtils
+    public static partial class Query
     {
         public static Type GetInnermostType<T>(T obj)
         {
@@ -38,25 +39,6 @@ namespace Utilities
             }
 
             return type;
-        }
-
-        public static bool IsBHoMSubtype(this Type t)
-        {
-            return t.IsClass && (typeof(BHoMObject).IsSubclassOf(t) || typeof(IObject).IsAssignableFrom(t)) && t != typeof(BHoMObject);
-        }
-
-        public static Type[] TryGetTypes(this Assembly a)
-        {
-            try
-            {
-                return a.GetTypes();
-            }
-            catch (ReflectionTypeLoadException e )
-            {
-                Console.WriteLine($"Could not get types for assembly {a.GetName().Name}. Exception:\n {string.Join("\n ", e.LoaderExceptions.Select(le => le.Message).Distinct())}");
-            }
-
-            return new Type[] { };
         }
     }
 }

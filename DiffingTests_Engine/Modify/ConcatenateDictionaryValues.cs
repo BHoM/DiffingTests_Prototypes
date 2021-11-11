@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Utilities
 {
-    public static class CollectionUtilities
+    public static partial class Modify
     {
         public static void ConcatenateDictionaryValues<K, L>(this Dictionary<K, List<L>> dict1, Dictionary<K, List<L>> dict2, bool distinct = false)
         {

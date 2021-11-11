@@ -7,8 +7,8 @@
     <ProjectGuid>{942DE16D-18EB-4DA9-9ECB-386FCDF69021}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestComponents</RootNamespace>
-    <AssemblyName>TestComponents_Engine</AssemblyName>
+    <RootNamespace>BH.Engine.Diffing.Tests1</RootNamespace>
+    <AssemblyName>DiffingTests_Engine1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -73,8 +73,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ErrorMessageTests.cs" />
+    <Compile Include="Compute\ErrorMessageTests.cs" />
+    <Compile Include="Compute\TryLoadAssemblyFileWithoutDependencies.cs" />
+    <Compile Include="Compute\TryLoadAssemblyFile.cs" />
+    <Compile Include="Modify\ConcatenateDictionaryValues.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Compute\LoadAssemblies.cs" />
+    <Compile Include="Query\Dump.cs" />
+    <Compile Include="Query\GetInnermostType.cs" />
+    <Compile Include="Query\HasBHoMCopyright.cs" />
+    <Compile Include="Query\TryGetTypes.cs" />
+    <Compile Include="Query\IsBHoMSubtype.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DiffingTests_oM\DiffingTests_oM.csproj">
+      <Project>{7ba6a6ce-5d1f-4672-b6b1-7ebaf8197e80}</Project>
+      <Name>DiffingTests_oM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

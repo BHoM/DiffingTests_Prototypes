@@ -37,17 +37,18 @@ using BH.oM.Diffing;
 using BH.Engine.Base;
 using System.IO;
 using Newtonsoft.Json;
-using BH.Adapter.File;
 using BH.oM.Dimensional;
-using BH.oM.Adapters.File;
 using BH.Engine.Base.Objects;
 using BH.oM.Reflection.Attributes;
+using BH.Engine.Diffing.Tests;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace BH.Tests.Diffing
 {
     public static partial class HashTests
     {
-        public static void EqualObjectsHaveSameHash(bool logging = false)
+        public static void EqualObjectsHaveSameHash()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -65,8 +66,6 @@ namespace BH.Tests.Diffing
             Bar bar2 = BH.Engine.Structure.Create.Bar(startNode, endNode);
             bar2.Name = "bar";
 
-            if (logging) Logger.Log(new List<object>() { bar, bar2 }, "TwoIdenticalBars", LogOptions.ObjectsAndHashes);
-
             // Check that the two computed hashes are the same.
             string hash1 = bar.Hash();
             string hash2 = bar2.Hash();
@@ -77,7 +76,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void NumericTolerance_SameHash(bool logging = false)
+        public static void NumericTolerance_SameHash()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -102,7 +101,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void NumericTolerance_DifferentHash(bool logging = false)
+        public static void NumericTolerance_DifferentHash()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -127,7 +126,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void HashComparer_AssignHashToFragments(bool logging = false)
+        public static void HashComparer_AssignHashToFragments()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -168,7 +167,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void RemoveDuplicatesByHash(bool logging = false)
+        public static void RemoveDuplicatesByHash()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -214,7 +213,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void CustomDataToConsider_EqualObjects(bool logging = false)
+        public static void CustomDataToConsider_EqualObjects()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -243,7 +242,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void CustomDataToConsider_DifferentObjects(bool logging = false)
+        public static void CustomDataToConsider_DifferentObjects()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -272,7 +271,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void CustomDataToExclude_EqualObjects(bool logging = false)
+        public static void CustomDataToExclude_EqualObjects()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -301,7 +300,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void TypeExceptions(bool logging = false)
+        public static void TypeExceptions()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -337,7 +336,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void PropertiesToConsider_TopLevelProperty_EqualObjects(bool logging = false)
+        public static void PropertiesToConsider_TopLevelProperty_EqualObjects()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -368,7 +367,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void PropertiesToConsider_SubProperties_EqualObjects(bool logging = false)
+        public static void PropertiesToConsider_SubProperties_EqualObjects()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -428,7 +427,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void PropertiesToConsider_FullPropertyNames_EqualObjects(bool logging = false)
+        public static void PropertiesToConsider_FullPropertyNames_EqualObjects()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -489,7 +488,7 @@ namespace BH.Tests.Diffing
         }
 
         [Obsolete("This test is similar to a wildcard prefix test. Only Full Names are accepted for PropertiesToConsider at the moment. Method kept for reference.")]
-        public static void PropertiesToConsider_PartialPropertyName_DifferentObjects(bool logging = false)
+        public static void PropertiesToConsider_PartialPropertyName_DifferentObjects()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -541,7 +540,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void PropertiesToConsider_PartialPropertyName_Unsupported(bool logging = false)
+        public static void PropertiesToConsider_PartialPropertyName_Unsupported()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -562,7 +561,7 @@ namespace BH.Tests.Diffing
         }
 
         [Obsolete("Wildcards support is too tricky to implement consistently when computing the Hash, so it was deprecated. Method kept for reference.")]
-        public static void PropertiesToConsider_WildCardPrefix_Different(bool logging = false)
+        public static void PropertiesToConsider_WildCardPrefix_Different()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -604,7 +603,7 @@ namespace BH.Tests.Diffing
         }
 
         [Obsolete("Wildcards support is too tricky to implement consistently when computing the Hash, so it was deprecated. Method kept for reference.")]
-        public static void PropertiesToConsider_WildCardPrefix_Equals(bool logging = false)
+        public static void PropertiesToConsider_WildCardPrefix_Equals()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -651,12 +650,12 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void PropertiesToConsider_WildCards_Unsupported(bool logging = false)
+        public static void PropertiesToConsider_WildCards_Unsupported()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
-     
+
             Bar bar1 = new Bar();
 
             // Wildcards in PropertiesToConsider for Hash computation are not supported. An Reflection Error is recorded and an empty string should be returned by Hash().
@@ -671,8 +670,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-
-        public static void PropertyExceptions_EqualObjects(bool logging = false)
+        public static void PropertyExceptions_EqualObjects()
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
@@ -707,37 +705,41 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
-        public static void CheckAgainstStoredHash(bool logging = false)
+        public static void CheckAgainstSerialisedObject(bool resetSerialisedObject = false)
         {
             var currentMethod = MethodBase.GetCurrentMethod();
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
-            // Set PropertiesToConsider
-            ComparisonConfig cc = new ComparisonConfig() { PropertyExceptions = { "Bar.*.Position.X", "Name" } }; // Ignore changes in: Bar.StartNode.X and Bar.EndNode.X; Name.
 
-            // Create one bar
-            Node startNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-            Node endNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 1 });
-            Bar bar = BH.Engine.Structure.Create.Bar(startNode, endNode);
-            bar.Name = "bar1";
+            string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\HashTest_CheckAgainstStoredHash-Bar.json"));
 
-            // Store the HashFragment in the bar
-            bar = BH.Engine.Base.Modify.SetHashFragment(bar, cc);
+            Bar bar = null;
+            ComparisonConfig cc = new ComparisonConfig();
 
-            // Write the bar to file. This should be done only once.
-            string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\Test Datasets\HashTest_CheckAgainstStoredHash-Bar.json"));
-            FileAdapter fa = new FileAdapter(filePath);
-            if (false) // set this to true only when you want to update the existing file.
-                fa.Push(new List<object>() { bar }, "", BH.oM.Adapter.PushType.DeleteThenCreate);
+            if (resetSerialisedObject)
+            {
+                bar = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
+                string generatedObjectHash = bar.Hash(cc); // this stores the Hash on the object Fragments too.
+                bar = bar.SetHashFragment(generatedObjectHash);
 
-            // Pull from file.
-            var pullResult = fa.Pull(new FileContentRequest() { File = filePath }).OfType<IBHoMObject>().FirstOrDefault();
+                System.IO.File.WriteAllText(filePath, JsonConvert.SerializeObject(bar));
+            }
 
-            string hashBefore = pullResult.FindFragment<HashFragment>().Hash;
-            string hashNow = bar.FindFragment<HashFragment>().Hash;
+            if (bar == null)
+            {
+                // deserialize JSON directly from a file
+                using (StreamReader file = File.OpenText(filePath))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    bar = (Bar)serializer.Deserialize(file, typeof(Bar));
+                }
+            }
 
-            Debug.Assert(hashBefore == hashNow, "The hash for the same Bar object has changed");
+            string hashStoredInSerialisedObject = bar.FindFragment<HashFragment>().Hash;
+            string hashNow = bar.Hash(cc);
+
+            Debug.Assert(hashStoredInSerialisedObject == hashNow, "The hash for the same Bar object has changed");
 
             sw.Stop();
             long timespan = sw.ElapsedMilliseconds;

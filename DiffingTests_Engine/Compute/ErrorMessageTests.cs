@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.Engine.Tests
+namespace BH.Engine.Diffing.Tests
 {
-    public static class Compute
+    public static partial class Compute
     {
         public static void ErrorTest1()
         {

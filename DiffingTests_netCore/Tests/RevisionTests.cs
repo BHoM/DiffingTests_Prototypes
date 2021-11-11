@@ -37,6 +37,7 @@ using BH.oM.Diffing;
 using System.IO;
 using Newtonsoft.Json;
 using BH.Engine.Base;
+using BH.Engine.Diffing.Tests;
 
 namespace BH.Tests.Diffing
 {
@@ -64,7 +65,7 @@ namespace BH.Tests.Diffing
 
             bar2 = BH.Engine.Diffing.Modify.SetRevisionFragment(bar2);
 
-            if (logging) Logger.Log(new List<object>() { bar, bar2 }, "TwoIdenticalBars", LogOptions.ObjectsAndHashes);
+            if (logging) BH.Engine.Diffing.Tests.Query.Log(new List<object>() { bar, bar2 }, "TwoIdenticalBars", LogOptions.ObjectsAndHashes);
 
             sw.Stop();
             Debug.Assert(bar.FindFragment<RevisionFragment>().Hash == bar2.FindFragment<RevisionFragment>().Hash);
@@ -126,7 +127,7 @@ namespace BH.Tests.Diffing
             // First revision
             Revision revision_Alessio = BH.Engine.Diffing.Create.Revision(currentObjs_Alessio, Guid.NewGuid(), "", "", DiffingConfig); // this will add the hash fragments to the objects
 
-            if (logging) Logger.Log(revision_Alessio.Objects, "rev1-hashes", LogOptions.HashesOnly);
+            if (logging) BH.Engine.Diffing.Tests.Query.Log(revision_Alessio.Objects, "rev1-hashes", LogOptions.HashesOnly);
 
             // Prepare second revision
 
@@ -143,7 +144,7 @@ namespace BH.Tests.Diffing
             // Second revision
             Revision revision_Eduardo = BH.Engine.Diffing.Create.Revision(currentObjs_Eduardo, Guid.NewGuid());
 
-            if (logging) Logger.Log(revision_Alessio.Objects, "rev2-hashes", LogOptions.HashesOnly);
+            if (logging) BH.Engine.Diffing.Tests.Query.Log(revision_Alessio.Objects, "rev2-hashes", LogOptions.HashesOnly);
 
 
             // -------------------------------------------------------- //

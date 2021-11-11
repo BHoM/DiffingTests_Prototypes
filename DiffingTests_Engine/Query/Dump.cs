@@ -1,19 +1,19 @@
-﻿using System;
+﻿using BH.oM.Base;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using NLog;
 
-namespace Utilities
+namespace BH.Engine.Diffing.Tests
 {
-    public static class LoggingUtils
+    public static partial class Query
     {
-        public static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-
         public static void Dump(this object obj)
         {
-            logger.Log(NLog.LogLevel.Debug, obj.ToString());
             Console.WriteLine(obj.ToString());
         }
     }

@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>BH.Engine.Diffing.Tests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DiffingTests_oM\DiffingTests_oM.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BHoM">
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\BHoM.dll</HintPath>
+    </Reference>
+    <Reference Include="BHoM_Engine">
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\BHoM_Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="Diffing_Engine">
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Diffing_Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="Diffing_oM">
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Diffing_oM.dll</HintPath>
+    </Reference>
+    <Reference Include="Reflection_Engine">
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Reflection_Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="Reflection_oM">
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Reflection_oM.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

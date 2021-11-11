@@ -74,7 +74,7 @@ namespace BH.Tests.Diffing
 
             HashTests.PropertyExceptions_EqualObjects();
 
-            HashTests.CheckAgainstStoredHash();
+            HashTests.CheckAgainstSerialisedObject();
 
 
             /// ***************************************************************************/

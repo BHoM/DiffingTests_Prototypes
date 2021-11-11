@@ -37,6 +37,8 @@ using BH.oM.Diffing;
 using BH.Engine.Base;
 using System.IO;
 using Newtonsoft.Json;
+using BH.Engine.Diffing.Tests;
+using BH.oM.Diffing.Test;
 
 namespace BH.Tests.Diffing
 {
@@ -89,8 +91,8 @@ namespace BH.Tests.Diffing
 
             DiffingConfig DiffingConfig = new DiffingConfig();
 
-            List<IBHoMObject> firstBatch = Utils.GenerateRandomObjects(typeof(Bar), 3, true, true);
-            List<IBHoMObject> secondBatch = Utils.GenerateRandomObjects(typeof(Bar), 3, true, true);
+            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Query.GenerateRandomObjects(typeof(Bar), 3, true, true);
+            List<IBHoMObject> secondBatch = BH.Engine.Diffing.Tests.Query.GenerateRandomObjects(typeof(Bar), 3, true, true);
 
             Diff diff = BH.Engine.Diffing.Compute.DiffWithFragmentId(firstBatch, secondBatch, typeof(TestIdFragment), "Id");
             sw.Stop();
@@ -113,7 +115,7 @@ namespace BH.Tests.Diffing
 
             DiffingConfig DiffingConfig = new DiffingConfig();
 
-            List<IBHoMObject> firstBatch = Utils.GenerateRandomObjects(typeof(Bar), 3, true, true);
+            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Query.GenerateRandomObjects(typeof(Bar), 3, true, true);
             List<IBHoMObject> secondBatch = new List<IBHoMObject>();
             secondBatch.AddRange(firstBatch);
 

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A1B4F048-33CD-4A87-8978-1ADACC8ABFA8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Test_Profiling</RootNamespace>
-    <AssemblyName>Test_Profiling</AssemblyName>
+    <RootNamespace>BH.Tests.Diffing</RootNamespace>
+    <AssemblyName>DiffingTests</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -133,7 +133,6 @@
     <Compile Include="Tests\HashTests.cs" />
     <Compile Include="Tests\RevisionTests.cs" />
     <Compile Include="Tests\RevitDiffingTests.cs" />
-    <Compile Include="Utils\Fragments.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\GenerateRandomObjs.cs" />
     <Compile Include="Profiling\Profiling.cs" />
@@ -145,9 +144,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
-      <Project>{aaf77b33-0b1d-490e-90ac-1f25a3446337}</Project>
-      <Name>Utilities</Name>
+    <ProjectReference Include="..\DiffingTests_oM\DiffingTests_oM.csproj">
+      <Project>{7ba6a6ce-5d1f-4672-b6b1-7ebaf8197e80}</Project>
+      <Name>DiffingTests_oM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestComponents\DiffingTests_Engine.csproj">
+      <Project>{942de16d-18eb-4da9-9ecb-386fcdf69021}</Project>
+      <Name>DiffingTests_Engine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

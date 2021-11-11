@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>BH.oM.Diffing.Test</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BHoM">
+      <HintPath>..\..\BHoM\Build\BHoM.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

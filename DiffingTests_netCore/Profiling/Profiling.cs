@@ -94,7 +94,7 @@ namespace BH.Tests.Diffing
             }
 
             // Generate random objects
-            List<IBHoMObject> currentObjs = Utils.GenerateRandomObjects(typeof(Bar), totalObjs);
+            List<IBHoMObject> currentObjs = BH.Engine.Diffing.Tests.Query.GenerateRandomObjects(typeof(Bar), totalObjs);
 
             // Create Stream. This assigns the Hashes.
             Stopwatch swRev1 = new Stopwatch();

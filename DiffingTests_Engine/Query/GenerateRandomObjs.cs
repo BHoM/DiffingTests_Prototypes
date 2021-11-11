@@ -29,9 +29,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.Tests.Diffing
+namespace BH.Engine.Diffing.Tests
 {
-    public static partial class Utils
+    public static partial class Query
     {
         public static List<IBHoMObject> GenerateRandomObjects(Type t, int count, bool assignIdFragment = false, bool setName = false)
         {
