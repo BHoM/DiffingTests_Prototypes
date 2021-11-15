@@ -546,14 +546,16 @@ namespace BH.Tests.Diffing
             Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
             Stopwatch sw = Stopwatch.StartNew();
 
-            Bar bar1 = new Bar();
+            Bar bar1 = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
 
             // Non full property names are not supported.
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
-            Debug.Assert(bar1.Hash(cc) == ""); // the Hash must be returned empty.
+            string bar1Hash = bar1.Hash(cc);
+            Debug.Assert(bar1Hash == ""); // the Hash must be returned empty.
 
             cc = new ComparisonConfig() { PropertiesToConsider = { "StartNode.Name" } };
-            Debug.Assert(bar1.Hash(cc) == ""); // the Hash must be returned empty.
+            bar1Hash = bar1.Hash(cc);
+            Debug.Assert(bar1Hash == ""); // the Hash must be returned empty.
 
             sw.Stop();
             long timespan = sw.ElapsedMilliseconds;
