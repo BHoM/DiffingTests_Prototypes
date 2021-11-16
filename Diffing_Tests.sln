@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingTests_oM", "DiffingTests_oM\DiffingTests_oM.csproj", "{7BA6A6CE-5D1F-4672-B6B1-7EBAF8197E80}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingTests_Engine", "DiffingTests_Engine\DiffingTests_Engine.csproj", "{C3D9E6B0-C7F0-484D-8FFC-392911894F30}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingTests", "DiffingTests\DiffingTests.csproj", "{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingTests", "DiffingTests\DiffingTests.csproj", "{8BED03F4-AC47-4C90-A953-CF8E2B41F3E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffingTests_1", "DiffingTests_1\DiffingTests_1.csproj", "{796FDD0B-735C-4DA3-A859-D741895A9EF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingProfiling", "DiffingProfiling\DiffingProfiling.csproj", "{DC991968-7D14-4320-ABDE-000AEE59D340}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,18 +30,18 @@ Global
 		{C3D9E6B0-C7F0-484D-8FFC-392911894F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3D9E6B0-C7F0-484D-8FFC-392911894F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3D9E6B0-C7F0-484D-8FFC-392911894F30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
-		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
-		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
-		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
-		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BED03F4-AC47-4C90-A953-CF8E2B41F3E0}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BED03F4-AC47-4C90-A953-CF8E2B41F3E0}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
+		{8BED03F4-AC47-4C90-A953-CF8E2B41F3E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BED03F4-AC47-4C90-A953-CF8E2B41F3E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BED03F4-AC47-4C90-A953-CF8E2B41F3E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BED03F4-AC47-4C90-A953-CF8E2B41F3E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC991968-7D14-4320-ABDE-000AEE59D340}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC991968-7D14-4320-ABDE-000AEE59D340}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
+		{DC991968-7D14-4320-ABDE-000AEE59D340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC991968-7D14-4320-ABDE-000AEE59D340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC991968-7D14-4320-ABDE-000AEE59D340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC991968-7D14-4320-ABDE-000AEE59D340}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

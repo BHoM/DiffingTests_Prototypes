@@ -163,10 +163,6 @@ namespace BH.Tests.Diffing
         [TestMethod]
         public void DifferentProperties_DifferentBars()
         {
-
-            
-            
-
             Bar bar1 = new Bar()
             {
                 StartNode = new Node()
@@ -202,19 +198,11 @@ namespace BH.Tests.Diffing
             var differences_BarName = differentProperties["BH.oM.Structure.Elements.Bar.Name"];
             Assert.IsTrue(differences_BarName.Item1 as string == "bar1");
             Assert.IsTrue(differences_BarName.Item2 as string == "bar2");
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
         [TestMethod]
         public void ObjectDifferences_PropertiesToInclude_FullName_Equals()
         {
-
-            
-            
-
             Bar bar1 = new Bar()
             {
                 StartNode = new Node()
@@ -240,19 +228,11 @@ namespace BH.Tests.Diffing
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
         [TestMethod]
         public void ObjectDifferences_PropertiesToInclude_PartialName_Equals()
         {
-
-            
-            
-
             Bar bar1 = new Bar()
             {
                 StartNode = new Node()
@@ -278,19 +258,11 @@ namespace BH.Tests.Diffing
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
         [TestMethod]
         public void ObjectDifferences_PropertiesToInclude_WildCardPrefix_Equals()
         {
-
-            
-            
-
             Bar bar1 = new Bar()
             {
                 StartNode = new Node()
@@ -322,19 +294,11 @@ namespace BH.Tests.Diffing
             objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
         [TestMethod]
         public void ObjectDifferences_PropertiesToInclude_WildCardMiddle_Equals()
         {
-
-            
-            
-
             Bar bar1 = new Bar()
             {
                 StartNode = new Node()
@@ -370,19 +334,11 @@ namespace BH.Tests.Diffing
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
         [TestMethod]
         public void ObjectDifferences_PropertiesExceptions_Equals()
         {
-
-            
-            
-
             Bar bar1 = new Bar()
             {
                 StartNode = new Node()
@@ -418,19 +374,11 @@ namespace BH.Tests.Diffing
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
         }
 
         [TestMethod]
         public void IDiffingTest_DiffWithFragmentId_allDifferentFragments()
         {
-
-            
-            
-
             DiffingConfig diffingConfig = new DiffingConfig();
 
             List<IBHoMObject> firstBatch = new List<IBHoMObject>();
@@ -465,16 +413,12 @@ namespace BH.Tests.Diffing
 
             // This should internally trigger the method "DiffWithHash", which cannot return "modifiedObjects".
             Diff diff = BH.Engine.Diffing.Compute.IDiffing(firstBatch, secondBatch, diffingConfig);
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
 
             Assert.IsTrue(diff.AddedObjects.Count() == 3, "Incorrect number of object identified as new/ToBeCreated.");
             Assert.IsTrue(diff.ModifiedObjects == null || diff.ModifiedObjects.Count() == 0, "Incorrect number of object identified as modified/ToBeUpdated.");
             Assert.IsTrue(diff.RemovedObjects.Count() == 3, "Incorrect number of object identified as old/ToBeDeleted.");
             var objectDifferences = diff.ModifiedObjectsDifferences?.FirstOrDefault();
             Assert.IsTrue(!objectDifferences?.Differences?.Any() ?? true, "Incorrect number of changed properties identified by the property-level diffing.");
-
-            Console.WriteLine($"Concluded successfully in {timespan}");
         }
     }
 }
