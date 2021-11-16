@@ -33,6 +33,12 @@ namespace BH.Tests.Diffing
         public static void Main(string[] args = null)
         {
             Console.WriteLine("\n/******************************************************/");
+            Console.WriteLine("\nPress any key to start tests.");
+            Console.WriteLine("\n/******************************************************/");
+
+            Console.ReadKey(true);
+
+            Console.WriteLine("\n/******************************************************/");
             Console.WriteLine("\n\t\t\tDIFFING TESTS.");
             Console.WriteLine("Note: the first time tests are run, the computation time might be slower due to first assembly loading." +
                 "\nOptionally, try rerunning the tests when prompted." +

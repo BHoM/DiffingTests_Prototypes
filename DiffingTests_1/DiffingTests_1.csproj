@@ -1,13 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>BH.Tests.Diffing</RootNamespace>
+
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IO.FileSystem.AccessControl" Version="6.0.0-preview.5.21301.5" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.3" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.3" />
+    <PackageReference Include="coverlet.collector" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,26 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Adapter_Engine">
-      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Adapter_Engine.dll</HintPath>
-    </Reference>
-    <Reference Include="Adapter_oM">
-      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Adapter_oM.dll</HintPath>
-    </Reference>
     <Reference Include="Analytical_oM">
       <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Analytical_oM.dll</HintPath>
     </Reference>
     <Reference Include="BHoM">
       <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\BHoM.dll</HintPath>
     </Reference>
-    <Reference Include="BHoM_Adapter">
-      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\BHoM_Adapter.dll</HintPath>
-    </Reference>
     <Reference Include="BHoM_Engine">
       <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\BHoM_Engine.dll</HintPath>
-    </Reference>
-    <Reference Include="Data_oM">
-      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Data_oM.dll</HintPath>
     </Reference>
     <Reference Include="Diffing_Engine">
       <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\Diffing_Engine.dll</HintPath>

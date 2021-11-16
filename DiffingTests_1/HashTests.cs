@@ -48,15 +48,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BH.Tests.Diffing
 {
     [TestClass]
-    public static class HashTests
+    public class HashTests
     {
         [TestMethod]
-        public static void EqualObjectsHaveSameHash()
+        public void EqualObjects_EqualHash()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Create one bar
             Node startNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
             Node endNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 1 });
@@ -69,23 +65,15 @@ namespace BH.Tests.Diffing
             Bar bar2 = BH.Engine.Structure.Create.Bar(startNode, endNode);
             bar2.Name = "bar";
 
-            // Check that the two computed hashes are the same.
+            // The only difference between the two object will be the BHoM_Guid, which must always be skipped by the Hash.
             string hash1 = bar.Hash();
             string hash2 = bar2.Hash();
-            Debug.Assert(hash1 == hash2);
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(hash1 == hash2, "Two equal objects must have the same hash.");
         }
 
         [TestMethod]
-        public static void NumericTolerance_SameHash()
+        public void NumericTolerance_SameHash()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Set a numerical tolerance (different from the default value).
             ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
 
@@ -98,19 +86,12 @@ namespace BH.Tests.Diffing
             string hash2 = node2.Hash(cc);
 
             // Make sure the hashes are the same, thanks to the numeric tolerance.
-            Debug.Assert(hash1 == hash2);
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(hash1 == hash2);
         }
 
-        public static void NumericTolerance_DifferentHash()
+        [TestMethod]
+        public void NumericTolerance_DifferentHash()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Set a numerical tolerance (different from the default value).
             ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
 
@@ -123,19 +104,12 @@ namespace BH.Tests.Diffing
             string hash2 = node2.Hash(cc);
 
             // Make sure the hashes are different, following the numeric tolerance.
-            Debug.Assert(hash1 != hash2);
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(hash1 != hash2);
         }
 
-        public static void HashComparer_AssignHashToFragments()
+        [TestMethod]
+        public void HashComparer_AssignHashToFragments()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Set numerical precision
             ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
 
@@ -151,7 +125,7 @@ namespace BH.Tests.Diffing
             node2 = BH.Engine.Base.Modify.SetHashFragment(node2, cc);
 
             // Make sure the hashComparer sees node1 and node2 as equal.
-            Debug.Assert(hashComparer.Equals(node1, node2));
+            Assert.IsTrue(hashComparer.Equals(node1, node2));
 
             // Create another node with similar coordinates that should be considered as different by precision
             Node node3 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0.005 });
@@ -159,24 +133,17 @@ namespace BH.Tests.Diffing
             // Instantiate another hashcomparer for nodes. The `false` boolean means it should NOT assign the calculated hashes to objects. 
             HashComparer<Node> hashComparer_notAssign = new HashComparer<Node>(cc, false);
 
-            Debug.Assert(!hashComparer_notAssign.Equals(node1, node3));
+            Assert.IsTrue(!hashComparer_notAssign.Equals(node1, node3));
 
             // Check if HashComparer assigned the hashes in the fragments.
-            Debug.Assert(!string.IsNullOrWhiteSpace(node1.FindFragment<HashFragment>()?.Hash));
-            Debug.Assert(!string.IsNullOrWhiteSpace(node2.FindFragment<HashFragment>()?.Hash));
-            Debug.Assert(string.IsNullOrWhiteSpace(node3.FindFragment<HashFragment>()?.Hash));
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(node1.FindFragment<HashFragment>()?.Hash));
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(node2.FindFragment<HashFragment>()?.Hash));
+            Assert.IsTrue(string.IsNullOrWhiteSpace(node3.FindFragment<HashFragment>()?.Hash));
         }
 
-        public static void RemoveDuplicatesByHash()
+        [TestMethod]
+        public void RemoveDuplicatesByHash()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Set numerical precision
             ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
 
@@ -192,7 +159,7 @@ namespace BH.Tests.Diffing
             node2 = BH.Engine.Base.Modify.SetHashFragment(node2, cc);
 
             // Make sure the hashComparer sees node1 and node2 as equal.
-            Debug.Assert(hashComparer.Equals(node1, node2));
+            Assert.IsTrue(hashComparer.Equals(node1, node2));
 
             // Create another node with similar coordinates that should be considered as different by precision
             Node node3 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0.005 });
@@ -210,106 +177,53 @@ namespace BH.Tests.Diffing
 
             var result = BH.Engine.Diffing.Modify.RemoveDuplicatesByHash(allNodes).ToList();
 
-            Debug.Assert(result.Count == 2); // node1 and node2 must be recognised as the same; hence only 2 unique objects should be in the list.
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(result.Count == 2, "Incorrect number of duplicates found."); // node1 and node2 must be recognised as the same; hence only 2 unique objects should be in the list.
         }
 
-        public static void CustomDataToConsider_EqualObjects()
+        [TestMethod]
+        public void CustomdataKeysToInclude_DifferentObjects()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
+            // Create one node with a few properties and some CustomData.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+            node1.CustomData.Add("Gnappi", 1);
+            node1.CustomData.Add("Zurli", 9999);
 
-            // Set PropertiesToConsider
+            // Create another node with same properties but 1 different CustomData.
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+            node2.CustomData.Add("Gnappi", 1);
+            node2.CustomData.Add("Zurli", 0); // different value
+
+            // Set CustomdataKeysToInclude to consider only changes in the CustomData that remained the same.
             ComparisonConfig cc = new ComparisonConfig() { CustomdataKeysToInclude = { "Gnappi" } };
+            Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc), "The two objects should have been seen as equal, despite differences in some of their CustomData.");
 
-            // Instantiate hashcomparer for nodes. The `true` boolean means it should assign the calculated hashes to objects. 
-            HashComparer<Node> hashComparer = new HashComparer<Node>(cc, true);
+            // Set CustomdataKeysToInclude to consider only changes in the CustomData that changed.
+            cc = new ComparisonConfig() { CustomdataKeysToInclude = { "Zurli" } };
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc), "By considering a specific CustomData that was different between two objects, the two objects should have been seen as different.");
 
-            // Create one node
+        }
+
+        [TestMethod]
+        public void CustomDataToExclude_DifferentObjects()
+        {
+            // Create one node with a few properties and some CustomData.
             Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
             node1.CustomData.Add("Gnappi", 1);
             node1.CustomData.Add("Zurli", 9999);
 
-            // Create another node with similar coordinates that should be considered as different
+            // Create another node with same properties but 1 different CustomData.
             Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
             node2.CustomData.Add("Gnappi", 1);
-            node2.CustomData.Add("Zurli", 0);
+            node2.CustomData.Add("Zurli", 0); // different value
 
-            Debug.Assert(hashComparer.Equals(node1, node2));
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
-        }
-
-        public static void CustomDataToConsider_DifferentObjects()
-        {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
-            // Set PropertiesToConsider
-            ComparisonConfig cc = new ComparisonConfig() { CustomdataKeysToInclude = { "Zurli" } };
-
-            // Instantiate hashcomparer for nodes. The `true` boolean means it should assign the calculated hashes to objects. 
-            HashComparer<Node> hashComparer = new HashComparer<Node>(cc, true);
-
-            // Create one node
-            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-            node1.CustomData.Add("Gnappi", 1);
-            node1.CustomData.Add("Zurli", 9999);
-
-            // Create another node with similar coordinates that should be considered as different
-            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-            node2.CustomData.Add("Gnappi", 1);
-            node2.CustomData.Add("Zurli", 0);
-
-            Debug.Assert(!hashComparer.Equals(node1, node2));
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
-        }
-
-        public static void CustomDataToExclude_EqualObjects()
-        {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
-            // Set PropertiesToConsider
+            // Set PropertiesToConsider to ignore changes in the CustomData that is different.
             ComparisonConfig cc = new ComparisonConfig() { CustomdataKeysExceptions = { "Zurli" } };
-
-            // Instantiate hashcomparer for nodes. The `true` boolean means it should assign the calculated hashes to objects. 
-            HashComparer<Node> hashComparer = new HashComparer<Node>(cc, true);
-
-            // Create one node
-            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-            node1.CustomData.Add("Gnappi", 1);
-            node1.CustomData.Add("Zurli", 9999);
-
-            // Create another node with similar coordinates that should be considered as different
-            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-            node2.CustomData.Add("Gnappi", 1);
-            node2.CustomData.Add("Zurli", 0);
-
-            Debug.Assert(hashComparer.Equals(node1, node2));
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc));
         }
 
-        public static void TypeExceptions()
+        [TestMethod]
+        public void TypeExceptions_DifferentObjects_SeenAsEqual()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Create one node
             Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
 
@@ -332,56 +246,39 @@ namespace BH.Tests.Diffing
 
             // By ignoring the IElement1D types, we ignore any difference in Nodes. Bars should be seen as equal.
             ComparisonConfig cc = new ComparisonConfig() { TypeExceptions = { typeof(IElement1D) } };
-            HashComparer<Bar> hashComparer_bars_onlyEndNodePosition = new HashComparer<Bar>(cc);
-            Debug.Assert(hashComparer_bars_onlyEndNodePosition.Equals(bar1, bar2));
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(bar1.Hash(cc) == bar2.Hash(cc));
         }
 
-        public static void PropertiesToConsider_TopLevelProperty_EqualObjects()
+        [TestMethod]
+        public void PropertiesToConsider_TopLevelProperty_EqualObjects()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
-            // Set PropertiesToConsider
+            // Set PropertiesToConsider to consider only "Position" properties.
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "Position" } };
 
-            // Create one node
+            // Create one node.
             Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-            string hash1 = node1.Hash(cc);
 
-            // Create another node with similar coordinates that should be considered as different via its `Position` property alone.
+            // Create another node with different Position.
             Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 50 });
-            string hash2 = node2.Hash(cc);
 
-            Debug.Assert(hash1 != hash2); // node1 and node2 must be recongnised as different
+            // Node1 and node2 must be recognised as different.
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
 
-            // Create another node similar to node1 but with the name changed.
-            Node node3 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+            // Create another node equal to node1 but with the Name changed.
+            Node node3 = node1.DeepClone();
             node3.Name = "Node3"; // the name is the only thing that distinguishes node3 from node1
-            string hash3 = node3.Hash(cc);
 
-            Debug.Assert(hash1 == hash3); // although the name is different, they must be recongnised as the same.
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(node1.Hash(cc) == node3.Hash(cc)); // although the name is different, they must be recongnised as the same.
         }
 
-        public static void PropertiesToConsider_SubProperties_EqualObjects()
+        [TestMethod]
+        public void PropertiesToConsider_SubProperties_EqualObjects()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Create one node
             Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
 
             // Create another node similar to node1 but with the name changed.
-            Node node1_diffName = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+            Node node1_diffName = node1.DeepClone();
             node1_diffName.Name = "node1_diffName";
 
             // Create another node with different coordinates
@@ -389,7 +286,7 @@ namespace BH.Tests.Diffing
             node2.Name = "node2";
 
             // Create another node similar to node2 but with the name changed.
-            Node node2_diffName = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 50 });
+            Node node2_diffName = node2.DeepClone();
             node2_diffName.Name = "node2_diffName";
 
             // // - Checks on Bars
@@ -407,41 +304,34 @@ namespace BH.Tests.Diffing
 
             // By looking only at EndNode.Position, bars should be the same.
             ComparisonConfig cc_onlyEndNodePosition = new ComparisonConfig() { PropertiesToConsider = { "EndNode.Position" } };
-            Debug.Assert(bar1.Hash(cc_onlyEndNodePosition) == bar2.Hash(cc_onlyEndNodePosition));
+            Assert.IsTrue(bar1.Hash(cc_onlyEndNodePosition) == bar2.Hash(cc_onlyEndNodePosition));
 
             // By looking only at EndNode.Position, and StartNode.Position, bars should be the same.
             ComparisonConfig cc_onlyStartNodePosition = new ComparisonConfig() { PropertiesToConsider = { "EndNode.Position", "StartNode.Position" } };
-            Debug.Assert(bar1.Hash(cc_onlyStartNodePosition) == bar2.Hash(cc_onlyStartNodePosition));
+            Assert.IsTrue(bar1.Hash(cc_onlyStartNodePosition) == bar2.Hash(cc_onlyStartNodePosition));
 
             // By looking only at EndNode.Name, bars should be the different.
             ComparisonConfig cc_onlyEndNodeName = new ComparisonConfig() { PropertiesToConsider = { "EndNode.Name" } };
-            Debug.Assert(bar1.Hash(cc_onlyEndNodeName) != bar2.Hash(cc_onlyEndNodeName));
+            Assert.IsTrue(bar1.Hash(cc_onlyEndNodeName) != bar2.Hash(cc_onlyEndNodeName));
 
             // By looking only at Name, bars should be the different. Note: this only checks the Bar.Name, and will not consider checking pairs of subproperties' names,
             // e.g. it will not look if node1.StartNode.Name is equal or different to node1_diffName.StartNode.Name.
             // In other words, this stops at the topmost matching property.
             ComparisonConfig cc_onlyName = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
-            Debug.Assert(bar1.Hash(cc_onlyName) != bar2.Hash(cc_onlyName));
+            Assert.IsTrue(bar1.Hash(cc_onlyName) != bar2.Hash(cc_onlyName));
 
             // By default, the bars should be seen as different.
-            Debug.Assert(bar1.Hash() != bar2.Hash());
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(bar1.Hash() != bar2.Hash());
         }
 
-        public static void PropertiesToConsider_FullPropertyNames_EqualObjects()
+        [TestMethod]
+        public void PropertiesToConsider_FullPropertyNames_EqualObjects()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Create one node
             Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
 
             // Create another node similar to node1 but with the name changed.
-            Node node1_diffName = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+            Node node1_diffName = node1.DeepClone();
             node1_diffName.Name = "node1_diffName";
 
             // Create another node with different coordinates
@@ -449,7 +339,7 @@ namespace BH.Tests.Diffing
             node2.Name = "node2";
 
             // Create another node similar to node2 but with the name changed.
-            Node node2_diffName = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 50 });
+            Node node2_diffName = node2.DeepClone();
             node2_diffName.Name = "node2_diffName";
 
             // // - Checks on Bars
@@ -467,42 +357,34 @@ namespace BH.Tests.Diffing
 
             // By looking only at EndNode.Position, bars should be the same.
             ComparisonConfig cc_onlyEndNodePosition = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.EndNode.Position" } };
-            Debug.Assert(bar1.Hash(cc_onlyEndNodePosition) == bar2.Hash(cc_onlyEndNodePosition));
+            Assert.IsTrue(bar1.Hash(cc_onlyEndNodePosition) == bar2.Hash(cc_onlyEndNodePosition));
 
             // By looking only at EndNode.Position, and StartNode.Position, bars should be the same.
             ComparisonConfig cc_onlyStartNodePosition = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.EndNode.Position", "SBH.oM.Structure.Elements.Bar.StartNode.Position" } };
-            Debug.Assert(bar1.Hash(cc_onlyStartNodePosition) == bar2.Hash(cc_onlyStartNodePosition));
+            Assert.IsTrue(bar1.Hash(cc_onlyStartNodePosition) == bar2.Hash(cc_onlyStartNodePosition));
 
             // By looking only at EndNode.Name, bars should be the different.
             ComparisonConfig cc_onlyEndNodeName = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.EndNode.Name" } };
-            Debug.Assert(bar1.Hash(cc_onlyEndNodeName) != bar2.Hash(cc_onlyEndNodeName));
+            Assert.IsTrue(bar1.Hash(cc_onlyEndNodeName) != bar2.Hash(cc_onlyEndNodeName));
 
             // By looking only at Name, bars should be the different. Note: this only checks the Bar.Name, and will not consider checking pairs of subproperties' names,
             // e.g. it will not look if node1.StartNode.Name is equal or different to node1_diffName.StartNode.Name.
             // In other words, this stops at the topmost matching property.
             ComparisonConfig cc_onlyName = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
-            Debug.Assert(bar1.Hash(cc_onlyName) != bar2.Hash(cc_onlyName));
+            Assert.IsTrue(bar1.Hash(cc_onlyName) != bar2.Hash(cc_onlyName));
 
             // By default, the bars should be seen as different.
-            Debug.Assert(bar1.Hash() != bar2.Hash());
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(bar1.Hash() != bar2.Hash());
         }
 
-        [Obsolete("This test is similar to a wildcard prefix test. Only Full Names are accepted for PropertiesToConsider at the moment. Method kept for reference.")]
-        public static void PropertiesToConsider_PartialPropertyName_DifferentObjects()
+        [TestMethod]
+        public void PropertiesToConsider_PartialPropertyName_DifferentObjects()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Create one node
             Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
 
             // Create another node similar to node1 but with the name changed.
-            Node node1_diffName = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+            Node node1_diffName = node1.DeepClone();
             node1_diffName.Name = "node1_diffName";
 
             // Create another node with different coordinates
@@ -510,7 +392,7 @@ namespace BH.Tests.Diffing
             node2.Name = "node2";
 
             // Create another node similar to node2 but with the name changed.
-            Node node2_diffName = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 50 });
+            Node node2_diffName = node2.DeepClone();
             node2_diffName.Name = "node2_diffName";
 
             // // - Checks on Bars
@@ -530,49 +412,19 @@ namespace BH.Tests.Diffing
             // e.g. it will not look if node1.StartNode.Name is equal or different to node1_diffName.StartNode.Name.
             // In other words, this stops at the topmost matching property.
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
-            Debug.Assert(bar1.Hash(cc) != bar2.Hash(cc));
+            Assert.IsTrue(bar1.Hash(cc) != bar2.Hash(cc));
 
             // Change bar names (the StartNode.Name in bar1/bar2 are still different!)
             bar1.Name = "bar1";
             bar2.Name = "bar1";
 
             // Bars should still be different as StartNode and Endnodes have different `Name`s
-            Debug.Assert(bar1.Hash(cc) != bar2.Hash(cc));
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(bar1.Hash(cc) != bar2.Hash(cc));
         }
 
-        public static void PropertiesToConsider_PartialPropertyName_Unsupported()
+        [TestMethod]
+        public void PropertiesToConsider_WildCardPrefix_DifferentObjects_SeenAsDifferent()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
-            Bar bar1 = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
-
-            // Non full property names are not supported.
-            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
-            string bar1Hash = bar1.Hash(cc);
-            Debug.Assert(bar1Hash == ""); // the Hash must be returned empty.
-
-            cc = new ComparisonConfig() { PropertiesToConsider = { "StartNode.Name" } };
-            bar1Hash = bar1.Hash(cc);
-            Debug.Assert(bar1Hash == ""); // the Hash must be returned empty.
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
-        }
-
-        [Obsolete("Wildcards support is too tricky to implement consistently when computing the Hash, so it was deprecated. Method kept for reference.")]
-        public static void PropertiesToConsider_WildCardPrefix_Different()
-        {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Create one node
             Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
 
@@ -581,7 +433,7 @@ namespace BH.Tests.Diffing
             node2.Name = "node2";
 
             // Create another node equal to node2 but with the name changed.
-            Node node2_diffName = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 50 });
+            Node node2_diffName = node2.DeepClone();
             node2_diffName.Name = "node2_diffName";
 
             // Create two parent Bars for the nodes
@@ -600,21 +452,12 @@ namespace BH.Tests.Diffing
             // Using Wildcard prefix (to capture all possible properties ending in Name).
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "*.Name" } };
 
-            // Bars should still be different: although the Bar names are the same, their StartNode have different `Name`s
-            Debug.Assert(bar1.Hash(cc) != bar2.Hash(cc));
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(bar1.Hash(cc) != bar2.Hash(cc), "Bars should still be different: although the Bar names are the same, their StartNode have different `Name`s.");
         }
 
-        [Obsolete("Wildcards support is too tricky to implement consistently when computing the Hash, so it was deprecated. Method kept for reference.")]
-        public static void PropertiesToConsider_WildCardPrefix_Equals()
+        [TestMethod]
+        public void PropertiesToConsider_WildCardPrefix_DifferentObjects_SeenAsEqual()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Create one node
             Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
 
@@ -642,56 +485,22 @@ namespace BH.Tests.Diffing
             // Using Wildcard prefix (to capture all possible properties ending in Name).
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "*.Name" } };
 
-            // Bars should be seen as equal: although the End Nodes are different, their names are the same.
-            Debug.Assert(bar1.Hash(cc) == bar2.Hash(cc));
+            Assert.IsTrue(bar1.Hash(cc) == bar2.Hash(cc), "Bars should be seen as equal: although the End Nodes are different, their names are the same.");
 
             // Equivalently, without the wildcard: `Name`
             cc = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
 
-            // Bars should be seen as equal: although the End Nodes are different, their names are the same.
-            Debug.Assert(bar1.Hash(cc) == bar2.Hash(cc));
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(bar1.Hash(cc) == bar2.Hash(cc), "Bars should be seen as equal: although the End Nodes are different, their names are the same.");
         }
 
-        public static void PropertiesToConsider_WildCards_Unsupported()
+        [TestMethod]
+        public void PropertyExceptions_Wildcard_DifferentObjects_SeenAsEqual()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
-            Bar bar1 = new Bar();
-
-            // Wildcards in PropertiesToConsider for Hash computation are not supported. An Reflection Error is recorded and an empty string should be returned by Hash().
-            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "*.Name" } };
-            Debug.Assert(bar1.Hash(cc) == "");
-
-            cc = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.*.Name" } };
-            Debug.Assert(bar1.Hash(cc) == "");
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
-        }
-
-        public static void PropertyExceptions_EqualObjects()
-        {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
-            // Set PropertiesToConsider
-            ComparisonConfig cc = new ComparisonConfig() { PropertyExceptions = { "Bar.*.Position.X", "Name" } }; // Ignore changes in: Bar.StartNode.X and Bar.EndNode.X; Name.
-
             // Create one bar
             Node startNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
             Node endNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 1 });
-            Bar bar = BH.Engine.Structure.Create.Bar(startNode, endNode);
-            bar.Name = "bar1";
-
-            bar = BH.Engine.Base.Modify.SetHashFragment(bar, cc);
+            Bar bar1 = BH.Engine.Structure.Create.Bar(startNode, endNode);
+            bar1.Name = "bar1";
 
             // Create another bar identical to the first
             Node startNode2 = BH.Engine.Structure.Create.Node(new Point() { X = 99, Y = 0, Z = 0 }); // note the X is different from bar1 nodes.
@@ -699,35 +508,30 @@ namespace BH.Tests.Diffing
             Bar bar2 = BH.Engine.Structure.Create.Bar(startNode, endNode);
             bar2.Name = "bar2";
 
-            bar2 = BH.Engine.Base.Modify.SetHashFragment(bar2, cc);
+            // Set PropertiesToConsider to ignore changes in: `Bar.StartNode.X` and `Bar.EndNode.X`; `Name`.
+            ComparisonConfig cc = new ComparisonConfig() { PropertyExceptions = { "Bar.*.Position.X", "Name" } };
 
-            sw.Stop();
-            string hash1 = bar.FindFragment<HashFragment>().Hash;
-            string hash2 = bar2.FindFragment<HashFragment>().Hash;
-            Debug.Assert(hash1 == hash2);
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(bar1.Hash(cc) == bar2.Hash(cc));
         }
 
-        public static void CheckAgainstSerialisedObject(bool resetSerialisedObject = false)
+        [TestMethod]
+        public void SerialisedObject_HashDidNotChange()
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
-
             string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\HashTest_CheckAgainstStoredHash-Bar.json"));
 
             Bar bar = null;
             ComparisonConfig cc = new ComparisonConfig();
             JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
 
+            bool resetSerialisedObject = false;
             if (resetSerialisedObject)
             {
                 bar = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
-                string generatedObjectHash = bar.Hash(cc); // this stores the Hash on the object Fragments too.
+                string generatedObjectHash = bar.Hash(cc);
+
+                // Store the computed Hash of the object into a HashFragment.
+                // This way, when the object is read, we can re-compute the Hash and check it against this stored version.
+                // (The HashFragment is always ignored when computing a Hash.)
                 bar = bar.SetHashFragment(generatedObjectHash);
 
                 System.IO.File.WriteAllText(filePath, JsonConvert.SerializeObject(bar, settings));
@@ -740,14 +544,15 @@ namespace BH.Tests.Diffing
                     bar = JsonConvert.DeserializeObject<Bar>(file.ReadToEnd(), settings);
             }
 
+            // Compute the hash of the object that was serialised.
+            // (Any existing HashFragment is always ignored when computing the Hash)
+            string currentHash = bar.Hash(cc);
+
+            // The object was serialised with a Hash stored in its HashFragment.
+            // Get it so we can compare it with the currentHash.
             string hashStoredInSerialisedObject = bar.FindFragment<HashFragment>().Hash;
-            string hashNow = bar.Hash(cc);
 
-            Debug.Assert(hashStoredInSerialisedObject == hashNow, "The hash for the same Bar object has changed");
-
-            sw.Stop();
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(hashStoredInSerialisedObject == currentHash, "The hash for the same Bar object has changed.");
         }
     }
 }

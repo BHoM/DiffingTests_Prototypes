@@ -43,14 +43,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BH.Tests.Diffing
 {
     [TestClass]
-    public static class RevisionTests
+    public class RevisionTests
     {
-        public static void CostantHash_IdenticalObjs(bool logging = false)
+        public void EqualObjects_SameHashInRevisionFragment(bool logging = false)
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             // Create one bar
             Node startNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
             Node endNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 1 });
@@ -67,22 +63,11 @@ namespace BH.Tests.Diffing
 
             bar2 = BH.Engine.Diffing.Modify.SetRevisionFragment(bar2);
 
-            if (logging) BH.Engine.Diffing.Tests.Query.Log(new List<object>() { bar, bar2 }, "TwoIdenticalBars", LogOptions.ObjectsAndHashes);
-
-            sw.Stop();
-            Debug.Assert(bar.FindFragment<RevisionFragment>().Hash == bar2.FindFragment<RevisionFragment>().Hash);
-
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(bar.FindFragment<RevisionFragment>().Hash == bar2.FindFragment<RevisionFragment>().Hash, "Two equal objects must have the same Hash in the Revision Fragment.");
         }
 
-        public static void UnchangedObjectsSameHash(bool logging = false)
+        public void RevisionFragment_SetAgainOnSameObject(bool logging = false)
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
-
             // Create one bar
             Node startNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
             Node endNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 1 });
@@ -95,24 +80,15 @@ namespace BH.Tests.Diffing
             // The following sets its HashFragment again. PreviousHash and currentHash will have to be the same.
             bar = BH.Engine.Diffing.Modify.SetRevisionFragment(bar);
 
-            sw.Stop();
-
-            // Check that the HashFragment's PreviousHash and currentHash are the same:
+            // Check that the HashFragment's PreviousHash and currentHash are the same
             var hash = bar.FindFragment<RevisionFragment>().Hash;
             var previousHash = bar.FindFragment<RevisionFragment>().PreviousHash;
 
-            Debug.Assert(hash == previousHash);
-
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(hash == previousHash);
         }
 
-        public static void RevisionWorkflow_basic(bool propertyLevelDiffing = true, bool logging = false)
+        public void RevisionWorkflow_basic(bool propertyLevelDiffing = true, bool logging = false)
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             DiffingConfig DiffingConfig = new DiffingConfig() { EnablePropertyDiffing = propertyLevelDiffing, IncludeUnchangedObjects = true };
 
             // First object set
@@ -146,32 +122,20 @@ namespace BH.Tests.Diffing
             // Second revision
             Revision revision_Eduardo = BH.Engine.Diffing.Create.Revision(currentObjs_Eduardo, Guid.NewGuid());
 
-            if (logging) BH.Engine.Diffing.Tests.Query.Log(revision_Alessio.Objects, "rev2-hashes", LogOptions.HashesOnly);
-
-
             // -------------------------------------------------------- //
 
             // Check delta
 
             Delta delta = BH.Engine.Diffing.Create.Delta(revision_Alessio, revision_Eduardo, DiffingConfig);
 
-            sw.Stop();
-
-            Debug.Assert(delta.Diff.AddedObjects.Count() == 1, "Incorrect number of object identified as new/ToBeCreated.");
-            Debug.Assert(delta.Diff.ModifiedObjects.Count() == 0, "Incorrect number of object identified as modified/ToBeUpdated.");
-            Debug.Assert(delta.Diff.UnchangedObjects.Count() == 1, "Incorrect number of object identified as UnchangedObjects.");
-            Debug.Assert(delta.Diff.RemovedObjects.Count() == 0, "Incorrect number of object identified as RemovedObjects.");
-
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(delta.Diff.AddedObjects.Count() == 1, "Incorrect number of object identified as new/ToBeCreated.");
+            Assert.IsTrue(delta.Diff.ModifiedObjects.Count() == 0, "Incorrect number of object identified as modified/ToBeUpdated.");
+            Assert.IsTrue(delta.Diff.UnchangedObjects.Count() == 1, "Incorrect number of object identified as UnchangedObjects.");
+            Assert.IsTrue(delta.Diff.RemovedObjects.Count() == 0, "Incorrect number of object identified as RemovedObjects.");
         }
 
-        public static void RevisionWorkflow_advanced(bool propertyLevelDiffing = true)
+        public void RevisionWorkflow_advanced(bool propertyLevelDiffing = true)
         {
-            var currentMethod = MethodBase.GetCurrentMethod();
-            Console.WriteLine($"\nRunning {currentMethod.DeclaringType.Name}.{currentMethod.Name}");
-            Stopwatch sw = Stopwatch.StartNew();
-
             DiffingConfig DiffingConfig = new DiffingConfig() { EnablePropertyDiffing = propertyLevelDiffing };
 
             // 1. Suppose Alessio is creating 3 bars in Grasshopper, representing a Portal frame structure.
@@ -240,24 +204,19 @@ namespace BH.Tests.Diffing
 
             Delta delta = BH.Engine.Diffing.Create.Delta(revision_Alessio, revision_Eduardo, DiffingConfig);
 
-            sw.Stop();
-
             // 7. Now Eduardo can push his new delta object (like step 3).
             // `delta.ToCreate` will have 1 object; `delta2.ToUpdate` 1 object; `delta2.ToDelete` 1 object; `delta2.Unchanged` 2 objects.
             // You can also see which properties have changed for what objects: check `delta2.ModifiedPropsPerObject`.
-            Debug.Assert(delta.Diff.AddedObjects.Count() == 1, "Incorrect number of object identified as new/ToBeCreated.");
-            Debug.Assert(delta.Diff.ModifiedObjects.Count() == 1, "Incorrect number of object identified as modified/ToBeUpdated.");
-            Debug.Assert(delta.Diff.RemovedObjects.Count() == 1, "Incorrect number of object identified as old/ToBeDeleted.");
+            Assert.IsTrue(delta.Diff.AddedObjects.Count() == 1, "Incorrect number of object identified as new/ToBeCreated.");
+            Assert.IsTrue(delta.Diff.ModifiedObjects.Count() == 1, "Incorrect number of object identified as modified/ToBeUpdated.");
+            Assert.IsTrue(delta.Diff.RemovedObjects.Count() == 1, "Incorrect number of object identified as old/ToBeDeleted.");
             var modifiedObjectDifferences = delta.Diff.ModifiedObjectsDifferences.FirstOrDefault().Differences;
-            Debug.Assert(modifiedObjectDifferences.Count() == 1, "Incorrect number of changed properties identified by the property-level diffing.");
+            Assert.IsTrue(modifiedObjectDifferences.Count() == 1, "Incorrect number of changed properties identified by the property-level diffing.");
             var identifiedPropertyDifference = modifiedObjectDifferences.FirstOrDefault();
-            Debug.Assert(identifiedPropertyDifference.DisplayName == "Name", $"The modified property should be `Name`, instead it was `{identifiedPropertyDifference.DisplayName}`.");
-            Debug.Assert(identifiedPropertyDifference.FullName == typeof(Bar).FullName + ".Name", $"The modified property should be `{typeof(Bar).FullName + ".Name"}`, instead it was `{identifiedPropertyDifference.FullName}`.");
-            Debug.Assert(identifiedPropertyDifference.PastValue as string == "bar_0", $"The {nameof(PropertyDifference.PastValue)} of the modified property should be `bar_0`, instead it was {identifiedPropertyDifference.PastValue}.");
-            Debug.Assert(identifiedPropertyDifference.FollowingValue as string == "modifiedBar_0", $"The {nameof(PropertyDifference.FollowingValue)} of the modified property should be `modifiedBar_0`, instead it was {identifiedPropertyDifference.FollowingValue}.");
-
-            long timespan = sw.ElapsedMilliseconds;
-            Console.WriteLine($"Concluded successfully in {timespan}");
+            Assert.IsTrue(identifiedPropertyDifference.DisplayName == "Name", $"The modified property should be `Name`, instead it was `{identifiedPropertyDifference.DisplayName}`.");
+            Assert.IsTrue(identifiedPropertyDifference.FullName == typeof(Bar).FullName + ".Name", $"The modified property should be `{typeof(Bar).FullName + ".Name"}`, instead it was `{identifiedPropertyDifference.FullName}`.");
+            Assert.IsTrue(identifiedPropertyDifference.PastValue as string == "bar_0", $"The {nameof(PropertyDifference.PastValue)} of the modified property should be `bar_0`, instead it was {identifiedPropertyDifference.PastValue}.");
+            Assert.IsTrue(identifiedPropertyDifference.FollowingValue as string == "modifiedBar_0", $"The {nameof(PropertyDifference.FollowingValue)} of the modified property should be `modifiedBar_0`, instead it was {identifiedPropertyDifference.FollowingValue}.");
         }
     }
 }

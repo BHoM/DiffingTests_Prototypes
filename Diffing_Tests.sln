@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingTests_Engine", "Diff
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingTests", "DiffingTests\DiffingTests.csproj", "{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffingTests_1", "DiffingTests_1\DiffingTests_1.csproj", "{796FDD0B-735C-4DA3-A859-D741895A9EF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ComplianceTestBuild|Any CPU = ComplianceTestBuild|Any CPU
@@ -34,6 +36,12 @@ Global
 		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AECA2887-6C26-4388-8E68-56AE7BE3C1E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
+		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796FDD0B-735C-4DA3-A859-D741895A9EF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
