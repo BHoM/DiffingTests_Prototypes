@@ -458,17 +458,6 @@ namespace BH.Tests.Diffing
         [TestMethod]
         public void PropertiesToConsider_WildCardPrefix_DifferentObjects_SeenAsEqual()
         {
-            // Create one node
-            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-
-            // Create another node with different coordinates
-            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 50 });
-            node2.Name = "node2";
-
-            // Create another node with different coordinates but with the same name as node2.
-            Node node3 = BH.Engine.Structure.Create.Node(new Point() { X = 100, Y = 100, Z = 100 });
-            node3.Name = node2.Name; // SAME NAME AS NODE2, BUT DIFFERENT COORDINATES.
-
             // Create two parent Bars for the nodes
             Bar bar1 = new Bar();
             Bar bar2 = new Bar();
@@ -476,20 +465,23 @@ namespace BH.Tests.Diffing
             bar1.Name = "bar1";
             bar2.Name = "bar1"; // SAME NAMES FOR BARS.
 
-            bar1.StartNode = node1;
-            bar2.StartNode = node2; // SAME START NODES.
+            // Create another node with different coordinates
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 50 });
+            node1.Name = "node1";
 
-            bar1.EndNode = node2;
-            bar2.EndNode = node3; // DIFFERENT END NODES, BUT WITH THE SAME NAME.
+            // Create another node with different coordinates but with the same name as node2.
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 100, Y = 100, Z = 100 });
+            node2.Name = node1.Name; // SAME NAME AS NODE2
 
-            // Using Wildcard prefix (to capture all possible properties ending in Name).
-            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "*.Name" } };
-
-            Assert.IsTrue(bar1.Hash(cc) == bar2.Hash(cc), "Bars should be seen as equal: although the End Nodes are different, their names are the same.");
+            bar1.EndNode = node1;
+            bar2.EndNode = node2; // DIFFERENT END NODES, BUT WITH THE SAME NAME.
 
             // Equivalently, without the wildcard: `Name`
-            cc = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
+            Assert.IsTrue(bar1.Hash(cc) == bar2.Hash(cc), "Bars should be seen as equal: although the End Nodes are different, their names are the same.");
 
+            // Using Wildcard prefix (to capture all possible properties ending in Name).
+            cc = new ComparisonConfig() { PropertiesToConsider = { "*.Name" } };
             Assert.IsTrue(bar1.Hash(cc) == bar2.Hash(cc), "Bars should be seen as equal: although the End Nodes are different, their names are the same.");
         }
 
