@@ -72,73 +72,17 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void NumericTolerance_SameHash()
-        {
-            // Set a numerical tolerance (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
-
-            // Create one node.
-            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-            string hash1 = node1.Hash(cc);
-
-            // Create another node with similar coordinates. The difference should be so minimal that is ignored by the tolerance.
-            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0.0005 });
-            string hash2 = node2.Hash(cc);
-
-            // Make sure the hashes are the same, thanks to the numeric tolerance.
-            Assert.IsTrue(hash1 == hash2);
-        }
-
-        [TestMethod]
-        public void NumericTolerance_DifferentHash()
-        {
-            // Set a numerical tolerance (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
-
-            // Create one node.
-            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-            string hash1 = node1.Hash(cc);
-
-            // Create another node with similar coordinates that should be considered as different by precision
-            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0.005 });
-            string hash2 = node2.Hash(cc);
-
-            // Make sure the hashes are different, following the numeric tolerance.
-            Assert.IsTrue(hash1 != hash2);
-        }
-
-        [TestMethod]
         public void HashComparer_AssignHashToFragments()
         {
-            // Set numerical precision
-            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
+            List<Bar> bars = Engine.Diffing.Tests.Create.RandomObjects<Bar>(2);
 
             // Instantiate hashcomparer for nodes. The `true` boolean means it should assign the calculated hashes to objects. 
-            HashComparer<Node> hashComparer = new HashComparer<Node>(cc, true);
-
-            // Create one node
-            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-            node1 = BH.Engine.Base.Modify.SetHashFragment(node1, cc);
-
-            // Create another node with similar coordinates that should be ignored by precision
-            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0.0005 });
-            node2 = BH.Engine.Base.Modify.SetHashFragment(node2, cc);
-
-            // Make sure the hashComparer sees node1 and node2 as equal.
-            Assert.IsTrue(hashComparer.Equals(node1, node2));
-
-            // Create another node with similar coordinates that should be considered as different by precision
-            Node node3 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0.005 });
-
-            // Instantiate another hashcomparer for nodes. The `false` boolean means it should NOT assign the calculated hashes to objects. 
-            HashComparer<Node> hashComparer_notAssign = new HashComparer<Node>(cc, false);
-
-            Assert.IsTrue(!hashComparer_notAssign.Equals(node1, node3));
+            HashComparer<Bar> hashComparer_AssignHash = new HashComparer<Bar>(new ComparisonConfig(), true);
+            hashComparer_AssignHash.Equals(bars[0], bars[1]); // once Equals() is computed, the Hash of the objects is stored in their Fragments.
 
             // Check if HashComparer assigned the hashes in the fragments.
-            Assert.IsTrue(!string.IsNullOrWhiteSpace(node1.FindFragment<HashFragment>()?.Hash));
-            Assert.IsTrue(!string.IsNullOrWhiteSpace(node2.FindFragment<HashFragment>()?.Hash));
-            Assert.IsTrue(string.IsNullOrWhiteSpace(node3.FindFragment<HashFragment>()?.Hash));
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(bars[0].FindFragment<HashFragment>()?.Hash));
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(bars[1].FindFragment<HashFragment>()?.Hash));
         }
 
         [TestMethod]
@@ -360,7 +304,7 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(bar1.Hash(cc_onlyEndNodePosition) == bar2.Hash(cc_onlyEndNodePosition));
 
             // By looking only at EndNode.Position, and StartNode.Position, bars should be the same.
-            ComparisonConfig cc_onlyStartNodePosition = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.EndNode.Position", "SBH.oM.Structure.Elements.Bar.StartNode.Position" } };
+            ComparisonConfig cc_onlyStartNodePosition = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.EndNode.Position", "BH.oM.Structure.Elements.Bar.StartNode.Position" } };
             Assert.IsTrue(bar1.Hash(cc_onlyStartNodePosition) == bar2.Hash(cc_onlyStartNodePosition));
 
             // By looking only at EndNode.Name, bars should be the different.
@@ -507,12 +451,105 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void SerialisedObject_HashDidNotChange()
+        public void NumericTolerance_DifferentObjects_SeenAsEqual()
         {
-            string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\HashTest_CheckAgainstStoredHash-Bar.json"));
+            // Set a numerical tolerance (different from the default value).
+            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
+
+            // Create one node.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+            string hash1 = node1.Hash(cc);
+
+            // Create another node with similar coordinates. The difference should be so minimal that is ignored by the tolerance.
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0.0005 });
+            string hash2 = node2.Hash(cc);
+
+            // Make sure the hashes are the same, thanks to the numeric tolerance.
+            Assert.IsTrue(hash1 == hash2);
+        }
+
+        [TestMethod]
+        public void NumericTolerance_DifferentObjects_SeenAsDifferent()
+        {
+            // Set a numerical tolerance (different from the default value).
+            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
+
+            // Create one node.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+            string hash1 = node1.Hash(cc);
+
+            // Create another node with similar coordinates that should be considered as different by precision
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0.005 });
+            string hash2 = node2.Hash(cc);
+
+            // Make sure the hashes are different, following the numeric tolerance.
+            Assert.IsTrue(hash1 != hash2);
+        }
+
+        [TestMethod]
+        public void PropertyNumericTolerance_DifferentObjects_IncreasingTolerance()
+        {
+            // Set a numerical tolerance (different from the default value).
+            ComparisonConfig cc = new ComparisonConfig();
+
+            // Create two objects.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0.0003, Y = 0.0003, Z = 0.9 }); // X and Y have very small variation, Z has large variation.
+
+            // With the default tolerance, the objects must be seen as different.
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
+
+            // Set the global tolerance to be larger than X and Y, but smaller than Z.
+            // The two objects must still be seen as different just because of the Z property large variation.
+            cc.NumericTolerance = 1e-1;
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
+
+            // Set the global tolerance to be larger than X, Y and Z.
+            // The two objects must be seen as equal.
+            cc.NumericTolerance = 1;
+            Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc));
+        }
+
+        [TestMethod]
+        public void PropertyNumericTolerance_DifferentObjects_SeenAsEqual()
+        {
+            // Set a numerical tolerance (different from the default value).
+            ComparisonConfig cc = new ComparisonConfig();
+
+            // Create two objects.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0.0003, Y = 0.0003, Z = 0.9 }); // X and Y have very small variation, Z has large variation.
+
+            // With the default tolerance, the objects must be seen as different.
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
+
+            // Set the global tolerance to be larger than X and Y, but smaller than Z.
+            // The two objects must still be seen as different just because of the Z property large variation.
+            cc.NumericTolerance = 1e-1;
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
+
+            // Set the global tolerance to be larger than X, Y and Z.
+            // The two objects must be seen as equal.
+            cc.NumericTolerance = 1; 
+            Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc));
+
+            // Set a custom tolerance for just the variable Z, to be smaller than Z's updated value.
+            // The two objects must again be seen as different.
+            cc.PropertyNumericTolerances.Add(new PropertyNumericTolerance() { Name = "*.Z", Tolerance = 1e-3 });
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
+        }
+
+        [TestMethod]
+        public void SerialisedObject_RandomObject_HashDidNotChange()
+        {
+            string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\HashTest_SerialisedObject_RandomObject.json"));
+
+            Assert.IsTrue(filePath.IsValidFilePath(), $"Check that the filepath for the serialised object is valid and that the file can be found on disk: {filePath}.");
 
             Bar bar = null;
             ComparisonConfig cc = new ComparisonConfig();
+            
+            // Set newtonsoft serialization settings to handle automatically any type.
             JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
 
             bool resetSerialisedObject = false;
@@ -529,7 +566,7 @@ namespace BH.Tests.Diffing
                 System.IO.File.WriteAllText(filePath, JsonConvert.SerializeObject(bar, settings));
             }
 
-            if (bar == null)
+            if (!resetSerialisedObject)
             {
                 // deserialize JSON directly from a file
                 using (StreamReader file = File.OpenText(filePath))

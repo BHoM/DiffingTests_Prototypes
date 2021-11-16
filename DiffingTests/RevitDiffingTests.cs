@@ -1,6 +1,7 @@
 ﻿using BH.Engine.Base;
 using BH.oM.Base;
 using BH.oM.Diffing;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,9 +10,10 @@ using System.Text;
 
 namespace BH.Tests.Diffing
 {
-    public  class RevitDiffingTests // not really implemented yet. Problem with assembly loading.
+    //[TestClass]
+    public class RevitDiffingTests // not really implemented yet. Problem with assembly loading.
     {
-        public  void RevitDiffing_basic()
+        public void RevitDiffing_basic()
         {
             // Generate random objects
             int numElements = 10;

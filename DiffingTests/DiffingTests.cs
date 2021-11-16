@@ -83,8 +83,8 @@ namespace BH.Tests.Diffing
         {
             DiffingConfig DiffingConfig = new DiffingConfig();
 
-            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Query.GenerateRandomObjects(typeof(Bar), 3, true, true);
-            List<IBHoMObject> secondBatch = BH.Engine.Diffing.Tests.Query.GenerateRandomObjects(typeof(Bar), 3, true, true);
+            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), 3, true, true);
+            List<IBHoMObject> secondBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), 3, true, true);
 
             Diff diff = BH.Engine.Diffing.Compute.DiffWithFragmentId(firstBatch, secondBatch, typeof(TestIdFragment), "Id");
 
@@ -100,7 +100,7 @@ namespace BH.Tests.Diffing
         {
             DiffingConfig DiffingConfig = new DiffingConfig();
 
-            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Query.GenerateRandomObjects(typeof(Bar), 3, true, true);
+            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), 3, true, true);
             List<IBHoMObject> secondBatch = new List<IBHoMObject>();
             secondBatch.AddRange(firstBatch);
 
