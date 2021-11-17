@@ -139,7 +139,7 @@ namespace BH.Tests.Diffing
 
             Assert.IsTrue(objectDifferences.FollowingObject == bar2);
             Assert.IsTrue(objectDifferences.PastObject == bar1);
-            Assert.IsTrue(objectDifferences.Differences.Count == 3, "Incorrect number of propertyDifferences found.");
+            Assert.IsTrue(objectDifferences.Differences.Count == 3, $"Incorrect number of propertyDifferences found: {objectDifferences.Differences.Count} instead of 3.");
 
             var differences_BarStartNodePositionZ = objectDifferences.Differences.Where(d => d.FullName == "BH.oM.Structure.Elements.Bar.StartNode.Position.Z");
             Assert.IsTrue(differences_BarStartNodePositionZ.Count() == 1);
@@ -201,7 +201,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void ObjectDifferences_PropertiesToInclude_FullName_Equals()
+        public void ObjectDifferences_PropertiesToInclude_FullName_Equal()
         {
             Bar bar1 = new Bar()
             {
@@ -231,7 +231,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void ObjectDifferences_PropertiesToInclude_PartialName_Equals()
+        public void ObjectDifferences_PropertiesToInclude_PartialName_Equal()
         {
             Bar bar1 = new Bar()
             {
@@ -261,7 +261,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void ObjectDifferences_PropertiesToInclude_WildCardPrefix_Equals()
+        public void ObjectDifferences_PropertiesToInclude_WildCardPrefix_Equal()
         {
             Bar bar1 = new Bar()
             {
@@ -297,7 +297,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void ObjectDifferences_PropertiesToInclude_WildCardMiddle_Equals()
+        public void ObjectDifferences_PropertiesToInclude_WildCardMiddle_Equal()
         {
             Bar bar1 = new Bar()
             {
@@ -337,7 +337,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void ObjectDifferences_PropertiesExceptions_Equals()
+        public void ObjectDifferences_PropertiesExceptions_Equal()
         {
             Bar bar1 = new Bar()
             {
@@ -372,6 +372,89 @@ namespace BH.Tests.Diffing
             // Ignore changes in: Bar.StartNode.Z; Bar.EndNode.Z; Name.
             ComparisonConfig cc = new ComparisonConfig() { PropertyExceptions = { "Bar.*.Position.Z", "Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
+
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
+        }
+
+        [TestMethod]
+        public void ObjectDifferences_NumericTolerance_Equal()
+        {
+            // Set a numerical tolerance (different from the default value).
+            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 0.01 };
+
+            // Create one node.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+
+            // Create another node with similar coordinates. 
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0.0005 });
+
+            // The difference should be so minimal that is ignored by the tolerance.
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
+
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
+        }
+
+        [TestMethod]
+        public void ObjectDifferences_SignificantFigures_Equal()
+        {
+            // Set SignificantFigures (different from the default value).
+            ComparisonConfig cc = new ComparisonConfig() { SignificantFigures = 3 };
+
+            // Create one node.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 123.6 });
+
+            // Create another node with similar coordinates. 
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 124 });
+
+            // The difference should be so minimal that is ignored by the SignificantFigures.
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
+
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
+        }
+
+        [TestMethod]
+        public void ObjectDifferences_SignificantFigures_Different()
+        {
+            ComparisonConfig cc = new ComparisonConfig();
+
+            // Create one node.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0.312, Y = 0.312, Z = 120 });
+
+            // Create another node with similar coordinates. 
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0.3123123, Y = 0.3123123, Z = 121.6 });
+
+            // Set significantFigures so that X and Y are rounded to 0.312, while Z is rounded to 122.
+            // This means that only Z should be identified as different.
+            cc.SignificantFigures = 3;
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
+
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 1, "Wrong number of differences identified.");
+
+            // Set significantFigures so that X and Y are rounded to 0.31, while Z is rounded to 120.
+            // This means that only X and Y should be identified as different.
+            cc.SignificantFigures = 2;
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count != 2, "Wrong number of differences identified.");
+        }
+
+        [TestMethod]
+        public void ObjectDifferences_PropertySignificantFigures_Equal()
+        {
+            // Testing property-specific Significant Figures.
+            // Set SignificantFigures (different from the default value).
+            ComparisonConfig cc = new ComparisonConfig()
+            {
+                SignificantFigures = 3,
+                PropertySignificantFigures = new HashSet<PropertySignificantFigure>() { new PropertySignificantFigure() { Name = "*.X" , SignificantFigures = 1} }
+            };
+
+            // Create one node.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 412, Y = 0, Z = 123.6 });
+
+            // Create another node with similar coordinates. 
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 400, Y = 0, Z = 124 });
+
+            // The difference should be so minimal that is ignored by the SignificantFigures.
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
         }

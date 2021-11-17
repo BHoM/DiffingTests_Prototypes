@@ -27,7 +27,7 @@ namespace BH.Tests.Diffing
         [DataRow(-0.016, 0.02, 0)]
         [DataRow(-121, 2, -120)]
         [DataRow(-122, 2, -122)]
-        public void RoundWithTolerance_General(double number, double tolerance, double expected)
+        public void RoundWithTolerance(double number, double tolerance, double expected)
         {
             var result = BH.Engine.Base.Query.RoundWithTolerance(number, tolerance);
             Assert.IsTrue(result == expected, $"Returned value was {result} instead of {expected}.");
@@ -44,6 +44,22 @@ namespace BH.Tests.Diffing
         {
             // This method tests the integer-specific version.
             var result = BH.Engine.Base.Query.RoundWithTolerance(number, tolerance);
+            Assert.IsTrue(result == expected, $"Returned value was {result} instead of {expected}.");
+        }
+
+        [TestMethod]
+        [DataRow(1050.67, 1, 1000)]
+        [DataRow(1050.67, 2, 1100)]
+        [DataRow(1050.67, 3, 1050)]
+        [DataRow(1050.67, 4, 1051)]
+        [DataRow(1050.67, 5, 1050.7)]
+        [DataRow(123456.123, 7, 123456.1)]
+        [DataRow(123456.123, 1, 100000)]
+        [DataRow(0.0000000000000000000123456789, 5, 1.2346E-20)]
+        [DataRow(0.0000000000000000000123456789, 99, 1.23456789E-20)]
+        public void SignificantFigures(double number, int significantFigures, double expected)
+        {
+            double result = BH.Engine.Base.Query.RoundToSignificantFigures(number, significantFigures);
             Assert.IsTrue(result == expected, $"Returned value was {result} instead of {expected}.");
         }
     }

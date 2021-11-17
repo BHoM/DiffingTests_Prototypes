@@ -469,6 +469,24 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
+        public void SignificantFigures_DifferentObjects_SeenAsEqual()
+        {
+            // Set a numerical SignificantFigures (different from the default value).
+            ComparisonConfig cc = new ComparisonConfig() { SignificantFigures = 3 };
+
+            // Create one node.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 35.06 }); // this should be rounded to 35.1.
+            string hash1 = node1.Hash(cc);
+
+            // Create another node with similar coordinates. The difference should be so minimal that is ignored by the SignificantFigures.
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 35.1 });
+            string hash2 = node2.Hash(cc);
+
+            // Make sure the hashes are the same, thanks to the numeric tolerance.
+            Assert.IsTrue(hash1 == hash2);
+        }
+
+        [TestMethod]
         public void NumericTolerance_DifferentObjects_SeenAsDifferent()
         {
             // Set a numerical tolerance (different from the default value).
@@ -487,9 +505,26 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
+        public void SignificantFigures_DifferentObjects_SeenAsDifferent()
+        {
+            // Set a numerical SignificantFigures (different from the default value).
+            ComparisonConfig cc = new ComparisonConfig() { SignificantFigures = 3 };
+
+            // Create one node.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 35.04 }); // this should be rounded to 35.0.
+            string hash1 = node1.Hash(cc);
+
+            // Create another node with similar coordinates. The difference should be so minimal that is ignored by the SignificantFigures.
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 35.12 }); // this should be rounded to 35.1.
+            string hash2 = node2.Hash(cc);
+
+            // Make sure the hashes are different, following the numeric tolerance.
+            Assert.IsTrue(hash1 != hash2);
+        }
+
+        [TestMethod]
         public void PropertyNumericTolerance_DifferentObjects_IncreasingTolerance()
         {
-            // Set a numerical tolerance (different from the default value).
             ComparisonConfig cc = new ComparisonConfig();
 
             // Create two objects.
@@ -511,9 +546,30 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
+        public void SignificantFigures_DifferentObjects_IncreasingFigures()
+        {
+            ComparisonConfig cc = new ComparisonConfig();
+
+            // Create two objects.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0.2, Y = 0.2, Z = 1 });
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0.169, Y = 0.169, Z = 1.01 });
+
+            // With the default significant figures, the objects must be seen as different.
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
+
+            // Set the global significant figures so we disregard the variations of X and Y, but not Z. The objects must still be seen as different.
+            cc.SignificantFigures = 3;
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
+
+            // Set the global significant figures so that we disregard all variations.
+            // The two objects must be seen as equal.
+            cc.SignificantFigures = 1;
+            Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc));
+        }
+
+        [TestMethod]
         public void PropertyNumericTolerance_DifferentObjects_SeenAsEqual()
         {
-            // Set a numerical tolerance (different from the default value).
             ComparisonConfig cc = new ComparisonConfig();
 
             // Create two objects.
@@ -530,7 +586,7 @@ namespace BH.Tests.Diffing
 
             // Set the global tolerance to be larger than X, Y and Z.
             // The two objects must be seen as equal.
-            cc.NumericTolerance = 1; 
+            cc.NumericTolerance = 1;
             Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc));
 
             // Set a custom tolerance for just the variable Z, to be smaller than Z's updated value.
@@ -540,19 +596,71 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void SerialisedObject_RandomObject_HashDidNotChange()
+        public void PropertySignificantFigures_DifferentObjects_SeenAsEqual()
         {
-            string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\HashTest_SerialisedObject_RandomObject.json"));
+            ComparisonConfig cc = new ComparisonConfig();
+
+            // Create two objects.
+            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0.2, Y = 0.2, Z = 1 });
+            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0.169, Y = 0.169, Z = 1.01 });
+
+            // With the default significant figures, the objects must be seen as different.
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
+
+            // Set the global significant figures to be larger than X and Y, but smaller than Z.
+            // The two objects must still be seen as different just because of the Z property large variation.
+            cc.SignificantFigures = 3;
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
+
+            // Set the global significant figures so the two objects must be seen as equal.
+            cc.SignificantFigures = 1;
+            Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc));
+
+            // Set a custom tolerance for just the variable Z, to be smaller than Z's updated value.
+            // The two objects must again be seen as different, because this overcomes the global significant figures settings.
+            cc.PropertySignificantFigures.Add(new PropertySignificantFigure() { Name = "*.Z", SignificantFigures = 3 });
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
+        }
+
+        [TestMethod]
+        public void SignificantFiguresAndNumericTolerance_DifferentObjects_SeenAsEqual()
+        {
+            // Tests together the Numeric Tolerance and Significant Figures settings in the same ComparisonConfig.
+            // When set together, the number returned will be the most approximate (least precise).
+
+            ComparisonConfig cc = new ComparisonConfig();
+
+            // Create two objects.
+            Node controlNode;
+            Node node = BH.Engine.Structure.Create.Node(new Point() { X = 0.169, Y = 0.169, Z = 1.01 });
+
+            // Set Numerical tolerance.
+            cc.NumericTolerance = 1e-2; // This will round as: X = 0.17, Y = 0.17, Z = 1.01.
+            controlNode = BH.Engine.Structure.Create.Node(new Point() { X = 0.17, Y = 0.17, Z = 1.01 });
+
+            Assert.IsTrue(controlNode.Hash(cc) == node.Hash(cc));
+
+            // Also set SignificantFigures in the same ComparisonConfig.
+            cc.SignificantFigures = 1; // This will round as: X = 0.2, Y = 0.2, Z = 1.
+            controlNode = BH.Engine.Structure.Create.Node(new Point() { X = 0.2, Y = 0.2, Z = 1 });
+
+            Assert.IsTrue(controlNode.Hash(cc) == node.Hash(cc));
+        }
+
+        [TestMethod]
+        [DataRow(false)] // Setting this to true updates the serialized object.
+        public void SerialisedObject_RandomObject_HashDidNotChange(bool resetSerialisedObject = false)
+        {
+            string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\211117_HashTest_SerialisedObject_RandomObject.json"));
 
             Assert.IsTrue(filePath.IsValidFilePath(), $"Check that the filepath for the serialised object is valid and that the file can be found on disk: {filePath}.");
 
             Bar bar = null;
             ComparisonConfig cc = new ComparisonConfig();
-            
+
             // Set newtonsoft serialization settings to handle automatically any type.
             JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
 
-            bool resetSerialisedObject = false;
             if (resetSerialisedObject)
             {
                 bar = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
