@@ -591,7 +591,7 @@ namespace BH.Tests.Diffing
 
             // Set a custom tolerance for just the variable Z, to be smaller than Z's updated value.
             // The two objects must again be seen as different.
-            cc.PropertyNumericTolerances.Add(new PropertyNumericTolerance() { Name = "*.Z", Tolerance = 1e-3 });
+            cc.PropertyNumericTolerances.Add(new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1e-3 });
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
         }
 
@@ -616,9 +616,9 @@ namespace BH.Tests.Diffing
             cc.SignificantFigures = 1;
             Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc));
 
-            // Set a custom tolerance for just the variable Z, to be smaller than Z's updated value.
+            // Set a custom significant figures for just the variable Z, to be smaller than Z's updated value.
             // The two objects must again be seen as different, because this overcomes the global significant figures settings.
-            cc.PropertySignificantFigures.Add(new PropertySignificantFigure() { Name = "*.Z", SignificantFigures = 3 });
+            cc.PropertySignificantFigures.Add(new NamedSignificantFigures() { Name = "*.Z", SignificantFigures = 3 });
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
         }
 

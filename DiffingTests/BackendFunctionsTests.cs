@@ -15,6 +15,8 @@ namespace BH.Tests.Diffing
     {
         [TestMethod]
         [DataRow(1.2345, 1.1, 1.1)]
+        [DataRow(1.2345, 1, 1)]
+        [DataRow(0.9999, 1, 0)]
         [DataRow(12, 20, 0)]
         [DataRow(12, 200, 0)]
         [DataRow(121, 2, 120)]

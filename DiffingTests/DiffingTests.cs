@@ -67,13 +67,16 @@ namespace BH.Tests.Diffing
                 obj.Name = "bar_" + i.ToString();
                 secondBatch.Add(obj as dynamic);
             }
+            
+            // Add the first batch to the second. This means we will have more followingobjects than pastObjects.
+            secondBatch.AddRange(firstBatch);
 
             // This should internally trigger the method "DiffWithHash", which cannot return "modifiedObjects".
             Diff diff = BH.Engine.Diffing.Compute.IDiffing(firstBatch, secondBatch, diffingConfig);
 
             Assert.IsTrue(diff.AddedObjects.Count() == 3, "Incorrect number of object identified as new/Added.");
             Assert.IsTrue(diff.ModifiedObjects == null || diff.ModifiedObjects.Count() == 0, "Incorrect number of object identified as modified.");
-            Assert.IsTrue(diff.RemovedObjects.Count() == 3, "Incorrect number of object identified as old/Removed.");
+            Assert.IsTrue(diff.RemovedObjects.Count() == 0, "Incorrect number of object identified as old/Removed.");
             var objectDifferences = diff.ModifiedObjectsDifferences?.FirstOrDefault();
             Assert.IsTrue(!objectDifferences?.Differences?.Any() ?? true, "HashDiffing cannot return property Differences, but some were returned.");
         }
@@ -444,7 +447,7 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig()
             {
                 SignificantFigures = 3,
-                PropertySignificantFigures = new HashSet<PropertySignificantFigure>() { new PropertySignificantFigure() { Name = "*.X" , SignificantFigures = 1} }
+                PropertySignificantFigures = new HashSet<NamedSignificantFigures>() { new NamedSignificantFigures() { Name = "*.X" , SignificantFigures = 1} }
             };
 
             // Create one node.
@@ -460,7 +463,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void IDiffingTest_DiffWithFragmentId_allDifferentFragments()
+        public void IDiffingTest_DiffWithFragmentId_allDifferentFragments_DiffOneByOne()
         {
             DiffingConfig diffingConfig = new DiffingConfig();
 
@@ -494,14 +497,14 @@ namespace BH.Tests.Diffing
                 secondBatch.Add(obj as dynamic);
             }
 
-            // This should internally trigger the method "DiffWithHash", which cannot return "modifiedObjects".
+            // This should internally trigger the method "DiffOneByOne". 
             Diff diff = BH.Engine.Diffing.Compute.IDiffing(firstBatch, secondBatch, diffingConfig);
 
-            Assert.IsTrue(diff.AddedObjects.Count() == 3, "Incorrect number of object identified as new/ToBeCreated.");
-            Assert.IsTrue(diff.ModifiedObjects == null || diff.ModifiedObjects.Count() == 0, "Incorrect number of object identified as modified/ToBeUpdated.");
-            Assert.IsTrue(diff.RemovedObjects.Count() == 3, "Incorrect number of object identified as old/ToBeDeleted.");
+            Assert.IsTrue(diff.AddedObjects.Count() == 0, "Incorrect number of object identified as new/ToBeCreated.");
+            Assert.IsTrue(diff.ModifiedObjects != null && diff.ModifiedObjects.Count() != 0, "Incorrect number of object identified as modified/ToBeUpdated.");
+            Assert.IsTrue(diff.RemovedObjects.Count() == 0, "Incorrect number of object identified as old/ToBeDeleted.");
             var objectDifferences = diff.ModifiedObjectsDifferences?.FirstOrDefault();
-            Assert.IsTrue(!objectDifferences?.Differences?.Any() ?? true, "Incorrect number of changed properties identified by the property-level diffing.");
+            Assert.IsTrue(objectDifferences?.Differences?.Count() > 0, "Incorrect number of changed properties identified by the property-level diffing.");
         }
     }
 }
