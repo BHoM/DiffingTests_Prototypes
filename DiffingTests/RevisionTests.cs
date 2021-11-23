@@ -45,6 +45,12 @@ namespace BH.Tests.Diffing
     [TestClass]
     public class RevisionTests
     {
+        // ---------------------------------------------------------- //
+        // NOTE: AECDeltas-specific tests                             //
+        // These tests check the AECDeltas "Revision" workflow.       //
+        // This is now currently still supported but mostly not used. //
+        // ---------------------------------------------------------- //
+
         public void EqualObjects_SameHashInRevisionFragment(bool logging = false)
         {
             // Create one bar

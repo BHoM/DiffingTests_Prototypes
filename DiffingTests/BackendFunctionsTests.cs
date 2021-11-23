@@ -11,7 +11,7 @@ using System.Text;
 namespace BH.Tests.Diffing
 {
     [TestClass]
-    public class BackendFunctionsTests // not really implemented yet. Problem with assembly loading.
+    public class BackendFunctionsTests
     {
         [TestMethod]
         [DataRow(1.2345, 1.1, 1.1)]
