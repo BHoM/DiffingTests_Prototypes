@@ -33,12 +33,12 @@ namespace BH.Engine.Diffing.Tests
 {
     public static partial class Create
     {
-        public static List<T> RandomObjects<T>(int count = 100, bool assignIdFragment = false, bool setName = false, string namePrefix = "bar_") where T : IObject
+        public static List<T> RandomObjects<T>(int count = 100, bool assignIdFragmentWithProgressiveId = false, bool assignObjectName = false, string objectNamePrefix = "bar_") where T : IObject
         {
-            return RandomObjects(typeof(T), count, assignIdFragment, setName, namePrefix).OfType<T>().ToList();
+            return RandomObjects(typeof(T), count, assignIdFragmentWithProgressiveId, assignObjectName, objectNamePrefix).OfType<T>().ToList();
         }
 
-        public static List<IBHoMObject> RandomObjects(Type t, int count = 100, bool assignIdFragment = false, bool setName = false, string namePrefix = "bar_")
+        public static List<IBHoMObject> RandomObjects(Type t, int count = 100, bool assignIdFragmentWithProgressiveId = false, bool assignObjectName = false, string objectNamePrefix = "bar_")
         {
             List<IBHoMObject> objs = new List<IBHoMObject>();
 
@@ -46,7 +46,7 @@ namespace BH.Engine.Diffing.Tests
             {
                 IObject obj = BH.Engine.Base.Create.RandomObject(t);
 
-                if (assignIdFragment)
+                if (assignIdFragmentWithProgressiveId)
                 {
                     IBHoMObject bhomObj = obj as IBHoMObject;
                     TestIdFragment testIdFragment = new TestIdFragment() { Id = i };
@@ -54,10 +54,10 @@ namespace BH.Engine.Diffing.Tests
                     obj = bhomObj;
                 }
 
-                if (setName)
+                if (assignObjectName)
                 {
                     IBHoMObject bhomObj = obj as IBHoMObject;
-                    bhomObj.Name = namePrefix + i.ToString();
+                    bhomObj.Name = objectNamePrefix + i.ToString();
                     obj = bhomObj;
                 }
 
