@@ -5,14 +5,14 @@
     <RootNamespace>BH.oM.Diffing.Test</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="BHoM">
-      <HintPath>..\..\BHoM\Build\BHoM.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy &quot;$(TargetDir)$(TargetFileName)&quot;  &quot;C:\ProgramData\BHoM\Assemblies&quot; /Y&#xD;&#xA;&#xD;&#xA;EXIT 0" />
   </Target>
+
+  <ItemGroup>
+    <Reference Include="BHoM">
+      <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>
