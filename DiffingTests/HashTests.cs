@@ -44,6 +44,7 @@ using BH.Engine.Diffing.Tests;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using BH.oM.Diffing.Test;
 
 namespace BH.Tests.Diffing
 {
@@ -196,23 +197,28 @@ namespace BH.Tests.Diffing
         [TestMethod]
         public void PropertiesToConsider_TopLevelProperty_EqualObjects()
         {
-            // Set PropertiesToConsider to consider only "Position" properties.
-            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "Position" } };
+            // Create one testObject.
+            TestObject node1 = new TestObject()
+            {
+                Location = new Point() { X = 0, Y = 0, Z = 0 }
+            };
 
-            // Create one node.
-            Node node1 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
+            // Create another testObject with different Location.
+            TestObject node2 = new TestObject()
+            {
+                Location = new Point() { X = 0, Y = 0, Z = 99 }
+            };
 
-            // Create another node with different Position.
-            Node node2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 50 });
+            // Set PropertiesToConsider to consider only "Location" properties.
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "Location" } };
 
-            // Node1 and node2 must be recognised as different.
-            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc), "Objects must be recognised as different via their hash.");
 
             // Create another node equal to node1 but with the Name changed.
-            Node node3 = node1.DeepClone();
+            TestObject node3 = node1.DeepClone();
             node3.Name = "Node3"; // the name is the only thing that distinguishes node3 from node1
 
-            Assert.IsTrue(node1.Hash(cc) == node3.Hash(cc)); // although the name is different, they must be recongnised as the same.
+            Assert.IsTrue(node1.Hash(cc) == node3.Hash(cc), "Objects must be recognised as the same via their hash."); // although the name is different, they must be recongnised as the same.
         }
 
         [TestMethod]
@@ -267,6 +273,37 @@ namespace BH.Tests.Diffing
             // By default, the bars should be seen as different.
             Assert.IsTrue(bar1.Hash() != bar2.Hash());
         }
+
+        [TestMethod]
+        public void PropertiesToConsider_InterfaceSubProperties_EqualObjects()
+        {
+            // Create one testObject.
+            TestObject node1 = new TestObject()
+            {
+                Location = new Point() { X = 0, Y = 0, Z = 0 }
+            };
+
+            // Create another testObject with different Location.
+            TestObject node2 = new TestObject()
+            {
+                Location = new Point() { X = 0, Y = 0, Z = 99 }
+            };
+
+            // Set PropertiesToConsider to consider only "Location.Z" properties.
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "Location.Z" } };
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc), "Objects must be recognised as different via their hash.");
+
+            // Set PropertiesToConsider to consider only "Z" properties.
+            cc = new ComparisonConfig() { PropertiesToConsider = { "Z" } };
+            Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc), "Objects must be recognised as different via their hash.");
+
+            // Create another node equal to node1 but with the Name changed.
+            TestObject node3 = node1.DeepClone();
+            node3.Name = "Node3"; // the name is the only thing that distinguishes node3 from node1
+
+            Assert.IsTrue(node1.Hash(cc) == node3.Hash(cc), "Objects must be recognised as the same via their hash."); // although the name is different, they must be recongnised as the same.
+        }
+
 
         [TestMethod]
         public void PropertiesToConsider_FullPropertyNames_EqualObjects()

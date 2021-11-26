@@ -18,8 +18,13 @@ namespace BH.Tests.Diffing.Revit
     public class IDiffingTests 
     {
         [TestMethod]
-        public void IDiffing_DiffOneByOne_RandomObjects_SameRevitParameters_IgnorePropertyDifferences_AllSeenEqual()
+        public void IDiffing_DiffOneByOne_RandomObjects_SameRevitParameters_ConsiderOnlyRevitParameters_AllSeenEqual()
         {
+            // Test that IDiffing() calls DiffOneByOne,
+            // and that the diffing result for some RandomObjects with an identical RevitParameter assigned
+            // where we consider only RevitParameters
+            // is that all objects are seen as equal.
+
             // Generate 10 random objects
             int numElements = 10;
             Type revitType = typeof(BH.oM.Adapters.Revit.Elements.ModelInstance);
@@ -36,6 +41,7 @@ namespace BH.Tests.Diffing.Revit
                 PropertiesToConsider = new List<string>() { "Only consider RevitParameter differences." } // an improbable "PropertyName" in PropertiesToConsider means we will ignore differences that are not in RevitParameters.
             };
 
+            // Despite the objects not having an identifier assigned, IDiffing will return a result by comparing each object one by one (it will call DiffOneByOne).
             Diff diff = BH.Engine.Diffing.Compute.IDiffing(pastObjects, followingObjs, dc);
 
             Assert.IsTrue(diff.AddedObjects.Count() == 0, "Incorrect number of object identified as new/ToBeCreated.");

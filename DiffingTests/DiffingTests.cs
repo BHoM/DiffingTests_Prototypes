@@ -47,8 +47,12 @@ namespace BH.Tests.Diffing
     public class DiffingTests
     {
         [TestMethod]
-        public void IDiffing_HashDiffing()
+        public void IDiffing_DiffWithHash()
         {
+            // Test that the IDiffing() calls the eneric diffing method `DiffWithHash()` when:
+            // - the input objects do not have any ID assigned;
+            // - the input lists have different length.
+
             DiffingConfig diffingConfig = new DiffingConfig();
 
             List<IBHoMObject> firstBatch = new List<IBHoMObject>();
@@ -67,11 +71,15 @@ namespace BH.Tests.Diffing
                 obj.Name = "bar_" + i.ToString();
                 secondBatch.Add(obj as dynamic);
             }
-            
-            // Add the first batch to the second. This means we will have more followingobjects than pastObjects.
+
+            // Add the first batch to the second.
+            // This means we will have more followingobjects than pastObjects.
             secondBatch.AddRange(firstBatch);
 
-            // This should internally trigger the method "DiffWithHash", which cannot return "modifiedObjects".
+            // Since:
+            // - the input objects do not have any ID assigned
+            // - the input lists have different length
+            // the IDiffing will trigger the most generic diffing method, "DiffWithHash". This method cannot recognize modified objects, so "modifiedObjects" must be null.
             Diff diff = BH.Engine.Diffing.Compute.IDiffing(firstBatch, secondBatch, diffingConfig);
 
             Assert.IsTrue(diff.AddedObjects.Count() == 3, "Incorrect number of object identified as new/Added.");
@@ -84,8 +92,9 @@ namespace BH.Tests.Diffing
         [TestMethod]
         public void DiffWithFragmentId_allModifiedObjects()
         {
-            DiffingConfig DiffingConfig = new DiffingConfig();
+            // Test that the `DiffWithFragmentId()` correctly identifies two sets of different objects with the same ID as modified.
 
+            // Generate some randomObjects and assign the same ID fragment, with a progressive ID, to first/second batch.
             List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), 3, true, true);
             List<IBHoMObject> secondBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), 3, true, true);
 
@@ -94,8 +103,6 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(diff.AddedObjects.Count() == 0, "Incorrect number of object identified as new/ToBeCreated.");
             Assert.IsTrue(diff.ModifiedObjects.Count() == 3, "Incorrect number of object identified as modified/ToBeUpdated.");
             Assert.IsTrue(diff.RemovedObjects.Count() == 0, "Incorrect number of object identified as old/ToBeDeleted.");
-            //var modifiedPropsPerObj = diff.ModifiedPropsPerObject?.FirstOrDefault().Value;
-            //Assert.IsTrue(modifiedPropsPerObj == null, "Incorrect number of changed properties identified by the property-level diffing.");
         }
 
         [TestMethod]
@@ -236,31 +243,62 @@ namespace BH.Tests.Diffing
         [TestMethod]
         public void ObjectDifferences_PropertiesToInclude_PartialName_Equal()
         {
-            Bar bar1 = new Bar()
+            TestObject object1 = new TestObject()
             {
-                StartNode = new Node()
+                Location = new TestLocation()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 10 },
-                    Name = "startNode1"
+                    Position = new Point() { X = 0, Y = 0, Z = 0 },
+                    Name = "someLocation"
                 },
-                Name = "bar1"
+                Name = "object1"
             };
 
-            Bar bar2 = new Bar()
+            TestObject object2 = new TestObject()
             {
-                StartNode = new Node()
+                Location = new TestLocation()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
-                    Name = bar1.StartNode.Name  // SAME `Bar.StartNode.Name`
+                    Position = ((TestLocation)object1.Location).Position, // SAME `object2.Location.Position.Z`
+                    Name = "someLocation" // DIFFERENT `object2.Location.Name`
                 },
-                Name = "bar2" // Different `Bar.Name`
+                Name = "object2" // DIFFERENT `object2.Name`
             };
 
-            // Consider ONLY differences in terms of `BH.oM.Structure.Elements.Bar.StartNode.Name`. We should not find any.
-            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "StartNode.Name" } }; // using "partial property path", instead of fully specifying `BH.oM.Structure.Elements.Bar.StartNode.Name`
-            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
+            // Consider ONLY differences in terms of `Location.Position`. We should not find any.
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "Location.Position" } }; // using "partial property path"
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(object1, object2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, "No difference should have been found.");
+        }
+
+        [TestMethod]
+        public void ObjectDifferences_PropertiesToInclude_PartialName_Different()
+        {
+            TestObject object1 = new TestObject()
+            {
+                Location = new TestLocation()
+                {
+                    Position = new Point() { X = 10, Y = 10, Z = 10 },
+                    Name = "someLocation1"
+                },
+                Name = "object1"
+            };
+
+            TestObject object2 = new TestObject()
+            {
+                Location = new TestLocation()
+                {
+                    Position = new Point() { X = 99, Y = 99, Z = 99 }, // Different `object2.Location`
+                    Name = "someLocation2" // Different `object2.Location.Name`
+                },
+                Name = "object2" // Different `object2.Name`
+            };
+
+            // Consider ONLY differences in terms of `Location.Position`
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "Location.Position" } }; // using "partial property path"
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(object1, object2, cc);
+
+            Assert.IsTrue(objectDifferences.Differences.Where(d => d.DisplayName.Contains("Location.Position")).Count() == 3, "3 differences in terms of Location.Position should have been found.");
+            Assert.IsTrue(objectDifferences.Differences.Count() == 3, "3 differences should have been found in total.");
         }
 
         [TestMethod]
@@ -447,7 +485,7 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig()
             {
                 SignificantFigures = 3,
-                PropertySignificantFigures = new HashSet<NamedSignificantFigures>() { new NamedSignificantFigures() { Name = "*.X" , SignificantFigures = 1} }
+                PropertySignificantFigures = new HashSet<NamedSignificantFigures>() { new NamedSignificantFigures() { Name = "*.X", SignificantFigures = 1 } }
             };
 
             // Create one node.
@@ -505,6 +543,38 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(diff.RemovedObjects.Count() == 0, "Incorrect number of object identified as old/ToBeDeleted.");
             var objectDifferences = diff.ModifiedObjectsDifferences?.FirstOrDefault();
             Assert.IsTrue(objectDifferences?.Differences?.Count() > 0, "Incorrect number of changed properties identified by the property-level diffing.");
+        }
+
+        [TestMethod]
+        public void ObjectDifferences_CustomObject()
+        {
+            CustomObject customObj_past = BH.Engine.Diffing.Tests.Create.CustomObject(new Property("Property1", 0));
+            CustomObject customObj_following = BH.Engine.Diffing.Tests.Create.CustomObject(new Property("Property1", 99));
+
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(customObj_past, customObj_following);
+
+            Assert.IsTrue(objectDifferences.Differences.Count() == 1);
+            Assert.IsTrue(objectDifferences.Differences[0].DisplayName == "Property1");
+            Assert.IsTrue(objectDifferences.Differences[0].FullName == "BH.oM.Base.CustomObject.CustomData[Property1]");
+            Assert.IsTrue(objectDifferences.Differences[0].PastValue.Equals(0));
+            Assert.IsTrue(objectDifferences.Differences[0].FollowingValue.Equals(99));
+        }
+
+        [TestMethod]
+        public void ObjectDifferences_CustomData()
+        {
+            TestObject customObj_past = new TestObject();
+            customObj_past.CustomData["CustomDataKey1"] = 0;
+            TestObject customObj_following = new TestObject();
+            customObj_following.CustomData["CustomDataKey1"] = 99;
+
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(customObj_past, customObj_following);
+
+            Assert.IsTrue(objectDifferences.Differences.Count() == 1);
+            Assert.IsTrue(objectDifferences.Differences[0].DisplayName == "CustomDataKey1 (CustomData)");
+            Assert.IsTrue(objectDifferences.Differences[0].FullName == "BH.oM.Diffing.Test.TestObject.CustomData[CustomDataKey1]");
+            Assert.IsTrue(objectDifferences.Differences[0].PastValue.Equals(0));
+            Assert.IsTrue(objectDifferences.Differences[0].FollowingValue.Equals(99));
         }
     }
 }
