@@ -10,14 +10,11 @@ using System.Threading.Tasks;
 
 namespace BH.oM.Diffing.Test
 {
-    public class TestObject : BHoMObject
+    public enum TestEnum
     {
-        public IElement0D Location { get; set; }
-        public TestEnum SomeEnum { get; set; }
-    }
-
-    public class TestLocation : BHoMObject, IElement0D
-    {
-        public Point Position { get; set; }
+        Undefined,
+        TestValue1,
+        TestValue2,
+        TestValueNumbered = 999
     }
 }

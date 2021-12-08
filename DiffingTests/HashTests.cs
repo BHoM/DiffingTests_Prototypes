@@ -54,23 +54,53 @@ namespace BH.Tests.Diffing
         [TestMethod]
         public void EqualObjects_EqualHash()
         {
-            // Create one bar
-            Node startNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-            Node endNode = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 1 });
-            Bar bar = BH.Engine.Structure.Create.Bar(startNode, endNode);
-            bar.Name = "bar";
+            // Create one random object
+            TestObject testObject1 = BH.Engine.Diffing.Tests.Create.RandomObject<TestObject>();
 
-            // Create another bar identical to the first
-            Node startNode2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 0 });
-            Node endNode2 = BH.Engine.Structure.Create.Node(new Point() { X = 0, Y = 0, Z = 1 });
-            Bar bar2 = BH.Engine.Structure.Create.Bar(startNode, endNode);
-            bar2.Name = "bar";
+            // Create another object identical to the first
+            TestObject testObject2 = testObject1.DeepClone();
 
-            // The only difference between the two object will be the BHoM_Guid, which must always be skipped by the Hash.
-            string hash1 = bar.Hash();
-            string hash2 = bar2.Hash();
+            string hash1 = testObject1.Hash();
+            string hash2 = testObject2.Hash();
             Assert.IsTrue(hash1 == hash2, "Two equal objects must have the same hash.");
         }
+
+        [TestMethod]
+        public void EqualObjects_EqualHash_RandomComparisonConfig()
+        {
+            // Create one random object
+            TestObject testObject1 = BH.Engine.Diffing.Tests.Create.RandomObject<TestObject>();
+
+            // Create another object identical to the first
+            TestObject testObject2 = testObject1.DeepClone();
+
+            // Create a random comparisonConfig
+            ComparisonConfig cc = BH.Engine.Diffing.Tests.Create.RandomObject<ComparisonConfig>();
+            cc.PropertiesToConsider = null;
+            cc.TypeExceptions = null;
+
+            string hash1 = testObject1.Hash(cc);
+            string hash2 = testObject2.Hash(cc);
+            Assert.IsTrue(hash1 == hash2, "Two equal objects must have the same hash.");
+        }
+
+        [TestMethod]
+        public void DifferentObjects_DifferentEnums_DifferentHash()
+        {
+            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 3 };
+
+            // Create one random object. This object has an Enum property which is left "undefined".
+            TestObject testObject1 = new TestObject();
+
+            // Create another object identical to the first, but where I assign the enum property.
+            TestObject testObject2 = new TestObject();
+            testObject2.SomeEnum = TestEnum.TestValue2;
+
+            string hash1 = testObject1.Hash(cc);
+            string hash2 = testObject2.Hash(cc);
+            Assert.IsTrue(hash1 != hash2, "Two objects with different enum assigned must have different hash.");
+        }
+
 
         [TestMethod]
         public void HashComparer_AssignHashToFragments()

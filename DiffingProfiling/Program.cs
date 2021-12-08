@@ -37,7 +37,14 @@ namespace BH.Tests.Diffing
             /// Performance profiling.
             /// ***************************************************************************/
 
-            Profiling.Diffing_GeneralProfiling();
+            try
+            {
+                Profiling.Diffing_GeneralProfiling();
+            } 
+            catch (Exception e)
+            {
+                Console.WriteLine($"\n\t\tERROR:\n\t\t{e.ToString()}");
+            }
 
             Console.WriteLine("\n/******************************************************/");
             Console.WriteLine("Press `Enter` to repeat all / any other key to close.");
