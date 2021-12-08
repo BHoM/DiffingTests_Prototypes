@@ -150,7 +150,7 @@ namespace BH.Tests.Diffing
                 Console.WriteLine($"\tTotal elapsed milliseconds: {totalSw.ElapsedMilliseconds + totElapsMs}");
                 totalSw.Reset();
 
-                Debug.Assert(delta.Diff.ModifiedObjects.Count() == numberModified, "Diffing didn't work.");
+                if (delta.Diff.ModifiedObjects.Count() == numberModified) Console.WriteLine("\n\n\t\t\tERROR: Diffing didn't work\n.");
 
                 //if (path != null)
                 //{
