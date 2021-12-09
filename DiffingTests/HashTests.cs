@@ -169,11 +169,11 @@ namespace BH.Tests.Diffing
             node2.CustomData.Add("Zurli", 0); // different value
 
             // Set CustomdataKeysToInclude to consider only changes in the CustomData that remained the same.
-            ComparisonConfig cc = new ComparisonConfig() { CustomdataKeysToInclude = { "Gnappi" } };
+            ComparisonConfig cc = new ComparisonConfig() { CustomdataKeysToConsider = { "Gnappi" } };
             Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc), "The two objects should have been seen as equal, despite differences in some of their CustomData.");
 
             // Set CustomdataKeysToInclude to consider only changes in the CustomData that changed.
-            cc = new ComparisonConfig() { CustomdataKeysToInclude = { "Zurli" } };
+            cc = new ComparisonConfig() { CustomdataKeysToConsider = { "Zurli" } };
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc), "By considering a specific CustomData that was different between two objects, the two objects should have been seen as different.");
 
         }
