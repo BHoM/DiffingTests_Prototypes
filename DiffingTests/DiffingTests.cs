@@ -211,7 +211,22 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void ObjectDifferences_PropertiesToInclude_FullName_Equal()
+        public void ObjectDifferences_PropertiesToConsider_NonExistingPropertyToConsider_Equal()
+        {
+            Bar bar1 = Engine.Diffing.Tests.Create.RandomObject<Bar>();
+            Bar bar2 = Engine.Diffing.Tests.Create.RandomObject<Bar>();
+
+            ComparisonConfig cc = new ComparisonConfig() { 
+                PropertiesToConsider = new List<string>() { "SomeRandomNotExistingPropertyName" } 
+            };
+
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
+
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, "Objects should be seen as equal.");
+        }
+
+        [TestMethod]
+        public void ObjectDifferences_PropertiesToConsider_FullName_Equal()
         {
             Bar bar1 = new Bar()
             {
@@ -241,7 +256,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void ObjectDifferences_PropertiesToInclude_PartialName_Equal()
+        public void ObjectDifferences_PropertiesToConsider_PartialName_Equal()
         {
             TestObject object1 = new TestObject()
             {
@@ -271,7 +286,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void ObjectDifferences_PropertiesToInclude_PartialName_Different()
+        public void ObjectDifferences_PropertiesToConsider_PartialName_Different()
         {
             TestObject object1 = new TestObject()
             {
@@ -302,7 +317,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void ObjectDifferences_PropertiesToInclude_WildCardPrefix_Equal()
+        public void ObjectDifferences_PropertiesToConsider_WildCardPrefix_Equal()
         {
             Bar bar1 = new Bar()
             {
@@ -338,7 +353,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
-        public void ObjectDifferences_PropertiesToInclude_WildCardMiddle_Equal()
+        public void ObjectDifferences_PropertiesToConsider_WildCardMiddle_Equal()
         {
             Bar bar1 = new Bar()
             {

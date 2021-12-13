@@ -334,6 +334,20 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(node1.Hash(cc) == node3.Hash(cc), "Objects must be recognised as the same via their hash."); // although the name is different, they must be recongnised as the same.
         }
 
+        [TestMethod]
+        public void PropertiesToConsider_NonExistingPropertyToConsider_Equal()
+        {
+            Bar bar1 = Engine.Diffing.Tests.Create.RandomObject<Bar>();
+            Bar bar2 = Engine.Diffing.Tests.Create.RandomObject<Bar>();
+
+            ComparisonConfig cc = new ComparisonConfig()
+            {
+                PropertiesToConsider = new List<string>() { "SomeRandomNotExistingPropertyName" }
+            };
+
+            Assert.IsTrue(bar1.Hash(cc) == bar2.Hash(cc), "Objects should be seen as equal.");
+        }
+
 
         [TestMethod]
         public void PropertiesToConsider_FullPropertyNames_EqualObjects()
