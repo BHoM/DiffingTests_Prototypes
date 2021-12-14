@@ -101,7 +101,6 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(hash1 != hash2, "Two objects with different enum assigned must have different hash.");
         }
 
-
         [TestMethod]
         public void HashComparer_AssignHashToFragments()
         {

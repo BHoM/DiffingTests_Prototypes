@@ -35,6 +35,9 @@ namespace BH.Engine.Diffing.Tests
     {
         public static T RandomObject<T>() where T : IObject
         {
+            if (typeof(T).IsInterface)
+                return default(T);
+
             return (T)BH.Engine.Base.Create.RandomObject(typeof(T));
         }
     }
