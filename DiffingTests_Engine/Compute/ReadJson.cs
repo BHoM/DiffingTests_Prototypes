@@ -45,7 +45,7 @@ namespace BH.Engine.Diffing.Tests
             }
             catch (Exception e)
             {
-                BH.Engine.Reflection.Compute.RecordError($"Error deserialising or reading from disk:\n\t{e.Message}");
+                BH.Engine.Base.Compute.RecordError($"Error deserialising or reading from disk:\n\t{e.Message}");
                 return null;
             }
         }

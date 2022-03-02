@@ -55,7 +55,7 @@ namespace BH.Engine.Diffing.Tests
             }
             catch (Exception e)
             {
-                BH.Engine.Reflection.Compute.RecordError($"Error serialising or writing to disk:\n\t{e.Message}");
+                BH.Engine.Base.Compute.RecordError($"Error serialising or writing to disk:\n\t{e.Message}");
                 return false;
             }
 

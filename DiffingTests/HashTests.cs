@@ -39,7 +39,6 @@ using System.IO;
 using Newtonsoft.Json;
 using BH.oM.Dimensional;
 using BH.Engine.Base.Objects;
-using BH.oM.Reflection.Attributes;
 using BH.Engine.Diffing.Tests;
 using System.Security.AccessControl;
 using System.Security.Principal;

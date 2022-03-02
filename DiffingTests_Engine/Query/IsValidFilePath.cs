@@ -53,7 +53,7 @@ namespace BH.Engine.Diffing.Tests
             }
             catch
             {
-                BH.Engine.Reflection.Compute.RecordError("Invalid File path.");
+                BH.Engine.Base.Compute.RecordError("Invalid File path.");
                 return false;
             }
         }
