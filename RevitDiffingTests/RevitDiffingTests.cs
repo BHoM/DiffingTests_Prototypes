@@ -115,9 +115,38 @@ namespace BH.Tests.Diffing.Revit
             };
 
             Diff diff = BH.Engine.Diffing.Compute.IDiffing(pastObjects, followingObjects, dc);
-
         }
 
+        [TestMethod]
+        public void RevitPulledParameters_Wall()
+        {
+            // Test that different objects with the same RevitParameter all get a different Hash.
+            string filePath_pastObjects = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\RevitPulledParams_modifiedWall_past.json"));
+            string filePath_followingObjects = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\RevitPulledParams_modifiedWall_following.json"));
+
+            Assert.IsTrue(filePath_pastObjects.IsValidFilePath(), $"Check that the filepath for the serialised object is valid and that the file can be found on disk: {filePath_pastObjects}.");
+            Assert.IsTrue(filePath_followingObjects.IsValidFilePath(), $"Check that the filepath for the serialised object is valid and that the file can be found on disk: {filePath_followingObjects}.");
+
+            // Set newtonsoft serialization settings to handle automatically any type.
+            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
+
+            BH.oM.Physical.Elements.Wall wall_past;
+            BH.oM.Physical.Elements.Wall wall_following;
+
+            using (StreamReader file = File.OpenText(filePath_pastObjects))
+                wall_past = JsonConvert.DeserializeObject<BH.oM.Physical.Elements.Wall>(file.ReadToEnd(), settings);
+
+            using (StreamReader file = File.OpenText(filePath_followingObjects))
+                wall_following = JsonConvert.DeserializeObject<BH.oM.Physical.Elements.Wall>(file.ReadToEnd(), settings);
+
+            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, new List<string>(), new List<string>());
+
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.ToList()[0].Differences[0].DisplayName == "Enable Analytical Model (RevitPulledParameter)");
+            Assert.IsTrue((diff.ModifiedObjectsDifferences.ToList()[0].Differences[0].PastValue as bool? ?? false) == false);
+            Assert.IsTrue((diff.ModifiedObjectsDifferences.ToList()[0].Differences[0].FollowingValue as bool? ?? false) == true);
+        }
     }
 }
+
+
 
