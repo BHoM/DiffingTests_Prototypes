@@ -42,6 +42,7 @@ using BH.oM.Adapters.Revit.Elements;
 namespace BH.Tests.Diffing.Revit
 {
     [TestClass]
+    [System.Runtime.InteropServices.Guid("43440C9F-5000-4FB2-8858-DD50F1BA9FAF")]
     public class RevitDiffing
     {
         [TestMethod]
@@ -87,26 +88,10 @@ namespace BH.Tests.Diffing.Revit
         }
 
         [TestMethod]
-        public void SerialisedRevitObjects()
+        public void SerialisedRevitObjects_ParametersSubset()
         {
-            // Test that different objects with the same RevitParameter all get a different Hash.
-            string filePath_pastObjects = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\210917_Tower1_MechanicalEquipment_past.json"));
-            string filePath_followingObjects = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\210917_Tower1_MechanicalEquipment_following.json"));
-
-            Assert.IsTrue(filePath_pastObjects.IsValidFilePath(), $"Check that the filepath for the serialised object is valid and that the file can be found on disk: {filePath_pastObjects}.");
-            Assert.IsTrue(filePath_followingObjects.IsValidFilePath(), $"Check that the filepath for the serialised object is valid and that the file can be found on disk: {filePath_followingObjects}.");
-
-            // Set newtonsoft serialization settings to handle automatically any type.
-            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
-
-            List<ModelInstance> pastObjects;
-            List<ModelInstance> followingObjects;
-
-            using (StreamReader file = File.OpenText(filePath_pastObjects))
-                pastObjects = JsonConvert.DeserializeObject<List<ModelInstance>>(file.ReadToEnd(), settings);
-
-            using (StreamReader file = File.OpenText(filePath_followingObjects))
-                followingObjects = JsonConvert.DeserializeObject<List<ModelInstance>>(file.ReadToEnd(), settings);
+            List<ModelInstance> pastObjects = GetSerialisedObject<List<ModelInstance>>("210917_Tower1_MechanicalEquipment_past.json");
+            List<ModelInstance> followingObjects = GetSerialisedObject<List<ModelInstance>>("210917_Tower1_MechanicalEquipment_following.json"); ;
 
             DiffingConfig dc = new DiffingConfig();
             dc.ComparisonConfig = new RevitComparisonConfig()
@@ -114,36 +99,148 @@ namespace BH.Tests.Diffing.Revit
                 ParametersToConsider = new List<string>() { "Dim Operating Weight", "ID Location" }
             };
 
-            Diff diff = BH.Engine.Diffing.Compute.IDiffing(pastObjects, followingObjects, dc);
+            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjects, followingObjects, "UniqueId", dc);
+
+            Assert.IsTrue(diff != null);
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.Count() == 21);
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.ToList()[20].Differences.Count == 4);
+        }
+
+        [TestMethod]
+        public void SerialisedRevitObjects_NoOptions()
+        {
+            List<ModelInstance> pastObjects = GetSerialisedObject<List<ModelInstance>>("210917_Tower1_MechanicalEquipment_past.json");
+            List<ModelInstance> followingObjects = GetSerialisedObject<List<ModelInstance>>("210917_Tower1_MechanicalEquipment_following.json"); ;
+
+            RevitComparisonConfig rcc = null;
+            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjects, followingObjects, "UniqueId", rcc);
+
+            Assert.IsTrue(diff != null);
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.Count() == 200);
+            int totalDifferences = diff.ModifiedObjectsDifferences.ToList().SelectMany(d => d.Differences).Count();
+            Assert.IsTrue(totalDifferences == 21128);
+        }
+
+        [TestMethod]
+        public void RevitPulledParameters_Wall_NotConsiderDeletedAddedParameters()
+        {
+            BH.oM.Physical.Elements.Wall wall_past = GetSerialisedObject<BH.oM.Physical.Elements.Wall>("RevitPulledParams_modifiedWall_past.json");
+            BH.oM.Physical.Elements.Wall wall_following = GetSerialisedObject<BH.oM.Physical.Elements.Wall>("RevitPulledParams_modifiedWall_following.json"); ;
+
+            RevitComparisonConfig rcc = new RevitComparisonConfig();
+            Diff diff = null;
+            int totalDifferences = -1;
+
+            rcc.ConsiderAddedParameters = false;
+            rcc.ConsiderDeletedParameters = false;
+            diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, "UniqueId", rcc);
+            Assert.IsTrue(diff != null);
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.Count() == 1);
+            totalDifferences = diff.ModifiedObjectsDifferences.ToList().SelectMany(d => d.Differences).Count();
+            Assert.IsTrue(totalDifferences == 30);
+
+            rcc.ConsiderAddedParameters = true;
+            rcc.ConsiderDeletedParameters = false;
+            diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, "UniqueId", rcc);
+            Assert.IsTrue(diff != null);
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.Count() == 1);
+            totalDifferences = diff.ModifiedObjectsDifferences.ToList().SelectMany(d => d.Differences).Count();
+            Assert.IsTrue(totalDifferences == 40);
+                
+            rcc.ConsiderAddedParameters = false;
+            rcc.ConsiderDeletedParameters = true;
+            diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, "UniqueId", rcc);
+            Assert.IsTrue(diff != null);
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.Count() == 1);
+            totalDifferences = diff.ModifiedObjectsDifferences.ToList().SelectMany(d => d.Differences).Count();
+            Assert.IsTrue(totalDifferences == 34);
+        }
+
+        [TestMethod]
+        public void RevitPulledParameters_Wall_UnassignedParameters()
+        {
+            BH.oM.Physical.Elements.Wall wall_past = GetSerialisedObject<BH.oM.Physical.Elements.Wall>("RevitPulledParams_modifiedWall_past.json");
+            BH.oM.Physical.Elements.Wall wall_following = GetSerialisedObject<BH.oM.Physical.Elements.Wall>("RevitPulledParams_modifiedWall_following.json"); ;
+
+            RevitComparisonConfig rcc = new RevitComparisonConfig();
+            Diff diff = null;
+            int totalDifferences = -1;
+            
+            rcc.ConsiderUnassignedParameters = false;
+
+            rcc.ConsiderAddedParameters = false;
+            rcc.ConsiderDeletedParameters = false;
+            diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, "UniqueId", rcc);
+            Assert.IsTrue(diff != null);
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.Count() == 1);
+            totalDifferences = diff.ModifiedObjectsDifferences.ToList().SelectMany(d => d.Differences).Count();
+            Assert.IsTrue(totalDifferences == 30);
+
+            rcc.ConsiderAddedParameters = true;
+            rcc.ConsiderDeletedParameters = false;
+            diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, "UniqueId", rcc);
+            Assert.IsTrue(diff != null);
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.Count() == 1);
+            totalDifferences = diff.ModifiedObjectsDifferences.ToList().SelectMany(d => d.Differences).Count();
+            Assert.IsTrue(totalDifferences == 38);
+
+            rcc.ConsiderAddedParameters = false;
+            rcc.ConsiderDeletedParameters = true;
+            diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, "UniqueId", rcc);
+            Assert.IsTrue(diff != null);
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.Count() == 1);
+            totalDifferences = diff.ModifiedObjectsDifferences.ToList().SelectMany(d => d.Differences).Count();
+            Assert.IsTrue(totalDifferences == 32);
         }
 
         [TestMethod]
         public void RevitPulledParameters_Wall()
         {
-            // Test that different objects with the same RevitParameter all get a different Hash.
-            string filePath_pastObjects = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\RevitPulledParams_modifiedWall_past.json"));
-            string filePath_followingObjects = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\RevitPulledParams_modifiedWall_following.json"));
+            BH.oM.Physical.Elements.Wall wall_past = GetSerialisedObject<BH.oM.Physical.Elements.Wall>("RevitPulledParams_modifiedWall_past.json");
+            BH.oM.Physical.Elements.Wall wall_following = GetSerialisedObject<BH.oM.Physical.Elements.Wall>("RevitPulledParams_modifiedWall_following.json"); ;
 
-            Assert.IsTrue(filePath_pastObjects.IsValidFilePath(), $"Check that the filepath for the serialised object is valid and that the file can be found on disk: {filePath_pastObjects}.");
-            Assert.IsTrue(filePath_followingObjects.IsValidFilePath(), $"Check that the filepath for the serialised object is valid and that the file can be found on disk: {filePath_followingObjects}.");
+            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, new List<string>(), new List<string>());
+
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.Count() == 1);
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.ToList()[0].Differences.Count() == 44);
+
+            Assert.IsTrue(diff.ModifiedObjectsDifferences.ToList()[0].Differences.First().DisplayName == "Enable Analytical Model (RevitParameter)");
+            Assert.IsTrue((diff.ModifiedObjectsDifferences.ToList()[0].Differences.First().PastValue as bool? ?? false) == false);
+            Assert.IsTrue((diff.ModifiedObjectsDifferences.ToList()[0].Differences.First().FollowingValue as bool? ?? false) == true);
+        }
+
+        private static T GetSerialisedObject<T>(string fileName = "RevitPulledParams_modifiedWall_past.json") where T : class
+        {
+            T result = null;
+
+            string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @$"..\..\..\..\Datasets\{fileName}"));
+            Assert.IsTrue(filePath.IsValidFilePath(), $"Check that the filepath for the serialised object is valid and that the file can be found on disk: {filePath}.");
 
             // Set newtonsoft serialization settings to handle automatically any type.
             JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
 
-            BH.oM.Physical.Elements.Wall wall_past;
-            BH.oM.Physical.Elements.Wall wall_following;
+            using (StreamReader file = File.OpenText(filePath))
+                result = JsonConvert.DeserializeObject<T>(file.ReadToEnd(), settings);
 
-            using (StreamReader file = File.OpenText(filePath_pastObjects))
-                wall_past = JsonConvert.DeserializeObject<BH.oM.Physical.Elements.Wall>(file.ReadToEnd(), settings);
+            return result;
+        }
 
-            using (StreamReader file = File.OpenText(filePath_followingObjects))
-                wall_following = JsonConvert.DeserializeObject<BH.oM.Physical.Elements.Wall>(file.ReadToEnd(), settings);
+        [TestMethod]
+        public void RevitDiffingNullChecks()
+        {
+            List<object> pastObjs = null;
+            List<object> follObjs = null;
+            List<string> propertiesToConsider = null;
+            List<string> parametersToConsider = null;
 
-            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, new List<string>(), new List<string>());
+            string id = null;
+            DiffingConfig dc = null;
+            RevitComparisonConfig cc = null;
 
-            Assert.IsTrue(diff.ModifiedObjectsDifferences.ToList()[0].Differences[0].DisplayName == "Enable Analytical Model (RevitPulledParameter)");
-            Assert.IsTrue((diff.ModifiedObjectsDifferences.ToList()[0].Differences[0].PastValue as bool? ?? false) == false);
-            Assert.IsTrue((diff.ModifiedObjectsDifferences.ToList()[0].Differences[0].FollowingValue as bool? ?? false) == true);
+            BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, id, dc);
+            BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, id, cc);
+            BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, parametersToConsider, false);
+            BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, propertiesToConsider, parametersToConsider);
         }
     }
 }

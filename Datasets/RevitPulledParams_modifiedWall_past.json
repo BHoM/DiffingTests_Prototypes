@@ -1,1 +1,492 @@
-{"Location":{"$type":"BH.oM.Geometry.PlanarSurface, Geometry_oM","ExternalBoundary":{"$type":"BH.oM.Geometry.PolyCurve, Geometry_oM","Curves":[{"$type":"BH.oM.Geometry.Line, Geometry_oM","Start":{"X":22.76726361711675,"Y":20.3134060214182,"Z":1.5000000000000002},"End":{"X":18.263931517437655,"Y":17.713406021418223,"Z":1.5000000000000002},"Infinite":false},{"$type":"BH.oM.Geometry.Line, Geometry_oM","Start":{"X":18.263931517437655,"Y":17.713406021418223,"Z":1.5000000000000002},"End":{"X":18.263931517437655,"Y":17.713406021418223,"Z":4.1000000000000005},"Infinite":false},{"$type":"BH.oM.Geometry.Line, Geometry_oM","Start":{"X":18.263931517437655,"Y":17.713406021418223,"Z":4.1000000000000005},"End":{"X":22.76726361711675,"Y":20.3134060214182,"Z":4.1000000000000005},"Infinite":false},{"$type":"BH.oM.Geometry.Line, Geometry_oM","Start":{"X":22.76726361711675,"Y":20.3134060214182,"Z":4.1000000000000005},"End":{"X":22.76726361711675,"Y":20.3134060214182,"Z":1.5000000000000002},"Infinite":false}]},"InternalBoundaries":null},"Construction":{"$type":"BH.oM.Physical.Constructions.Construction, Physical_oM","Layers":[{"Material":{"Properties":[{"$type":"BH.oM.Environment.MaterialFragments.SolidMaterial, Environment_oM","Density":0.0,"Conductivity":0.0,"SpecificHeat":0.0,"VapourResistivity":0.0,"Description":"","Roughness":0,"Refraction":0.0,"SolarReflectanceExternal":0.0,"SolarReflectanceInternal":0.0,"SolarTransmittance":0.0,"LightReflectanceExternal":0.0,"LightReflectanceInternal":0.0,"LightTransmittance":0.0,"EmissivityExternal":0.0,"EmissivityInternal":0.0,"Specularity":0.0,"TransmittedDiffusivity":0.0,"TransmittedSpecularity":0.0,"IgnoreInUValueCalculation":false,"BHoM_Guid":"8f47baf9-38b7-4786-8067-e8b14473da74","Name":"Concrete - Cast In Situ","Fragments":[],"Tags":[],"CustomData":{}},{"$type":"BH.oM.Structure.MaterialFragments.Concrete, Structure_oM","Name":"Concrete - Cast In Situ","Density":0.0,"DampingRatio":0.0,"PoissonsRatio":0.0,"ThermalExpansionCoeff":0.0,"YoungsModulus":0.0,"CylinderStrength":0.0,"CubeStrength":0.0,"BHoM_Guid":"b7daa8b3-29c9-4556-8782-d9df79c77147","Fragments":[],"Tags":[],"CustomData":{}}],"BHoM_Guid":"283aa726-f8b7-4723-9acf-fb0b2270d5ba","Name":"Concrete - Cast In Situ","Fragments":[{"$type":"BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM","PersistentId":"1551350c-45e5-41b8-bdf1-bcfa6794dc6a-000adc30","ElementId":711728,"CategoryName":"Materials","FamilyName":"","FamilyTypeName":"","FamilyTypeId":-1,"Workset":"Workset1","OwnerViewId":-1,"ParentElementId":-1,"LinkDocument":""},{"$type":"BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM","Parameters":{"$type":"System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib","$values":[{"Name":"Name","Value":"Concrete - Cast In Situ"},{"Name":"Mark","Value":""},{"Name":"Transparency","Value":0},{"Name":"Color","Value":null},{"Name":"URL","Value":""},{"Name":"Cost","Value":0.0},{"Name":"Manufacturer","Value":""},{"Name":"Recycled Content","Value":0.0},{"Name":"Keynote","Value":""},{"Name":"Smoothness","Value":50},{"Name":"Shininess","Value":128},{"Name":"Glow","Value":false},{"Name":"Description","Value":""},{"Name":"Image","Value":-1},{"Name":"Model","Value":""},{"Name":"Comments","Value":""}]},"BHoM_Guid":"b0147874-877a-4328-9977-188b3ca3d914","Name":"","Fragments":[],"Tags":[],"CustomData":{}}],"Tags":[],"CustomData":{}},"Thickness":0.30000000000000004,"BHoM_Guid":"77aafacc-1824-4557-8ec9-64adf530d432","Name":"","Fragments":[],"Tags":[],"CustomData":{}}],"BHoM_Guid":"08fd0919-f392-449f-8a41-068e143066d8","Name":"Basic Wall: Retaining - 300mm Concrete","Fragments":[{"$type":"BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM","PersistentId":"1551350c-45e5-41b8-bdf1-bcfa6794dc6a-000adce2","ElementId":711906,"CategoryName":"Walls","FamilyName":"Basic Wall","FamilyTypeName":"Retaining - 300mm Concrete","FamilyTypeId":711906,"Workset":"","OwnerViewId":-1,"ParentElementId":-1,"LinkDocument":""},{"$type":"BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM","Parameters":{"$type":"System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib","$values":[{"Name":"Type Mark","Value":null},{"Name":"Absorptance","Value":0.1},{"Name":"Coarse Scale Fill Pattern","Value":442},{"Name":"URL","Value":null},{"Name":"Structural Material","Value":711728},{"Name":"Cost","Value":0.0},{"Name":"Fire Rating","Value":null},{"Name":"Roughness","Value":1},{"Name":"Manufacturer","Value":null},{"Name":"Wrapping at Ends","Value":"None"},{"Name":"Keynote","Value":null},{"Name":"Wrapping at Inserts","Value":"Do not wrap"},{"Name":"Thermal Resistance (R)","Value":0.0},{"Name":"Assembly Description","Value":""},{"Name":"Heat Transfer Coefficient (U)","Value":0.0},{"Name":"Description","Value":null},{"Name":"Function","Value":"Retaining"},{"Name":"Type Image","Value":-1},{"Name":"Type Comments","Value":null},{"Name":"Assembly Code","Value":""},{"Name":"Width","Value":0.3},{"Name":"Structure","Value":null},{"Name":"Model","Value":null},{"Name":"Coarse Scale Fill Color","Value":null},{"Name":"Thermal mass","Value":0.0}]},"BHoM_Guid":"97db0068-e11d-4aef-bb42-a450cfc61381","Name":"","Fragments":[],"Tags":[],"CustomData":{}}],"Tags":[],"CustomData":{}},"Openings":[],"Offset":1,"BHoM_Guid":"8b4b8383-e4db-44ad-954e-9771f1297a13","Name":"Basic Wall: Retaining - 300mm Concrete","Fragments":[{"$type":"BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM","PersistentId":"a03add59-4d19-48e3-b25b-2f947f402211-000b648a","ElementId":746634,"CategoryName":"Walls","FamilyName":"Basic Wall","FamilyTypeName":"Retaining - 300mm Concrete","FamilyTypeId":711906,"Workset":"Workset1","OwnerViewId":-1,"ParentElementId":-1,"LinkDocument":""},{"$type":"BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM","Parameters":{"$type":"System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib","$values":[{"Name":"Top Offset","Value":0.0},{"Name":"Top is Attached","Value":false},{"Name":"Enable Analytical Model","Value":false},{"Name":"Mark","Value":null},{"Name":"Unconnected Height","Value":2.6000000000000005},{"Name":"Base Extension Distance","Value":0.0},{"Name":"Base Constraint","Value":245423},{"Name":"Room Bounding","Value":false},{"Name":"Length","Value":5.2000000000000028},{"Name":"Phase Created","Value":86961},{"Name":"Base is Attached","Value":false},{"Name":"Top Constraint","Value":-1},{"Name":"Volume","Value":3.8220000000000085},{"Name":"Related to Mass","Value":false},{"Name":"Top Extension Distance","Value":0.0},{"Name":"Structural","Value":false},{"Name":"Area","Value":13.415499814951872},{"Name":"Structural Usage","Value":"Non-bearing"},{"Name":"Base Offset","Value":-1.5000000000000002},{"Name":"Image","Value":-1},{"Name":"Location Line","Value":"Wall Centerline"},{"Name":"Comments","Value":null},{"Name":"Phase Demolished","Value":-1}]},"BHoM_Guid":"bf3618dc-f9e7-4e24-bfd4-178d1d7e6c85","Name":"","Fragments":[],"Tags":[],"CustomData":{}}],"Tags":[],"CustomData":{}}
+{
+    "Location": {
+        "$type": "BH.oM.Geometry.PlanarSurface, Geometry_oM",
+        "ExternalBoundary": {
+            "$type": "BH.oM.Geometry.PolyCurve, Geometry_oM",
+            "Curves": [
+                {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 22.76726361711675,
+                        "Y": 20.3134060214182,
+                        "Z": 1.5000000000000002
+                    },
+                    "End": {
+                        "X": 18.263931517437655,
+                        "Y": 17.713406021418223,
+                        "Z": 1.5000000000000002
+                    },
+                    "Infinite": false
+                },
+                {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 18.263931517437655,
+                        "Y": 17.713406021418223,
+                        "Z": 1.5000000000000002
+                    },
+                    "End": {
+                        "X": 18.263931517437655,
+                        "Y": 17.713406021418223,
+                        "Z": 4.1000000000000005
+                    },
+                    "Infinite": false
+                },
+                {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 18.263931517437655,
+                        "Y": 17.713406021418223,
+                        "Z": 4.1000000000000005
+                    },
+                    "End": {
+                        "X": 22.76726361711675,
+                        "Y": 20.3134060214182,
+                        "Z": 4.1000000000000005
+                    },
+                    "Infinite": false
+                },
+                {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 22.76726361711675,
+                        "Y": 20.3134060214182,
+                        "Z": 4.1000000000000005
+                    },
+                    "End": {
+                        "X": 22.76726361711675,
+                        "Y": 20.3134060214182,
+                        "Z": 1.5000000000000002
+                    },
+                    "Infinite": false
+                }
+            ]
+        },
+        "InternalBoundaries": null
+    },
+    "Construction": {
+        "$type": "BH.oM.Physical.Constructions.Construction, Physical_oM",
+        "Layers": [
+            {
+                "Material": {
+                    "Properties": [
+                        {
+                            "$type": "BH.oM.Environment.MaterialFragments.SolidMaterial, Environment_oM",
+                            "Density": 0.0,
+                            "Conductivity": 0.0,
+                            "SpecificHeat": 0.0,
+                            "VapourResistivity": 0.0,
+                            "Description": "",
+                            "Roughness": 0,
+                            "Refraction": 0.0,
+                            "SolarReflectanceExternal": 0.0,
+                            "SolarReflectanceInternal": 0.0,
+                            "SolarTransmittance": 0.0,
+                            "LightReflectanceExternal": 0.0,
+                            "LightReflectanceInternal": 0.0,
+                            "LightTransmittance": 0.0,
+                            "EmissivityExternal": 0.0,
+                            "EmissivityInternal": 0.0,
+                            "Specularity": 0.0,
+                            "TransmittedDiffusivity": 0.0,
+                            "TransmittedSpecularity": 0.0,
+                            "IgnoreInUValueCalculation": false,
+                            "BHoM_Guid": "8f47baf9-38b7-4786-8067-e8b14473da74",
+                            "Name": "Concrete - Cast In Situ",
+                            "Fragments": [],
+                            "Tags": [],
+                            "CustomData": {}
+                        },
+                        {
+                            "$type": "BH.oM.Structure.MaterialFragments.Concrete, Structure_oM",
+                            "Name": "Concrete - Cast In Situ",
+                            "Density": 0.0,
+                            "DampingRatio": 0.0,
+                            "PoissonsRatio": 0.0,
+                            "ThermalExpansionCoeff": 0.0,
+                            "YoungsModulus": 0.0,
+                            "CylinderStrength": 0.0,
+                            "CubeStrength": 0.0,
+                            "BHoM_Guid": "b7daa8b3-29c9-4556-8782-d9df79c77147",
+                            "Fragments": [],
+                            "Tags": [],
+                            "CustomData": {}
+                        }
+                    ],
+                    "BHoM_Guid": "283aa726-f8b7-4723-9acf-fb0b2270d5ba",
+                    "Name": "Concrete - Cast In Situ",
+                    "Fragments": [
+                        {
+                            "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+                            "PersistentId": "1551350c-45e5-41b8-bdf1-bcfa6794dc6a-000adc30",
+                            "ElementId": 711728,
+                            "CategoryName": "Materials",
+                            "FamilyName": "",
+                            "FamilyTypeName": "",
+                            "FamilyTypeId": -1,
+                            "Workset": "Workset1",
+                            "OwnerViewId": -1,
+                            "ParentElementId": -1,
+                            "LinkDocument": ""
+                        },
+                        {
+                            "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+                            "Parameters": {
+                                "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                                "$values": [
+                                    {
+                                        "Name": "NestedParameter in past object.",
+                                        "Value": "SomeNestedValue in parameter in past object."
+                                    },
+                                    {
+                                        "Name": "Name",
+                                        "Value": "Concrete - Cast In Situ"
+                                    },
+                                    {
+                                        "Name": "Mark",
+                                        "Value": ""
+                                    },
+                                    {
+                                        "Name": "Transparency",
+                                        "Value": 0
+                                    },
+                                    {
+                                        "Name": "Color",
+                                        "Value": null
+                                    },
+                                    {
+                                        "Name": "URL",
+                                        "Value": ""
+                                    },
+                                    {
+                                        "Name": "Cost",
+                                        "Value": 0.0
+                                    },
+                                    {
+                                        "Name": "Manufacturer",
+                                        "Value": ""
+                                    },
+                                    {
+                                        "Name": "Recycled Content",
+                                        "Value": 0.0
+                                    },
+                                    {
+                                        "Name": "Keynote",
+                                        "Value": ""
+                                    },
+                                    {
+                                        "Name": "Smoothness",
+                                        "Value": 50
+                                    },
+                                    {
+                                        "Name": "Shininess",
+                                        "Value": 128
+                                    },
+                                    {
+                                        "Name": "Glow",
+                                        "Value": false
+                                    },
+                                    {
+                                        "Name": "Description",
+                                        "Value": ""
+                                    },
+                                    {
+                                        "Name": "Image",
+                                        "Value": -1
+                                    },
+                                    {
+                                        "Name": "Model",
+                                        "Value": ""
+                                    },
+                                    {
+                                        "Name": "Comments",
+                                        "Value": ""
+                                    }
+                                ]
+                            },
+                            "BHoM_Guid": "b0147874-877a-4328-9977-188b3ca3d914",
+                            "Name": "",
+                            "Fragments": [],
+                            "Tags": [],
+                            "CustomData": {}
+                        }
+                    ],
+                    "Tags": [],
+                    "CustomData": {}
+                },
+                "Thickness": 0.30000000000000004,
+                "BHoM_Guid": "77aafacc-1824-4557-8ec9-64adf530d432",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            }
+        ],
+        "BHoM_Guid": "08fd0919-f392-449f-8a41-068e143066d8",
+        "Name": "Basic Wall: Retaining - 300mm Concrete",
+        "Fragments": [
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+                "PersistentId": "1551350c-45e5-41b8-bdf1-bcfa6794dc6a-000adce2",
+                "ElementId": 711906,
+                "CategoryName": "Walls",
+                "FamilyName": "Basic Wall",
+                "FamilyTypeName": "Retaining - 300mm Concrete",
+                "FamilyTypeId": 711906,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+                "Parameters": {
+                    "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                    "$values": [
+                        {
+                            "Name": "Type Mark",
+                            "Value": null
+                        },
+                        {
+                            "Name": "Absorptance",
+                            "Value": 0.1
+                        },
+                        {
+                            "Name": "Coarse Scale Fill Pattern",
+                            "Value": 442
+                        },
+                        {
+                            "Name": "URL",
+                            "Value": null
+                        },
+                        {
+                            "Name": "Structural Material",
+                            "Value": 711728
+                        },
+                        {
+                            "Name": "Cost",
+                            "Value": 0.0
+                        },
+                        {
+                            "Name": "Fire Rating",
+                            "Value": null
+                        },
+                        {
+                            "Name": "Roughness",
+                            "Value": 1
+                        },
+                        {
+                            "Name": "Manufacturer",
+                            "Value": null
+                        },
+                        {
+                            "Name": "Wrapping at Ends",
+                            "Value": "None"
+                        },
+                        {
+                            "Name": "Keynote",
+                            "Value": null
+                        },
+                        {
+                            "Name": "Wrapping at Inserts",
+                            "Value": "Do not wrap"
+                        },
+                        {
+                            "Name": "Thermal Resistance (R)",
+                            "Value": 0.0
+                        },
+                        {
+                            "Name": "Assembly Description",
+                            "Value": ""
+                        },
+                        {
+                            "Name": "Heat Transfer Coefficient (U)",
+                            "Value": 0.0
+                        },
+                        {
+                            "Name": "Description",
+                            "Value": null
+                        },
+                        {
+                            "Name": "Function",
+                            "Value": "Retaining"
+                        },
+                        {
+                            "Name": "Type Image",
+                            "Value": -1
+                        },
+                        {
+                            "Name": "Type Comments",
+                            "Value": null
+                        },
+                        {
+                            "Name": "Assembly Code",
+                            "Value": ""
+                        },
+                        {
+                            "Name": "Width",
+                            "Value": 0.3
+                        },
+                        {
+                            "Name": "Structure",
+                            "Value": null
+                        },
+                        {
+                            "Name": "Model",
+                            "Value": null
+                        },
+                        {
+                            "Name": "Coarse Scale Fill Color",
+                            "Value": null
+                        },
+                        {
+                            "Name": "Thermal mass",
+                            "Value": 0.0
+                        }
+                    ]
+                },
+                "BHoM_Guid": "97db0068-e11d-4aef-bb42-a450cfc61381",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            }
+        ],
+        "Tags": [],
+        "CustomData": {}
+    },
+    "Openings": [],
+    "Offset": 1,
+    "BHoM_Guid": "8b4b8383-e4db-44ad-954e-9771f1297a13",
+    "Name": "Basic Wall: Retaining - 300mm Concrete",
+    "Fragments": [
+        {
+            "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+            "PersistentId": "a03add59-4d19-48e3-b25b-2f947f402211-000b648a",
+            "ElementId": 746634,
+            "CategoryName": "Walls",
+            "FamilyName": "Basic Wall",
+            "FamilyTypeName": "Retaining - 300mm Concrete",
+            "FamilyTypeId": 711906,
+            "Workset": "Workset1",
+            "OwnerViewId": -1,
+            "ParentElementId": -1,
+            "LinkDocument": ""
+        },
+        {
+            "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+            "Parameters": {
+                "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                "$values": [
+                    {
+                        "Name": "Test parameter that will be deleted.",
+                        "Value": "SomeValue that will be deleted."
+                    },
+					{
+                        "Name": "Some Unassigned (null Value) parameter that will be deleted.",
+                        "Value": null
+                    },
+                    {
+                        "Name": "Top Offset",
+                        "Value": 0.0
+                    },
+                    {
+                        "Name": "Top is Attached",
+                        "Value": false
+                    },
+                    {
+                        "Name": "Enable Analytical Model",
+                        "Value": false
+                    },
+                    {
+                        "Name": "Mark",
+                        "Value": null
+                    },
+                    {
+                        "Name": "Unconnected Height",
+                        "Value": 2.6000000000000005
+                    },
+                    {
+                        "Name": "Base Extension Distance",
+                        "Value": 0.0
+                    },
+                    {
+                        "Name": "Base Constraint",
+                        "Value": 245423
+                    },
+                    {
+                        "Name": "Room Bounding",
+                        "Value": false
+                    },
+                    {
+                        "Name": "Length",
+                        "Value": 5.2000000000000028
+                    },
+                    {
+                        "Name": "Phase Created",
+                        "Value": 86961
+                    },
+                    {
+                        "Name": "Base is Attached",
+                        "Value": false
+                    },
+                    {
+                        "Name": "Top Constraint",
+                        "Value": -1
+                    },
+                    {
+                        "Name": "Volume",
+                        "Value": 3.8220000000000085
+                    },
+                    {
+                        "Name": "Related to Mass",
+                        "Value": false
+                    },
+                    {
+                        "Name": "Top Extension Distance",
+                        "Value": 0.0
+                    },
+                    {
+                        "Name": "Structural",
+                        "Value": false
+                    },
+                    {
+                        "Name": "Area",
+                        "Value": 13.415499814951872
+                    },
+                    {
+                        "Name": "Structural Usage",
+                        "Value": "Non-bearing"
+                    },
+                    {
+                        "Name": "Base Offset",
+                        "Value": -1.5000000000000002
+                    },
+                    {
+                        "Name": "Image",
+                        "Value": -1
+                    },
+                    {
+                        "Name": "Location Line",
+                        "Value": "Wall Centerline"
+                    },
+                    {
+                        "Name": "Comments",
+                        "Value": null
+                    },
+                    {
+                        "Name": "Phase Demolished",
+                        "Value": -1
+                    }
+                ]
+            },
+            "BHoM_Guid": "bf3618dc-f9e7-4e24-bfd4-178d1d7e6c85",
+            "Name": "",
+            "Fragments": [],
+            "Tags": [],
+            "CustomData": {}
+        }
+    ],
+    "Tags": [],
+    "CustomData": {}
+}
