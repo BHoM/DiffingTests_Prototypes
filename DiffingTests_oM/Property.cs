@@ -25,7 +25,7 @@
 using BH.oM.Base;
 using System.Collections.Generic;
 
-namespace BH.oM.Diffing.Test
+namespace BH.oM.Diffing.Tests
 {
     public class Property : IObject, IImmutable
     {

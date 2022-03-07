@@ -27,6 +27,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using log = BH.oM.Diffing.Tests.Log;
 
 namespace BH.Engine.Diffing.Tests
 {
@@ -55,7 +56,7 @@ namespace BH.Engine.Diffing.Tests
             }
             catch (Exception e)
             {
-                BH.Engine.Base.Compute.RecordError($"Error serialising or writing to disk:\n\t{e.Message}");
+                log.RecordError($"Error serialising or writing to disk:\n\t{e.Message}");
                 return false;
             }
 

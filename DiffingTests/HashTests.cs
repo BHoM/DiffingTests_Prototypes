@@ -43,7 +43,7 @@ using BH.Engine.Diffing.Tests;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BH.oM.Diffing.Test;
+using BH.oM.Diffing.Tests;
 
 namespace BH.Tests.Diffing
 {

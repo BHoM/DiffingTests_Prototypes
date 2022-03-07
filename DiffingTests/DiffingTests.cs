@@ -38,7 +38,7 @@ using BH.Engine.Base;
 using System.IO;
 using Newtonsoft.Json;
 using BH.Engine.Diffing.Tests;
-using BH.oM.Diffing.Test;
+using BH.oM.Diffing.Tests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BH.Tests.Diffing
@@ -153,19 +153,19 @@ namespace BH.Tests.Diffing
 
             var differences_BarStartNodePositionZ = objectDifferences.Differences.Where(d => d.FullName == "BH.oM.Structure.Elements.Bar.StartNode.Position.Z");
             Assert.IsTrue(differences_BarStartNodePositionZ.Count() == 1);
-            Assert.IsTrue(differences_BarStartNodePositionZ.FirstOrDefault().DisplayName == "StartNode.Position.Z");
+            Assert.IsTrue(differences_BarStartNodePositionZ.FirstOrDefault().Name == "StartNode.Position.Z");
             Assert.IsTrue(differences_BarStartNodePositionZ.FirstOrDefault().PastValue as double? == 10);
             Assert.IsTrue(differences_BarStartNodePositionZ.FirstOrDefault().FollowingValue as double? == 99);
 
             var differences_BarStartNodeName = objectDifferences.Differences.Where(d => d.FullName == "BH.oM.Structure.Elements.Bar.StartNode.Name");
             Assert.IsTrue(differences_BarStartNodeName.Count() == 1);
-            Assert.IsTrue(differences_BarStartNodeName.FirstOrDefault().DisplayName == "StartNode.Name");
+            Assert.IsTrue(differences_BarStartNodeName.FirstOrDefault().Name == "StartNode.Name");
             Assert.IsTrue(differences_BarStartNodeName.FirstOrDefault().PastValue as string == "startNode1");
             Assert.IsTrue(differences_BarStartNodeName.FirstOrDefault().FollowingValue as string == "startNode2");
 
             var differences_BarName = objectDifferences.Differences.Where(d => d.FullName == "BH.oM.Structure.Elements.Bar.Name");
             Assert.IsTrue(differences_BarName.Count() == 1);
-            Assert.IsTrue(differences_BarName.FirstOrDefault().DisplayName == "Name");
+            Assert.IsTrue(differences_BarName.FirstOrDefault().Name == "Name");
             Assert.IsTrue(differences_BarName.FirstOrDefault().PastValue as string == "bar1");
             Assert.IsTrue(differences_BarName.FirstOrDefault().FollowingValue as string == "bar2");
         }
@@ -312,7 +312,7 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "Location.Position" } }; // using "partial property path"
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(object1, object2, cc);
 
-            Assert.IsTrue(objectDifferences.Differences.Where(d => d.DisplayName.Contains("Location.Position")).Count() == 3, "3 differences in terms of Location.Position should have been found.");
+            Assert.IsTrue(objectDifferences.Differences.Where(d => d.Name.Contains("Location.Position")).Count() == 3, "3 differences in terms of Location.Position should have been found.");
             Assert.IsTrue(objectDifferences.Differences.Count() == 3, "3 differences should have been found in total.");
         }
 
@@ -569,7 +569,7 @@ namespace BH.Tests.Diffing
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(customObj_past, customObj_following);
 
             Assert.IsTrue(objectDifferences.Differences.Count() == 1);
-            Assert.IsTrue(objectDifferences.Differences[0].DisplayName == "Property1");
+            Assert.IsTrue(objectDifferences.Differences[0].Name == "Property1");
             Assert.IsTrue(objectDifferences.Differences[0].FullName == "BH.oM.Base.CustomObject.CustomData[Property1]");
             Assert.IsTrue(objectDifferences.Differences[0].PastValue.Equals(0));
             Assert.IsTrue(objectDifferences.Differences[0].FollowingValue.Equals(99));
@@ -586,8 +586,8 @@ namespace BH.Tests.Diffing
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(customObj_past, customObj_following);
 
             Assert.IsTrue(objectDifferences.Differences.Count() == 1);
-            Assert.IsTrue(objectDifferences.Differences[0].DisplayName == "CustomDataKey1 (CustomData)");
-            Assert.IsTrue(objectDifferences.Differences[0].FullName == "BH.oM.Diffing.Test.TestObject.CustomData[CustomDataKey1]");
+            Assert.IsTrue(objectDifferences.Differences[0].Name == "CustomDataKey1 (CustomData)");
+            Assert.IsTrue(objectDifferences.Differences[0].FullName == "BH.oM.Diffing.Tests.TestObject.CustomData[CustomDataKey1]");
             Assert.IsTrue(objectDifferences.Differences[0].PastValue.Equals(0));
             Assert.IsTrue(objectDifferences.Differences[0].FollowingValue.Equals(99));
         }

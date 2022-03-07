@@ -20,11 +20,14 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Diffing.Tests;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,22 +35,37 @@ namespace BH.Engine.Diffing.Tests
 {
     public static partial class Compute
     {
-        public static object ReadJson(string filePath)
+        public static List<object> DeserialiseFromJsonFile(string fileName, string directory)
         {
-            if (!filePath.IsValidFilePath())
-                return false;
+            object res = DeserialiseFromJsonFile<object>(fileName, directory);
+            IEnumerable resList = res as IEnumerable;
+
+            if (resList != null)
+                return resList.Cast<object>().ToList();
+
+            return new List<object>() { res };
+        }
+
+        public static T DeserialiseFromJsonFile<T>(string fileName, string directory) where T : class
+        {
+            T result = null;
+
+            string filePath = Path.GetFullPath(Path.Combine(directory, fileName));
 
             try
             {
+                // Set newtonsoft serialization settings to handle automatically any type.
                 JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
+
                 using (StreamReader file = File.OpenText(filePath))
-                    return JsonConvert.DeserializeObject(file.ReadToEnd(), settings);
+                    result = JsonConvert.DeserializeObject<T>(file.ReadToEnd(), settings);
             }
-            catch (Exception e)
+            catch(Exception e)
             {
-                BH.Engine.Base.Compute.RecordError($"Error deserialising or reading from disk:\n\t{e.Message}");
-                return null;
+                Log.RecordError($"Error deserialising or reading from disk:\n\t{e.Message}");
             }
+
+            return result;
         }
     }
 }

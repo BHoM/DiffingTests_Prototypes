@@ -23,7 +23,7 @@
 using BH.oM.Base;
 using System;
 
-namespace BH.oM.Diffing.Test
+namespace BH.oM.Diffing.Tests
 {
     public class RandomNumberFragment : IFragment
     {

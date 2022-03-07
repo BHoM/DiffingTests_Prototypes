@@ -22,7 +22,7 @@
 
 using BH.Engine.Base;
 using BH.oM.Base;
-using BH.oM.Diffing.Test;
+using BH.oM.Diffing.Tests;
 using System;
 using System.Collections.Generic;
 using System.Linq;

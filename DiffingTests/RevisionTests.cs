@@ -219,7 +219,7 @@ namespace BH.Tests.Diffing
             var modifiedObjectDifferences = delta.Diff.ModifiedObjectsDifferences.FirstOrDefault().Differences;
             Assert.IsTrue(modifiedObjectDifferences.Count() == 1, "Incorrect number of changed properties identified by the property-level diffing.");
             var identifiedPropertyDifference = modifiedObjectDifferences.FirstOrDefault();
-            Assert.IsTrue(identifiedPropertyDifference.DisplayName == "Name", $"The modified property should be `Name`, instead it was `{identifiedPropertyDifference.DisplayName}`.");
+            Assert.IsTrue(identifiedPropertyDifference.Name == "Name", $"The modified property should be `Name`, instead it was `{identifiedPropertyDifference.Name}`.");
             Assert.IsTrue(identifiedPropertyDifference.FullName == typeof(Bar).FullName + ".Name", $"The modified property should be `{typeof(Bar).FullName + ".Name"}`, instead it was `{identifiedPropertyDifference.FullName}`.");
             Assert.IsTrue(identifiedPropertyDifference.PastValue as string == "bar_0", $"The {nameof(PropertyDifference.PastValue)} of the modified property should be `bar_0`, instead it was {identifiedPropertyDifference.PastValue}.");
             Assert.IsTrue(identifiedPropertyDifference.FollowingValue as string == "modifiedBar_0", $"The {nameof(PropertyDifference.FollowingValue)} of the modified property should be `modifiedBar_0`, instead it was {identifiedPropertyDifference.FollowingValue}.");

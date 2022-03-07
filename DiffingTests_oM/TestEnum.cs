@@ -30,7 +30,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BH.oM.Diffing.Test
+namespace BH.oM.Diffing.Tests
 {
     public enum TestEnum
     {
