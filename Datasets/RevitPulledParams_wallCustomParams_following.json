@@ -1,0 +1,272 @@
+{
+    "Location": {
+        "$type": "BH.oM.Geometry.PlanarSurface, Geometry_oM",
+        "ExternalBoundary": {
+            "$type": "BH.oM.Geometry.PolyCurve, Geometry_oM",
+            "Curves": [
+                {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 22.76726361711675,
+                        "Y": 20.3134060214182,
+                        "Z": 1.5000000000000002
+                    },
+                    "End": {
+                        "X": 18.263931517437655,
+                        "Y": 17.713406021418223,
+                        "Z": 1.5000000000000002
+                    },
+                    "Infinite": false
+                },
+                {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 18.263931517437655,
+                        "Y": 17.713406021418223,
+                        "Z": 1.5000000000000002
+                    },
+                    "End": {
+                        "X": 18.263931517437655,
+                        "Y": 17.713406021418223,
+                        "Z": 4.1000000000000005
+                    },
+                    "Infinite": false
+                },
+                {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 18.263931517437655,
+                        "Y": 17.713406021418223,
+                        "Z": 4.1000000000000005
+                    },
+                    "End": {
+                        "X": 22.76726361711675,
+                        "Y": 20.3134060214182,
+                        "Z": 4.1000000000000005
+                    },
+                    "Infinite": false
+                },
+                {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 22.76726361711675,
+                        "Y": 20.3134060214182,
+                        "Z": 4.1000000000000005
+                    },
+                    "End": {
+                        "X": 22.76726361711675,
+                        "Y": 20.3134060214182,
+                        "Z": 1.5000000000000002
+                    },
+                    "Infinite": false
+                }
+            ]
+        },
+        "InternalBoundaries": null
+    },
+    "Construction": {
+        "$type": "BH.oM.Physical.Constructions.Construction, Physical_oM",
+        "Layers": [
+            {
+                "Material": {
+                    "Properties": [
+                        {
+                            "$type": "BH.oM.Environment.MaterialFragments.SolidMaterial, Environment_oM",
+                            "Density": 0.0,
+                            "Conductivity": 0.0,
+                            "SpecificHeat": 0.0,
+                            "VapourResistivity": 0.0,
+                            "Description": "",
+                            "Roughness": 0,
+                            "Refraction": 0.0,
+                            "SolarReflectanceExternal": 0.0,
+                            "SolarReflectanceInternal": 0.0,
+                            "SolarTransmittance": 0.0,
+                            "LightReflectanceExternal": 0.0,
+                            "LightReflectanceInternal": 0.0,
+                            "LightTransmittance": 0.0,
+                            "EmissivityExternal": 0.0,
+                            "EmissivityInternal": 0.0,
+                            "Specularity": 0.0,
+                            "TransmittedDiffusivity": 0.0,
+                            "TransmittedSpecularity": 0.0,
+                            "IgnoreInUValueCalculation": false,
+                            "BHoM_Guid": "ddc37b90-8a02-4351-8a88-fe9921e5e7d4",
+                            "Name": "Concrete - Cast In Situ",
+                            "Fragments": [],
+                            "Tags": [],
+                            "CustomData": {}
+                        },
+                        {
+                            "$type": "BH.oM.Structure.MaterialFragments.Concrete, Structure_oM",
+                            "Name": "Concrete - Cast In Situ",
+                            "Density": 0.0,
+                            "DampingRatio": 0.0,
+                            "PoissonsRatio": 0.0,
+                            "ThermalExpansionCoeff": 0.0,
+                            "YoungsModulus": 0.0,
+                            "CylinderStrength": 0.0,
+                            "CubeStrength": 0.0,
+                            "BHoM_Guid": "b10644f2-216e-4240-b4f3-eae4a6176ed3",
+                            "Fragments": [],
+                            "Tags": [],
+                            "CustomData": {}
+                        }
+                    ],
+                    "BHoM_Guid": "41345838-61bf-43ee-837d-0e64c6b81e99",
+                    "Name": "Concrete - Cast In Situ",
+                    "Fragments": [
+                        {
+                            "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+                            "PersistentId": "1551350c-45e5-41b8-bdf1-bcfa6794dc6a-000adc30",
+                            "ElementId": 711728,
+                            "CategoryName": "Materials",
+                            "FamilyName": "",
+                            "FamilyTypeName": "",
+                            "FamilyTypeId": -1,
+                            "Workset": "Workset1",
+                            "OwnerViewId": -1,
+                            "ParentElementId": -1,
+                            "LinkDocument": ""
+                        },
+                        {
+                            "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+                            "Parameters": {
+                                "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                                "$values": [
+                                    {
+                                        "Name": "Nested 2 - AddedAssigned parameter",
+                                        "Value": "Some value for the added parameter."
+                                    },
+                                    {
+                                        "Name": "Nested 2 - AddedUnassigned",
+                                        "Value": null
+                                    },
+                                    {
+                                        "Name": "Nested 2 - UnchangedParameter",
+                                        "Value": 0.0
+                                    },
+                                    {
+                                        "Name": "Nested 2 - ModifiedParameter",
+                                        "Value": true
+                                    }
+                                ]
+                            },
+                            "BHoM_Guid": "1002cf70-5d57-495e-ab96-04268c2924ec",
+                            "Name": "",
+                            "Fragments": [],
+                            "Tags": [],
+                            "CustomData": {}
+                        }
+                    ],
+                    "Tags": [],
+                    "CustomData": {}
+                },
+                "Thickness": 0.30000000000000004,
+                "BHoM_Guid": "e176e8ca-7781-4c54-80d5-cefe8674c565",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            }
+        ],
+        "BHoM_Guid": "8ed32a7b-b2b4-4907-bf1f-ae98edaff1c6",
+        "Name": "Basic Wall: Retaining - 300mm Concrete",
+        "Fragments": [
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+                "PersistentId": "1551350c-45e5-41b8-bdf1-bcfa6794dc6a-000adce2",
+                "ElementId": 711906,
+                "CategoryName": "Walls",
+                "FamilyName": "Basic Wall",
+                "FamilyTypeName": "Retaining - 300mm Concrete",
+                "FamilyTypeId": 711906,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+                "Parameters": {
+                    "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                    "$values": [
+                        {
+                            "Name": "Nested 1 - AddedAssigned parameter",
+                            "Value": "Some value for the added parameter."
+                        },
+                        {
+                            "Name": "Nested 1 - AddedUnassigned",
+                            "Value": null
+                        },
+                        {
+                            "Name": "Nested 1 - UnchangedParameter",
+                            "Value": 0.0
+                        },
+                        {
+                            "Name": "Nested 1 - ModifiedParameter",
+                            "Value": true
+                        }
+                    ]
+                },
+                "BHoM_Guid": "4ffef843-efb5-4aca-8ecb-d309374bb398",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            }
+        ],
+        "Tags": [],
+        "CustomData": {}
+    },
+    "Openings": [],
+    "Offset": 1,
+    "BHoM_Guid": "18dd0d36-df36-4010-8ceb-8eabf119a8a4",
+    "Name": "Basic Wall: Retaining - 300mm Concrete",
+    "Fragments": [
+        {
+            "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+            "PersistentId": "a03add59-4d19-48e3-b25b-2f947f402211-000b648a",
+            "ElementId": 746634,
+            "CategoryName": "Walls",
+            "FamilyName": "Basic Wall",
+            "FamilyTypeName": "Retaining - 300mm Concrete",
+            "FamilyTypeId": 711906,
+            "Workset": "Workset1",
+            "OwnerViewId": -1,
+            "ParentElementId": -1,
+            "LinkDocument": ""
+        },
+        {
+            "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+            "Parameters": {
+                "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                "$values": [
+                    {
+                        "Name": "AddedAssigned parameter",
+                        "Value": "Some value for the added parameter."
+                    },
+					{
+                        "Name": "AddedUnassigned",
+                        "Value": null
+                    },
+                    {
+                        "Name": "UnchangedParameter",
+                        "Value": 0.0
+                    },
+                    {
+                        "Name": "ModifiedParameter",
+                        "Value": true
+                    }
+                ]
+            },
+            "BHoM_Guid": "9dd23489-6294-4a8f-acce-f8ebfe6716b7",
+            "Name": "",
+            "Fragments": [],
+            "Tags": [],
+            "CustomData": {}
+        }
+    ],
+    "Tags": [],
+    "CustomData": {}
+}

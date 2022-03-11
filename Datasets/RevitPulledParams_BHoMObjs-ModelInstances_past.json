@@ -1,0 +1,4122 @@
+[
+    {
+        "_t": "BH.oM.Base.BHoMObject",
+        "BHoM_Guid": "279f13c1-84dc-461f-aabd-73762efa0099",
+        "Name": "600 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c1e",
+                "ElementId": 433182,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "600 CFM",
+                "FamilyTypeId": 433182,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "e51d0c6c-69d3-4dcf-aa44-ae70bc894f12",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Mark",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Number",
+                        "Value": "23.75.70.17.27"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Voltage",
+                        "Value": 119.99999999999999
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Classification",
+                        "Value": "None"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Load Classification",
+                        "Value": 432210
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Sensible Cooling Capacity",
+                        "Value": 4220.22341048
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Diameter",
+                        "Value": 0.031750000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "CFU Material",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "URL",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Cost",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Total Cooling Capacity",
+                        "Value": 5773.5000823927776
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Number of Poles",
+                        "Value": 1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Manufacturer",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Default Elevation",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Keynote",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Air Width",
+                        "Value": 0.38100000000000012
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Radius",
+                        "Value": 0.015875000000000004
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Unit Length",
+                        "Value": 0.7874000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Description",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Diameter",
+                        "Value": 0.031750000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Apparent Load",
+                        "Value": 265.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Description",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Code Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Radius",
+                        "Value": 0.015875000000000004
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Code",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Model",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Air Width",
+                        "Value": 0.38100000000000012
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Title",
+                        "Value": "Fan Coil Units"
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Base.BHoMObject",
+        "BHoM_Guid": "9618f851-42ff-4940-be8d-53f210ec8220",
+        "Name": "800 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c20",
+                "ElementId": 433184,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "800 CFM",
+                "FamilyTypeId": 433184,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "f806b0b2-44a5-4d01-84bf-35706b1e4cfa",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Mark",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Number",
+                        "Value": "23.75.70.17.27"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Voltage",
+                        "Value": 119.99999999999999
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Classification",
+                        "Value": "None"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Load Classification",
+                        "Value": 432210
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Sensible Cooling Capacity",
+                        "Value": 6037.2640455477776
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Diameter",
+                        "Value": 0.031750000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "CFU Material",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "URL",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Cost",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Total Cooling Capacity",
+                        "Value": 8616.2894630633327
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Number of Poles",
+                        "Value": 1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Manufacturer",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Default Elevation",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Keynote",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Air Width",
+                        "Value": 0.50800000000000012
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Radius",
+                        "Value": 0.015875000000000004
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Unit Length",
+                        "Value": 0.9144000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Description",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Diameter",
+                        "Value": 0.031750000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Apparent Load",
+                        "Value": 310.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Description",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Code Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Radius",
+                        "Value": 0.015875000000000004
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Code",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Model",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Air Width",
+                        "Value": 0.50800000000000012
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Title",
+                        "Value": "Fan Coil Units"
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Base.BHoMObject",
+        "BHoM_Guid": "ff040997-d465-4c3c-bbcb-c5c46ab2d326",
+        "Name": "1000 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c22",
+                "ElementId": 433186,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "1000 CFM",
+                "FamilyTypeId": 433186,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "9756d398-9c1a-43ad-b1c6-f33d14227827",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Mark",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Number",
+                        "Value": "23.75.70.17.27"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Voltage",
+                        "Value": 119.99999999999999
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Classification",
+                        "Value": "None"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Load Classification",
+                        "Value": 432210
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Sensible Cooling Capacity",
+                        "Value": 7737.0762525466662
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Diameter",
+                        "Value": 0.04445000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "CFU Material",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "URL",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Cost",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Total Cooling Capacity",
+                        "Value": 11283.236201630554
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Number of Poles",
+                        "Value": 1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Manufacturer",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Default Elevation",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Keynote",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Air Width",
+                        "Value": 0.60960000000000003
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Radius",
+                        "Value": 0.022225000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Unit Length",
+                        "Value": 1.0160000000000002
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Description",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Diameter",
+                        "Value": 0.04445000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Apparent Load",
+                        "Value": 439.99999999999994
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Description",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Code Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Radius",
+                        "Value": 0.022225000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Code",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Model",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Air Width",
+                        "Value": 0.60960000000000003
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Title",
+                        "Value": "Fan Coil Units"
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Base.BHoMObject",
+        "BHoM_Guid": "b0639d6e-468a-452f-bea6-b9dfe938537d",
+        "Name": "1200 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c24",
+                "ElementId": 433188,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "1200 CFM",
+                "FamilyTypeId": 433188,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "17ff707a-e98c-457d-b177-17fac83fd222",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Mark",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Number",
+                        "Value": "23.75.70.17.27"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Voltage",
+                        "Value": 119.99999999999999
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Classification",
+                        "Value": "None"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Load Classification",
+                        "Value": 432210
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Sensible Cooling Capacity",
+                        "Value": 9466.1955665627775
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Diameter",
+                        "Value": 0.04445000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "CFU Material",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "URL",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Cost",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Total Cooling Capacity",
+                        "Value": 13950.182940197776
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Number of Poles",
+                        "Value": 1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Manufacturer",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Default Elevation",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Keynote",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Air Width",
+                        "Value": 0.73660000000000014
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Radius",
+                        "Value": 0.022225000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Unit Length",
+                        "Value": 1.143
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Description",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Diameter",
+                        "Value": 0.04445000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Apparent Load",
+                        "Value": 550.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Description",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Code Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Radius",
+                        "Value": 0.022225000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Code",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Model",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Air Width",
+                        "Value": 0.73660000000000014
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Title",
+                        "Value": "Fan Coil Units"
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Base.BHoMObject",
+        "BHoM_Guid": "aad80e34-9edd-4bde-91ef-c913dc61c102",
+        "Name": "1400 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c26",
+                "ElementId": 433190,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "1400 CFM",
+                "FamilyTypeId": 433190,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "57a10b98-6733-4808-87f8-36cbfa39349b",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Mark",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Number",
+                        "Value": "23.75.70.17.27"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Voltage",
+                        "Value": 119.99999999999999
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Classification",
+                        "Value": "None"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Load Classification",
+                        "Value": 432210
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Sensible Cooling Capacity",
+                        "Value": 10697.09406128611
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Diameter",
+                        "Value": 0.057150000000000013
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "CFU Material",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "URL",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Cost",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Total Cooling Capacity",
+                        "Value": 15474.152505093332
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Number of Poles",
+                        "Value": 1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Manufacturer",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Default Elevation",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Keynote",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Air Width",
+                        "Value": 0.86360000000000015
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Radius",
+                        "Value": 0.028575000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Unit Length",
+                        "Value": 1.2700000000000002
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Description",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Diameter",
+                        "Value": 0.057150000000000013
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Apparent Load",
+                        "Value": 690.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Description",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Code Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Radius",
+                        "Value": 0.028575000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Code",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Model",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Air Width",
+                        "Value": 0.86360000000000015
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Title",
+                        "Value": "Fan Coil Units"
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Base.BHoMObject",
+        "BHoM_Guid": "6682e2b6-0276-44c3-9486-19f780cdce5f",
+        "Name": "1600 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c28",
+                "ElementId": 433192,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "1600 CFM",
+                "FamilyTypeId": 433192,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "911b06e4-d6ec-4e80-bfea-fa141555be44",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Mark",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Number",
+                        "Value": "23.75.70.17.27"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Voltage",
+                        "Value": 119.99999999999999
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Classification",
+                        "Value": "None"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Load Classification",
+                        "Value": 432210
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Sensible Cooling Capacity",
+                        "Value": 12777.898659508888
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Diameter",
+                        "Value": 0.057150000000000013
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "CFU Material",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "URL",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Cost",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Total Cooling Capacity",
+                        "Value": 18961.698240142774
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Number of Poles",
+                        "Value": 1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Manufacturer",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Default Elevation",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Keynote",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Air Width",
+                        "Value": 0.99060000000000026
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Radius",
+                        "Value": 0.028575000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Unit Length",
+                        "Value": 1.397
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Description",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Diameter",
+                        "Value": 0.057150000000000013
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Apparent Load",
+                        "Value": 900.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Description",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Code Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Radius",
+                        "Value": 0.028575000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Code",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Model",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Air Width",
+                        "Value": 0.99060000000000026
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Title",
+                        "Value": "Fan Coil Units"
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Base.BHoMObject",
+        "BHoM_Guid": "1ac93b79-9b09-4219-a6ed-35ec475137c8",
+        "Name": "1800 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c2a",
+                "ElementId": 433194,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "1800 CFM",
+                "FamilyTypeId": 433194,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "ccb5dd16-0f24-4d3f-99c4-485876872946",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Mark",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Number",
+                        "Value": "23.75.70.17.27"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Voltage",
+                        "Value": 119.99999999999999
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Classification",
+                        "Value": "None"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Load Classification",
+                        "Value": 432210
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Sensible Cooling Capacity",
+                        "Value": 14770.781936679999
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Diameter",
+                        "Value": 0.057150000000000013
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "CFU Material",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "URL",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Cost",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Total Cooling Capacity",
+                        "Value": 22185.48001203722
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Number of Poles",
+                        "Value": 1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Manufacturer",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Default Elevation",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Keynote",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Air Width",
+                        "Value": 1.1176000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Radius",
+                        "Value": 0.028575000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Unit Length",
+                        "Value": 1.5240000000000002
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Description",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Diameter",
+                        "Value": 0.057150000000000013
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Apparent Load",
+                        "Value": 1015.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Description",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Code Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Radius",
+                        "Value": 0.028575000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Code",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Model",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Air Width",
+                        "Value": 1.1176000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Title",
+                        "Value": "Fan Coil Units"
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Base.BHoMObject",
+        "BHoM_Guid": "89557dbc-6fd5-4e66-9ac1-8fb497a2c5a8",
+        "Name": "2000 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c2c",
+                "ElementId": 433196,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "2000 CFM",
+                "FamilyTypeId": 433196,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "6fabf9aa-7570-44a3-b9b0-e84069401cc4",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Mark",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Number",
+                        "Value": "23.75.70.17.27"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Voltage",
+                        "Value": 119.99999999999999
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Classification",
+                        "Value": "None"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Load Classification",
+                        "Value": 432210
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Sensible Cooling Capacity",
+                        "Value": 16177.523073506665
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Diameter",
+                        "Value": 0.057150000000000013
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "CFU Material",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "URL",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Cost",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Total Cooling Capacity",
+                        "Value": 24149.056182191111
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Number of Poles",
+                        "Value": 1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Manufacturer",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Default Elevation",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Keynote",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Air Width",
+                        "Value": 1.2192000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Radius",
+                        "Value": 0.028575000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Unit Length",
+                        "Value": 1.6256000000000002
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Description",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Supply Water Diameter",
+                        "Value": 0.057150000000000013
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Apparent Load",
+                        "Value": 1020.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Description",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Code Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Type Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Water Radius",
+                        "Value": 0.028575000000000007
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Assembly Code",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Model",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Return Air Width",
+                        "Value": 1.2192000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "OmniClass Title",
+                        "Value": "Fan Coil Units"
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Adapters.Revit.Elements.ModelInstance",
+        "BHoM_Guid": "12280d23-5ca7-4f44-b5e2-17ff6bb7d17a",
+        "Name": "600 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069d09",
+                "ElementId": 433417,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "600 CFM",
+                "FamilyTypeId": 433182,
+                "Workset": "Workset1",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "a4e3356a-3760-4f76-a7b5-41e2b2867769",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Panel",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Mark",
+                        "Value": "2"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Drain Flow",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Host",
+                        "Value": "Floor : Generic - 12\""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Created",
+                        "Value": 118390
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Offset from Host",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Workset1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Circuit Number",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Water Pressure Drop",
+                        "Value": 9652.6597999999994
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Chilled Water Flow",
+                        "Value": 0.00025236080000000003
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Elevation from Level",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Power Required",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Classification",
+                        "Value": "Hydronic Supply,Hydronic Return,Sanitary,Supply Air,Return Air,Power"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Embodied Carbon (kgCO2e)",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Nominal Air Flow",
+                        "Value": 0.28316846592000006
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Critical Path",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Level",
+                        "Value": 30
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "External Static Pressure",
+                        "Value": 74.652000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Demolished",
+                        "Value": -1
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "Properties": {
+            "_t": "BH.oM.Adapters.Revit.Properties.InstanceProperties",
+            "BHoM_Guid": "d3dd0c74-8050-46f8-a695-0af19db1a7e3",
+            "Name": "Fan Coil Unit - Ceiling Ducted - CHW: 600 CFM",
+            "Fragments": [
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                    "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c1e",
+                    "ElementId": 433182,
+                    "CategoryName": "Mechanical Equipment",
+                    "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                    "FamilyTypeName": "600 CFM",
+                    "FamilyTypeId": 433182,
+                    "Workset": "",
+                    "OwnerViewId": -1,
+                    "ParentElementId": -1,
+                    "LinkDocument": ""
+                },
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                    "BHoM_Guid": "6393e6dc-6d51-4561-8d85-d35d8bf40425",
+                    "Name": "",
+                    "Fragments": [],
+                    "Tags": [],
+                    "CustomData": {},
+                    "Parameters": [
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Mark",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Number",
+                            "Value": "23.75.70.17.27"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Voltage",
+                            "Value": 119.99999999999999
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Classification",
+                            "Value": "None"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Load Classification",
+                            "Value": 432210
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Edited by",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Sensible Cooling Capacity",
+                            "Value": 4220.22341048
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "CFU Material",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "URL",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Cost",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Total Cooling Capacity",
+                            "Value": 5773.5000823927776
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Number of Poles",
+                            "Value": 1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Manufacturer",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Default Elevation",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Keynote",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Workset",
+                            "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Unit Length",
+                            "Value": 0.7874000000000001
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Description",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Apparent Load",
+                            "Value": 265.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Description",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Image",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Code Name",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Comments",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Code",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Model",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Title",
+                            "Value": "Fan Coil Units"
+                        }
+                    ]
+                }
+            ],
+            "Tags": [],
+            "CustomData": {},
+            "CategoryName": "Mechanical Equipment"
+        },
+        "Location": {
+            "_t": "BH.oM.Geometry.Point",
+            "X": -8.4204153021970143,
+            "Y": 9.8057027441016213,
+            "Z": 3.0479999999999987
+        },
+        "Orientation": {
+            "_t": "BH.oM.Geometry.Basis",
+            "X": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 1.0,
+                "Y": 0.0,
+                "Z": 0.0
+            },
+            "Y": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 1.0,
+                "Z": 0.0
+            },
+            "Z": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 1.0
+            }
+        },
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Adapters.Revit.Elements.ModelInstance",
+        "BHoM_Guid": "b7924461-ffab-473e-a24b-38128054b438",
+        "Name": "600 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "070aab93-b58b-4170-b8b9-3d6eaaebae6e-0006b64a",
+                "ElementId": 439882,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "600 CFM",
+                "FamilyTypeId": 433182,
+                "Workset": "Workset1",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "d2590347-6b5f-4933-9ddc-9ca4521abe36",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Panel",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Mark",
+                        "Value": "5"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Drain Flow",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Host",
+                        "Value": "Floor : Generic - 12\""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Created",
+                        "Value": 118390
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Offset from Host",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Workset1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Circuit Number",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Water Pressure Drop",
+                        "Value": 9652.6597999999994
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Chilled Water Flow",
+                        "Value": 0.00025236080000000003
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Elevation from Level",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Power Required",
+                        "Value": true
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Classification",
+                        "Value": "Hydronic Supply,Hydronic Return,Sanitary,Supply Air,Return Air,Power"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Embodied Carbon (kgCO2e)",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Nominal Air Flow",
+                        "Value": 0.28316846592000006
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Critical Path",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Level",
+                        "Value": 30
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "External Static Pressure",
+                        "Value": 74.652000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Demolished",
+                        "Value": -1
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "Properties": {
+            "_t": "BH.oM.Adapters.Revit.Properties.InstanceProperties",
+            "BHoM_Guid": "d3dd0c74-8050-46f8-a695-0af19db1a7e3",
+            "Name": "Fan Coil Unit - Ceiling Ducted - CHW: 600 CFM",
+            "Fragments": [
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                    "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c1e",
+                    "ElementId": 433182,
+                    "CategoryName": "Mechanical Equipment",
+                    "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                    "FamilyTypeName": "600 CFM",
+                    "FamilyTypeId": 433182,
+                    "Workset": "",
+                    "OwnerViewId": -1,
+                    "ParentElementId": -1,
+                    "LinkDocument": ""
+                },
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                    "BHoM_Guid": "6393e6dc-6d51-4561-8d85-d35d8bf40425",
+                    "Name": "",
+                    "Fragments": [],
+                    "Tags": [],
+                    "CustomData": {},
+                    "Parameters": [
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Mark",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Number",
+                            "Value": "23.75.70.17.27"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Voltage",
+                            "Value": 119.99999999999999
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Classification",
+                            "Value": "None"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Load Classification",
+                            "Value": 432210
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Edited by",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Sensible Cooling Capacity",
+                            "Value": 4220.22341048
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "CFU Material",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "URL",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Cost",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Total Cooling Capacity",
+                            "Value": 5773.5000823927776
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Number of Poles",
+                            "Value": 1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Manufacturer",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Default Elevation",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Keynote",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Workset",
+                            "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Unit Length",
+                            "Value": 0.7874000000000001
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Description",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Apparent Load",
+                            "Value": 265.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Description",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Image",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Code Name",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Comments",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Code",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Model",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Title",
+                            "Value": "Fan Coil Units"
+                        }
+                    ]
+                }
+            ],
+            "Tags": [],
+            "CustomData": {},
+            "CategoryName": "Mechanical Equipment"
+        },
+        "Location": {
+            "_t": "BH.oM.Geometry.Point",
+            "X": -7.8953686821267244,
+            "Y": -1.2143214508228495,
+            "Z": 3.0479999999999987
+        },
+        "Orientation": {
+            "_t": "BH.oM.Geometry.Basis",
+            "X": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 1.0,
+                "Y": 0.0,
+                "Z": 0.0
+            },
+            "Y": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 1.0,
+                "Z": 0.0
+            },
+            "Z": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 1.0
+            }
+        },
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Adapters.Revit.Elements.ModelInstance",
+        "BHoM_Guid": "4b3e5257-7474-4e34-9373-e04a78c9f1d6",
+        "Name": "600 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "11bf6c43-bc84-45de-af51-b0624d15c9a0-0006b8fe",
+                "ElementId": 440574,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "600 CFM",
+                "FamilyTypeId": 433182,
+                "Workset": "Workset1",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "e819a438-990a-47dd-ac87-1dca89a29dc8",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Panel",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Mark",
+                        "Value": "6"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Drain Flow",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Host",
+                        "Value": "Floor : Generic - 12\""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Created",
+                        "Value": 118390
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Offset from Host",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Workset1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Circuit Number",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Water Pressure Drop",
+                        "Value": 9652.6597999999994
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Chilled Water Flow",
+                        "Value": 0.00025236080000000003
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Elevation from Level",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Power Required",
+                        "Value": true
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Classification",
+                        "Value": "Hydronic Supply,Hydronic Return,Sanitary,Supply Air,Return Air,Power"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Embodied Carbon (kgCO2e)",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Nominal Air Flow",
+                        "Value": 0.28316846592000006
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Critical Path",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Level",
+                        "Value": 30
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "External Static Pressure",
+                        "Value": 74.652000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Demolished",
+                        "Value": -1
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "Properties": {
+            "_t": "BH.oM.Adapters.Revit.Properties.InstanceProperties",
+            "BHoM_Guid": "d3dd0c74-8050-46f8-a695-0af19db1a7e3",
+            "Name": "Fan Coil Unit - Ceiling Ducted - CHW: 600 CFM",
+            "Fragments": [
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                    "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c1e",
+                    "ElementId": 433182,
+                    "CategoryName": "Mechanical Equipment",
+                    "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                    "FamilyTypeName": "600 CFM",
+                    "FamilyTypeId": 433182,
+                    "Workset": "",
+                    "OwnerViewId": -1,
+                    "ParentElementId": -1,
+                    "LinkDocument": ""
+                },
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                    "BHoM_Guid": "6393e6dc-6d51-4561-8d85-d35d8bf40425",
+                    "Name": "",
+                    "Fragments": [],
+                    "Tags": [],
+                    "CustomData": {},
+                    "Parameters": [
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Mark",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Number",
+                            "Value": "23.75.70.17.27"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Voltage",
+                            "Value": 119.99999999999999
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Classification",
+                            "Value": "None"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Load Classification",
+                            "Value": 432210
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Edited by",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Sensible Cooling Capacity",
+                            "Value": 4220.22341048
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "CFU Material",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "URL",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Cost",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Total Cooling Capacity",
+                            "Value": 5773.5000823927776
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Number of Poles",
+                            "Value": 1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Manufacturer",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Default Elevation",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Keynote",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Workset",
+                            "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Unit Length",
+                            "Value": 0.7874000000000001
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Description",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Apparent Load",
+                            "Value": 265.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Description",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Image",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Code Name",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Comments",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Code",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Model",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Title",
+                            "Value": "Fan Coil Units"
+                        }
+                    ]
+                }
+            ],
+            "Tags": [],
+            "CustomData": {},
+            "CategoryName": "Mechanical Equipment"
+        },
+        "Location": {
+            "_t": "BH.oM.Geometry.Point",
+            "X": -12.952640594851154,
+            "Y": 0.95796009226546908,
+            "Z": 3.0479999999999987
+        },
+        "Orientation": {
+            "_t": "BH.oM.Geometry.Basis",
+            "X": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 1.0,
+                "Y": 0.0,
+                "Z": 0.0
+            },
+            "Y": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 1.0,
+                "Z": 0.0
+            },
+            "Z": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 1.0
+            }
+        },
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Adapters.Revit.Elements.ModelInstance",
+        "BHoM_Guid": "bd536042-1976-4600-97cb-a188dcde989c",
+        "Name": "600 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "599dfd45-f03a-4927-bc8c-ad288a29a645-0006bb71",
+                "ElementId": 441201,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "600 CFM",
+                "FamilyTypeId": 433182,
+                "Workset": "Workset1",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "06f4714e-2997-4ab8-a91d-910a825acab2",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Panel",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Mark",
+                        "Value": "F-1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Drain Flow",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Host",
+                        "Value": "Level : Level 1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Created",
+                        "Value": 118390
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Offset from Host",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Workset1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Circuit Number",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Water Pressure Drop",
+                        "Value": 9652.6597999999994
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Chilled Water Flow",
+                        "Value": 0.00025236080000000003
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Elevation from Level",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Power Required",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Classification",
+                        "Value": "Hydronic Supply,Hydronic Return,Sanitary,Supply Air,Return Air,Power"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Embodied Carbon (kgCO2e)",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Nominal Air Flow",
+                        "Value": 0.28316846592000006
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Critical Path",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Level",
+                        "Value": 30
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "External Static Pressure",
+                        "Value": 74.652000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Demolished",
+                        "Value": -1
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "Properties": {
+            "_t": "BH.oM.Adapters.Revit.Properties.InstanceProperties",
+            "BHoM_Guid": "d3dd0c74-8050-46f8-a695-0af19db1a7e3",
+            "Name": "Fan Coil Unit - Ceiling Ducted - CHW: 600 CFM",
+            "Fragments": [
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                    "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c1e",
+                    "ElementId": 433182,
+                    "CategoryName": "Mechanical Equipment",
+                    "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                    "FamilyTypeName": "600 CFM",
+                    "FamilyTypeId": 433182,
+                    "Workset": "",
+                    "OwnerViewId": -1,
+                    "ParentElementId": -1,
+                    "LinkDocument": ""
+                },
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                    "BHoM_Guid": "6393e6dc-6d51-4561-8d85-d35d8bf40425",
+                    "Name": "",
+                    "Fragments": [],
+                    "Tags": [],
+                    "CustomData": {},
+                    "Parameters": [
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Mark",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Number",
+                            "Value": "23.75.70.17.27"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Voltage",
+                            "Value": 119.99999999999999
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Classification",
+                            "Value": "None"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Load Classification",
+                            "Value": 432210
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Edited by",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Sensible Cooling Capacity",
+                            "Value": 4220.22341048
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "CFU Material",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "URL",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Cost",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Total Cooling Capacity",
+                            "Value": 5773.5000823927776
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Number of Poles",
+                            "Value": 1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Manufacturer",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Default Elevation",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Keynote",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Workset",
+                            "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Unit Length",
+                            "Value": 0.7874000000000001
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Description",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Apparent Load",
+                            "Value": 265.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Description",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Image",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Code Name",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Comments",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Code",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Model",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Title",
+                            "Value": "Fan Coil Units"
+                        }
+                    ]
+                }
+            ],
+            "Tags": [],
+            "CustomData": {},
+            "CategoryName": "Mechanical Equipment"
+        },
+        "Location": {
+            "_t": "BH.oM.Geometry.Point",
+            "X": -3.4122686821266899,
+            "Y": -7.155580571117806,
+            "Z": 3.0479999999999987
+        },
+        "Orientation": {
+            "_t": "BH.oM.Geometry.Basis",
+            "X": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 1.0,
+                "Y": 0.0,
+                "Z": 0.0
+            },
+            "Y": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 1.0,
+                "Z": 0.0
+            },
+            "Z": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 1.0
+            }
+        },
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Adapters.Revit.Elements.ModelInstance",
+        "BHoM_Guid": "6c4a30d1-faea-44e5-8f81-c8aec8cdf18f",
+        "Name": "600 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "599dfd45-f03a-4927-bc8c-ad288a29a645-0006bdfc",
+                "ElementId": 441852,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "600 CFM",
+                "FamilyTypeId": 433182,
+                "Workset": "Workset1",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "e19e48d5-4b68-4b5d-b6fd-2c84e5e9ad22",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Panel",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Mark",
+                        "Value": "F-4"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Drain Flow",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Host",
+                        "Value": "Level : Level 1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Created",
+                        "Value": 118390
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Offset from Host",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Workset1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Circuit Number",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Water Pressure Drop",
+                        "Value": 9652.6597999999994
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Chilled Water Flow",
+                        "Value": 0.00025236080000000003
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Elevation from Level",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Power Required",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Classification",
+                        "Value": "Hydronic Supply,Hydronic Return,Sanitary,Supply Air,Return Air,Power"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Embodied Carbon (kgCO2e)",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Nominal Air Flow",
+                        "Value": 0.28316846592000006
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Critical Path",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Level",
+                        "Value": 30
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "External Static Pressure",
+                        "Value": 74.652000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Demolished",
+                        "Value": -1
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "Properties": {
+            "_t": "BH.oM.Adapters.Revit.Properties.InstanceProperties",
+            "BHoM_Guid": "d3dd0c74-8050-46f8-a695-0af19db1a7e3",
+            "Name": "Fan Coil Unit - Ceiling Ducted - CHW: 600 CFM",
+            "Fragments": [
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                    "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c1e",
+                    "ElementId": 433182,
+                    "CategoryName": "Mechanical Equipment",
+                    "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                    "FamilyTypeName": "600 CFM",
+                    "FamilyTypeId": 433182,
+                    "Workset": "",
+                    "OwnerViewId": -1,
+                    "ParentElementId": -1,
+                    "LinkDocument": ""
+                },
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                    "BHoM_Guid": "6393e6dc-6d51-4561-8d85-d35d8bf40425",
+                    "Name": "",
+                    "Fragments": [],
+                    "Tags": [],
+                    "CustomData": {},
+                    "Parameters": [
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Mark",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Number",
+                            "Value": "23.75.70.17.27"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Voltage",
+                            "Value": 119.99999999999999
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Classification",
+                            "Value": "None"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Load Classification",
+                            "Value": 432210
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Edited by",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Sensible Cooling Capacity",
+                            "Value": 4220.22341048
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "CFU Material",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "URL",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Cost",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Total Cooling Capacity",
+                            "Value": 5773.5000823927776
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Number of Poles",
+                            "Value": 1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Manufacturer",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Default Elevation",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Keynote",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Workset",
+                            "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Unit Length",
+                            "Value": 0.7874000000000001
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Description",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Apparent Load",
+                            "Value": 265.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Description",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Image",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Code Name",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Comments",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Code",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Model",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Title",
+                            "Value": "Fan Coil Units"
+                        }
+                    ]
+                }
+            ],
+            "Tags": [],
+            "CustomData": {},
+            "CategoryName": "Mechanical Equipment"
+        },
+        "Location": {
+            "_t": "BH.oM.Geometry.Point",
+            "X": -3.4122686821266899,
+            "Y": -11.804456603368438,
+            "Z": 3.0479999999999987
+        },
+        "Orientation": {
+            "_t": "BH.oM.Geometry.Basis",
+            "X": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 1.0,
+                "Y": 0.0,
+                "Z": 0.0
+            },
+            "Y": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 1.0,
+                "Z": 0.0
+            },
+            "Z": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 1.0
+            }
+        },
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Adapters.Revit.Elements.ModelInstance",
+        "BHoM_Guid": "6ff1391a-e85b-4f41-8b25-16feb4977d67",
+        "Name": "600 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "7012ed8b-fbbf-4468-bd22-c225165be76c-0006c7f0",
+                "ElementId": 444400,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "600 CFM",
+                "FamilyTypeId": 433182,
+                "Workset": "Workset1",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "d3d14e9a-9b75-4d3d-a7d9-2d04dacb5e81",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Panel",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Mark",
+                        "Value": "F-2"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Drain Flow",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Host",
+                        "Value": "Level : Level 1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Created",
+                        "Value": 118390
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Offset from Host",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Workset1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Circuit Number",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Water Pressure Drop",
+                        "Value": 9652.6597999999994
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Chilled Water Flow",
+                        "Value": 0.00025236080000000003
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Elevation from Level",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Power Required",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Classification",
+                        "Value": "Hydronic Supply,Hydronic Return,Sanitary,Supply Air,Return Air,Power"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Embodied Carbon (kgCO2e)",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Nominal Air Flow",
+                        "Value": 0.28316846592000006
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Critical Path",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Level",
+                        "Value": 30
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "External Static Pressure",
+                        "Value": 74.652000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Demolished",
+                        "Value": -1
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "Properties": {
+            "_t": "BH.oM.Adapters.Revit.Properties.InstanceProperties",
+            "BHoM_Guid": "d3dd0c74-8050-46f8-a695-0af19db1a7e3",
+            "Name": "Fan Coil Unit - Ceiling Ducted - CHW: 600 CFM",
+            "Fragments": [
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                    "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c1e",
+                    "ElementId": 433182,
+                    "CategoryName": "Mechanical Equipment",
+                    "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                    "FamilyTypeName": "600 CFM",
+                    "FamilyTypeId": 433182,
+                    "Workset": "",
+                    "OwnerViewId": -1,
+                    "ParentElementId": -1,
+                    "LinkDocument": ""
+                },
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                    "BHoM_Guid": "6393e6dc-6d51-4561-8d85-d35d8bf40425",
+                    "Name": "",
+                    "Fragments": [],
+                    "Tags": [],
+                    "CustomData": {},
+                    "Parameters": [
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Mark",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Number",
+                            "Value": "23.75.70.17.27"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Voltage",
+                            "Value": 119.99999999999999
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Classification",
+                            "Value": "None"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Load Classification",
+                            "Value": 432210
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Edited by",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Sensible Cooling Capacity",
+                            "Value": 4220.22341048
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "CFU Material",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "URL",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Cost",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Total Cooling Capacity",
+                            "Value": 5773.5000823927776
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Number of Poles",
+                            "Value": 1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Manufacturer",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Default Elevation",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Keynote",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Workset",
+                            "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Unit Length",
+                            "Value": 0.7874000000000001
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Description",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Apparent Load",
+                            "Value": 265.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Description",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Image",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Code Name",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Comments",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Code",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Model",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Title",
+                            "Value": "Fan Coil Units"
+                        }
+                    ]
+                }
+            ],
+            "Tags": [],
+            "CustomData": {},
+            "CategoryName": "Mechanical Equipment"
+        },
+        "Location": {
+            "_t": "BH.oM.Geometry.Point",
+            "X": -3.4122686821266921,
+            "Y": -8.3747805711178067,
+            "Z": 3.0479999999999987
+        },
+        "Orientation": {
+            "_t": "BH.oM.Geometry.Basis",
+            "X": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 1.0,
+                "Y": 0.0,
+                "Z": 0.0
+            },
+            "Y": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 1.0,
+                "Z": 0.0
+            },
+            "Z": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 1.0
+            }
+        },
+        "_bhomVersion": "5.1"
+    },
+    {
+        "_t": "BH.oM.Adapters.Revit.Elements.ModelInstance",
+        "BHoM_Guid": "e5d59c25-9618-4827-bdbb-97d12c84dd3f",
+        "Name": "600 CFM",
+        "Fragments": [
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                "PersistentId": "7012ed8b-fbbf-4468-bd22-c225165be76c-0006c812",
+                "ElementId": 444434,
+                "CategoryName": "Mechanical Equipment",
+                "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                "FamilyTypeName": "600 CFM",
+                "FamilyTypeId": 433182,
+                "Workset": "Workset1",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                "BHoM_Guid": "4a564321-7eda-4a20-ae82-6cab07b529b4",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {},
+                "Parameters": [
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Panel",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Mark",
+                        "Value": "F-3"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Edited by",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Drain Flow",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Host",
+                        "Value": "Level : Level 1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Created",
+                        "Value": 118390
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Offset from Host",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Workset",
+                        "Value": "Workset1"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Circuit Number",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Water Pressure Drop",
+                        "Value": 9652.6597999999994
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Name",
+                        "Value": ""
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Chilled Water Flow",
+                        "Value": 0.00025236080000000003
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Elevation from Level",
+                        "Value": 3.0480000000000005
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Power Required",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "System Classification",
+                        "Value": "Hydronic Supply,Hydronic Return,Sanitary,Supply Air,Return Air,Power"
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Embodied Carbon (kgCO2e)",
+                        "Value": 0.0
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Nominal Air Flow",
+                        "Value": 0.28316846592000006
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Critical Path",
+                        "Value": false
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Image",
+                        "Value": -1
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Level",
+                        "Value": 30
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Comments",
+                        "Value": null
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "External Static Pressure",
+                        "Value": 74.652000000000001
+                    },
+                    {
+                        "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                        "Name": "Phase Demolished",
+                        "Value": -1
+                    }
+                ]
+            }
+        ],
+        "Tags": [],
+        "CustomData": {},
+        "Properties": {
+            "_t": "BH.oM.Adapters.Revit.Properties.InstanceProperties",
+            "BHoM_Guid": "d3dd0c74-8050-46f8-a695-0af19db1a7e3",
+            "Name": "Fan Coil Unit - Ceiling Ducted - CHW: 600 CFM",
+            "Fragments": [
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers",
+                    "PersistentId": "aacece1d-d605-4b15-8c15-ff0246c71c35-00069c1e",
+                    "ElementId": 433182,
+                    "CategoryName": "Mechanical Equipment",
+                    "FamilyName": "Fan Coil Unit - Ceiling Ducted - CHW",
+                    "FamilyTypeName": "600 CFM",
+                    "FamilyTypeId": 433182,
+                    "Workset": "",
+                    "OwnerViewId": -1,
+                    "ParentElementId": -1,
+                    "LinkDocument": ""
+                },
+                {
+                    "_t": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters",
+                    "BHoM_Guid": "6393e6dc-6d51-4561-8d85-d35d8bf40425",
+                    "Name": "",
+                    "Fragments": [],
+                    "Tags": [],
+                    "CustomData": {},
+                    "Parameters": [
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Mark",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Number",
+                            "Value": "23.75.70.17.27"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Voltage",
+                            "Value": 119.99999999999999
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Classification",
+                            "Value": "None"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Load Classification",
+                            "Value": 432210
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Edited by",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Sensible Cooling Capacity",
+                            "Value": 4220.22341048
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "CFU Material",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "URL",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Cost",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Total Cooling Capacity",
+                            "Value": 5773.5000823927776
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Number of Poles",
+                            "Value": 1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Manufacturer",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Default Elevation",
+                            "Value": 0.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Keynote",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Workset",
+                            "Value": "Family  : Mechanical Equipment : Fan Coil Unit - Ceiling Ducted - CHW"
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Unit Length",
+                            "Value": 0.7874000000000001
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Description",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Supply Water Diameter",
+                            "Value": 0.031750000000000007
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Apparent Load",
+                            "Value": 265.0
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Description",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Image",
+                            "Value": -1
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Code Name",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Type Comments",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Water Radius",
+                            "Value": 0.015875000000000004
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Assembly Code",
+                            "Value": ""
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Model",
+                            "Value": null
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "Return Air Width",
+                            "Value": 0.38100000000000012
+                        },
+                        {
+                            "_t": "BH.oM.Adapters.Revit.Parameters.RevitParameter",
+                            "Name": "OmniClass Title",
+                            "Value": "Fan Coil Units"
+                        }
+                    ]
+                }
+            ],
+            "Tags": [],
+            "CustomData": {},
+            "CategoryName": "Mechanical Equipment"
+        },
+        "Location": {
+            "_t": "BH.oM.Geometry.Point",
+            "X": -3.4122686821266948,
+            "Y": -10.051180571117806,
+            "Z": 3.0479999999999987
+        },
+        "Orientation": {
+            "_t": "BH.oM.Geometry.Basis",
+            "X": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 1.0,
+                "Y": 0.0,
+                "Z": 0.0
+            },
+            "Y": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 1.0,
+                "Z": 0.0
+            },
+            "Z": {
+                "_t": "BH.oM.Geometry.Vector",
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 1.0
+            }
+        },
+        "_bhomVersion": "5.1"
+    }
+]

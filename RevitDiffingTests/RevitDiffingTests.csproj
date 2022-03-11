@@ -11,6 +11,7 @@
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.3" />
     <PackageReference Include="MSTest.TestFramework" Version="2.2.3" />
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
+    <PackageReference Include="System.Management.Automation" Version="6.1.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +37,12 @@
     </Reference>
     <Reference Include="Dimensional_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Dimensional_oM.dll</HintPath>
+    </Reference>
+    <Reference Include="File_Engine">
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\File_Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="File_oM">
+      <HintPath>..\..\..\..\..\ProgramData\BHoM\Assemblies\File_oM.dll</HintPath>
     </Reference>
     <Reference Include="Geometry_Engine">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Geometry_Engine.dll</HintPath>

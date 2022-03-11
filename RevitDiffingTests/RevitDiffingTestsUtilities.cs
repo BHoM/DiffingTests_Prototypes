@@ -34,6 +34,9 @@ using System.Reflection;
 using System.Text;
 using System.Linq;
 using BH.oM.Adapters.Revit.Parameters;
+using System.IO;
+using System.Collections;
+using Newtonsoft.Json.Linq;
 
 namespace BH.Tests.Diffing.Revit
 {
@@ -54,6 +57,29 @@ namespace BH.Tests.Diffing.Revit
                 obj.Fragments.AddOrReplace(new RevitIdentifiers(i.ToString(), i));
                 i++;
             });
+        }
+
+        public static T GetDataset<T>(string fileName = "RevitPulledParams_modifiedWall_past.json") where T : class
+        {
+            string datasetDirectory = Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @$"..\..\..\..\Datasets\");
+            try
+            {
+                var newtonSoftResult = BH.Engine.Diffing.Tests.Compute.DeserialiseFromJsonFile<T>(fileName, datasetDirectory);
+
+                IList resList = newtonSoftResult as IList;
+                if (resList == null || resList.OfType<JObject>().Count() != resList.Count)
+                    return newtonSoftResult;
+            }
+            catch (Exception e)
+            {
+                string es = e.ToString();
+            }
+            
+            // Try FileAdapter
+            string fullPath = Path.Combine(datasetDirectory, fileName);
+            var res = BH.Engine.Adapters.File.Compute.ReadFromJsonFile(fullPath, true);
+            T result = res as T;
+            return result;
         }
     }
 }
