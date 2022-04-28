@@ -117,7 +117,7 @@ namespace BH.Tests.Diffing.Revit
             RevitComparisonConfig rcc = null;
             Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjects, followingObjects, "UniqueId", rcc);
 
-            VerifyTotalDifferences(diff, 305, 273, 71);
+            VerifyTotalDifferences(diff, 295, 271, 71);
         }
 
         [TestMethod]
@@ -134,7 +134,7 @@ namespace BH.Tests.Diffing.Revit
 
             Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjects, followingObjects, "UniqueId", dc);
 
-            VerifyTotalDifferences(diff, 45, 13, 21);
+            VerifyTotalDifferences(diff, 37, 13, 21);
         }
 
         [TestMethod]
