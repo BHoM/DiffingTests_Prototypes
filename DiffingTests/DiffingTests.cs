@@ -89,6 +89,37 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(!objectDifferences?.Differences?.Any() ?? true, "HashDiffing cannot return property Differences, but some were returned.");
         }
 
+        /// <summary>
+        /// Tests the resistance of the Diffing() method against null IEnumerables set in the DiffingConfig.ComparisonConfig.
+        /// </summary>
+        [TestMethod]
+        public void Diffing_NullIEnumerablesPropertiesInComparisonConfig()
+        {
+            // Diffing() is the private method called by DiffWithCustomIds(), DiffWithCustomDataKeyId() and DiffWithFragmentId().
+
+            // Generate some randomObjects and assign the same ID fragment, with a progressive ID, to first/second batch.
+            int totalObjectCount = 3;
+            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), totalObjectCount, true, true);
+            List<IBHoMObject> secondBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), totalObjectCount, true, true);
+            List<string> allObjIds = Enumerable.Range(0, totalObjectCount).Select(i => i.ToString()).ToList();
+
+            DiffingConfig diffingConfig = new DiffingConfig();
+            diffingConfig.ComparisonConfig = new ComparisonConfig();
+
+            // Deliberately set the ComparisonConfig options that are IEnumerables to null.
+            diffingConfig.ComparisonConfig.CustomdataKeysExceptions = null;
+            diffingConfig.ComparisonConfig.CustomdataKeysToConsider = null;
+            diffingConfig.ComparisonConfig.PropertiesToConsider = null;
+            diffingConfig.ComparisonConfig.PropertyExceptions = null;
+            diffingConfig.ComparisonConfig.NamespaceExceptions = null;
+            diffingConfig.ComparisonConfig.PropertyNumericTolerances = null;
+            diffingConfig.ComparisonConfig.PropertySignificantFigures = null;
+
+            // Compute diffing.
+            // This should fail if there is no guard against null IEnumerables.
+            Diff diff = BH.Engine.Diffing.Compute.DiffWithCustomIds(firstBatch.OfType<object>().ToList(), allObjIds, secondBatch.OfType<object>().ToList(), allObjIds, diffingConfig);
+        }
+
         [TestMethod]
         public void DiffWithFragmentId_allModifiedObjects()
         {
