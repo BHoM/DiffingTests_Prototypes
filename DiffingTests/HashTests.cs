@@ -51,6 +51,52 @@ namespace BH.Tests.Diffing
     public class HashTests
     {
         [TestMethod]
+        public void CustomObjects_EqualHash()
+        {
+            // Create one random object
+            CustomObject testObject1 = BH.Engine.Diffing.Tests.Create.RandomObject<CustomObject>();
+
+            // Create another object identical to the first
+            CustomObject testObject2 = testObject1.DeepClone();
+
+            string hash1 = testObject1.Hash();
+            string hash2 = testObject2.Hash();
+            Assert.IsTrue(hash1 == hash2, "Two equal custom objects must have the same hash.");
+        }
+
+        [TestMethod]
+        public void CustomObjects_CustomKeyException_DifferentObjs_EqualHash()
+        {
+            // Create two customObjects with a same key that has different values.
+            CustomObject testObject1 = new CustomObject();
+            testObject1.CustomData["testKey"] = 999;
+            
+            CustomObject testObject2 = new CustomObject();
+            testObject2.CustomData["testKey"] = 0;
+
+            // Without any ComparisonConfig, the two CustomObjects must be seen as different.
+            string hash1 = testObject1.Hash();
+            string hash2 = testObject2.Hash();
+            Assert.IsTrue(hash1 != hash2, "The two CustomObjects must be seen as different when no ComparisonConfig is specified.");
+
+            // Use ComparisonConfig to specify exceptions.
+            ComparisonConfig cc = null;
+
+            // Use CustomdataKeysExceptions to disregard the difference in the input key.
+            cc = new ComparisonConfig() { CustomdataKeysExceptions = new List<string>() { "testKey" } };
+            hash1 = testObject1.Hash(cc);
+            hash2 = testObject2.Hash(cc);
+            Assert.IsTrue(hash1 == hash2, "The two CustomObjects must be seen as equal when using the CustomdataKeysExceptions to disregard the different CustomData key.");
+
+            // For CustomObjects, differences in customData keys should _also_ be disregarded by using PropertyExceptions.
+            // NOTE: this is done _on purpose_ for UX/UI consistency: when dealing with CustomObjects, we conflate object properties and CustomData keys.
+            cc = new ComparisonConfig() { PropertyExceptions = new List<string>() { "testKey" } };
+            hash1 = testObject1.Hash(cc);
+            hash2 = testObject2.Hash(cc);
+            Assert.IsTrue(hash1 == hash2, "The two CustomObjects must be seen as equal when using the PropertyExceptions to disregard the different CustomData key.");
+        }
+
+        [TestMethod]
         public void EqualObjects_EqualHash()
         {
             // Create one random object
