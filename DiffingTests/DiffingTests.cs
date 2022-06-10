@@ -202,6 +202,69 @@ namespace BH.Tests.Diffing
         }
 
         [TestMethod]
+        public void ObjectDifferences_DifferentBars_DescriptionNoName()
+        {
+            Bar bar1 = new Bar()
+            {
+                StartNode = new Node()
+                {
+                    Position = new Point() { X = 0, Y = 0, Z = 10 },
+                    Name = "startNode1"
+                },
+                Name = "bar1"
+            };
+
+            Bar bar2 = new Bar()
+            {
+                StartNode = new Node()
+                {
+                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
+                    Name = "startNode2"  // Different `Bar.StartNode.Name`
+                },
+                Name = "bar2" // Different `Bar.Name`
+            };
+
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2);
+
+            string descriptionNoName = objectDifferences.Differences.Where(d => !d.Name.Contains("Name")).FirstOrDefault().Description;
+
+            Assert.IsTrue(!descriptionNoName.Contains("with Name"));
+
+            bar1.Name = null;
+            bar2.Name = null;
+            Assert.IsTrue(!descriptionNoName.Contains("with Name"));
+        }
+
+        [TestMethod]
+        public void ObjectDifferences_DifferentBars_DescriptionIncludesName()
+        {
+            Bar bar1 = new Bar()
+            {
+                StartNode = new Node()
+                {
+                    Position = new Point() { X = 0, Y = 0, Z = 10 },
+                    Name = "startNode1"
+                },
+                Name = "bar1"
+            };
+
+            Bar bar2 = new Bar()
+            {
+                StartNode = new Node()
+                {
+                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
+                    Name = "startNode2"  // Different `Bar.StartNode.Name`
+                },
+                Name = "bar1" // SAME `Bar.Name`
+            };
+
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2);
+
+            string descriptionWithName = objectDifferences.Differences.Where(d => !d.Name.Contains("Name")).FirstOrDefault().Description;
+            Assert.IsTrue(descriptionWithName.Contains("with Name"));
+        }
+
+        [TestMethod]
         public void DifferentProperties_DifferentBars()
         {
             Bar bar1 = new Bar()
