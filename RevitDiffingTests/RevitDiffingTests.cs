@@ -253,6 +253,20 @@ namespace BH.Tests.Diffing.Revit
             //Assert.IsTrue(result_NonGenerics.Count == 2);
             Assert.AreEqual(2, result_Generics.Count);
         }
+
+        [TestMethod]
+        public void RevitIdsDuplicates_StructuralObjs()
+        {
+            var pastObjs = Utilities.GetDataset<List<object>>("RevitDiffing-duplicateIdsStructuralObjs_past.json");
+            var followingObjs = Utilities.GetDataset<List<object>>("RevitDiffing-duplicateIdsStructuralObjs_following.json");
+
+            IEnumerable<RevitIdentifiers> followingIdFragments = followingObjs.OfType<IBHoMObject>().Select(obj => obj.GetRevitIdentifiers()).Where(x => x != null);
+            var followingIds = followingIdFragments.Select(x => x.PersistentId.ToString()).ToList();
+            Assert.AreNotEqual(followingIds.Count, followingIds.Distinct().Count(), "The input followingObjects must have duplicate Ids for this test.");
+
+            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, followingObjs, new RevitComparisonConfig());
+            Assert.IsNull(diff, "Diffing should return null because input followingObjects have duplicate ids.");
+        }
     }
 }
 

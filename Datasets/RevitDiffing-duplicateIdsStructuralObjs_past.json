@@ -1,0 +1,1438 @@
+[
+    {
+        "$type": "BH.oM.Structure.SurfaceProperties.ConstantThickness, Structure_oM",
+        "Name": "",
+        "Thickness": 0.27,
+        "Material": {
+            "$type": "BH.oM.Structure.MaterialFragments.Concrete, Structure_oM",
+            "Name": "",
+            "Density": 0.0,
+            "DampingRatio": 0.0,
+            "PoissonsRatio": 0.0,
+            "ThermalExpansionCoeff": 0.0,
+            "YoungsModulus": 0.0,
+            "CylinderStrength": 0.0,
+            "CubeStrength": 0.0,
+            "BHoM_Guid": "74c4b753-58f2-4ac0-a0e9-ce611708eee5",
+            "Fragments": [],
+            "Tags": [],
+            "CustomData": {}
+        },
+        "PanelType": 1,
+        "BHoM_Guid": "1bd9448d-9e03-4a9c-a092-babd717428fc",
+        "Fragments": [
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+                "PersistentId": "c280f61d-1d3c-4d6b-8e8a-a6ca719e11bb-000a030b",
+                "ElementId": 656139,
+                "CategoryName": "Floors",
+                "FamilyName": "Floor",
+                "FamilyTypeName": "",
+                "FamilyTypeId": 656139,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+                "Parameters": {
+                    "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                    "$values": [
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "26-05-2014",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 19,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 309529,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.27,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.27,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": "vloeren; constructief, vrijdragende vloeren",
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": "bpv270",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "Interior",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": -1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "23.21",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "2014.3",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "LOD300",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        }
+                    ]
+                },
+                "BHoM_Guid": "e5abc795-59c8-4e08-810e-3322733aa86c",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            }
+        ],
+        "Tags": [],
+        "CustomData": {}
+    },
+    {
+        "$type": "BH.oM.Structure.Elements.Panel, Structure_oM",
+        "ExternalEdges": [
+            {
+                "Curve": {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 106.00000987400001,
+                        "Y": 95.550132370199961,
+                        "Z": 35.999999999999993
+                    },
+                    "End": {
+                        "X": 106.00000987400001,
+                        "Y": 122.55013237000014,
+                        "Z": 35.999999999999993
+                    },
+                    "Infinite": false
+                },
+                "Release": null,
+                "Support": null,
+                "BHoM_Guid": "4e9a6e78-f45a-48b8-a8e1-13c0043bc16d",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            },
+            {
+                "Curve": {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 106.00000987400001,
+                        "Y": 122.55013237000014,
+                        "Z": 35.999999999999993
+                    },
+                    "End": {
+                        "X": 76.850009874201,
+                        "Y": 122.55013237000014,
+                        "Z": 35.999999999999993
+                    },
+                    "Infinite": false
+                },
+                "Release": null,
+                "Support": null,
+                "BHoM_Guid": "99196aef-ea9a-4439-bd68-c07814822bdc",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            },
+            {
+                "Curve": {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 76.850009874201,
+                        "Y": 122.55013237000014,
+                        "Z": 35.999999999999993
+                    },
+                    "End": {
+                        "X": 76.850009874201,
+                        "Y": 105.87188381219903,
+                        "Z": 35.999999999999993
+                    },
+                    "Infinite": false
+                },
+                "Release": null,
+                "Support": null,
+                "BHoM_Guid": "3a05dd16-2b74-40c8-abea-2b759522f6e1",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            },
+            {
+                "Curve": {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 76.850009874201,
+                        "Y": 105.87188381219903,
+                        "Z": 35.999999999999993
+                    },
+                    "End": {
+                        "X": 87.171761316200062,
+                        "Y": 95.550132370199961,
+                        "Z": 35.999999999999993
+                    },
+                    "Infinite": false
+                },
+                "Release": null,
+                "Support": null,
+                "BHoM_Guid": "01bbd5e1-b3ef-47dc-beb8-b7d43d5d6e71",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            },
+            {
+                "Curve": {
+                    "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                    "Start": {
+                        "X": 87.171761316200062,
+                        "Y": 95.550132370199961,
+                        "Z": 35.999999999999993
+                    },
+                    "End": {
+                        "X": 106.00000987400001,
+                        "Y": 95.550132370199961,
+                        "Z": 35.999999999999993
+                    },
+                    "Infinite": false
+                },
+                "Release": null,
+                "Support": null,
+                "BHoM_Guid": "4e25b99c-024f-4968-8ad9-4cbe3cc946ed",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            }
+        ],
+        "Openings": [
+            {
+                "Edges": [
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 87.725009870699949,
+                                "Y": 111.33760985300002,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 90.400009843000021,
+                                "Y": 111.33760985300002,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "e4954e88-cb6d-42ce-ab54-4a82f3be775c",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 90.400009843000021,
+                                "Y": 111.33760985300002,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 90.400009843000021,
+                                "Y": 108.562609853,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "4a24ba01-1e9b-4570-ac2d-166690a7a121",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 90.400009843000021,
+                                "Y": 108.562609853,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 87.725009870699949,
+                                "Y": 108.562609853,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "a7e2e27f-d95f-48ee-ab8a-eddd506811de",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 87.725009870699949,
+                                "Y": 108.562609853,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 87.725009870699949,
+                                "Y": 111.33760985300002,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "ff0b7912-9b06-4404-a86d-508de601d697",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    }
+                ],
+                "BHoM_Guid": "43e794ba-e95a-4f6d-bac7-e821eb05e7e6",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            },
+            {
+                "Edges": [
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 92.449700870499882,
+                                "Y": 109.05013237,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 95.125009862899958,
+                                "Y": 109.05013237,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "6c518272-f3d0-4da5-8b5d-5f26fb4888ad",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 95.125009862899958,
+                                "Y": 109.05013237,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 95.125009862899958,
+                                "Y": 106.95013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "f7fc1adb-b16f-47ba-80c9-9a687b1aee5e",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 95.125009862899958,
+                                "Y": 106.95013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 92.449700870499882,
+                                "Y": 106.95013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "7f756d0e-eeae-4524-bfa1-e6981b313203",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 92.449700870499882,
+                                "Y": 106.95013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 92.449700870499882,
+                                "Y": 109.05013237,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "784ca1a1-bcc7-423e-a24d-3095e1425f74",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    }
+                ],
+                "BHoM_Guid": "8df419da-d85c-45dd-89c9-4893b7028ddd",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            },
+            {
+                "Edges": [
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 92.449700870499882,
+                                "Y": 111.35013237,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 95.125009862899958,
+                                "Y": 111.35013237,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "e0403884-49b7-4d55-b66b-598dbc0c49de",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 95.125009862899958,
+                                "Y": 111.35013237,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 95.125009862899958,
+                                "Y": 109.25013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "baf1a1f8-2f04-4571-a978-02afd1a4b54f",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 95.125009862899958,
+                                "Y": 109.25013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 92.449700870499882,
+                                "Y": 109.25013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "84367db8-f36c-4ca8-a4ea-f53946a78481",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 92.449700870499882,
+                                "Y": 109.25013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 92.449700870499882,
+                                "Y": 111.35013237,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "7d8cf2aa-d1be-420d-96da-1f57baaea692",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    }
+                ],
+                "BHoM_Guid": "33a857cc-8915-4ef6-915a-ddbbdaf05b5e",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            },
+            {
+                "Edges": [
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 92.449700870499882,
+                                "Y": 113.64116164618972,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 95.125009862899958,
+                                "Y": 113.64116164618972,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "a0eae86f-f78d-4083-9d19-9669f1334b4c",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 95.125009862899958,
+                                "Y": 113.64116164618972,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 95.125009862899958,
+                                "Y": 111.55013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "ce1e09c0-79da-4df1-b732-362353d15370",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 95.125009862899958,
+                                "Y": 111.55013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 92.449700870499882,
+                                "Y": 111.55013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "fec6806b-7f11-4533-b593-872ab06f4975",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 92.449700870499882,
+                                "Y": 111.55013236999996,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 92.449700870499882,
+                                "Y": 113.64116164618972,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "c8c27ecb-7cfb-4228-b0ed-f76a4315f189",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    }
+                ],
+                "BHoM_Guid": "615aaa2f-64b6-4197-9ed2-ebee0e3e997e",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            },
+            {
+                "Edges": [
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 87.725009870699949,
+                                "Y": 107.11265489611979,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 90.400009843000021,
+                                "Y": 107.11265489611979,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "f73f3fdd-3eff-4064-9485-5981dc2d7b32",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 90.400009843000021,
+                                "Y": 107.11265489611979,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 90.400009843000021,
+                                "Y": 106.22508733699999,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "f679eb3e-1642-46c2-89d6-36833d39434c",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 90.400009843000021,
+                                "Y": 106.22508733699999,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 87.725009870699949,
+                                "Y": 106.22508733699999,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "39df5291-7544-40c2-8b99-c04ca70806ff",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 87.725009870699949,
+                                "Y": 106.22508733699999,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 87.725009870699949,
+                                "Y": 107.11265489611979,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "31f7b255-717c-4b40-8630-95d9152c5025",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    }
+                ],
+                "BHoM_Guid": "6a54d37e-ba17-496a-a710-c39a131d1670",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            },
+            {
+                "Edges": [
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 87.725009870699964,
+                                "Y": 113.6411616461897,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 90.400009843000035,
+                                "Y": 113.6411616461897,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "f72f3a15-57f3-457b-8fa5-f0f16230bba1",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 90.400009843000035,
+                                "Y": 113.6411616461897,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 90.400009843000035,
+                                "Y": 112.78760984388002,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "a99caa13-fce4-4092-af67-cd87fd87aaae",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 90.400009843000035,
+                                "Y": 112.78760984388002,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 87.725009870699964,
+                                "Y": 112.78760984388002,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "b059e3a2-6599-4223-9230-798e82216bbb",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 87.725009870699964,
+                                "Y": 112.78760984388002,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 87.725009870699964,
+                                "Y": 113.6411616461897,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "798fd088-472c-4e23-92cf-4fb84ffbd36c",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    }
+                ],
+                "BHoM_Guid": "913d48b2-b302-420c-9627-a433fe8f534c",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            },
+            {
+                "Edges": [
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 92.449700870499882,
+                                "Y": 106.75013237,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 95.125009862899958,
+                                "Y": 106.75013237,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "0fd817d5-066a-406f-bbe5-51eca8204517",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 95.125009862899958,
+                                "Y": 106.75013237,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 95.125009862899958,
+                                "Y": 106.22508733699998,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "30b08c65-c11e-455c-a31f-4396597c940f",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 95.125009862899958,
+                                "Y": 106.22508733699998,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 92.449700870499868,
+                                "Y": 106.22508733699998,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "5b1a373f-743e-47ac-b7c2-80973198eb0b",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    },
+                    {
+                        "Curve": {
+                            "$type": "BH.oM.Geometry.Line, Geometry_oM",
+                            "Start": {
+                                "X": 92.449700870499882,
+                                "Y": 106.22508733699998,
+                                "Z": 35.999999999999993
+                            },
+                            "End": {
+                                "X": 92.449700870499882,
+                                "Y": 106.75013237,
+                                "Z": 35.999999999999993
+                            },
+                            "Infinite": false
+                        },
+                        "Release": null,
+                        "Support": null,
+                        "BHoM_Guid": "4d72c8ba-236e-4593-b5ba-1f3092d895ed",
+                        "Name": "",
+                        "Fragments": [],
+                        "Tags": [],
+                        "CustomData": {}
+                    }
+                ],
+                "BHoM_Guid": "0b1ff890-b002-49eb-b775-399c7e1c2d2b",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            }
+        ],
+        "Property": {
+            "$type": "BH.oM.Structure.SurfaceProperties.ConstantThickness, Structure_oM",
+            "Name": "",
+            "Thickness": 0.27,
+            "Material": {
+                "$type": "BH.oM.Structure.MaterialFragments.Concrete, Structure_oM",
+                "Name": "",
+                "Density": 0.0,
+                "DampingRatio": 0.0,
+                "PoissonsRatio": 0.0,
+                "ThermalExpansionCoeff": 0.0,
+                "YoungsModulus": 0.0,
+                "CylinderStrength": 0.0,
+                "CubeStrength": 0.0,
+                "BHoM_Guid": "74c4b753-58f2-4ac0-a0e9-ce611708eee5",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            },
+            "PanelType": 1,
+            "BHoM_Guid": "1bd9448d-9e03-4a9c-a092-babd717428fc",
+            "Fragments": [
+                {
+                    "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+                    "PersistentId": "c280f61d-1d3c-4d6b-8e8a-a6ca719e11bb-000a030b",
+                    "ElementId": 656139,
+                    "CategoryName": "Floors",
+                    "FamilyName": "Floor",
+                    "FamilyTypeName": "",
+                    "FamilyTypeId": 656139,
+                    "Workset": "",
+                    "OwnerViewId": -1,
+                    "ParentElementId": -1,
+                    "LinkDocument": ""
+                },
+                {
+                    "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+                    "Parameters": {
+                        "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                        "$values": [
+                            {
+                                "Name": "",
+                                "Value": null,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": "26-05-2014",
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": 0.1,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": 19,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": null,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": 309529,
+                                "IsReadOnly": true
+                            },
+                            {
+                                "Name": "",
+                                "Value": 0.0,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": 1,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": null,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": null,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": 0.0,
+                                "IsReadOnly": true
+                            },
+                            {
+                                "Name": "",
+                                "Value": 0.27,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": 0.27,
+                                "IsReadOnly": true
+                            },
+                            {
+                                "Name": "",
+                                "Value": "vloeren; constructief, vrijdragende vloeren",
+                                "IsReadOnly": true
+                            },
+                            {
+                                "Name": "",
+                                "Value": 0.0,
+                                "IsReadOnly": true
+                            },
+                            {
+                                "Name": "",
+                                "Value": "bpv270",
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": "Interior",
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": -1,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": "",
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": "23.21",
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": "2014.3",
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": null,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": "LOD300",
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": null,
+                                "IsReadOnly": false
+                            },
+                            {
+                                "Name": "",
+                                "Value": 0.0,
+                                "IsReadOnly": true
+                            }
+                        ]
+                    },
+                    "BHoM_Guid": "e5abc795-59c8-4e08-810e-3322733aa86c",
+                    "Name": "",
+                    "Fragments": [],
+                    "Tags": [],
+                    "CustomData": {}
+                }
+            ],
+            "Tags": [],
+            "CustomData": {}
+        },
+        "OrientationAngle": 0.0,
+        "BHoM_Guid": "241bf469-57ab-4c85-9c7e-a6b56014c8a1",
+        "Name": "",
+        "Fragments": [
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+                "PersistentId": "0cf9491f-17f2-4723-ba65-a20ebf9245ac-000b38a8",
+                "ElementId": 735400,
+                "CategoryName": "Floors",
+                "FamilyName": "Floor",
+                "FamilyTypeName": "",
+                "FamilyTypeId": 656139,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+                "Parameters": {
+                    "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                    "$values": [
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 35.639999999999993,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": true,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": false,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": true,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 18012,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 3,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 35.91,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 193.15149194739914,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": -0.09,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.27,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": false,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 18012,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": true,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 18012,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 715.37589610148018,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 107.05461253621452,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": -1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 728442,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": -1,
+                            "IsReadOnly": false
+                        }
+                    ]
+                },
+                "BHoM_Guid": "7c2d4d8a-c7bf-4dcb-9be1-ac10e54464e2",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            }
+        ],
+        "Tags": [],
+        "CustomData": {}
+    }
+]

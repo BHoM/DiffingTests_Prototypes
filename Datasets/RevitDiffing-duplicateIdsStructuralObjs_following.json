@@ -1,0 +1,563 @@
+[
+    {
+        "$type": "BH.oM.Structure.SurfaceProperties.ConstantThickness, Structure_oM",
+        "Name": null,
+        "Thickness": 0.20000000000000004,
+        "Material": {
+            "$type": "BH.oM.Structure.MaterialFragments.Concrete, Structure_oM",
+            "Name": null,
+            "Density": 0.0,
+            "DampingRatio": 0.0,
+            "PoissonsRatio": 0.0,
+            "ThermalExpansionCoeff": 0.0,
+            "YoungsModulus": 0.0,
+            "CylinderStrength": 0.0,
+            "CubeStrength": 0.0,
+            "BHoM_Guid": "0fd7251b-d288-4e9c-99a8-4bab83e9f2ba",
+            "Fragments": [],
+            "Tags": [],
+            "CustomData": {}
+        },
+        "PanelType": 1,
+        "BHoM_Guid": "24616ee5-a7f8-4ae5-b84e-aa70f404fd67",
+        "Fragments": [
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+                "PersistentId": "5aa0104e-0882-47c5-ac9a-b184dbc42e32-0000473d",
+                "ElementId": 18237,
+                "CategoryName": "Floors",
+                "FamilyName": "Floor",
+                "FamilyTypeName": "",
+                "FamilyTypeId": 18237,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+                "Parameters": {
+                    "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                    "$values": [
+                        {
+                            "Name": "",
+                            "Value": "gewapend betonvloer",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "26-05-2014",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 19,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "",
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 309529,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "Floor Types",
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.20000000000000004,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.20000000000000004,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": "vloeren; constructief, algemeen (verzamelniveau)",
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": "gewap. betonvl. d=200",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "Interior",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": -1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "23.20",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "2014.3",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "LOD300",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        }
+                    ]
+                },
+                "BHoM_Guid": "c6f2a768-8673-4ea3-b327-b218e04e6bf1",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            }
+        ],
+        "Tags": [],
+        "CustomData": {}
+    },
+    {
+        "$type": "BH.oM.Structure.SurfaceProperties.ConstantThickness, Structure_oM",
+        "Name": null,
+        "Thickness": 0.25000000000000006,
+        "Material": {
+            "$type": "BH.oM.Structure.MaterialFragments.Concrete, Structure_oM",
+            "Name": null,
+            "Density": 0.0,
+            "DampingRatio": 0.0,
+            "PoissonsRatio": 0.0,
+            "ThermalExpansionCoeff": 0.0,
+            "YoungsModulus": 0.0,
+            "CylinderStrength": 0.0,
+            "CubeStrength": 0.0,
+            "BHoM_Guid": "0fd7251b-d288-4e9c-99a8-4bab83e9f2ba",
+            "Fragments": [],
+            "Tags": [],
+            "CustomData": {}
+        },
+        "PanelType": 1,
+        "BHoM_Guid": "1059a4f0-dadb-4792-a803-2a3e3568e07e",
+        "Fragments": [
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+                "PersistentId": "5aa0104e-0882-47c5-ac9a-b184dbc42e32-0000473d",
+                "ElementId": 18238,
+                "CategoryName": "Floors",
+                "FamilyName": "Floor",
+                "FamilyTypeName": "",
+                "FamilyTypeId": 18238,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+                "Parameters": {
+                    "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                    "$values": [
+                        {
+                            "Name": "",
+                            "Value": "gewapend betonvloer",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "26-05-2014",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 19,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "",
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 309529,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "Floor Types",
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.25000000000000006,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.25000000000000006,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": "vloeren; constructief, algemeen (verzamelniveau)",
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": "gewap. betonvl. d=250",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "Interior",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": -1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "23.20",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "2014.3",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "LOD300",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        }
+                    ]
+                },
+                "BHoM_Guid": "fff15a72-7081-45eb-8c69-f3a0267a0afb",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            }
+        ],
+        "Tags": [],
+        "CustomData": {}
+    },
+    {
+        "$type": "BH.oM.Structure.SurfaceProperties.ConstantThickness, Structure_oM",
+        "Name": null,
+        "Thickness": 0.20000000000000004,
+        "Material": {
+            "$type": "BH.oM.Structure.MaterialFragments.Concrete, Structure_oM",
+            "Name": null,
+            "Density": 2406.5302626279113,
+            "DampingRatio": 0.0,
+            "PoissonsRatio": 0.2,
+            "ThermalExpansionCoeff": 9.9E-06,
+            "YoungsModulus": 29910000000.0,
+            "CylinderStrength": 0.0,
+            "CubeStrength": 0.0,
+            "BHoM_Guid": "a9cc3958-7727-4822-aa45-a55f9b234f96",
+            "Fragments": [],
+            "Tags": [],
+            "CustomData": {}
+        },
+        "PanelType": 1,
+        "BHoM_Guid": "5185640f-2058-4ea5-9261-31e99d581dd9",
+        "Fragments": [
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitIdentifiers, Revit_oM",
+                "PersistentId": "5aa0104e-0882-47c5-ac9a-b184dbc42e32-0000473f",
+                "ElementId": 18239,
+                "CategoryName": "Floors",
+                "FamilyName": "Floor",
+                "FamilyTypeName": "",
+                "FamilyTypeId": 18239,
+                "Workset": "",
+                "OwnerViewId": -1,
+                "ParentElementId": -1,
+                "LinkDocument": ""
+            },
+            {
+                "$type": "BH.oM.Adapters.Revit.Parameters.RevitPulledParameters, Revit_oM",
+                "Parameters": {
+                    "$type": "System.Collections.ObjectModel.ReadOnlyCollection`1[[BH.oM.Adapters.Revit.Parameters.RevitParameter, Revit_oM]], mscorlib",
+                    "$values": [
+                        {
+                            "Name": "",
+                            "Value": "kanaalplaatvloer",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "26-05-2014",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 19,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "",
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 309510,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "Floor Types",
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.20000000000000004,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.20000000000000004,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": "vloeren; constructief, vrijdragende vloeren",
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        },
+                        {
+                            "Name": "",
+                            "Value": "kpv200",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "Interior",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": -1,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "23.21",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "2014.3",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": "LOD300",
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": null,
+                            "IsReadOnly": false
+                        },
+                        {
+                            "Name": "",
+                            "Value": 0.0,
+                            "IsReadOnly": true
+                        }
+                    ]
+                },
+                "BHoM_Guid": "e0d122f9-e935-4a23-b7c8-0a490649d7a4",
+                "Name": "",
+                "Fragments": [],
+                "Tags": [],
+                "CustomData": {}
+            }
+        ],
+        "Tags": [],
+        "CustomData": {}
+    }
+]
