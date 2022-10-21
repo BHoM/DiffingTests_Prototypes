@@ -38,9 +38,9 @@ using System.Diagnostics;
 
 namespace BH.Tests.Diffing
 {
-    public static partial class Profiling
+    public static partial class DiffingProfiling
     {
-        public static void Diffing_GeneralProfiling()
+        public static void GeneralProfiling()
         {
             Console.WriteLine("\n/**********************************/");
             Console.WriteLine("\n\t\t\tDIFFING PROFILING");
@@ -75,7 +75,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine("\nProfiling concluded.");
         }
 
-        public static void ProfilingTask(int totalObjs, List<float> percentagesModified, DiffingConfig DiffingConfig, string path = null)
+        private static void ProfilingTask(int totalObjs, List<float> percentagesModified, DiffingConfig DiffingConfig, string path = null)
         {
             string introMessage = $"\n---Diffing for {totalObjs} randomly generated objects.";
             introMessage += DiffingConfig.EnablePropertyDiffing ? " Collection-level + property-level." : " Only collection-level.";
@@ -94,7 +94,7 @@ namespace BH.Tests.Diffing
             }
 
             // Generate random objects
-            List<IBHoMObject> currentObjs = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), totalObjs);
+            List<IBHoMObject> currentObjs = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(typeof(Bar), totalObjs);
 
             // Create Stream. This assigns the Hashes.
             Stopwatch swRev1 = new Stopwatch();

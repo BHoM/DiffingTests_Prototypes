@@ -99,8 +99,8 @@ namespace BH.Tests.Diffing
 
             // Generate some randomObjects and assign the same ID fragment, with a progressive ID, to first/second batch.
             int totalObjectCount = 3;
-            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), totalObjectCount, true, true);
-            List<IBHoMObject> secondBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), totalObjectCount, true, true);
+            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(typeof(Bar), totalObjectCount, true, true);
+            List<IBHoMObject> secondBatch = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(typeof(Bar), totalObjectCount, true, true);
             List<string> allObjIds = Enumerable.Range(0, totalObjectCount).Select(i => i.ToString()).ToList();
 
             DiffingConfig diffingConfig = new DiffingConfig();
@@ -126,8 +126,8 @@ namespace BH.Tests.Diffing
             // Test that the `DiffWithFragmentId()` correctly identifies two sets of different objects with the same ID as modified.
 
             // Generate some randomObjects and assign the same ID fragment, with a progressive ID, to first/second batch.
-            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), 3, true, true);
-            List<IBHoMObject> secondBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), 3, true, true);
+            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(typeof(Bar), 3, true, true);
+            List<IBHoMObject> secondBatch = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(typeof(Bar), 3, true, true);
 
             Diff diff = BH.Engine.Diffing.Compute.DiffWithFragmentId(firstBatch, secondBatch, typeof(TestIdFragment), "Id");
 
@@ -141,7 +141,7 @@ namespace BH.Tests.Diffing
         {
             DiffingConfig DiffingConfig = new DiffingConfig();
 
-            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Create.RandomObjects(typeof(Bar), 3, true, true);
+            List<IBHoMObject> firstBatch = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(typeof(Bar), 3, true, true);
             List<IBHoMObject> secondBatch = new List<IBHoMObject>();
             secondBatch.AddRange(firstBatch);
 

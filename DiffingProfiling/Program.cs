@@ -37,20 +37,39 @@ namespace BH.Tests.Diffing
             /// Performance profiling.
             /// ***************************************************************************/
 
+            var asteriskRow = $"\n{string.Join("", Enumerable.Repeat("*", 50))}";
+
             try
             {
-                Profiling.Diffing_GeneralProfiling();
+                HashProfiling.HashObjects();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"\n\t\tERROR:\n\t\t{e.ToString()}");
+            }
+
+            Console.WriteLine(asteriskRow);
+            Console.WriteLine("Press `Enter` to repeat HashProfiling / any other key to continue.");
+            Console.WriteLine(asteriskRow);
+
+            var keyInfo = Console.ReadKey(true);
+            if (keyInfo.Key == ConsoleKey.Enter)
+                Main();
+
+            try
+            {
+                DiffingProfiling.GeneralProfiling();
             } 
             catch (Exception e)
             {
                 Console.WriteLine($"\n\t\tERROR:\n\t\t{e.ToString()}");
             }
 
-            Console.WriteLine("\n/******************************************************/");
+            Console.WriteLine(asteriskRow);
             Console.WriteLine("Press `Enter` to repeat all / any other key to close.");
-            Console.WriteLine("\n/******************************************************/");
+            Console.WriteLine(asteriskRow);
 
-            var keyInfo = Console.ReadKey(true);
+            keyInfo = Console.ReadKey(true);
             if (keyInfo.Key == ConsoleKey.Enter)
                 Main();
         }

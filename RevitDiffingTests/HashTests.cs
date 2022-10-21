@@ -67,8 +67,8 @@ namespace BH.Tests.Diffing.Revit
             // Make sure the past/following lists contain completely different objects by setting a name with a progressive number in them (done via the `Create.RandomObjects()` method).
             int numElements = 10;
             Type revitType = typeof(ModelInstance);
-            List<IBHoMObject> pastObjects = BH.Engine.Diffing.Tests.Create.RandomObjects(revitType, numElements, true, true, "pastObject_");
-            List<IBHoMObject> followingObjs = BH.Engine.Diffing.Tests.Create.RandomObjects(revitType, numElements, true, true, "followingObject_");
+            List<IBHoMObject> pastObjects = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(revitType, numElements, true, true, "pastObject_");
+            List<IBHoMObject> followingObjs = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(revitType, numElements, true, true, "followingObject_");
 
             // Add a same RevitParameters on all the object.
             // (Having a RevitParameter on the objects ensures that the HashString() extension method for RevitParameter is triggered when computing the Hash()).
@@ -92,8 +92,8 @@ namespace BH.Tests.Diffing.Revit
             // Make sure the past/following lists contain completely different objects by setting a name with a progressive number in them (done via the `Create.RandomObjects()` method).
             int numElements = 10;
             Type revitType = typeof(BH.oM.Adapters.Revit.Elements.ModelInstance);
-            List<IBHoMObject> pastObjects = BH.Engine.Diffing.Tests.Create.RandomObjects(revitType, numElements, true, true, "pastObject_");
-            List<IBHoMObject> followingObjs = BH.Engine.Diffing.Tests.Create.RandomObjects(revitType, numElements, true, true, "followingObject_");
+            List<IBHoMObject> pastObjects = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(revitType, numElements, true, true, "pastObject_");
+            List<IBHoMObject> followingObjs = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(revitType, numElements, true, true, "followingObject_");
 
             // Add a same RevitParameters on all the object.
             // (Having a RevitParameter on the objects ensures that the HashString() extension method for RevitParameter is triggered when computing the Hash()).

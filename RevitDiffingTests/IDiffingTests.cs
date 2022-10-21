@@ -50,8 +50,8 @@ namespace BH.Tests.Diffing.Revit
             // Generate 10 random objects
             int numElements = 10;
             Type revitType = typeof(BH.oM.Adapters.Revit.Elements.ModelInstance);
-            List<IBHoMObject> pastObjects = BH.Engine.Diffing.Tests.Create.RandomObjects(revitType, numElements);
-            List<IBHoMObject> followingObjs = BH.Engine.Diffing.Tests.Create.RandomObjects(revitType, numElements);
+            List<IBHoMObject> pastObjects = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(revitType, numElements);
+            List<IBHoMObject> followingObjs = BH.Engine.Diffing.Tests.Create.RandomBHoMObjects(revitType, numElements);
 
             // Add RevitParameters on them
             pastObjects.ForEach(o => o.SetRevitParameter("testParameter", 10));

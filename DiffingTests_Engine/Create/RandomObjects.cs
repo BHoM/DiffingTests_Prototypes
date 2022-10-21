@@ -35,10 +35,10 @@ namespace BH.Engine.Diffing.Tests
     {
         public static List<T> RandomObjects<T>(int count = 100, bool assignIdFragmentWithProgressiveId = false, bool assignObjectName = false, string objectNamePrefix = "bar_") where T : IObject
         {
-            return RandomObjects(typeof(T), count, assignIdFragmentWithProgressiveId, assignObjectName, objectNamePrefix).OfType<T>().ToList();
+            return RandomBHoMObjects(typeof(T), count, assignIdFragmentWithProgressiveId, assignObjectName, objectNamePrefix).OfType<T>().ToList();
         }
 
-        public static List<IBHoMObject> RandomObjects(Type t, int count = 100, bool assignIdFragmentWithProgressiveId = false, bool assignObjectName = false, string objectNamePrefix = "bar_")
+        public static List<IBHoMObject> RandomBHoMObjects(Type t, int count = 100, bool assignIdFragmentWithProgressiveId = false, bool assignObjectName = false, string objectNamePrefix = "bar_")
         {
             List<IBHoMObject> objs = new List<IBHoMObject>();
 
@@ -62,6 +62,20 @@ namespace BH.Engine.Diffing.Tests
                 }
 
                 objs.Add(obj as dynamic);
+            }
+
+            return objs;
+        }
+
+        public static List<IObject> RandomIObjects(Type t, int count = 100)
+        {
+            List<IObject> objs = new List<IObject>();
+
+            for (int i = 0; i < count; i++)
+            {
+                IObject obj = BH.Engine.Base.Create.RandomObject(t);
+
+                objs.Add(obj);
             }
 
             return objs;
