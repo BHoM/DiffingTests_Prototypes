@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "DiffingTests": {
-      "commandName": "Executable",
-      "executablePath": "C:\\Users\\alombardi\\GitHub\\DiffingTests_Prototypes\\DiffingTests\\bin\\Debug\\netcoreapp3.1\\DiffingTests.exe"
-    }
-  }
-}
