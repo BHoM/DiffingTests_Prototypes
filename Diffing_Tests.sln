@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diffing_Engine", "..\BHoM_E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHoM_Engine", "..\BHoM_Engine\BHoM_Engine\BHoM_Engine.csproj", "{1D057AC6-7B01-4291-9821-99D2B879627E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffingTestsNew", "DiffingTestsNew\DiffingTestsNew.csproj", "{E79FB0ED-958D-4E58-8D1E-C5FAE518D0B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingTests", "DiffingTests\DiffingTests.csproj", "{E79FB0ED-958D-4E58-8D1E-C5FAE518D0B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RevitDiffingTestsNew", "RevitDiffingTestsNew\RevitDiffingTestsNew.csproj", "{55CB9B48-A58F-46F8-BD0E-712F44B1369A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevitDiffingTests", "RevitDiffingTests\RevitDiffingTests.csproj", "{55CB9B48-A58F-46F8-BD0E-712F44B1369A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
