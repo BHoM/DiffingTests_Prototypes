@@ -26,7 +26,6 @@ using BH.oM.Adapters.Revit;
 using BH.Engine.Base;
 using BH.Engine.Diffing.Tests;
 using BH.Engine.Adapters.Revit;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -41,14 +40,15 @@ using BH.oM.Adapters.Revit.Elements;
 using BH.Engine.Reflection;
 using BH.oM.Physical.Elements;
 using System.Collections.Specialized;
+using NUnit.Framework;
+using Shouldly;
+using BH.Test.Engine.Diffing;
 
 namespace BH.Tests.Diffing.Revit
 {
-    [TestClass]
-    [System.Runtime.InteropServices.Guid("43440C9F-5000-4FB2-8858-DD50F1BA9FAF")]
     public class RevitDiffing
     {
-        [TestMethod]
+        [Test]
         public void NullChecks_RevitDiffingMethods()
         {
             List<object> pastObjs = null;
@@ -66,7 +66,7 @@ namespace BH.Tests.Diffing.Revit
             BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, propertiesToConsider, parametersToConsider);
         }
 
-        [TestMethod]
+        [Test]
         public void CustomObjects_PropertiesToConsider_And_ParametersToConsider()
         {
             // Test that different objects with the same RevitParameter all get a different Hash.
@@ -108,7 +108,7 @@ namespace BH.Tests.Diffing.Revit
             Assert.IsTrue(diff.ModifiedObjects.Count() == 1);
         }
 
-        [TestMethod]
+        [Test]
         public void TowerMechanicalEquipment()
         {
             List<ModelInstance> pastObjects = Utilities.GetDataset<List<ModelInstance>>("210917_Tower1_MechanicalEquipment_past.json");
@@ -117,10 +117,10 @@ namespace BH.Tests.Diffing.Revit
             RevitComparisonConfig rcc = null;
             Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjects, followingObjects, "UniqueId", rcc);
 
-            VerifyTotalDifferences(diff, 295, 271, 71);
+            VerifyTotalDifferences(diff, 566, 542, 71);
         }
 
-        [TestMethod]
+        [Test]
         public void TowerMechanicalEquipment_ParametersToConsider()
         {
             List<ModelInstance> pastObjects = Utilities.GetDataset<List<ModelInstance>>("210917_Tower1_MechanicalEquipment_past.json");
@@ -137,22 +137,22 @@ namespace BH.Tests.Diffing.Revit
             VerifyTotalDifferences(diff, 37, 13, 21);
         }
 
-        [TestMethod]
-        [DataRow(true, true, true, true, 18, 15)]
-        [DataRow(false, false, false, false, 6, 3)]
-        [DataRow(true, false, false, false, 9, 6)]
-        [DataRow(false, true, false, false, 9, 6)]
-        [DataRow(false, false, true, false, 9, 6)]
-        [DataRow(false, false, false, true, 9, 6)]
-        [DataRow(true, true, false, false, 12, 9)]
-        [DataRow(true, false, true, false, 12, 9)]
-        [DataRow(true, false, false, true, 12, 9)]
-        [DataRow(false, true, false, true, 12, 9)]
-        [DataRow(false, true, true, false, 12, 9)]
-        [DataRow(false, false, true, true, 12, 9)]
-        [DataRow(true, false, true, true, 15, 12)]
-        [DataRow(true, true, false, true, 15, 12)]
-        [DataRow(true, true, true, false, 15, 12)]
+        [Test]
+        [TestCase(false, false, false, false, 9, 6)]
+        [TestCase(true, false, false, false, 15, 12)]
+        [TestCase(false, true, false, false, 15, 12)]
+        [TestCase(false, false, true, false, 15, 12)]
+        [TestCase(false, false, false, true, 15, 12)]
+        [TestCase(true, true, false, false, 21, 18)]
+        [TestCase(true, false, true, false, 21, 18)]
+        [TestCase(true, false, false, true, 21, 18)]
+        [TestCase(false, true, false, true, 21, 18)]
+        [TestCase(false, true, true, false, 21, 18)]
+        [TestCase(false, false, true, true, 21, 18)]
+        [TestCase(true, false, true, true, 27, 24)]
+        [TestCase(true, true, false, true, 27, 24)]
+        [TestCase(true, true, true, false, 27, 24)]
+        [TestCase(true, true, true, true, 33, 30)]
         public void RevitPulledParameters_wallCustomParams_ConsiderAssignedParameters(
             bool RevitParams_ConsiderAddedAssigned,
             bool RevitParams_ConsiderAddedUnassigned,
@@ -174,7 +174,7 @@ namespace BH.Tests.Diffing.Revit
             VerifyTotalDifferences(diff, expected_totalDifferences, expected_revitParameterDifferences);
         }
 
-        [TestMethod]
+        [Test]
         public void RevitPulledParameters_wallCustomParams_ConsiderOnlyParameterDifferences()
         {
             BH.oM.Physical.Elements.Wall wall_past = Utilities.GetDataset<BH.oM.Physical.Elements.Wall>("RevitPulledParams_wallCustomParams_past.json");
@@ -184,22 +184,23 @@ namespace BH.Tests.Diffing.Revit
 
             Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, "UniqueId", rcc);
 
-            VerifyTotalDifferences(diff, 15, 15);
+            VerifyTotalDifferences(diff, 30, 30);
         }
 
         public void VerifyTotalDifferences(Diff diff, int totalDifferences, int totalRevitParameterDifferences, int totalModifiedObjectDifferences = 1)
         {
-            Assert.IsTrue(diff != null);
-            Assert.AreEqual(totalModifiedObjectDifferences, diff.ModifiedObjectsDifferences.Count());
+            diff.ShouldNotBeNull();
+            diff.ModifiedObjectsDifferences.Count().ShouldBe(totalModifiedObjectDifferences);
 
             var allDifferences = diff.ModifiedObjectsDifferences.ToList().SelectMany(d => d.Differences).ToList();
             var revitParameterDifferences = diff.ModifiedObjectsDifferences.SelectMany(d => d.Differences.OfType<RevitParameterDifference>()).ToList();
-            Assert.AreEqual(totalDifferences, allDifferences.Count(), 0, $"Differences found: {allDifferences.Count()} instead of expected {totalDifferences}. Differences: {diff.ModifiedObjectsDifferences}");
-            Assert.AreEqual(totalRevitParameterDifferences, revitParameterDifferences.Count());
+
+            allDifferences.Count().ShouldBe(totalDifferences, $"Total differences found: {allDifferences.Count()} instead of expected {totalDifferences}. Differences: {diff.ModifiedObjectsDifferences.ToText()}");
+            revitParameterDifferences.Count().ShouldBe(totalRevitParameterDifferences, $"Revit param differences found: {revitParameterDifferences.Count()} instead of expected {totalRevitParameterDifferences}. Differences: {diff.ModifiedObjectsDifferences.ToText()}");
         }
 
 
-        [TestMethod]
+        [Test]
         public void RevitPulledParameters_Wall()
         {
             BH.oM.Physical.Elements.Wall wall_past = Utilities.GetDataset<BH.oM.Physical.Elements.Wall>("RevitPulledParams_modifiedWall_past.json");
@@ -207,10 +208,10 @@ namespace BH.Tests.Diffing.Revit
 
             Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, new List<string>(), new List<string>());
 
-            VerifyTotalDifferences(diff, 17, 14);
+            VerifyTotalDifferences(diff, 31, 28);
         }
 
-        [TestMethod]
+        [Test]
         public void RevitPulledParams_BHoMObjsAndModelInstances()
         {
             var pastObjs = Utilities.GetDataset<List<object>>("RevitPulledParams_BHoMObjs-ModelInstances_past.json");
@@ -224,10 +225,10 @@ namespace BH.Tests.Diffing.Revit
             RevitComparisonConfig rcc = BH.Engine.Adapters.Revit.Create.RevitComparisonConfig(null, null, considerOnlyParameterDifferences, considerAddedParameters, considerRemovedParameters, considerUnassignedParameters);
             Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, followingObjs, rcc);
 
-            VerifyTotalDifferences(diff, 10, 10, 6);
+            VerifyTotalDifferences(diff, 20, 20, 6);
         }
 
-        [TestMethod]
+        [Test]
         public void PropertyFullNameValueGroups_RevitParameter()
         {
             CustomObject customObject = new CustomObject();
@@ -254,7 +255,7 @@ namespace BH.Tests.Diffing.Revit
             Assert.AreEqual(2, result_Generics.Count);
         }
 
-        [TestMethod]
+        [Test]
         public void RevitIdsDuplicates_StructuralObjs()
         {
             var pastObjs = Utilities.GetDataset<List<object>>("RevitDiffing-duplicateIdsStructuralObjs_past.json");

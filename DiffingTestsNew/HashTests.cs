@@ -170,12 +170,12 @@ namespace BH.Tests.Diffing
             HashComparer<Node> hashComparer = new HashComparer<Node>(cc, true);
 
             // Create one node
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
             node1 = BH.Engine.Base.Modify.SetHashFragment(node1, cc);
 
             // Create another node with similar coordinates that should be ignored by precision
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 0.0005 };
             node2 = BH.Engine.Base.Modify.SetHashFragment(node2, cc);
 
@@ -183,7 +183,7 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(hashComparer.Equals(node1, node2));
 
             // Create another node with similar coordinates that should be considered as different by precision
-            Node node3 = AutoFaker.Generate<Node>();
+            Node node3 = new Node();
             node3.Position = new Point() { X = 0, Y = 0, Z = 0.005 };
 
             List<Node> allNodes = new List<Node>();
@@ -206,13 +206,13 @@ namespace BH.Tests.Diffing
         public void CustomdataKeysToInclude_DifferentObjects()
         {
             // Create one node with a few properties and some CustomData.
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
             node1.CustomData.Add("Gnappi", 1);
             node1.CustomData.Add("Zurli", 9999);
 
             // Create another node with same properties but 1 different CustomData.
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 0 };
             node2.CustomData.Add("Gnappi", 1);
             node2.CustomData.Add("Zurli", 0); // different value
@@ -231,13 +231,13 @@ namespace BH.Tests.Diffing
         public void CustomDataToExclude_DifferentObjects()
         {
             // Create one node with a few properties and some CustomData.
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
             node1.CustomData.Add("Gnappi", 1);
             node1.CustomData.Add("Zurli", 9999);
 
             // Create another node with same properties but 1 different CustomData.
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 0 };
             node2.CustomData.Add("Gnappi", 1);
             node2.CustomData.Add("Zurli", 0); // different value
@@ -251,16 +251,16 @@ namespace BH.Tests.Diffing
         public void TypeExceptions_DifferentObjects_SeenAsEqual()
         {
             // Create one node
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
 
             // Create another node with different coordinates
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 50 };
             node2.Name = "node2";
 
             // Create another node with different coordinates
-            Node node3 = AutoFaker.Generate<Node>();
+            Node node3 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 100 };
 
             // Create two parent Bars for the nodes
@@ -309,7 +309,7 @@ namespace BH.Tests.Diffing
         public void PropertiesToConsider_SubProperties_EqualObjects()
         {
             // Create one node
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
 
             // Create another node similar to node1 but with the name changed.
@@ -317,7 +317,7 @@ namespace BH.Tests.Diffing
             node1_diffName.Name = "node1_diffName";
 
             // Create another node with different coordinates
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 50 };
             node2.Name = "node2";
 
@@ -408,7 +408,7 @@ namespace BH.Tests.Diffing
         public void PropertiesToConsider_FullPropertyNames_EqualObjects()
         {
             // Create one node
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
 
             // Create another node similar to node1 but with the name changed.
@@ -416,7 +416,7 @@ namespace BH.Tests.Diffing
             node1_diffName.Name = "node1_diffName";
 
             // Create another node with different coordinates
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 50 };
             node2.Name = "node2";
 
@@ -463,7 +463,7 @@ namespace BH.Tests.Diffing
         public void PropertiesToConsider_PartialPropertyName_DifferentObjects()
         {
             // Create one node
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
 
             // Create another node similar to node1 but with the name changed.
@@ -471,7 +471,7 @@ namespace BH.Tests.Diffing
             node1_diffName.Name = "node1_diffName";
 
             // Create another node with different coordinates
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 50 };
             node2.Name = "node2";
 
@@ -510,11 +510,11 @@ namespace BH.Tests.Diffing
         public void PropertiesToConsider_WildCardPrefix_DifferentObjects_SeenAsDifferent()
         {
             // Create one node
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
 
             // Create another node with different coordinates
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 50 };
             node2.Name = "node2";
 
@@ -552,12 +552,12 @@ namespace BH.Tests.Diffing
             bar2.Name = "bar1"; // SAME NAMES FOR BARS.
 
             // Create another node with different coordinates
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 50 };
             node1.Name = "node1";
 
             // Create another node with different coordinates but with the same name as node2.
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 100, Y = 100, Z = 100 };
             node2.Name = node1.Name; // SAME NAME AS NODE2
 
@@ -580,20 +580,20 @@ namespace BH.Tests.Diffing
             Node startNode = new Node();
             startNode.Position = new Point() { X = 0, Y = 0, Z = 0 };
             Node endNode = new Node();
-            endNode.Position = new Point() { X = 0, Y = 0, Z = 1 };
+            endNode.Position = new Point() { X = 0, Y = 0, Z = 0 };
             Bar bar1 = new Bar();
             bar1.StartNode = startNode;
             bar1.EndNode= endNode;
             bar1.Name = "bar1";
 
-            // Create another bar identical to the first
+            // Create another bar with different name and different the nodes positions.
             Node startNode2 = new Node();
-            startNode2.Position = new Point() { X = 99, Y = 0, Z = 0 }; // note the X is different from bar1 nodes.
+            startNode2.Position = new Point() { X = 55, Y = 0, Z = 0 };
             Node endNode2 = new Node();
-            endNode2.Position = new Point() { X = 99, Y = 0, Z = 1 };
+            endNode2.Position = new Point() { X = 99, Y = 0, Z = 0 }; 
             Bar bar2 = new Bar();
-            bar1.StartNode = startNode2;
-            bar1.EndNode = endNode2;
+            bar2.StartNode = startNode2;
+            bar2.EndNode = endNode2;
             bar2.Name = "bar2";
 
             // Set PropertiesToConsider to ignore changes in: `Bar.StartNode.X` and `Bar.EndNode.X`; `Name`.
@@ -609,12 +609,12 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
 
             // Create one node.
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
             string hash1 = node1.Hash(cc);
 
             // Create another node with similar coordinates. The difference should be so minimal that is ignored by the tolerance.
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 0.0005 };
             string hash2 = node2.Hash(cc);
 
@@ -622,19 +622,19 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(hash1 == hash2);
         }
 
-        [Test]
+        [Test]  
         public void SignificantFigures_DifferentObjects_SeenAsEqual()
         {
             // Set a numerical SignificantFigures (different from the default value).
             ComparisonConfig cc = new ComparisonConfig() { SignificantFigures = 3 };
 
             // Create one node.
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 35.06 }; // this should be rounded to 35.1.
             string hash1 = node1.Hash(cc);
 
             // Create another node with similar coordinates. The difference should be so minimal that is ignored by the SignificantFigures.
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 35.1 };
             string hash2 = node2.Hash(cc);
 
@@ -649,12 +649,12 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
 
             // Create one node.
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
             string hash1 = node1.Hash(cc);
 
             // Create another node with similar coordinates that should be considered as different by precision
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0, Y = 0, Z = 0.005 };
             string hash2 = node2.Hash(cc);
 
@@ -669,12 +669,12 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig() { SignificantFigures = 3 };
 
             // Create one node.
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 35.04 }; // this should be rounded to 35.0.
             string hash1 = node1.Hash(cc);
 
             // Create another node with similar coordinates. The difference should be so minimal that is ignored by the SignificantFigures.
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 35.12 }; // this should be rounded to 35.1.
             string hash2 = node2.Hash(cc);
 
@@ -688,9 +688,9 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig();
 
             // Create two objects.
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0.0003, Y = 0.0003, Z = 0.9 }; // X and Y have very small variation, Z has large variation.
 
             // With the default tolerance, the objects must be seen as different.
@@ -713,9 +713,9 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig();
 
             // Create two objects.
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0.2, Y = 0.2, Z = 1 };
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0.169, Y = 0.169, Z = 1.01 };
 
             // With the default significant figures, the objects must be seen as different.
@@ -737,9 +737,9 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig();
 
             // Create two objects.
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0.0003, Y = 0.0003, Z = 0.9 }; // X and Y have very small variation, Z has large variation.
 
             // With the default tolerance, the objects must be seen as different.
@@ -767,9 +767,9 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig();
 
             // Create two objects.
-            Node node1 = AutoFaker.Generate<Node>();
+            Node node1 = new Node();
             node1.Position = new Point() { X = 0.2, Y = 0.2, Z = 1 };
-            Node node2 = AutoFaker.Generate<Node>();
+            Node node2 = new Node();
             node2.Position = new Point() { X = 0.169, Y = 0.169, Z = 1.01 };
 
             // With the default significant figures, the objects must be seen as different.
@@ -800,25 +800,26 @@ namespace BH.Tests.Diffing
 
             // Create two objects.
             Node controlNode;
-            Node node = AutoFaker.Generate<Node>();
+            Node node = new Node();
             node.Position = new Point() { X = 0.169, Y = 0.169, Z = 1.01 };
 
             // Set Numerical tolerance.
             cc.NumericTolerance = 1e-2; // This will round as: X = 0.17, Y = 0.17, Z = 1.01.
-            controlNode = AutoFaker.Generate<Node>();
+            controlNode = new Node();
             controlNode.Position = new Point() { X = 0.17, Y = 0.17, Z = 1.01 };
 
             Assert.IsTrue(controlNode.Hash(cc) == node.Hash(cc));
 
             // Also set SignificantFigures in the same ComparisonConfig.
             cc.SignificantFigures = 1; // This will round as: X = 0.2, Y = 0.2, Z = 1.
-            controlNode = AutoFaker.Generate<Node>();
+            controlNode = new Node();
             controlNode.Position = new Point() { X = 0.2, Y = 0.2, Z = 1 };
 
             Assert.IsTrue(controlNode.Hash(cc) == node.Hash(cc));
         }
 
-        [TestCase(false)] // Setting this to true updates the serialized object.
+        [TestCase(true)] // Setting this to true updates the serialized object.
+        [TestCase(false)] 
         public void SerialisedObject_RandomObject_HashDidNotChange(bool resetSerialisedObject = false)
         {
             string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\211117_HashTest_SerialisedObject_RandomObject.json"));
@@ -849,6 +850,7 @@ namespace BH.Tests.Diffing
                 // deserialize JSON directly from a file
                 using (StreamReader file = File.OpenText(filePath))
                     bar = JsonConvert.DeserializeObject<Bar>(file.ReadToEnd(), settings);
+
             }
 
             // Compute the hash of the object that was serialised.

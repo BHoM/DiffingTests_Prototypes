@@ -1,21 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
-
-    <RootNamespace>BH.Tests.Diffing</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoBogus" Version="2.13.1" />
-    <PackageReference Include="coverlet.collector" Version="3.0.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
     <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.3.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="3.5.0" />
+    <PackageReference Include="coverlet.collector" Version="3.1.2" />
     <PackageReference Include="Shouldly" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\BHoM_Engine\BHoM_Engine\BHoM_Engine.csproj" />
+    <ProjectReference Include="..\..\BHoM_Engine\Diffing_Engine\Diffing_Engine.csproj" />
+    <ProjectReference Include="..\DiffingTestsNew\DiffingTestsNew.csproj" />
     <ProjectReference Include="..\DiffingTests_Engine\DiffingTests_Engine.csproj" />
     <ProjectReference Include="..\DiffingTests_oM\DiffingTests_oM.csproj" />
   </ItemGroup>
@@ -27,17 +32,17 @@
     <Reference Include="BHoM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM.dll</HintPath>
     </Reference>
-    <Reference Include="BHoM_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM_Engine.dll</HintPath>
-    </Reference>
-    <Reference Include="Diffing_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Diffing_Engine.dll</HintPath>
-    </Reference>
     <Reference Include="Diffing_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Diffing_oM.dll</HintPath>
     </Reference>
     <Reference Include="Dimensional_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Dimensional_oM.dll</HintPath>
+    </Reference>
+    <Reference Include="File_Engine">
+      <HintPath>C:\ProgramData\BHoM\Assemblies\File_Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="File_oM">
+      <HintPath>C:\ProgramData\BHoM\Assemblies\File_oM.dll</HintPath>
     </Reference>
     <Reference Include="Geometry_Engine">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Geometry_Engine.dll</HintPath>
@@ -45,8 +50,17 @@
     <Reference Include="Geometry_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Geometry_oM.dll</HintPath>
     </Reference>
+    <Reference Include="Physical_oM">
+      <HintPath>C:\ProgramData\BHoM\Assemblies\Physical_oM.dll</HintPath>
+    </Reference>
     <Reference Include="Reflection_Engine">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Reflection_Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="Revit_Engine">
+      <HintPath>C:\ProgramData\BHoM\Assemblies\Revit_Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="Revit_oM">
+      <HintPath>C:\ProgramData\BHoM\Assemblies\Revit_oM.dll</HintPath>
     </Reference>
     <Reference Include="Structure_Engine">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Structure_Engine.dll</HintPath>
