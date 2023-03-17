@@ -32,7 +32,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Security.Cryptography;
-using BH.Engine.Serialiser;
 using BH.oM.Diffing;
 using System.Diagnostics;
 
