@@ -20,7 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\BHoM_Engine\BHoM_Engine\BHoM_Engine.csproj" />
     <ProjectReference Include="..\..\BHoM_Engine\Diffing_Engine\Diffing_Engine.csproj" />
-    <ProjectReference Include="..\DiffingTestsNew\DiffingTestsNew.csproj" />
+    <ProjectReference Include="..\DiffingTests\DiffingTests.csproj" />
     <ProjectReference Include="..\DiffingTests_Engine\DiffingTests_Engine.csproj" />
     <ProjectReference Include="..\DiffingTests_oM\DiffingTests_oM.csproj" />
   </ItemGroup>
