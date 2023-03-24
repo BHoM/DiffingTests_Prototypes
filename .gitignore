@@ -348,3 +348,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+Datasets/211117_HashTest_SerialisedObject_RandomObject.json
