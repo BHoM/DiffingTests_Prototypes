@@ -350,7 +350,7 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "BH.oM.Structure.Elements.Bar.StartNode.Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
-            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences.ToText()}");
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
         }
 
         [Test]
@@ -380,7 +380,7 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "Location.Position" } }; // using "partial property path"
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(object1, object2, cc);
 
-            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences.ToText()}");
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
         }
 
         [Test]
@@ -441,13 +441,13 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "*.Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
-            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences.ToText()}");
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
 
             // Or equivalently, without any wildcard: `Name`. Result should be the same, we should not find any.
             cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "Name" } };
             objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
-            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences.ToText()}");
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
         }
 
         [Test]
@@ -487,7 +487,7 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "Bar.*.Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
-            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences.ToText()}");
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
         }
 
         [Test]
@@ -527,7 +527,7 @@ namespace BH.Tests.Diffing
             ComparisonConfig cc = new ComparisonConfig() { PropertyExceptions = { "Bar.*.Position.Z", "Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
-            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences.ToText()}");
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
         }
 
         [Test]
@@ -547,7 +547,7 @@ namespace BH.Tests.Diffing
             // The difference should be so minimal that is ignored by the tolerance.
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
 
-            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences.ToText()}");
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
         }
 
         [Test]
@@ -567,7 +567,7 @@ namespace BH.Tests.Diffing
             // The difference should be so minimal that is ignored by the SignificantFigures.
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
 
-            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences.ToText()}");
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
         }
 
         [Test]
@@ -588,12 +588,12 @@ namespace BH.Tests.Diffing
             cc.SignificantFigures = 3;
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
 
-            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 1, $"Wrong number of differences identified. Differences: {objectDifferences.ToText()}");
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 1, $"Wrong number of differences identified. Differences: {objectDifferences?.ToText()}");
 
             // Set significantFigures so that X and Y are rounded to 0.31, while Z is rounded to 120.
             // This means that only X and Y should be identified as different.
             cc.SignificantFigures = 2;
-            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count != 2,  $"Wrong number of differences identified. Differences: {objectDifferences.ToText()}");
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count != 2,  $"Wrong number of differences identified. Differences: {objectDifferences?.ToText()}");
         }
 
         [Test]
@@ -618,7 +618,9 @@ namespace BH.Tests.Diffing
             // The difference should be so minimal that is ignored by the SignificantFigures.
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
 
-            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences.ToText()}");
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
+        }
+
         [Test]
         public void ObjectDifferences_PropertyNumericTolerances_Equal()
         {
