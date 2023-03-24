@@ -619,6 +619,62 @@ namespace BH.Tests.Diffing
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences.ToText()}");
+        [Test]
+        public void ObjectDifferences_PropertyNumericTolerances_Equal()
+        {
+            // Testing property-specific Significant Figures.
+            // Set SignificantFigures (different from the default value).
+            ComparisonConfig cc = new ComparisonConfig()
+            {
+                NumericTolerance = 1E-3,
+                PropertyNumericTolerances = new HashSet<NamedNumericTolerance>() { new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-1 } }
+            };
+
+            // Create one node.
+            Node node1 = new Node();
+            node1.Position = new Point() { X = 412.0009, Y = 0, Z = 123.16 };
+
+            // Create another node with similar coordinates. 
+            Node node2 = new Node();
+            node2.Position = new Point() { X = 412.001, Y = 0, Z = 123.2 };
+
+            // The difference should be that 1E-3 is applied to the X, while 1E-1 is applied to the Z. Nodes should be equal.
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
+
+            Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
+        }
+
+        [Test]
+        public void ObjectDifferences_PropertyNumericTolerances_Different()
+        {
+            // Testing property-specific Significant Figures.
+            // Set SignificantFigures (different from the default value).
+            ComparisonConfig cc = new ComparisonConfig()
+            {
+                NumericTolerance = 1E-1,
+                PropertyNumericTolerances = new HashSet<NamedNumericTolerance>() 
+                { 
+                    new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-4 },
+                    new NamedNumericTolerance() { Name = "*.Y", Tolerance = 1E-4 },
+                }
+            };
+
+            // Create one node.
+            Node node1 = new Node();
+            node1.Position = new Point() { X = 412.09, Y = 0.0001, Z = 0.0002 };
+
+            // Create another node with similar coordinates. 
+            Node node2 = new Node();
+            node2.Position = new Point() { X = 412.08, Y = 0.00016, Z = 0.00016 };
+
+            // The differences should be that:
+            // - 1E-2 is applied to the X, so it must be ignored;
+            // - 1E-4 is applied to the Y, whose second value rounded up should show as different;
+            // - 1E-4 is applied to the Z, whose second value rounded up should be ignored.
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
+
+            Assert.IsTrue(objectDifferences != null || objectDifferences.Differences.Count != 1, $"A difference in Y should have been found. Differences: {objectDifferences?.ToText()}");
+            objectDifferences.Differences.First().FullName.ShouldEndWith("Position.Y");
         }
 
         [Test]
