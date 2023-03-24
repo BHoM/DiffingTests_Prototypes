@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\BHoM_Engine\BHoM_Engine\BHoM_Engine.csproj" />
     <ProjectReference Include="..\..\BHoM_Engine\Diffing_Engine\Diffing_Engine.csproj" />
+    <ProjectReference Include="..\..\Revit_Toolkit\Revit_Engine\Revit_Engine.csproj" />
     <ProjectReference Include="..\DiffingTests\DiffingTests.csproj" />
     <ProjectReference Include="..\DiffingTests_Engine\DiffingTests_Engine.csproj" />
     <ProjectReference Include="..\DiffingTests_oM\DiffingTests_oM.csproj" />
@@ -55,9 +56,6 @@
     </Reference>
     <Reference Include="Reflection_Engine">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Reflection_Engine.dll</HintPath>
-    </Reference>
-    <Reference Include="Revit_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Revit_Engine.dll</HintPath>
     </Reference>
     <Reference Include="Revit_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Revit_oM.dll</HintPath>

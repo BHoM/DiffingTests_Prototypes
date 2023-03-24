@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffingTests", "DiffingTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RevitDiffingTests", "RevitDiffingTests\RevitDiffingTests.csproj", "{55CB9B48-A58F-46F8-BD0E-712F44B1369A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revit_Engine", "..\Revit_Toolkit\Revit_Engine\Revit_Engine.csproj", "{F116B44A-6C4D-4558-8E20-627AF6F8CD82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Revit", "Revit", "{CD8BE32E-4797-4098-9072-5F61D6B2BD4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ComplianceTestBuild|Any CPU = ComplianceTestBuild|Any CPU
@@ -81,9 +85,21 @@ Global
 		{55CB9B48-A58F-46F8-BD0E-712F44B1369A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{55CB9B48-A58F-46F8-BD0E-712F44B1369A}.Test|Any CPU.ActiveCfg = Debug|Any CPU
 		{55CB9B48-A58F-46F8-BD0E-712F44B1369A}.Test|Any CPU.Build.0 = Debug|Any CPU
+		{F116B44A-6C4D-4558-8E20-627AF6F8CD82}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{F116B44A-6C4D-4558-8E20-627AF6F8CD82}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
+		{F116B44A-6C4D-4558-8E20-627AF6F8CD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F116B44A-6C4D-4558-8E20-627AF6F8CD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F116B44A-6C4D-4558-8E20-627AF6F8CD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F116B44A-6C4D-4558-8E20-627AF6F8CD82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F116B44A-6C4D-4558-8E20-627AF6F8CD82}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{F116B44A-6C4D-4558-8E20-627AF6F8CD82}.Test|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{55CB9B48-A58F-46F8-BD0E-712F44B1369A} = {CD8BE32E-4797-4098-9072-5F61D6B2BD4D}
+		{F116B44A-6C4D-4558-8E20-627AF6F8CD82} = {CD8BE32E-4797-4098-9072-5F61D6B2BD4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84B8577C-0252-45B8-908F-B4CFA4568936}
