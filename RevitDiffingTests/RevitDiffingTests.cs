@@ -89,14 +89,12 @@ namespace BH.Tests.Diffing.Revit
             for (int i = 0; i < pastObjects.Count(); i++)
             {
                 RevitParameter revitparamter = new RevitParameter() { Name = $"RevitParameter{i}", Value = i };
-                pastObjects[i].SetRevitParameter(revitparamter);
-                followingObjs[i].SetRevitParameter(revitparamter);
+                pastObjects[i] = (CustomObject)pastObjects[i].SetRevitParameter(revitparamter);
+                followingObjs[i] = (CustomObject)followingObjs[i].SetRevitParameter(revitparamter);
             }
 
-            for (int i = 0; i < followingObjs.Count(); i++)
-
-                // Set progressive identifier on all objects.
-                pastObjects.SetProgressiveRevitIdentifier();
+            // Set progressive identifier on all objects.
+            pastObjects.SetProgressiveRevitIdentifier();
             followingObjs.SetProgressiveRevitIdentifier();
 
             // Check that the objects are seen as different.

@@ -42,14 +42,14 @@ namespace BH.Tests.Diffing.Revit
 {
     public static class Utilities
     {
-        public static void SetRevitParameter(this IBHoMObject bhomobject, RevitParameter revitParameter)
+        public static IBHoMObject SetRevitParameter(this IBHoMObject bhomobject, RevitParameter revitParameter)
         {
-            bhomobject = bhomobject.SetRevitParameter(revitParameter.Name, revitParameter.Value);
+            return bhomobject.SetRevitParameter(revitParameter.Name, revitParameter.Value);
         }
 
         [Description("Adds a RevitIdentifier Fragment on the object. " +
             "The RevitIdentifier `PersistentId` and the `ElementId` property get populated with a progressive number starting from 0. E.g. 0,1,2,...")]
-        public static void SetProgressiveRevitIdentifier<T>(this List<T> bhomobjects) where T : IBHoMObject
+        public static List<T> SetProgressiveRevitIdentifier<T>(this List<T> bhomobjects) where T : IBHoMObject
         {
             int i = 0;
             bhomobjects.ForEach(obj =>
@@ -57,6 +57,8 @@ namespace BH.Tests.Diffing.Revit
                 obj.Fragments.AddOrReplace(new RevitIdentifiers(i.ToString(), i));
                 i++;
             });
+
+            return bhomobjects;
         }
 
         public static T GetDataset<T>(string fileName = "RevitPulledParams_modifiedWall_past.json") where T : class
