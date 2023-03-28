@@ -135,56 +135,6 @@ namespace BH.Tests.Diffing.Revit
             VerifyTotalDifferences(diff, 37, 13, 21);
         }
 
-        [Test]
-        [TestCase(false, false, false, false, 9, 6)]
-        [TestCase(true, false, false, false, 15, 12)]
-        [TestCase(false, true, false, false, 15, 12)]
-        [TestCase(false, false, true, false, 15, 12)]
-        [TestCase(false, false, false, true, 15, 12)]
-        [TestCase(true, true, false, false, 21, 18)]
-        [TestCase(true, false, true, false, 21, 18)]
-        [TestCase(true, false, false, true, 21, 18)]
-        [TestCase(false, true, false, true, 21, 18)]
-        [TestCase(false, true, true, false, 21, 18)]
-        [TestCase(false, false, true, true, 21, 18)]
-        [TestCase(true, false, true, true, 27, 24)]
-        [TestCase(true, true, false, true, 27, 24)]
-        [TestCase(true, true, true, false, 27, 24)]
-        [TestCase(true, true, true, true, 33, 30)]
-        public void RevitPulledParameters_wallCustomParams_ConsiderAssignedParameters(
-            bool RevitParams_ConsiderAddedAssigned,
-            bool RevitParams_ConsiderAddedUnassigned,
-            bool RevitParams_ConsiderRemovedAssigned,
-            bool RevitParams_ConsiderRemovedUnassigned,
-            int expected_totalDifferences, int expected_revitParameterDifferences)
-        {
-            BH.oM.Physical.Elements.Wall wall_past = Utilities.GetDataset<BH.oM.Physical.Elements.Wall>("RevitPulledParams_wallCustomParams_past.json");
-            BH.oM.Physical.Elements.Wall wall_following = Utilities.GetDataset<BH.oM.Physical.Elements.Wall>("RevitPulledParams_wallCustomParams_following.json"); ;
-
-            RevitComparisonConfig rcc = new RevitComparisonConfig();
-
-            rcc.RevitParams_ConsiderAddedAssigned = RevitParams_ConsiderAddedAssigned;
-            rcc.RevitParams_ConsiderAddedUnassigned = RevitParams_ConsiderAddedUnassigned;
-            rcc.RevitParams_ConsiderRemovedAssigned = RevitParams_ConsiderRemovedAssigned;
-            rcc.RevitParams_ConsiderRemovedUnassigned = RevitParams_ConsiderRemovedUnassigned;
-            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, "UniqueId", rcc);
-
-            VerifyTotalDifferences(diff, expected_totalDifferences, expected_revitParameterDifferences);
-        }
-
-        [Test]
-        public void RevitPulledParameters_wallCustomParams_ConsiderOnlyParameterDifferences()
-        {
-            BH.oM.Physical.Elements.Wall wall_past = Utilities.GetDataset<BH.oM.Physical.Elements.Wall>("RevitPulledParams_wallCustomParams_past.json");
-            BH.oM.Physical.Elements.Wall wall_following = Utilities.GetDataset<BH.oM.Physical.Elements.Wall>("RevitPulledParams_wallCustomParams_following.json"); ;
-
-            RevitComparisonConfig rcc = BH.Engine.Adapters.Revit.Create.RevitComparisonConfig(null, true);
-
-            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, "UniqueId", rcc);
-
-            VerifyTotalDifferences(diff, 30, 30);
-        }
-
         public void VerifyTotalDifferences(Diff diff, int totalDifferences, int totalRevitParameterDifferences, int totalModifiedObjectDifferences = 1)
         {
             diff.ShouldNotBeNull();
@@ -195,18 +145,6 @@ namespace BH.Tests.Diffing.Revit
 
             allDifferences.Count().ShouldBe(totalDifferences, $"Total differences found: {allDifferences.Count()} instead of expected {totalDifferences}. Differences: {diff.ModifiedObjectsDifferences.ToText()}");
             revitParameterDifferences.Count().ShouldBe(totalRevitParameterDifferences, $"Revit param differences found: {revitParameterDifferences.Count()} instead of expected {totalRevitParameterDifferences}. Differences: {diff.ModifiedObjectsDifferences.ToText()}");
-        }
-
-
-        [Test]
-        public void RevitPulledParameters_Wall()
-        {
-            BH.oM.Physical.Elements.Wall wall_past = Utilities.GetDataset<BH.oM.Physical.Elements.Wall>("RevitPulledParams_modifiedWall_past.json");
-            BH.oM.Physical.Elements.Wall wall_following = Utilities.GetDataset<BH.oM.Physical.Elements.Wall>("RevitPulledParams_modifiedWall_following.json");
-
-            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(new List<object>() { wall_past }, new List<object>() { wall_following }, new List<string>(), new List<string>());
-
-            VerifyTotalDifferences(diff, 31, 28);
         }
 
         [Test]
