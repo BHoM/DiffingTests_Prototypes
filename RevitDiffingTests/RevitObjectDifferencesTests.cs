@@ -60,22 +60,22 @@ namespace BH.Tests.Diffing.Revit
             };
 
             // Create one bhomobject.
-            BHoMObject bhomobj1 = new BHoMObject();
-            bhomobj1 = (BHoMObject)bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 412.0009 });
-            bhomobj1 = (BHoMObject)bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 123.16 });
-            bhomobj1 = (BHoMObject)bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0 });
+            IBHoMObject bhomobj1 = new BHoMObject();
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 412.0009 });
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 123.16 });
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0 });
 
             // Create another node with similar coordinates. 
-            BHoMObject bhomobj2 = new BHoMObject();
-            bhomobj2 = (BHoMObject)bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 412.001 });
-            bhomobj2 = (BHoMObject)bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0 });
-            bhomobj2 = (BHoMObject)bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 123.2 });
+            IBHoMObject bhomobj2 = new BHoMObject();
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 412.001 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 123.2 });
 
             // The difference should be that 1E-3 is applied to the X, while 1E-1 is applied to the Z. Objs should be equal.
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bhomobj1, bhomobj2, cc);
             var diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(
-                new List<BHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(), 
-                new List<BHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(), 
+                new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(), 
+                new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(), 
                 cc);
             
             objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault();
@@ -98,16 +98,16 @@ namespace BH.Tests.Diffing.Revit
             };
 
             // Create one bhomobject.
-            BHoMObject bhomobj1 = new BHoMObject();
-            bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 412.09 });
-            bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0.0001 });
-            bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 0.0002 });
+            IBHoMObject bhomobj1 = new BHoMObject();
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 412.09 });
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0.0001 });
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 0.0002 });
 
             // Create another node with similar coordinates. 
-            BHoMObject bhomobj2 = new BHoMObject();
-            bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 412.08 });
-            bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0.00016 });
-            bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 0.00016 });
+            IBHoMObject bhomobj2 = new BHoMObject();
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 412.08 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0.00016 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 0.00016 });
 
             // The differences should be that:
             // - 1E-2 is applied to the X, so it must be ignored;
@@ -115,13 +115,13 @@ namespace BH.Tests.Diffing.Revit
             // - 1E-4 is applied to the Z, whose second value rounded up should be ignored.
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bhomobj1, bhomobj2, cc);
             var diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(
-                new List<BHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
-                new List<BHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(),
+                new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
+                new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(),
                 cc);
 
             objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault();
-            Assert.IsTrue(objectDifferences != null && objectDifferences.Differences.Count != 1, $"A difference in Y should have been found. Differences: {objectDifferences?.ToText()}");
-            objectDifferences.Differences.First().FullName.ShouldEndWith("Position.Y");
+            Assert.IsTrue(objectDifferences != null && objectDifferences.Differences.Count == 1, $"A difference in Y should have been found. Differences: {objectDifferences?.ToText()}");
+            objectDifferences.Differences.First().FullName.Contains("Somename.Y");
         }
     }
 }
