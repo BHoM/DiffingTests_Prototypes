@@ -120,7 +120,7 @@ namespace BH.Tests.Diffing.Revit
                 cc);
 
             objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault();
-            Assert.IsTrue(objectDifferences != null || objectDifferences.Differences.Count != 1, $"A difference in Y should have been found. Differences: {objectDifferences?.ToText()}");
+            Assert.IsTrue(objectDifferences != null && objectDifferences.Differences.Count != 1, $"A difference in Y should have been found. Differences: {objectDifferences?.ToText()}");
             objectDifferences.Differences.First().FullName.ShouldEndWith("Position.Y");
         }
     }
