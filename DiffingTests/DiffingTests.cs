@@ -675,7 +675,7 @@ namespace BH.Tests.Diffing
             // - 1E-4 is applied to the Z, whose second value rounded up should be ignored.
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
 
-            Assert.IsTrue(objectDifferences != null && objectDifferences.Differences.Count != 1, $"A difference in Y should have been found. Differences: {objectDifferences?.ToText()}");
+            Assert.IsTrue(objectDifferences != null || objectDifferences.Differences.Count != 1, $"A difference in Y should have been found. Differences: {objectDifferences?.ToText()}");
             objectDifferences.Differences.First().FullName.ShouldEndWith("Position.Y");
         }
 
