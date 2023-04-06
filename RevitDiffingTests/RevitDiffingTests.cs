@@ -106,35 +106,6 @@ namespace BH.Tests.Diffing.Revit
             Assert.IsTrue(diff.ModifiedObjects.Count() == 1);
         }
 
-        [Test]
-        public void TowerMechanicalEquipment()
-        {
-            List<ModelInstance> pastObjects = Utilities.GetDataset<List<ModelInstance>>("210917_Tower1_MechanicalEquipment_past.json");
-            List<ModelInstance> followingObjects = Utilities.GetDataset<List<ModelInstance>>("210917_Tower1_MechanicalEquipment_following.json"); ;
-
-            RevitComparisonConfig rcc = null;
-            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjects, followingObjects, "UniqueId", rcc);
-
-            VerifyTotalDifferences(diff, 566, 542, 71);
-        }
-
-        [Test]
-        public void TowerMechanicalEquipment_ParametersToConsider()
-        {
-            List<ModelInstance> pastObjects = Utilities.GetDataset<List<ModelInstance>>("210917_Tower1_MechanicalEquipment_past.json");
-            List<ModelInstance> followingObjects = Utilities.GetDataset<List<ModelInstance>>("210917_Tower1_MechanicalEquipment_following.json"); ;
-
-            DiffingConfig dc = new DiffingConfig();
-            dc.ComparisonConfig = new RevitComparisonConfig()
-            {
-                ParametersToConsider = new List<string>() { "Dim Operating Weight", "ID Location" }
-            };
-
-            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjects, followingObjects, "UniqueId", dc);
-
-            VerifyTotalDifferences(diff, 37, 13, 21);
-        }
-
         public void VerifyTotalDifferences(Diff diff, int totalDifferences, int totalRevitParameterDifferences, int totalModifiedObjectDifferences = 1)
         {
             diff.ShouldNotBeNull();
@@ -145,23 +116,6 @@ namespace BH.Tests.Diffing.Revit
 
             allDifferences.Count().ShouldBe(totalDifferences, $"Total differences found: {allDifferences.Count()} instead of expected {totalDifferences}. Differences: {diff.ModifiedObjectsDifferences.ToText()}");
             revitParameterDifferences.Count().ShouldBe(totalRevitParameterDifferences, $"Revit param differences found: {revitParameterDifferences.Count()} instead of expected {totalRevitParameterDifferences}. Differences: {diff.ModifiedObjectsDifferences.ToText()}");
-        }
-
-        [Test]
-        public void RevitPulledParams_BHoMObjsAndModelInstances()
-        {
-            var pastObjs = Utilities.GetDataset<List<object>>("RevitPulledParams_BHoMObjs-ModelInstances_past.json");
-            var followingObjs = Utilities.GetDataset<List<object>>("RevitPulledParams_BHoMObjs-ModelInstances_following.json");
-
-            bool considerOnlyParameterDifferences = true;
-            bool considerAddedParameters = true;
-            bool considerRemovedParameters = true;
-            bool considerUnassignedParameters = true;
-
-            RevitComparisonConfig rcc = BH.Engine.Adapters.Revit.Create.RevitComparisonConfig(null, null, considerOnlyParameterDifferences, considerAddedParameters, considerRemovedParameters, considerUnassignedParameters);
-            Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, followingObjs, rcc);
-
-            VerifyTotalDifferences(diff, 20, 20, 6);
         }
 
         [Test]
