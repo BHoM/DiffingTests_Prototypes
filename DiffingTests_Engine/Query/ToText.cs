@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BH.Test.Engine.Diffing
 {
-    public static class Query
+    public static partial class Query
     {
-        public static string ToText(this ObjectDifferences? objectDifferences) 
+        public static string ToText(this ObjectDifferences objectDifferences) 
         {
             if (objectDifferences == null)
                 return "";
@@ -20,7 +20,7 @@ namespace BH.Test.Engine.Diffing
                     .Select(d => $"{d.FullName} went from `{d.PastValue}` to `{d.FollowingValue}`. Description: {d.Description}"), Formatting.Indented);
         }
 
-        public static string ToText(this IEnumerable<ObjectDifferences?> objectDifferencesList)
+        public static string ToText(this IEnumerable<ObjectDifferences> objectDifferencesList)
         {
             if (objectDifferencesList == null)
                 return "";
