@@ -663,11 +663,11 @@ namespace BH.Tests.Diffing
 
             // Create one node.
             Node node1 = new Node();
-            node1.Position = new Point() { X = 412.09, Y = 0.0001, Z = 0.0002 };
+            node1.Position = new Point() { X = 412.09, Y = 0.001, Z = 0.002 };
 
             // Create another node with similar coordinates. 
             Node node2 = new Node();
-            node2.Position = new Point() { X = 412.08, Y = 0.00016, Z = 0.00016 };
+            node2.Position = new Point() { X = 412.08, Y = 0.0006, Z = 0.0006 };
 
             // The differences should be that:
             // - 1E-2 is applied to the X, so it must be ignored;
