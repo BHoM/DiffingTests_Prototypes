@@ -106,8 +106,8 @@ namespace BH.Tests.Diffing.Revit
             // Create another node with similar coordinates. 
             IBHoMObject bhomobj2 = new BHoMObject();
             bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 412.08 });
-            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0.00016 });
-            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 0.00016 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0.00004 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 0.00004 });
 
             // The differences should be that:
             // - 1E-2 is applied to the X, so it must be ignored;
