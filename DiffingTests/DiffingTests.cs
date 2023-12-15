@@ -41,7 +41,6 @@ using BH.Engine.Diffing.Tests;
 using BH.oM.Diffing.Tests;
 using AutoBogus;
 using Bogus;
-using Shouldly;
 using NUnit.Framework;
 using BH.Test.Engine.Diffing;
 using FluentAssertions;
@@ -678,7 +677,7 @@ namespace BH.Tests.Diffing
 
             objectDifferences.Should().NotBeNull();
             objectDifferences.Differences.Count.Should().Be(1, $"a single difference should have been found");
-            objectDifferences.Differences.First().FullName.ShouldEndWith("Position.Z");
+            objectDifferences.Differences.First().FullName.Should().EndWith("Position.Z");
         }
 
         [Test]

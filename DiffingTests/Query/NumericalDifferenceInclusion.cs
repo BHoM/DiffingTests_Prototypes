@@ -22,8 +22,8 @@
 
 using BH.Engine.Base;
 using BH.oM.Base;
+using FluentAssertions;
 using NUnit.Framework;
-using Shouldly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +48,7 @@ namespace BH.Test.Engine.Diffing
                 NumericTolerance = tolerance,
             };
 
-            BH.Engine.Diffing.Query.NumericalDifferenceInclusion(number1, number2, comparisonConfig: comparisonConfig).ShouldBe(seenAsDifferent);
+            BH.Engine.Diffing.Query.NumericalDifferenceInclusion(number1, number2, comparisonConfig: comparisonConfig).Should().Be(seenAsDifferent);
         }
 
         // Test parameters:
@@ -63,7 +63,7 @@ namespace BH.Test.Engine.Diffing
                 SignificantFigures = significantFigures,
             };
 
-            BH.Engine.Diffing.Query.NumericalDifferenceInclusion(number1, number2, comparisonConfig: comparisonConfig).ShouldBe(seenAsDifferent);
+            BH.Engine.Diffing.Query.NumericalDifferenceInclusion(number1, number2, comparisonConfig: comparisonConfig).Should().Be(seenAsDifferent);
         }
     }
 }

@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <PackageReference Include="AutoBogus" Version="2.13.1" />
-    <PackageReference Include="Shouldly" Version="4.1.0" />
   </ItemGroup>
   
   <ItemGroup>
