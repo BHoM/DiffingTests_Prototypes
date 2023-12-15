@@ -41,8 +41,8 @@ using BH.Engine.Reflection;
 using BH.oM.Physical.Elements;
 using System.Collections.Specialized;
 using NUnit.Framework;
-using Shouldly;
 using BH.Test.Engine.Diffing;
+using FluentAssertions;
 
 namespace BH.Tests.Diffing.Revit
 {
@@ -51,19 +51,22 @@ namespace BH.Tests.Diffing.Revit
         [Test]
         public void NullChecks_RevitDiffingMethods()
         {
-            List<object> pastObjs = null;
-            List<object> follObjs = null;
-            List<string> propertiesToConsider = null;
-            List<string> parametersToConsider = null;
+            List<object> pastObjs = null!;
+            List<object> follObjs = null!;
+            List<string> propertiesToConsider = null!;
+            List<string> parametersToConsider = null!;
 
-            string id = null;
-            DiffingConfig dc = null;
-            RevitComparisonConfig cc = null;
+            string id = null!;
+            DiffingConfig dc = null!;
+            RevitComparisonConfig cc = null!;
 
-            BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, id, dc);
-            BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, id, cc);
-            BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, parametersToConsider, false);
-            BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, propertiesToConsider, parametersToConsider);
+            Assert.DoesNotThrow(() =>
+            {
+                BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, id, dc);
+                BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, id, cc);
+                BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, parametersToConsider, false);
+                BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, propertiesToConsider, parametersToConsider);
+            });
         }
 
         [Test]
@@ -103,19 +106,19 @@ namespace BH.Tests.Diffing.Revit
 
             Diff diff = Engine.Adapters.Revit.Compute.RevitDiffing(pastObjects, followingObjs, propertiesToConsider, parametersToConsider);
 
-            Assert.IsTrue(diff.ModifiedObjects.Count() == 1);
+            diff.ModifiedObjects.Count().Should().Be(1);
         }
 
         public void VerifyTotalDifferences(Diff diff, int totalDifferences, int totalRevitParameterDifferences, int totalModifiedObjectDifferences = 1)
         {
-            diff.ShouldNotBeNull();
-            diff.ModifiedObjectsDifferences.Count().ShouldBe(totalModifiedObjectDifferences);
+            diff.Should().NotBeNull();
+            diff.ModifiedObjectsDifferences.Count().Should().Be(totalModifiedObjectDifferences);
 
             var allDifferences = diff.ModifiedObjectsDifferences.ToList().SelectMany(d => d.Differences).ToList();
             var revitParameterDifferences = diff.ModifiedObjectsDifferences.SelectMany(d => d.Differences.OfType<RevitParameterDifference>()).ToList();
 
-            allDifferences.Count().ShouldBe(totalDifferences, $"Total differences found: {allDifferences.Count()} instead of expected {totalDifferences}. Differences: {diff.ModifiedObjectsDifferences.ToText()}");
-            revitParameterDifferences.Count().ShouldBe(totalRevitParameterDifferences, $"Revit param differences found: {revitParameterDifferences.Count()} instead of expected {totalRevitParameterDifferences}. Differences: {diff.ModifiedObjectsDifferences.ToText()}");
+            allDifferences.Count().Should().Be(totalDifferences, $"Total differences found: {allDifferences.Count()} instead of expected {totalDifferences}. Differences: {diff.ModifiedObjectsDifferences.ToText()}");
+            revitParameterDifferences.Count().Should().Be(totalRevitParameterDifferences, $"Revit param differences found: {revitParameterDifferences.Count()} instead of expected {totalRevitParameterDifferences}. Differences: {diff.ModifiedObjectsDifferences.ToText()}");
         }
 
         [Test]
@@ -153,14 +156,10 @@ namespace BH.Tests.Diffing.Revit
 
             IEnumerable<RevitIdentifiers> followingIdFragments = followingObjs.OfType<IBHoMObject>().Select(obj => obj.GetRevitIdentifiers()).Where(x => x != null);
             var followingIds = followingIdFragments.Select(x => x.PersistentId.ToString()).ToList();
-            Assert.AreNotEqual(followingIds.Count, followingIds.Distinct().Count(), "The input followingObjects must have duplicate Ids for this test.");
+            followingIds.Count.Should().NotBe(followingIds.Distinct().Count(), "the input followingObjects must have duplicate Ids for this test");
 
             Diff diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, followingObjs, new RevitComparisonConfig());
-            Assert.IsNull(diff, "Diffing should return null because input followingObjects have duplicate ids.");
+            diff.Should().BeNull("input followingObjects have duplicate ids so diff should be null.");
         }
     }
 }
-
-
-
-

@@ -41,7 +41,6 @@ using BH.Engine.Reflection;
 using BH.oM.Physical.Elements;
 using System.Collections.Specialized;
 using NUnit.Framework;
-using Shouldly;
 using BH.Test.Engine.Diffing;
 using FluentAssertions;
 
