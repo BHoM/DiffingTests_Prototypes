@@ -43,13 +43,14 @@ using System.Collections.Specialized;
 using NUnit.Framework;
 using Shouldly;
 using BH.Test.Engine.Diffing;
+using FluentAssertions;
 
 namespace BH.Tests.Diffing.Revit
 {
     public class RevitObjectDifferencesTests
     {
         [Test]
-        public void PropertyNumericTolerances_Equal()
+        public void ParameterNumericTolerances_Equal()
         {
             // Testing property-specific Significant Figures.
             // Set SignificantFigures (different from the default value).
@@ -74,16 +75,16 @@ namespace BH.Tests.Diffing.Revit
             // The difference should be that 1E-3 is applied to the X, while 1E-1 is applied to the Z. Objs should be equal.
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bhomobj1, bhomobj2, cc);
             var diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(
-                new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(), 
-                new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(), 
+                new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
+                new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(),
                 cc);
-            
+
             objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault();
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
         }
 
         [Test]
-        public void PropertyNumericTolerances_Different()
+        public void ParameterNumericTolerances_Different()
         {
             // Testing property-specific Significant Figures.
             // Set SignificantFigures (different from the default value).
@@ -119,13 +120,126 @@ namespace BH.Tests.Diffing.Revit
                 new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(),
                 cc);
 
-            objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault();
-            Assert.IsTrue(objectDifferences != null && objectDifferences.Differences.Count == 1, $"A difference in Y should have been found. Differences: {objectDifferences?.ToText()}");
-            objectDifferences.Differences.First().FullName.Contains("Somename.Y");
+            objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault()!;
+            objectDifferences?.Differences.Should().ContainSingle($"A single difference should have been found");
+            objectDifferences?.Differences.First().FullName.Should().Contain("Somename.Y", "A single difference in Y value should have been found");
+        }
+
+        [TestCase(true)]
+        [TestCase(false)]
+        public void ParametersToConsider(bool directRevitDiff)
+        {
+            // Create one bhomobject with some Revit Parameters called X, Y and Z.
+            IBHoMObject bhomobj1 = new BHoMObject();
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 1 });
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 2 });
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 3 });
+
+            // Create another node with the same X value but different Y and Z
+            IBHoMObject bhomobj2 = new BHoMObject();
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 1 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 999 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 999 });
+
+            // Make sure that the difference between the objects can be found, with no option set.
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bhomobj1, bhomobj2);
+            Diff diff = null;
+            if (directRevitDiff)
+            {
+                diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(
+                new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
+                new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(), null);
+            }
+            else
+            {
+                diff = BH.Engine.Diffing.Compute.IDiffing(
+                    new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
+                    new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(), new DiffingConfig());
+            }
+
+            objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault()!;
+            objectDifferences?.Differences.Count.Should().Be(2, $"two differences should have been found");
+            var diffNames = objectDifferences?.Differences.Select(d => d.Name);
+            (diffNames!.Any(d => d.Contains("Somename.Y")) && diffNames!.Any(d => d.Contains("Somename.Z")))
+                .Should().BeTrue("The differences should include both a difference in Y and Z.");
+
+            // Set ParametersToConsider so that only the X Parameter is to be considered,
+            // and verify that no difference is then found.
+            RevitComparisonConfig cc = new RevitComparisonConfig()
+            {
+                ParametersToConsider = new List<string>() { "Somename.X" }
+            };
+
+            if (directRevitDiff)
+            {
+                diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(
+                new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
+                new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(), cc);
+            }
+            else
+            {
+                diff = BH.Engine.Diffing.Compute.IDiffing(
+                    new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
+                    new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(),
+                    new DiffingConfig() { ComparisonConfig = cc });
+            }
+
+            objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault()!;
+            objectDifferences.Should().BeNull($"No difference should have been found after {nameof(RevitComparisonConfig)}.{nameof(RevitComparisonConfig.ParametersToConsider)} was set.");
+        }
+
+
+        [TestCase(true)]
+        [TestCase(false)]
+        public void ParametersExceptions(bool directRevitDiff)
+        {
+            // Create one bhomobject with some Revit Parameters called X, Y and Z.
+            IBHoMObject bhomobj1 = new BHoMObject();
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 1 });
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 2 });
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 3 });
+
+            // Create another node with the same X value but different Y and Z
+            IBHoMObject bhomobj2 = new BHoMObject();
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 1 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 999 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 999 });
+
+            // Make sure that the difference between the objects can be found, with no option set.
+            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bhomobj1, bhomobj2);
+            var diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(
+                new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
+                new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(), null);
+
+            objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault()!;
+            objectDifferences?.Differences.Count.Should().Be(2, $"two differences should have been found");
+            var diffNames = objectDifferences?.Differences.Select(d => d.Name);
+            (diffNames!.Any(d => d.Contains("Somename.Y")) && diffNames!.Any(d => d.Contains("Somename.Z")))
+                .Should().BeTrue("The differences should include both a difference in Y and Z.");
+
+            // Set ParametersExceptions so that Y and Z parameters are to be ignored,
+            // and verify that no difference is then found.
+            RevitComparisonConfig cc = new RevitComparisonConfig()
+            {
+                ParametersExceptions = new List<string>() { "Somename.Y", "Somename.Z" }
+            };
+
+            if (directRevitDiff)
+            {
+                diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(
+                new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
+                new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(), cc);
+            }
+            else
+            {
+                diff = BH.Engine.Diffing.Compute.IDiffing(
+                    new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
+                    new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(),
+                    new DiffingConfig() { ComparisonConfig = cc });
+            }
+
+            objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault()!;
+            objectDifferences.Should().BeNull($"No difference should have been found after {nameof(RevitComparisonConfig)}.{nameof(RevitComparisonConfig.ParametersExceptions)} was set.");
         }
     }
 }
-
-
-
-
