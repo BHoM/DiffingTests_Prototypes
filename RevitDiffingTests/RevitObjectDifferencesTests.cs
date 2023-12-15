@@ -73,13 +73,12 @@ namespace BH.Tests.Diffing.Revit
             bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 123.2 });
 
             // The difference should be that 1E-3 is applied to the X, while 1E-1 is applied to the Z. Objs should be equal.
-            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bhomobj1, bhomobj2, cc);
             var diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(
                 new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
                 new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(),
                 cc);
 
-            objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault();
+            ObjectDifferences objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault();
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
         }
 
@@ -90,39 +89,38 @@ namespace BH.Tests.Diffing.Revit
             // Set SignificantFigures (different from the default value).
             RevitComparisonConfig cc = new RevitComparisonConfig()
             {
-                NumericTolerance = 1E-1,
+                NumericTolerance = 1E-2,
                 ParameterNumericTolerances = new HashSet<NamedNumericTolerance>()
                 {
-                    new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-4 },
-                    new NamedNumericTolerance() { Name = "*.Y", Tolerance = 1E-4 },
+                    new NamedNumericTolerance() { Name = "*.Y", Tolerance = 1E-3 },
+                    new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-3 },
                 }
             };
 
             // Create one bhomobject.
             IBHoMObject bhomobj1 = new BHoMObject();
             bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 412.09 });
-            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0.0001 });
-            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 0.0002 });
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0.001 });
+            bhomobj1 = bhomobj1.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 0.002 });
 
             // Create another node with similar coordinates. 
             IBHoMObject bhomobj2 = new BHoMObject();
             bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.X", Value = 412.08 });
-            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0.00004 });
-            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 0.00004 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Y", Value = 0.0004 });
+            bhomobj2 = bhomobj2.SetRevitParameter(new RevitParameter() { Name = "Somename.Z", Value = 0.0004 });
 
             // The differences should be that:
-            // - 1E-2 is applied to the X, so it must be ignored;
-            // - 1E-4 is applied to the Y, whose second value rounded up should show as different;
-            // - 1E-4 is applied to the Z, whose second value rounded up should be ignored.
-            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bhomobj1, bhomobj2, cc);
+            // - the difference in X (0.01) is <= 1E-2, so it must be ignored;
+            // - the difference in Y (0.0006) is <= 1E-3, so it must be ignored;
+            // - the difference in Z (0.0016) is NOT <= 1E-3, so it must be considered as a difference.
             var diff = BH.Engine.Adapters.Revit.Compute.RevitDiffing(
                 new List<IBHoMObject>() { bhomobj1 }.SetProgressiveRevitIdentifier(),
                 new List<IBHoMObject>() { bhomobj2 }.SetProgressiveRevitIdentifier(),
                 cc);
 
-            objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault()!;
+            ObjectDifferences objectDifferences = diff?.ModifiedObjectsDifferences?.FirstOrDefault()!;
             objectDifferences?.Differences.Should().ContainSingle($"A single difference should have been found");
-            objectDifferences?.Differences.First().FullName.Should().Contain("Somename.Y", "A single difference in Y value should have been found");
+            objectDifferences?.Differences.First().Name.Should().Contain("Somename.Z", "A single difference in Z value should have been found");
         }
 
         [TestCase(true)]

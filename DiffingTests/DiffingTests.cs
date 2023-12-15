@@ -44,6 +44,7 @@ using Bogus;
 using Shouldly;
 using NUnit.Framework;
 using BH.Test.Engine.Diffing;
+using FluentAssertions;
 
 namespace BH.Tests.Diffing
 {
@@ -653,11 +654,11 @@ namespace BH.Tests.Diffing
             // Set SignificantFigures (different from the default value).
             ComparisonConfig cc = new ComparisonConfig()
             {
-                NumericTolerance = 1E-1,
+                NumericTolerance = 1E-2,
                 PropertyNumericTolerances = new HashSet<NamedNumericTolerance>() 
                 { 
-                    new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-4 },
-                    new NamedNumericTolerance() { Name = "*.Y", Tolerance = 1E-4 },
+                    new NamedNumericTolerance() { Name = "*.Y", Tolerance = 1E-3 },
+                    new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-3 },
                 }
             };
 
@@ -669,14 +670,15 @@ namespace BH.Tests.Diffing
             Node node2 = new Node();
             node2.Position = new Point() { X = 412.08, Y = 0.0006, Z = 0.0006 };
 
-            // The differences should be that:
-            // - 1E-2 is applied to the X, so it must be ignored;
-            // - 1E-4 is applied to the Y, whose second value rounded up should show as different;
-            // - 1E-4 is applied to the Z, whose second value rounded up should be ignored.
+            // The differences should be so that, by applying the rule from BH.Engine.Diffing.Query.NumericalDifferenceInclusion():
+            // - the difference in X (0.01) is <= 1E-2, so it must be ignored;
+            // - the difference in Y (0.0004) is <= 1E-3, so it must be ignored;
+            // - the difference in Z (0.0016) is NOT <= 1E-3, so it must be considered as a difference.
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
 
-            Assert.IsTrue(objectDifferences != null || objectDifferences.Differences.Count != 1, $"A difference in Y should have been found. Differences: {objectDifferences?.ToText()}");
-            objectDifferences.Differences.First().FullName.ShouldEndWith("Position.Y");
+            objectDifferences.Should().NotBeNull();
+            objectDifferences.Differences.Count.Should().Be(1, $"a single difference should have been found");
+            objectDifferences.Differences.First().FullName.ShouldEndWith("Position.Z");
         }
 
         [Test]
