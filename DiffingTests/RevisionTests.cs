@@ -59,7 +59,8 @@ namespace BH.Tests.Diffing
             Node endNode = AutoFaker.Generate<Node>();
             endNode.Position = new Point() { X = 0, Y = 0, Z = 1 };
             Bar bar = AutoFaker.Generate<Bar>();
-            bar.StartNode = startNode; bar.EndNode = endNode;
+            bar.Start = startNode;
+            bar.End = endNode;
             bar.Name = "bar";
 
             bar = BH.Engine.Diffing.Modify.SetRevisionFragment(bar);
@@ -70,7 +71,8 @@ namespace BH.Tests.Diffing
             Node endNode2 = AutoFaker.Generate<Node>();
             endNode2.Position = new Point() { X = 0, Y = 0, Z = 1 };
             Bar bar2 = AutoFaker.Generate<Bar>();
-            bar2.StartNode = startNode; bar2.EndNode = endNode;
+            bar2.Start = startNode;
+            bar2.End = endNode;
             bar2.Name = "bar";
 
             bar2 = BH.Engine.Diffing.Modify.SetRevisionFragment(bar2);
@@ -86,7 +88,8 @@ namespace BH.Tests.Diffing
             Node endNode = AutoFaker.Generate<Node>();
             endNode.Position = new Point() { X = 0, Y = 0, Z = 1 };
             Bar bar = AutoFaker.Generate<Bar>();
-            bar.StartNode = startNode; bar.EndNode = endNode;
+            bar.Start = startNode;
+            bar.End = endNode;
             bar.Name = "bar";
 
             bar = BH.Engine.Diffing.Modify.SetRevisionFragment(bar);
@@ -110,12 +113,13 @@ namespace BH.Tests.Diffing
             List<IBHoMObject> currentObjs_Alessio = new List<IBHoMObject>();
 
             // Create one bar
-            Node startNode = AutoFaker.Generate<Node>();
-            startNode.Position = new Point() { X = 0, Y = 0, Z = 0 };
-            Node endNode = AutoFaker.Generate<Node>();
-            endNode.Position = new Point() { X = 0, Y = 0, Z = 1 };
+            Node start = AutoFaker.Generate<Node>();
+            start.Position = new Point() { X = 0, Y = 0, Z = 0 };
+            Node end = AutoFaker.Generate<Node>();
+            end.Position = new Point() { X = 0, Y = 0, Z = 1 };
             Bar bar = AutoFaker.Generate<Bar>();
-            bar.StartNode = startNode; bar.EndNode = endNode;
+            bar.Start = start;
+            bar.End = end;
 
             bar.Name = "bar";
             currentObjs_Alessio.Add(bar as dynamic);

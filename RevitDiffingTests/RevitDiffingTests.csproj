@@ -57,9 +57,6 @@
     <Reference Include="Reflection_Engine">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Reflection_Engine.dll</HintPath>
     </Reference>
-    <Reference Include="Revit_oM">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Revit_oM.dll</HintPath>
-    </Reference>
     <Reference Include="Structure_Engine">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Structure_Engine.dll</HintPath>
     </Reference>

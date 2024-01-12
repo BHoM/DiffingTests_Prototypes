@@ -161,7 +161,7 @@ namespace BH.Tests.Diffing
         {
             Bar bar1 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 10 },
                     Name = "startNode1"
@@ -171,7 +171,7 @@ namespace BH.Tests.Diffing
 
             Bar bar2 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
                     Name = "startNode2"  // Different `Bar.StartNode.Name`
@@ -209,7 +209,7 @@ namespace BH.Tests.Diffing
         {
             Bar bar1 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 10 },
                     Name = "startNode1"
@@ -219,7 +219,7 @@ namespace BH.Tests.Diffing
 
             Bar bar2 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
                     Name = "startNode2"  // Different `Bar.StartNode.Name`
@@ -243,7 +243,7 @@ namespace BH.Tests.Diffing
         {
             Bar bar1 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 10 },
                     Name = "startNode1"
@@ -253,7 +253,7 @@ namespace BH.Tests.Diffing
 
             Bar bar2 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
                     Name = "startNode2"  // Different `Bar.StartNode.Name`
@@ -272,7 +272,7 @@ namespace BH.Tests.Diffing
         {
             Bar bar1 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 10 },
                     Name = "startNode1"
@@ -282,7 +282,7 @@ namespace BH.Tests.Diffing
 
             Bar bar2 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
                     Name = "startNode2"  // Different `Bar.StartNode.Name`
@@ -328,7 +328,7 @@ namespace BH.Tests.Diffing
         {
             Bar bar1 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 10 },
                     Name = "startNode1"
@@ -338,10 +338,10 @@ namespace BH.Tests.Diffing
 
             Bar bar2 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
-                    Name = bar1.StartNode.Name  // SAME `Bar.StartNode.Name`
+                    Name = bar1.Start.Name  // SAME `Bar.StartNode.Name`
                 },
                 Name = "bar2" // Different `Bar.Name`
             };
@@ -419,7 +419,7 @@ namespace BH.Tests.Diffing
         {
             Bar bar1 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 10 },
                     Name = "startNode1"
@@ -429,10 +429,10 @@ namespace BH.Tests.Diffing
 
             Bar bar2 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
-                    Name = bar1.StartNode.Name  // SAME `Bar.StartNode.Name`
+                    Name = bar1.Start.Name  // SAME `Bar.StartNode.Name`
                 },
                 Name = bar1.Name // SAME `Bar.Name`
             };
@@ -455,12 +455,12 @@ namespace BH.Tests.Diffing
         {
             Bar bar1 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 0 },
                     Name = "startNode1"
                 },
-                EndNode = new Node()
+                End = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 99 },
                     Name = "endNode1"
@@ -470,15 +470,15 @@ namespace BH.Tests.Diffing
 
             Bar bar2 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 55 }, // DIFFERENT `Bar.StartNode.Position.Z`
-                    Name = bar1.StartNode.Name  // SAME `Bar.StartNode.Name`
+                    Name = bar1.Start.Name  // SAME `Bar.StartNode.Name`
                 },
-                EndNode = new Node()
+                End = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 77 }, // DIFFERENT `Bar.EndNode.Position.Z`
-                    Name = bar1.EndNode.Name  // SAME `Bar.EndNode.Name`
+                    Name = bar1.End.Name  // SAME `Bar.EndNode.Name`
                 },
                 Name = "bar2" // DIFFERENT Bar.Name
             };
@@ -495,12 +495,12 @@ namespace BH.Tests.Diffing
         {
             Bar bar1 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 0 },
                     Name = "startNode1"
                 },
-                EndNode = new Node()
+                End = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 99 },
                     Name = "endNode1"
@@ -510,12 +510,12 @@ namespace BH.Tests.Diffing
 
             Bar bar2 = new Bar()
             {
-                StartNode = new Node()
+                Start = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 55 }, // DIFFERENT `Bar.StartNode.Position.Z`
                     Name = "startNode2"  // DIFFERENT `Bar.StartNode.Name`
                 },
-                EndNode = new Node()
+                End = new Node()
                 {
                     Position = new Point() { X = 0, Y = 0, Z = 77 }, // DIFFERENT `Bar.EndNode.Position.Z`
                     Name = "endNode2"  // DIFFERENT `Bar.EndNode.Name`
