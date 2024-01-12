@@ -267,11 +267,11 @@ namespace BH.Tests.Diffing
             Bar bar1 = new Bar();
             Bar bar2 = new Bar();
 
-            bar1.StartNode = node1;
-            bar1.EndNode = node2;
+            bar1.Start = node1;
+            bar1.End = node2;
 
-            bar2.StartNode = node1;
-            bar2.EndNode = node3; // EndNode is different for the two bars.
+            bar2.Start = node1;
+            bar2.End = node3; // EndNode is different for the two bars.
 
             // By ignoring the IElement1D types, we ignore any difference in Nodes. Bars should be seen as equal.
             ComparisonConfig cc = new ComparisonConfig() { TypeExceptions = { typeof(IElement1D) } };
@@ -331,12 +331,12 @@ namespace BH.Tests.Diffing
             Bar bar2 = new Bar();
 
             bar1.Name = "bar1";
-            bar1.StartNode = node1;
-            bar1.EndNode = node2;
+            bar1.Start = node1;
+            bar1.End = node2;
 
             bar2.Name = "bar2";
-            bar2.StartNode = node1_diffName;
-            bar2.EndNode = node2_diffName;
+            bar2.Start = node1_diffName;
+            bar2.End = node2_diffName;
 
             // By looking only at EndNode.Position, bars should be the same.
             ComparisonConfig cc_onlyEndNodePosition = new ComparisonConfig() { PropertiesToConsider = { "EndNode.Position" } };
@@ -430,12 +430,12 @@ namespace BH.Tests.Diffing
             Bar bar2 = new Bar();
 
             bar1.Name = "bar1";
-            bar1.StartNode = node1;
-            bar1.EndNode = node2;
+            bar1.Start = node1;
+            bar1.End = node2;
 
             bar2.Name = "bar2";
-            bar2.StartNode = node1_diffName;
-            bar2.EndNode = node2_diffName;
+            bar2.Start = node1_diffName;
+            bar2.End = node2_diffName;
 
             // By looking only at EndNode.Position, bars should be the same.
             ComparisonConfig cc_onlyEndNodePosition = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.EndNode.Position" } };
@@ -485,12 +485,12 @@ namespace BH.Tests.Diffing
             Bar bar2 = bar1.DeepClone();
 
             bar1.Name = "bar1";
-            bar1.StartNode = node1;
-            bar1.EndNode = node2;
+            bar1.Start = node1;
+            bar1.End = node2;
 
             bar2.Name = "bar2"; // DIFFERENT NAMES FOR BARS
-            bar2.StartNode = node1_diffName; // DIFFERENT NAMES FOR STARTNODES
-            bar2.EndNode = node2_diffName; // DIFFERENT NAMES FOR ENDNODES
+            bar2.Start = node1_diffName; // DIFFERENT NAMES FOR STARTNODES
+            bar2.End = node2_diffName; // DIFFERENT NAMES FOR ENDNODES
 
             // By looking only at Name, bars should be the different. Note: this only checks the Bar.Name, and will not consider checking pairs of subproperties' names,
             // e.g. it will not look if node1.StartNode.Name is equal or different to node1_diffName.StartNode.Name.
@@ -529,11 +529,11 @@ namespace BH.Tests.Diffing
             bar1.Name = "bar1";
             bar2.Name = "bar1"; // SAME NAMES FOR BARS.
 
-            bar1.StartNode = node1;
-            bar2.StartNode = node2; // SAME START NODES.
+            bar1.Start = node1;
+            bar2.Start = node2; // SAME START NODES.
 
-            bar1.EndNode = node2;
-            bar2.EndNode = node2_diffName; // DIFFERENT NAMES FOR END NODES.
+            bar1.End = node2;
+            bar2.End = node2_diffName; // DIFFERENT NAMES FOR END NODES.
 
             // Using Wildcard prefix (to capture all possible properties ending in Name).
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "*.Name" } };
@@ -561,8 +561,8 @@ namespace BH.Tests.Diffing
             node2.Position = new Point() { X = 100, Y = 100, Z = 100 };
             node2.Name = node1.Name; // SAME NAME AS NODE2
 
-            bar1.EndNode = node1;
-            bar2.EndNode = node2; // DIFFERENT END NODES, BUT WITH THE SAME NAME.
+            bar1.End = node1;
+            bar2.End = node2; // DIFFERENT END NODES, BUT WITH THE SAME NAME.
 
             // Equivalently, without the wildcard: `Name`
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
@@ -582,8 +582,8 @@ namespace BH.Tests.Diffing
             Node endNode = new Node();
             endNode.Position = new Point() { X = 0, Y = 0, Z = 0 };
             Bar bar1 = new Bar();
-            bar1.StartNode = startNode;
-            bar1.EndNode= endNode;
+            bar1.Start = startNode;
+            bar1.End = endNode;
             bar1.Name = "bar1";
 
             // Create another bar with different name and different the nodes positions.
@@ -592,8 +592,8 @@ namespace BH.Tests.Diffing
             Node endNode2 = new Node();
             endNode2.Position = new Point() { X = 99, Y = 0, Z = 0 }; 
             Bar bar2 = new Bar();
-            bar2.StartNode = startNode2;
-            bar2.EndNode = endNode2;
+            bar2.Start = startNode2;
+            bar2.End = endNode2;
             bar2.Name = "bar2";
 
             // Set PropertiesToConsider to ignore changes in: `Bar.StartNode.X` and `Bar.EndNode.X`; `Name`.
