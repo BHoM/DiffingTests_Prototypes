@@ -64,12 +64,35 @@ namespace BH.Tests.Diffing
             List<IObject> objects = new List<IObject>();
             types.ForEach(t => objects.AddRange(BH.Engine.Diffing.Tests.Create.RandomIObjects(t, totalObjsPerType)));
             totalSw.Stop();
-            Console.WriteLine($"\nObject creation time: {totalSw.ElapsedMilliseconds}ms");
+            //Console.WriteLine($"\nObject creation time: {totalSw.ElapsedMilliseconds}ms");
 
             totalSw.Restart();
             objects.ForEach(o => o.Hash());
             totalSw.Stop();
-            Console.WriteLine($"\nObject hashing time: {totalSw.ElapsedMilliseconds}ms");
+            Console.WriteLine($"\nHashing time: {totalSw.ElapsedMilliseconds}ms");
+        }
+
+        public static void HashPoints(int totalPoints = 1000000, BaseComparisonConfig cc = null)
+        {
+            var asteriskRow = $"\n{string.Join("", Enumerable.Repeat("*", 50))}";
+
+            string introMessage = $"{asteriskRow}" +
+                $"\nHashing {totalPoints} geometric points with `{nameof(cc.UseGeometryHash)}` set to {cc.UseGeometryHash}." +
+                $"{asteriskRow}";
+
+            Console.WriteLine(introMessage);
+
+            cc = cc ?? new ComparisonConfig();
+
+            Stopwatch totalSw = new Stopwatch();
+
+            // Generate random objects
+            List<IObject> objects = new List<IObject>(Enumerable.Repeat(new BH.oM.Geometry.Point(), totalPoints));
+
+            totalSw.Start();
+            objects.ForEach(o => o.Hash());
+            totalSw.Stop();
+            Console.WriteLine($"\nHashing time: {totalSw.ElapsedMilliseconds}ms");
         }
     }
 }

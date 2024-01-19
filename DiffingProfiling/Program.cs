@@ -20,6 +20,7 @@
  * along with this code. If not, see <https://www.gnu.org/licenses/lgpl-3.0.html>.      
  */
 
+using BH.oM.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,8 @@ namespace BH.Tests.Diffing
 
             try
             {
+                HashProfiling.HashPoints(cc: new ComparisonConfig() { UseGeometryHash = true });
+                HashProfiling.HashPoints(cc: new ComparisonConfig() { UseGeometryHash = false });
                 HashProfiling.HashObjects();
             }
             catch (Exception e)
@@ -59,7 +62,7 @@ namespace BH.Tests.Diffing
             try
             {
                 DiffingProfiling.GeneralProfiling();
-            } 
+            }
             catch (Exception e)
             {
                 Console.WriteLine($"\n\t\tERROR:\n\t\t{e.ToString()}");
