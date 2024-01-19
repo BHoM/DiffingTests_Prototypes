@@ -80,7 +80,7 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(hash1 != hash2, "The two CustomObjects must be seen as different when no ComparisonConfig is specified.");
 
             // Use ComparisonConfig to specify exceptions.
-            ComparisonConfig cc = null;
+            ComparisonConfig? cc = null;
 
             // Use CustomdataKeysExceptions to disregard the difference in the input key.
             cc = new ComparisonConfig() { CustomdataKeysExceptions = new List<string>() { "testKey" } };
@@ -271,7 +271,7 @@ namespace BH.Tests.Diffing
             bar1.End = node2;
 
             bar2.Start = node1;
-            bar2.End = node3; // EndNode is different for the two bars.
+            bar2.End = node3; // End is different for the two bars.
 
             // By ignoring the IElement1D types, we ignore any difference in Nodes. Bars should be seen as equal.
             ComparisonConfig cc = new ComparisonConfig() { TypeExceptions = { typeof(IElement1D) } };
@@ -338,20 +338,20 @@ namespace BH.Tests.Diffing
             bar2.Start = node1_diffName;
             bar2.End = node2_diffName;
 
-            // By looking only at EndNode.Position, bars should be the same.
-            ComparisonConfig cc_onlyEndNodePosition = new ComparisonConfig() { PropertiesToConsider = { "EndNode.Position" } };
-            Assert.IsTrue(bar1.Hash(cc_onlyEndNodePosition) == bar2.Hash(cc_onlyEndNodePosition));
+            // By looking only at End.Position, bars should be the same.
+            ComparisonConfig cc_onlyEndPosition = new ComparisonConfig() { PropertiesToConsider = { "End.Position" } };
+            Assert.IsTrue(bar1.Hash(cc_onlyEndPosition) == bar2.Hash(cc_onlyEndPosition));
 
-            // By looking only at EndNode.Position, and StartNode.Position, bars should be the same.
-            ComparisonConfig cc_onlyStartNodePosition = new ComparisonConfig() { PropertiesToConsider = { "EndNode.Position", "StartNode.Position" } };
-            Assert.IsTrue(bar1.Hash(cc_onlyStartNodePosition) == bar2.Hash(cc_onlyStartNodePosition));
+            // By looking only at End.Position, and Start.Position, bars should be the same.
+            ComparisonConfig cc_onlyStartPosition = new ComparisonConfig() { PropertiesToConsider = { "End.Position", "Start.Position" } };
+            Assert.IsTrue(bar1.Hash(cc_onlyStartPosition) == bar2.Hash(cc_onlyStartPosition));
 
-            // By looking only at EndNode.Name, bars should be the different.
-            ComparisonConfig cc_onlyEndNodeName = new ComparisonConfig() { PropertiesToConsider = { "EndNode.Name" } };
-            Assert.IsTrue(bar1.Hash(cc_onlyEndNodeName) != bar2.Hash(cc_onlyEndNodeName));
+            // By looking only at End.Name, bars should be the different.
+            ComparisonConfig cc_onlyEndName = new ComparisonConfig() { PropertiesToConsider = { "End.Name" } };
+            Assert.IsTrue(bar1.Hash(cc_onlyEndName) != bar2.Hash(cc_onlyEndName));
 
             // By looking only at Name, bars should be the different. Note: this only checks the Bar.Name, and will not consider checking pairs of subproperties' names,
-            // e.g. it will not look if node1.StartNode.Name is equal or different to node1_diffName.StartNode.Name.
+            // e.g. it will not look if node1.Start.Name is equal or different to node1_diffName.Start.Name.
             // In other words, this stops at the topmost matching property.
             ComparisonConfig cc_onlyName = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
             Assert.IsTrue(bar1.Hash(cc_onlyName) != bar2.Hash(cc_onlyName));
@@ -437,20 +437,20 @@ namespace BH.Tests.Diffing
             bar2.Start = node1_diffName;
             bar2.End = node2_diffName;
 
-            // By looking only at EndNode.Position, bars should be the same.
-            ComparisonConfig cc_onlyEndNodePosition = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.EndNode.Position" } };
-            Assert.IsTrue(bar1.Hash(cc_onlyEndNodePosition) == bar2.Hash(cc_onlyEndNodePosition));
+            // By looking only at End.Position, bars should be the same.
+            ComparisonConfig cc_onlyEndPosition = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.End.Position" } };
+            Assert.IsTrue(bar1.Hash(cc_onlyEndPosition) == bar2.Hash(cc_onlyEndPosition));
 
-            // By looking only at EndNode.Position, and StartNode.Position, bars should be the same.
-            ComparisonConfig cc_onlyStartNodePosition = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.EndNode.Position", "BH.oM.Structure.Elements.Bar.StartNode.Position" } };
-            Assert.IsTrue(bar1.Hash(cc_onlyStartNodePosition) == bar2.Hash(cc_onlyStartNodePosition));
+            // By looking only at End.Position, and Start.Position, bars should be the same.
+            ComparisonConfig cc_onlyStartPosition = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.End.Position", "BH.oM.Structure.Elements.Bar.Start.Position" } };
+            Assert.IsTrue(bar1.Hash(cc_onlyStartPosition) == bar2.Hash(cc_onlyStartPosition));
 
-            // By looking only at EndNode.Name, bars should be the different.
-            ComparisonConfig cc_onlyEndNodeName = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.EndNode.Name" } };
-            Assert.IsTrue(bar1.Hash(cc_onlyEndNodeName) != bar2.Hash(cc_onlyEndNodeName));
+            // By looking only at End.Name, bars should be the different.
+            ComparisonConfig cc_onlyEndName = new ComparisonConfig() { PropertiesToConsider = { "BH.oM.Structure.Elements.Bar.End.Name" } };
+            Assert.IsTrue(bar1.Hash(cc_onlyEndName) != bar2.Hash(cc_onlyEndName));
 
             // By looking only at Name, bars should be the different. Note: this only checks the Bar.Name, and will not consider checking pairs of subproperties' names,
-            // e.g. it will not look if node1.StartNode.Name is equal or different to node1_diffName.StartNode.Name.
+            // e.g. it will not look if node1.Start.Name is equal or different to node1_diffName.Start.Name.
             // In other words, this stops at the topmost matching property.
             ComparisonConfig cc_onlyName = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
             Assert.IsTrue(bar1.Hash(cc_onlyName) != bar2.Hash(cc_onlyName));
@@ -493,16 +493,16 @@ namespace BH.Tests.Diffing
             bar2.End = node2_diffName; // DIFFERENT NAMES FOR ENDNODES
 
             // By looking only at Name, bars should be the different. Note: this only checks the Bar.Name, and will not consider checking pairs of subproperties' names,
-            // e.g. it will not look if node1.StartNode.Name is equal or different to node1_diffName.StartNode.Name.
+            // e.g. it will not look if node1.Start.Name is equal or different to node1_diffName.Start.Name.
             // In other words, this stops at the topmost matching property.
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "Name" } };
             Assert.IsTrue(bar1.Hash(cc) != bar2.Hash(cc));
 
-            // Change bar names (the StartNode.Name in bar1/bar2 are still different!)
+            // Change bar names (the Start.Name in bar1/bar2 are still different!)
             bar1.Name = "bar1";
             bar2.Name = "bar1";
 
-            // Bars should still be different as StartNode and Endnodes have different `Name`s
+            // Bars should still be different as Start and Endnodes have different `Name`s
             Assert.IsTrue(bar1.Hash(cc) != bar2.Hash(cc));
         }
 
@@ -538,7 +538,7 @@ namespace BH.Tests.Diffing
             // Using Wildcard prefix (to capture all possible properties ending in Name).
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = { "*.Name" } };
 
-            Assert.IsTrue(bar1.Hash(cc) != bar2.Hash(cc), "Bars should still be different: although the Bar names are the same, their StartNode have different `Name`s.");
+            Assert.IsTrue(bar1.Hash(cc) != bar2.Hash(cc), "Bars should still be different: although the Bar names are the same, their Start have different `Name`s.");
         }
 
         [Test]
@@ -596,7 +596,7 @@ namespace BH.Tests.Diffing
             bar2.End = endNode2;
             bar2.Name = "bar2";
 
-            // Set PropertiesToConsider to ignore changes in: `Bar.StartNode.X` and `Bar.EndNode.X`; `Name`.
+            // Set PropertiesToConsider to ignore changes in: `Bar.Start.X` and `Bar.End.X`; `Name`.
             ComparisonConfig cc = new ComparisonConfig() { PropertyExceptions = { "Bar.*.Position.X", "Name" } };
 
             Assert.IsTrue(bar1.Hash(cc) == bar2.Hash(cc));
@@ -822,11 +822,11 @@ namespace BH.Tests.Diffing
         [TestCase(false)] 
         public void SerialisedObject_RandomObject_HashDidNotChange(bool resetSerialisedObject = false)
         {
-            string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), @"..\..\..\..\Datasets\211117_HashTest_SerialisedObject_RandomObject.json"));
+            string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location)!, @"..\..\..\..\Datasets\211117_HashTest_SerialisedObject_RandomObject.json"));
 
             Assert.IsTrue(filePath.IsValidFilePath(), $"Check that the filepath for the serialised object is valid and that the file can be found on disk: {filePath}.");
 
-            Bar bar = null;
+            Bar? bar = null;
             ComparisonConfig cc = new ComparisonConfig();
 
             // Set newtonsoft serialization settings to handle automatically any type.

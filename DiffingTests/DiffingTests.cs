@@ -63,15 +63,15 @@ namespace BH.Tests.Diffing
 
             for (int i = 0; i < 3; i++)
             {
-                Bar obj = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
-                obj.Name = "bar_" + i.ToString();
+                Bar? obj = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
+                obj!.Name = "bar_" + i.ToString();
                 firstBatch.Add(obj as dynamic);
             }
 
             for (int i = 0; i < 3; i++)
             {
-                Bar obj = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
-                obj.Name = "bar_" + i.ToString();
+                Bar? obj = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
+                obj!.Name = "bar_" + i.ToString();
                 secondBatch.Add(obj as dynamic);
             }
 
@@ -85,9 +85,9 @@ namespace BH.Tests.Diffing
             // the IDiffing will trigger the most generic diffing method, "DiffWithHash". This method cannot recognize modified objects, so "modifiedObjects" must be null.
             Diff diff = BH.Engine.Diffing.Compute.IDiffing(firstBatch, secondBatch, diffingConfig);
 
-            Assert.IsTrue(diff.AddedObjects.Count() == 3, "Incorrect number of object identified as new/Added.");
+            diff.AddedObjects.Count().Should().Be(3, "Incorrect number of object identified as new/Added.");
             Assert.IsTrue(diff.ModifiedObjects == null || diff.ModifiedObjects.Count() == 0, "Incorrect number of object identified as modified.");
-            Assert.IsTrue(diff.RemovedObjects.Count() == 0, "Incorrect number of object identified as old/Removed.");
+            diff.RemovedObjects.Count().Should().Be(0, "Incorrect number of object identified as old/Removed.");
             var objectDifferences = diff.ModifiedObjectsDifferences?.FirstOrDefault();
             Assert.IsTrue(!objectDifferences?.Differences?.Any() ?? true, "HashDiffing cannot return property Differences, but some were returned.");
         }
@@ -134,9 +134,9 @@ namespace BH.Tests.Diffing
 
             Diff diff = BH.Engine.Diffing.Compute.DiffWithFragmentId(firstBatch, secondBatch, typeof(TestIdFragment), "Id");
 
-            Assert.IsTrue(diff.AddedObjects.Count() == 0, "Incorrect number of object identified as new/ToBeCreated.");
-            Assert.IsTrue(diff.ModifiedObjects.Count() == 3, "Incorrect number of object identified as modified/ToBeUpdated.");
-            Assert.IsTrue(diff.RemovedObjects.Count() == 0, "Incorrect number of object identified as old/ToBeDeleted.");
+            diff.AddedObjects.Count().Should().Be(0, "Incorrect number of object identified as new/ToBeCreated.");
+            diff.ModifiedObjects.Count().Should().Be(3, "Incorrect number of object identified as modified/ToBeUpdated.");
+            diff.RemovedObjects.Count().Should().Be(0, "Incorrect number of object identified as old/ToBeDeleted.");
         }
 
         [Test]
@@ -150,9 +150,9 @@ namespace BH.Tests.Diffing
 
             Diff diff = BH.Engine.Diffing.Compute.DiffWithFragmentId(firstBatch, secondBatch, typeof(TestIdFragment), "Id");
 
-            Assert.IsTrue(diff.AddedObjects.Count() == 0, "Incorrect number of object identified as new/ToBeCreated.");
-            Assert.IsTrue(diff.ModifiedObjects.Count() == 0, "Incorrect number of object identified as modified/ToBeUpdated.");
-            Assert.IsTrue(diff.RemovedObjects.Count() == 0, "Incorrect number of object identified as old/ToBeDeleted.");
+            diff.AddedObjects.Count().Should().Be(0, "Incorrect number of object identified as new/ToBeCreated.");
+            diff.ModifiedObjects.Count().Should().Be(0, "Incorrect number of object identified as modified/ToBeUpdated.");
+            diff.RemovedObjects.Count().Should().Be(0, "Incorrect number of object identified as old/ToBeDeleted.");
             Assert.IsTrue(diff.UnchangedObjects.Count() == 3, "Incorrect number of object identified as unchanged.");
         }
 
@@ -173,35 +173,35 @@ namespace BH.Tests.Diffing
             {
                 Start = new Node()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
-                    Name = "startNode2"  // Different `Bar.StartNode.Name`
+                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.Start.Position.Z`
+                    Name = "startNode2"  // Different `Bar.Start.Name`
                 },
                 Name = "bar2" // Different `Bar.Name`
             };
 
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2);
 
-            Assert.IsTrue(objectDifferences.FollowingObject == bar2);
-            Assert.IsTrue(objectDifferences.PastObject == bar1);
-            Assert.IsTrue(objectDifferences.Differences.Count == 3, $"Incorrect number of propertyDifferences found: {objectDifferences.Differences.Count} instead of 3.");
+            objectDifferences.FollowingObject.Should().Be(bar2);
+            objectDifferences.PastObject.Should().Be(bar1);
+            objectDifferences.Differences.Count.Should().Be(3, "the number of propertyDifferences should be 3");
 
-            var differences_BarStartNodePositionZ = objectDifferences.Differences.Where(d => d.FullName == "BH.oM.Structure.Elements.Bar.StartNode.Position.Z");
-            Assert.IsTrue(differences_BarStartNodePositionZ.Count() == 1);
-            Assert.IsTrue(differences_BarStartNodePositionZ.FirstOrDefault().Name == "StartNode.Position.Z");
-            Assert.IsTrue(differences_BarStartNodePositionZ.FirstOrDefault().PastValue as double? == 10);
-            Assert.IsTrue(differences_BarStartNodePositionZ.FirstOrDefault().FollowingValue as double? == 99);
+            var differences_BarStartPositionZ = objectDifferences.Differences.Where(d => d.FullName == $"{typeof(Bar).FullName}.Start.Position.Z");
+            differences_BarStartPositionZ.Count().Should().Be(1);
+            differences_BarStartPositionZ.FirstOrDefault()?.Name.Should().Be("Start.Position.Z");
+            (differences_BarStartPositionZ.FirstOrDefault()?.PastValue as double?).Should().Be(10);
+            (differences_BarStartPositionZ.FirstOrDefault()?.FollowingValue as double?).Should().Be(99);
 
-            var differences_BarStartNodeName = objectDifferences.Differences.Where(d => d.FullName == "BH.oM.Structure.Elements.Bar.StartNode.Name");
-            Assert.IsTrue(differences_BarStartNodeName.Count() == 1);
-            Assert.IsTrue(differences_BarStartNodeName.FirstOrDefault().Name == "StartNode.Name");
-            Assert.IsTrue(differences_BarStartNodeName.FirstOrDefault().PastValue as string == "startNode1");
-            Assert.IsTrue(differences_BarStartNodeName.FirstOrDefault().FollowingValue as string == "startNode2");
+            var differences_BarStartName = objectDifferences.Differences.Where(d => d.FullName == $"{typeof(Bar).FullName}.Start.Name");
+            differences_BarStartName.Count().Should().Be(1);
+            differences_BarStartName.FirstOrDefault()?.Name.Should().Be("Start.Name");
+            (differences_BarStartName.FirstOrDefault()?.PastValue as string).Should().Be("startNode1");
+            (differences_BarStartName.FirstOrDefault()?.FollowingValue as string).Should().Be("startNode2");
 
-            var differences_BarName = objectDifferences.Differences.Where(d => d.FullName == "BH.oM.Structure.Elements.Bar.Name");
-            Assert.IsTrue(differences_BarName.Count() == 1);
-            Assert.IsTrue(differences_BarName.FirstOrDefault().Name == "Name");
-            Assert.IsTrue(differences_BarName.FirstOrDefault().PastValue as string == "bar1");
-            Assert.IsTrue(differences_BarName.FirstOrDefault().FollowingValue as string == "bar2");
+            var differences_BarName = objectDifferences.Differences.Where(d => d.FullName == $"{typeof(Bar).FullName}.Name");
+            differences_BarName.Count().Should().Be(1);
+            differences_BarName.FirstOrDefault()?.Name.Should().Be("Name");
+            (differences_BarName.FirstOrDefault()?.PastValue as string).Should().Be("bar1");
+            (differences_BarName.FirstOrDefault()?.FollowingValue as string).Should().Be("bar2");
         }
 
         [Test]
@@ -221,21 +221,21 @@ namespace BH.Tests.Diffing
             {
                 Start = new Node()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
-                    Name = "startNode2"  // Different `Bar.StartNode.Name`
+                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.Start.Position.Z`
+                    Name = "startNode2"  // Different `Bar.Start.Name`
                 },
                 Name = "bar2" // Different `Bar.Name`
             };
 
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2);
 
-            string descriptionNoName = objectDifferences.Differences.Where(d => !d.Name.Contains("Name")).FirstOrDefault().Description;
+            string? descriptionNoName = objectDifferences.Differences.Where(d => !d.Name.Contains("Name")).FirstOrDefault()?.Description;
 
-            Assert.IsTrue(!descriptionNoName.Contains("with Name"));
+            descriptionNoName.Should().NotContain("with Name");
 
             bar1.Name = null;
             bar2.Name = null;
-            Assert.IsTrue(!descriptionNoName.Contains("with Name"));
+            descriptionNoName.Should().NotContain("with Name");
         }
 
         [Test]
@@ -255,16 +255,16 @@ namespace BH.Tests.Diffing
             {
                 Start = new Node()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
-                    Name = "startNode2"  // Different `Bar.StartNode.Name`
+                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.Start.Position.Z`
+                    Name = "startNode2"  // Different `Bar.Start.Name`
                 },
                 Name = "bar1" // SAME `Bar.Name`
             };
 
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2);
 
-            string descriptionWithName = objectDifferences.Differences.Where(d => !d.Name.Contains("Name")).FirstOrDefault().Description;
-            Assert.IsTrue(descriptionWithName.Contains("with Name"));
+            string? descriptionWithName = objectDifferences.Differences.Where(d => !d.Name.Contains("Name")).FirstOrDefault()?.Description;
+            descriptionWithName.Should().Contain("with Name");
         }
 
         [Test]
@@ -284,8 +284,8 @@ namespace BH.Tests.Diffing
             {
                 Start = new Node()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
-                    Name = "startNode2"  // Different `Bar.StartNode.Name`
+                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.Start.Position.Z`
+                    Name = "startNode2"  // Different `Bar.Start.Name`(differences_BarName.Item2 as string).Should().Be(
                 },
                 Name = "bar2" // Different `Bar.Name`
             };
@@ -294,17 +294,17 @@ namespace BH.Tests.Diffing
 
             Assert.IsTrue(differentProperties.Count == 3, "Incorrect number of propertyDifferences found.");
 
-            var differences_BarStartNodePositionZ = differentProperties["BH.oM.Structure.Elements.Bar.StartNode.Position.Z"];
-            Assert.IsTrue(differences_BarStartNodePositionZ.Item1 as double? == 10);
-            Assert.IsTrue(differences_BarStartNodePositionZ.Item2 as double? == 99);
+            var differences_BarStartPositionZ = differentProperties[$"{typeof(BH.oM.Structure.Elements.Bar).FullName}.Start.Position.Z"];
+            Assert.IsTrue(differences_BarStartPositionZ.Item1 as double? == 10);
+            Assert.IsTrue(differences_BarStartPositionZ.Item2 as double? == 99);
 
-            var differences_BarStartNodeName = differentProperties["BH.oM.Structure.Elements.Bar.StartNode.Name"];
-            Assert.IsTrue(differences_BarStartNodeName.Item1 as string == "startNode1");
-            Assert.IsTrue(differences_BarStartNodeName.Item2 as string == "startNode2");
+            var differences_BarStartName = differentProperties[$"{typeof(BH.oM.Structure.Elements.Bar).FullName}.Start.Name"];
+            Assert.IsTrue(differences_BarStartName.Item1 as string == "startNode1");
+            Assert.IsTrue(differences_BarStartName.Item2 as string == "startNode2");
 
-            var differences_BarName = differentProperties["BH.oM.Structure.Elements.Bar.Name"];
-            Assert.IsTrue(differences_BarName.Item1 as string == "bar1");
-            Assert.IsTrue(differences_BarName.Item2 as string == "bar2");
+            var differences_BarName = differentProperties[$"{typeof(BH.oM.Structure.Elements.Bar).FullName}.Name"];
+            (differences_BarName.Item1 as string).Should().Be("bar1");
+            (differences_BarName.Item2 as string).Should().Be("bar2");
         }
 
         [Test]
@@ -340,14 +340,14 @@ namespace BH.Tests.Diffing
             {
                 Start = new Node()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
-                    Name = bar1.Start.Name  // SAME `Bar.StartNode.Name`
+                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.Start.Position.Z`
+                    Name = bar1.Start.Name  // SAME `Bar.Start.Name`
                 },
                 Name = "bar2" // Different `Bar.Name`
             };
 
-            // Consider ONLY differences in terms of `BH.oM.Structure.Elements.Bar.StartNode.Name`. We should not find any.
-            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "BH.oM.Structure.Elements.Bar.StartNode.Name" } };
+            // Consider ONLY differences in terms of `BH.oM.Structure.Elements.Bar.Start.Name`. We should not find any.
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { $"{typeof(BH.oM.Structure.Elements.Bar).FullName}.Start.Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
@@ -431,8 +431,8 @@ namespace BH.Tests.Diffing
             {
                 Start = new Node()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.StartNode.Position.Z`
-                    Name = bar1.Start.Name  // SAME `Bar.StartNode.Name`
+                    Position = new Point() { X = 0, Y = 0, Z = 99 }, // Different `Bar.Start.Position.Z`
+                    Name = bar1.Start.Name  // SAME `Bar.Start.Name`
                 },
                 Name = bar1.Name // SAME `Bar.Name`
             };
@@ -472,18 +472,18 @@ namespace BH.Tests.Diffing
             {
                 Start = new Node()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 55 }, // DIFFERENT `Bar.StartNode.Position.Z`
-                    Name = bar1.Start.Name  // SAME `Bar.StartNode.Name`
+                    Position = new Point() { X = 0, Y = 0, Z = 55 }, // DIFFERENT `Bar.Start.Position.Z`
+                    Name = bar1.Start.Name  // SAME `Bar.Start.Name`
                 },
                 End = new Node()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 77 }, // DIFFERENT `Bar.EndNode.Position.Z`
-                    Name = bar1.End.Name  // SAME `Bar.EndNode.Name`
+                    Position = new Point() { X = 0, Y = 0, Z = 77 }, // DIFFERENT `Bar.End.Position.Z`
+                    Name = bar1.End.Name  // SAME `Bar.End.Name`
                 },
                 Name = "bar2" // DIFFERENT Bar.Name
             };
 
-            // Consider ONLY differences in terms of StartNode AND EndNode names: `Bar.*.Name`. We should not find any.
+            // Consider ONLY differences in terms of Start AND End names: `Bar.*.Name`. We should not find any.
             ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new List<string>() { "Bar.*.Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
@@ -512,18 +512,18 @@ namespace BH.Tests.Diffing
             {
                 Start = new Node()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 55 }, // DIFFERENT `Bar.StartNode.Position.Z`
-                    Name = "startNode2"  // DIFFERENT `Bar.StartNode.Name`
+                    Position = new Point() { X = 0, Y = 0, Z = 55 }, // DIFFERENT `Bar.Start.Position.Z`
+                    Name = "startNode2"  // DIFFERENT `Bar.Start.Name`
                 },
                 End = new Node()
                 {
-                    Position = new Point() { X = 0, Y = 0, Z = 77 }, // DIFFERENT `Bar.EndNode.Position.Z`
-                    Name = "endNode2"  // DIFFERENT `Bar.EndNode.Name`
+                    Position = new Point() { X = 0, Y = 0, Z = 77 }, // DIFFERENT `Bar.End.Position.Z`
+                    Name = "endNode2"  // DIFFERENT `Bar.End.Name`
                 },
                 Name = "bar2" // DIFFERENT Bar.Name
             };
 
-            // Ignore changes in: Bar.StartNode.Z; Bar.EndNode.Z; Name.
+            // Ignore changes in: Bar.Start.Z; Bar.End.Z; Name.
             ComparisonConfig cc = new ComparisonConfig() { PropertyExceptions = { "Bar.*.Position.Z", "Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
@@ -690,11 +690,11 @@ namespace BH.Tests.Diffing
 
             for (int i = 0; i < 3; i++)
             {
-                Bar obj = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
+                Bar? obj = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
                 TestIdFragment testIdFragment = new TestIdFragment() { Id = i };
                 RandomNumberFragment randomNumberFragment = new RandomNumberFragment();
 
-                obj.Name = "bar_" + i.ToString();
+                obj!.Name = "bar_" + i.ToString();
                 obj.AddFragment(testIdFragment);
                 obj.AddFragment(randomNumberFragment);
 
@@ -704,11 +704,11 @@ namespace BH.Tests.Diffing
 
             for (int i = 0; i < 3; i++)
             {
-                Bar obj = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
+                Bar? obj = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
                 TestIdFragment testIdFragment = new TestIdFragment() { Id = i };
                 RandomNumberFragment randomNumberFragment = new RandomNumberFragment();
 
-                obj.Name = "bar_" + i.ToString();
+                obj!.Name = "bar_" + i.ToString();
                 obj.AddFragment(testIdFragment);
                 obj.AddFragment(randomNumberFragment);
 
@@ -718,9 +718,9 @@ namespace BH.Tests.Diffing
             // This should internally trigger the method "DiffOneByOne". 
             Diff diff = BH.Engine.Diffing.Compute.IDiffing(firstBatch, secondBatch, diffingConfig);
 
-            Assert.IsTrue(diff.AddedObjects.Count() == 0, "Incorrect number of object identified as new/ToBeCreated.");
+            diff.AddedObjects.Count().Should().Be(0, "Incorrect number of object identified as new/ToBeCreated.");
             Assert.IsTrue(diff.ModifiedObjects != null && diff.ModifiedObjects.Count() != 0, "Incorrect number of object identified as modified/ToBeUpdated.");
-            Assert.IsTrue(diff.RemovedObjects.Count() == 0, "Incorrect number of object identified as old/ToBeDeleted.");
+            diff.RemovedObjects.Count().Should().Be(0, "Incorrect number of object identified as old/ToBeDeleted.");
             var objectDifferences = diff.ModifiedObjectsDifferences?.FirstOrDefault();
             Assert.IsTrue(objectDifferences?.Differences?.Count() > 0, "Incorrect number of changed properties identified by the property-level diffing.");
         }
