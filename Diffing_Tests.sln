@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revit_Engine", "..\Revit_To
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Revit", "Revit", "{CD8BE32E-4797-4098-9072-5F61D6B2BD4D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geometry_Engine", "..\BHoM_Engine\Geometry_Engine\Geometry_Engine.csproj", "{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ComplianceTestBuild|Any CPU = ComplianceTestBuild|Any CPU
@@ -93,6 +95,14 @@ Global
 		{F116B44A-6C4D-4558-8E20-627AF6F8CD82}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F116B44A-6C4D-4558-8E20-627AF6F8CD82}.Test|Any CPU.ActiveCfg = Debug|Any CPU
 		{F116B44A-6C4D-4558-8E20-627AF6F8CD82}.Test|Any CPU.Build.0 = Debug|Any CPU
+		{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
+		{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}.Test|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
