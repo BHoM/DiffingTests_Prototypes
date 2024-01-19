@@ -24,7 +24,9 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\..\BHoM_Engine\BHoM_Engine\BHoM_Engine.csproj" />
     <ProjectReference Include="..\..\BHoM_Engine\Diffing_Engine\Diffing_Engine.csproj" />
+    <ProjectReference Include="..\..\BHoM_Engine\Geometry_Engine\Geometry_Engine.csproj" />
     <ProjectReference Include="..\DiffingTests_Engine\DiffingTests_Engine.csproj" />
     <ProjectReference Include="..\DiffingTests_oM\DiffingTests_oM.csproj" />
   </ItemGroup>
@@ -36,17 +38,11 @@
     <Reference Include="BHoM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM.dll</HintPath>
     </Reference>
-    <Reference Include="BHoM_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\BHoM_Engine.dll</HintPath>
-    </Reference>
     <Reference Include="Diffing_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Diffing_oM.dll</HintPath>
     </Reference>
     <Reference Include="Dimensional_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Dimensional_oM.dll</HintPath>
-    </Reference>
-    <Reference Include="Geometry_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\Geometry_Engine.dll</HintPath>
     </Reference>
     <Reference Include="Geometry_oM">
       <HintPath>C:\ProgramData\BHoM\Assemblies\Geometry_oM.dll</HintPath>
