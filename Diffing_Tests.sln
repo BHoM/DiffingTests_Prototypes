@@ -23,6 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Revit", "Revit", "{CD8BE32E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Geometry_Engine", "..\BHoM_Engine\Geometry_Engine\Geometry_Engine.csproj", "{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diffing_oM", "..\BHoM\Diffing_oM\Diffing_oM.csproj", "{CA56F5E5-406E-45C3-910F-518FDD170BDC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BHoM", "..\BHoM\BHoM\BHoM.csproj", "{F0A22BD5-241F-430A-BB52-51D9C4B18C3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ComplianceTestBuild|Any CPU = ComplianceTestBuild|Any CPU
@@ -103,6 +107,22 @@ Global
 		{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}.Test|Any CPU.ActiveCfg = Debug|Any CPU
 		{0C72449D-51FA-4082-AF3A-DBC00FC3E8F7}.Test|Any CPU.Build.0 = Debug|Any CPU
+		{CA56F5E5-406E-45C3-910F-518FDD170BDC}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA56F5E5-406E-45C3-910F-518FDD170BDC}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
+		{CA56F5E5-406E-45C3-910F-518FDD170BDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA56F5E5-406E-45C3-910F-518FDD170BDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA56F5E5-406E-45C3-910F-518FDD170BDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA56F5E5-406E-45C3-910F-518FDD170BDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA56F5E5-406E-45C3-910F-518FDD170BDC}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA56F5E5-406E-45C3-910F-518FDD170BDC}.Test|Any CPU.Build.0 = Debug|Any CPU
+		{F0A22BD5-241F-430A-BB52-51D9C4B18C3F}.ComplianceTestBuild|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0A22BD5-241F-430A-BB52-51D9C4B18C3F}.ComplianceTestBuild|Any CPU.Build.0 = Debug|Any CPU
+		{F0A22BD5-241F-430A-BB52-51D9C4B18C3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0A22BD5-241F-430A-BB52-51D9C4B18C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0A22BD5-241F-430A-BB52-51D9C4B18C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0A22BD5-241F-430A-BB52-51D9C4B18C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0A22BD5-241F-430A-BB52-51D9C4B18C3F}.Test|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0A22BD5-241F-430A-BB52-51D9C4B18C3F}.Test|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
