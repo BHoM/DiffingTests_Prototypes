@@ -42,8 +42,6 @@ namespace BH.Tests.Diffing
 
             try
             {
-                HashProfiling.HashPoints(cc: new ComparisonConfig() { UseGeometryHash = true });
-                HashProfiling.HashPoints(cc: new ComparisonConfig() { UseGeometryHash = false });
                 HashProfiling.HashObjects();
             }
             catch (Exception e)
