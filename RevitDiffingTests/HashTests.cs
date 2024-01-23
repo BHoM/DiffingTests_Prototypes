@@ -102,8 +102,7 @@ namespace BH.Tests.Diffing.Revit
             followingObjs = followingObjs.Select(o => o.SetRevitParameter(someParameter.Name, someParameter.Value)).ToList();
 
             // By specifying an unlikely PropertyName in PropertiesToConsider, we can get the differences in terms of RevitParameters only.
-            RevitComparisonConfig rcc = new RevitComparisonConfig() { PropertiesToConsider = new List<string>() { "Only Revit Parameters" } };
-
+            RevitComparisonConfig rcc = new RevitComparisonConfig(propertiesToConsider: new HashSet<string>() { "Only Revit Parameters" });
             // Check that the objects are seen as the same.
             List<string> pastObjectsHashes = pastObjects.Select(o => o.Hash(rcc)).ToList();
             List<string> followingObjectsHashes = followingObjs.Select(o => o.Hash(rcc)).ToList();
