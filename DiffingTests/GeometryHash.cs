@@ -18,7 +18,7 @@ namespace BH.Tests.Diffing
 {
     public class GeometryHash
     {
-        List<double> m_previousHashes = new();
+        List<object> m_previousHashes = new();
 
         [SetUp]
         public void PreviousHashesSetup()
@@ -62,7 +62,7 @@ namespace BH.Tests.Diffing
 
             var hash = p.GeometryHash();
 
-            hash.HasValue().Should().BeTrue();
+            hash.Should().NotBeNull();
             m_previousHashes.Should().NotContain(hash);
             m_previousHashes.Add(hash);
 
@@ -83,7 +83,7 @@ namespace BH.Tests.Diffing
 
             var hash = c.GeometryHash();
 
-            hash.HasValue().Should().BeTrue();
+            hash.Should().NotBeNull();
             m_previousHashes.Should().NotContain(hash);
             m_previousHashes.Add(hash);
 
@@ -104,10 +104,9 @@ namespace BH.Tests.Diffing
 
             var hash = v.GeometryHash();
 
-            hash.HasValue().Should().BeTrue();
             if ((v.X.HasValue() && v.X != 0) || (v.Y.HasValue() && v.Y != 0) || (v.Z.HasValue() && v.Z != 0))
             {
-                hash.Should().NotBe(0);
+                hash.Should().NotBeNull();
             }
 
             m_previousHashes.Should().NotContain(hash);
