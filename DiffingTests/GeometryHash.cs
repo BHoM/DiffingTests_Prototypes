@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BH.Engine.Diffing.Tests;
 using BH.Engine.Base;
+using BH.Engine.Serialiser;
 
 namespace BH.Tests.Diffing
 {
@@ -99,20 +100,24 @@ namespace BH.Tests.Diffing
         [TestCase(double.NaN, 0, 0)]
         public void Vector(double x, double y, double z)
         {
-            var p = new BH.oM.Geometry.Vector() { X = x, Y = y, Z = z };
+            var v = new BH.oM.Geometry.Vector() { X = x, Y = y, Z = z };
 
-            var hash = p.GeometryHash();
+            var hash = v.GeometryHash();
 
             hash.HasValue().Should().BeTrue();
+            if ((v.X.HasValue() && v.X != 0) || (v.Y.HasValue() && v.Y != 0) || (v.Z.HasValue() && v.Z != 0))
+            {
+                hash.Should().NotBe(0);
+            }
+
             m_previousHashes.Should().NotContain(hash);
             m_previousHashes.Add(hash);
 
             Console.WriteLine(hash);
         }
 
-        [TestCase(3)]
-        [TestCase(6)]
         [TestCase(1000)]
+        [Repeat(50)] // Because this test relies on random data, it needs to be repeated multiple times, at least 50.
         public void Order_RandomPoints(int pointCount, int? shiftCount = null)
         {
             List<Point> points = AutoFaker.Generate<Point>(pointCount);
@@ -129,7 +134,7 @@ namespace BH.Tests.Diffing
             var hash2 = polyline2.GeometryHash();
 
             // Check that the two hashes are different.
-            hash1.Should().NotBe(hash2);
+            hash1.Should().NotBe(hash2, $"the two list of points have the same hash, but they contain points in a different order (rotation of {shiftCount ?? pointCount / 2} places):\n\t{polyline.ToJson()}\n\t{polyline2.ToJson()}");
         }
 
         [TestCase]
