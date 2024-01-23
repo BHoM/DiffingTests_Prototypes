@@ -1,4 +1,5 @@
-﻿using BH.Engine.Geometry;
+﻿using AutoBogus;
+using BH.Engine.Geometry;
 using BH.oM.Base;
 using BH.oM.Geometry;
 using FluentAssertions;
@@ -9,6 +10,8 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using BH.Engine.Diffing.Tests;
+using BH.Engine.Base;
 
 namespace BH.Tests.Diffing
 {
@@ -105,6 +108,48 @@ namespace BH.Tests.Diffing
             m_previousHashes.Add(hash);
 
             Console.WriteLine(hash);
+        }
+
+        [TestCase(3)]
+        [TestCase(6)]
+        [TestCase(1000)]
+        public void Order_RandomPoints(int pointCount, int? shiftCount = null)
+        {
+            List<Point> points = AutoFaker.Generate<Point>(pointCount);
+
+            Polyline polyline = new Polyline() { ControlPoints = points };
+
+            var hash1 = polyline.GeometryHash();
+
+            List<Point> shiftedPoints = points.Rotate(shiftCount ?? pointCount / 2).ToList(); // rotate the list of points.
+            shiftedPoints.Should().Contain(points); // check that both lists still contain the same elements.
+            shiftedPoints.Should().NotContainInOrder(points); // check that the two lists have different ordering.
+
+            Polyline polyline2 = new Polyline() { ControlPoints = shiftedPoints };
+            var hash2 = polyline2.GeometryHash();
+
+            // Check that the two hashes are different.
+            hash1.Should().NotBe(hash2);
+        }
+
+        [TestCase]
+        public void Order_PointsOnAxes(int shiftCount = 1)
+        {
+            List<Point> points = new List<Point>() { new Point() { X = 1, Y = 0, Z = 0 }, new Point() { X = 0, Y = 1, Z = 0 }, new Point() { X = 0, Y = 0, Z = 1 } };
+
+            Polyline polyline = new Polyline() { ControlPoints = points };
+
+            var hash1 = polyline.GeometryHash();
+
+            List<Point> shiftedPoints = points.Rotate(shiftCount).ToList(); // rotate the list of points.
+            shiftedPoints.Should().Contain(points); // check that both lists still contain the same elements.
+            shiftedPoints.Should().NotContainInOrder(points); // check that the two lists have different ordering.
+
+            Polyline polyline2 = new Polyline() { ControlPoints = shiftedPoints };
+            var hash2 = polyline2.GeometryHash();
+
+            // Check that the two hashes are different.
+            hash1.Should().NotBe(hash2);
         }
     }
 }
