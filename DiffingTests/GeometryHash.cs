@@ -33,12 +33,13 @@ namespace BH.Tests.Diffing
         [TestCase(double.NaN)]
         public void PointsOnAxesDifferentHash(double valueOnAxis)
         {
-            if (double.IsNaN(valueOnAxis))
-            {
-                var act = () => (new BH.oM.Geometry.Point() { X = valueOnAxis, Y = 0, Z = 0 }).GeometryHash();
-                act.Should().Throw<ArgumentException>();
-                return;
-            }
+            // // Uncomment the following if behaviour on NaN should be to throw exception.
+            //if (double.IsNaN(valueOnAxis))
+            //{
+            //    var act = () => (new BH.oM.Geometry.Point() { X = valueOnAxis, Y = 0, Z = 0 }).GeometryHash();
+            //    act.Should().Throw<ArgumentException>();
+            //    return;
+            //}
 
             var px = new BH.oM.Geometry.Point() { X = valueOnAxis, Y = 0, Z = 0 };
             var py = new BH.oM.Geometry.Point() { X = 0, Y = valueOnAxis, Z = 0 };
@@ -98,47 +99,6 @@ namespace BH.Tests.Diffing
             };
         }
 
-        //[Test]
-        //public void PointCombination()
-        //{
-        //    List<Point> points = new List<Point>();
-        //    for (int i = 0; i < 1; i++)
-        //    {
-        //        AddToList(points, i);
-        //        AddToList(points, -i);
-        //    }
-
-        //    static void AddToList(List<Point> points, int i)
-        //    {
-        //        var px = new BH.oM.Geometry.Point() { X = i, Y = 0, Z = 0 };
-        //        var py = new BH.oM.Geometry.Point() { X = 0, Y = i, Z = 0 };
-        //        var pz = new BH.oM.Geometry.Point() { X = 0, Y = 0, Z = i };
-
-        //        var pxy = new BH.oM.Geometry.Point() { X = i, Y = i, Z = 0 };
-        //        var pyz = new BH.oM.Geometry.Point() { X = 0, Y = i, Z = i };
-        //        var pxz = new BH.oM.Geometry.Point() { X = i, Y = 0, Z = i };
-
-        //        var pxyz = new BH.oM.Geometry.Point() { X = i, Y = i, Z = i };
-
-        //        points.Add(px);
-        //        points.Add(py);
-        //        points.Add(pz);
-        //        points.Add(pxy);
-        //        points.Add(pyz);
-        //        points.Add(pxz);
-        //        points.Add(pxyz);
-        //    }
-
-        //    HashSet<string> allGeometryHashes = new();
-
-        //    foreach (var item in points)
-        //    {
-        //        allGeometryHashes.Add(item.GeometryHash());
-        //    }
-
-        //    allGeometryHashes.Count.Should().Be(points.Count);
-        //}
-
         [TestCase(0, 0, 0)]
         [TestCase(1, 1, 1)]
         [TestCase(1, 0, 0)]
@@ -188,18 +148,9 @@ namespace BH.Tests.Diffing
         [TestCase(0, 0, 1)]
         [TestCase(double.PositiveInfinity, 0, 0)]
         [TestCase(double.NegativeInfinity, 0, 0)]
-        [TestCase(double.NaN, 0, 0)]
         public void Vector(double x, double y, double z)
         {
             var v = new BH.oM.Geometry.Vector() { X = x, Y = y, Z = z };
-
-            if (double.IsNaN(x))
-            {
-                var act = () => v.GeometryHash();
-                act.Should().Throw<ArgumentException>();
-                return;
-            }
-
 
             var hash = v.GeometryHash();
 
