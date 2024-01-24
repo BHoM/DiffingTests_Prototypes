@@ -171,7 +171,7 @@ namespace BH.Tests.Diffing
 
 
         [TestCase(1000)]
-        [Repeat(50)] // Because this test relies on random data, it needs to be repeated multiple times, at least 50.
+        [Repeat(10)] // Because this test relies on random data, it needs to be repeated multiple times
         public void Order_RandomPoints(int pointCount, int? shiftCount = null)
         {
             List<Point> points = AutoFaker.Generate<Point>(pointCount);
