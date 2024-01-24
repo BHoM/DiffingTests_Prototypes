@@ -31,6 +31,10 @@ namespace BH.Tests.Diffing
         [TestCase(double.PositiveInfinity)]
         [TestCase(double.NegativeInfinity)]
         [TestCase(double.NaN)]
+        [TestCase(BH.oM.Geometry.Tolerance.Distance)]
+        [TestCase(BH.oM.Geometry.Tolerance.MacroDistance)]
+        [TestCase(BH.oM.Geometry.Tolerance.MicroDistance)]
+        [TestCase(BH.oM.Geometry.Tolerance.Angle)]
         public void PointsOnAxesDifferentHash(double valueOnAxis)
         {
             // // Uncomment the following if behaviour on NaN should be to throw exception.
