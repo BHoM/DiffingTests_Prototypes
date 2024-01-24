@@ -33,6 +33,13 @@ namespace BH.Tests.Diffing
         [TestCase(double.NaN)]
         public void PointsOnAxesDifferentHash(double valueOnAxis)
         {
+            if (double.IsNaN(valueOnAxis))
+            {
+                var act = () => (new BH.oM.Geometry.Point() { X = valueOnAxis, Y = 0, Z = 0 }).GeometryHash();
+                act.Should().Throw<ArgumentException>();
+                return;
+            }
+
             var px = new BH.oM.Geometry.Point() { X = valueOnAxis, Y = 0, Z = 0 };
             var py = new BH.oM.Geometry.Point() { X = 0, Y = valueOnAxis, Z = 0 };
             var pz = new BH.oM.Geometry.Point() { X = 0, Y = 0, Z = valueOnAxis };
