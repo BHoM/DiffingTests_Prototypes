@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using BH.Engine.Diffing.Tests;
 using BH.Engine.Base;
 using BH.Engine.Serialiser;
+using FluentAssertions.Execution;
 
 namespace BH.Tests.Diffing
 {
@@ -35,18 +36,101 @@ namespace BH.Tests.Diffing
             var px = new BH.oM.Geometry.Point() { X = valueOnAxis, Y = 0, Z = 0 };
             var py = new BH.oM.Geometry.Point() { X = 0, Y = valueOnAxis, Z = 0 };
             var pz = new BH.oM.Geometry.Point() { X = 0, Y = 0, Z = valueOnAxis };
+            var pxy = new BH.oM.Geometry.Point() { X = valueOnAxis, Y = valueOnAxis, Z = 0 };
+            var pyz = new BH.oM.Geometry.Point() { X = 0, Y = valueOnAxis, Z = valueOnAxis };
+            var pxz = new BH.oM.Geometry.Point() { X = valueOnAxis, Y = 0, Z = valueOnAxis };
+            var pxyz = new BH.oM.Geometry.Point() { X = valueOnAxis, Y = valueOnAxis, Z = valueOnAxis };
 
             var hx = px.GeometryHash();
             var hy = py.GeometryHash();
             var hz = pz.GeometryHash();
+            var hxy = pxy.GeometryHash();
+            var hyz = pyz.GeometryHash();
+            var hxz = pxz.GeometryHash();
+            var hxyz = pxyz.GeometryHash();
 
-            Console.WriteLine(hx);
-            Console.WriteLine(hy);
-            Console.WriteLine(hz);
+            HashSet<string> allHashes = new() { hx, hy, hz, hxy, hyz, hxz, hxyz };
 
-            hx.Should().NotBe(hy);
-            hy.Should().NotBe(hz);
+            Console.WriteLine("hx:   " + hx);
+            Console.WriteLine("hy:   " + hy);
+            Console.WriteLine("hz:   " + hz);
+            Console.WriteLine("hxy:  " + hxy);
+            Console.WriteLine("hyz:  " + hyz);
+            Console.WriteLine("hxz:  " + hxz);
+            Console.WriteLine("hxyz: " + hxyz);
+
+            using (new AssertionScope())
+            {
+                allHashes.Count.Should().Be(7);
+
+                hy.Should().NotBe(hx);
+                hz.Should().NotBe(hy);
+
+                hxy.Should().NotBe(hx);
+                hxy.Should().NotBe(hy);
+                hxy.Should().NotBe(hz);
+
+                hyz.Should().NotBe(hx);
+                hyz.Should().NotBe(hy);
+                hyz.Should().NotBe(hz);
+
+                hxz.Should().NotBe(hx);
+                hxz.Should().NotBe(hy);
+                hxz.Should().NotBe(hz);
+
+                hxy.Should().NotBe(hyz);
+                hyz.Should().NotBe(hxy);
+                hxz.Should().NotBe(hxy);
+
+                hxyz.Should().NotBe(hx);
+                hxyz.Should().NotBe(hy);
+                hxyz.Should().NotBe(hz);
+                hxyz.Should().NotBe(hxy);
+                hxyz.Should().NotBe(hyz);
+                hxyz.Should().NotBe(hxz);
+            };
         }
+
+        //[Test]
+        //public void PointCombination()
+        //{
+        //    List<Point> points = new List<Point>();
+        //    for (int i = 0; i < 1; i++)
+        //    {
+        //        AddToList(points, i);
+        //        AddToList(points, -i);
+        //    }
+
+        //    static void AddToList(List<Point> points, int i)
+        //    {
+        //        var px = new BH.oM.Geometry.Point() { X = i, Y = 0, Z = 0 };
+        //        var py = new BH.oM.Geometry.Point() { X = 0, Y = i, Z = 0 };
+        //        var pz = new BH.oM.Geometry.Point() { X = 0, Y = 0, Z = i };
+
+        //        var pxy = new BH.oM.Geometry.Point() { X = i, Y = i, Z = 0 };
+        //        var pyz = new BH.oM.Geometry.Point() { X = 0, Y = i, Z = i };
+        //        var pxz = new BH.oM.Geometry.Point() { X = i, Y = 0, Z = i };
+
+        //        var pxyz = new BH.oM.Geometry.Point() { X = i, Y = i, Z = i };
+
+        //        points.Add(px);
+        //        points.Add(py);
+        //        points.Add(pz);
+        //        points.Add(pxy);
+        //        points.Add(pyz);
+        //        points.Add(pxz);
+        //        points.Add(pxyz);
+        //    }
+
+        //    HashSet<string> allGeometryHashes = new();
+
+        //    foreach (var item in points)
+        //    {
+        //        allGeometryHashes.Add(item.GeometryHash());
+        //    }
+
+        //    allGeometryHashes.Count.Should().Be(points.Count);
+        //}
 
         [TestCase(0, 0, 0)]
         [TestCase(1, 1, 1)]
@@ -115,6 +199,7 @@ namespace BH.Tests.Diffing
             Console.WriteLine(hash);
         }
 
+
         [TestCase(1000)]
         [Repeat(50)] // Because this test relies on random data, it needs to be repeated multiple times, at least 50.
         public void Order_RandomPoints(int pointCount, int? shiftCount = null)
@@ -144,6 +229,7 @@ namespace BH.Tests.Diffing
             Polyline polyline = new Polyline() { ControlPoints = points };
 
             var hash1 = polyline.GeometryHash();
+            Console.WriteLine(hash1);
 
             List<Point> shiftedPoints = points.Rotate(shiftCount).ToList(); // rotate the list of points.
             shiftedPoints.Should().Contain(points); // check that both lists still contain the same elements.
@@ -151,6 +237,7 @@ namespace BH.Tests.Diffing
 
             Polyline polyline2 = new Polyline() { ControlPoints = shiftedPoints };
             var hash2 = polyline2.GeometryHash();
+            Console.WriteLine(hash2);
 
             // Check that the two hashes are different.
             hash1.Should().NotBe(hash2);
