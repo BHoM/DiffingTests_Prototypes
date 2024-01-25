@@ -167,6 +167,10 @@ namespace BH.Tests.Diffing
             m_previousHashes.Add(hash);
 
             Console.WriteLine(hash);
+
+            // Also verify that the hash for Vector is different that the hash for a point with the same defining coordinate
+            var p = new BH.oM.Geometry.Point() { X = x, Y = y, Z = z };
+            hash.Should().NotBe(p.GeometryHash());
         }
 
 
