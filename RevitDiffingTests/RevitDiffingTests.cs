@@ -53,8 +53,6 @@ namespace BH.Tests.Diffing.Revit
         {
             List<object> pastObjs = null!;
             List<object> follObjs = null!;
-            List<string> propertiesToConsider = null!;
-            List<string> parametersToConsider = null!;
 
             string id = null!;
             DiffingConfig dc = null!;
@@ -64,8 +62,8 @@ namespace BH.Tests.Diffing.Revit
             {
                 BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, id, dc);
                 BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, id, cc);
-                BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, parametersToConsider, false);
-                BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, propertiesToConsider, parametersToConsider);
+                BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, null!, false);
+                BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, null!, null!);
             });
         }
 
@@ -101,8 +99,8 @@ namespace BH.Tests.Diffing.Revit
             followingObjs.SetProgressiveRevitIdentifier();
 
             // Check that the objects are seen as different.
-            List<string> propertiesToConsider = new List<string>() { "Property1" };
-            List<string> parametersToConsider = new List<string>();
+            HashSet<string> propertiesToConsider = new() { "Property1" };
+            HashSet<string> parametersToConsider = new();
 
             Diff diff = Engine.Adapters.Revit.Compute.RevitDiffing(pastObjects, followingObjs, propertiesToConsider, parametersToConsider);
 
