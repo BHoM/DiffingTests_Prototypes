@@ -48,7 +48,7 @@ using NUnit.Framework;
 
 namespace BH.Tests.Diffing
 {
-    public class HashTests
+    public class HashTests : BH.oM.Test.NUnit.NUnitTest
     {
         [Test]
         public void CustomObjects_EqualHash()

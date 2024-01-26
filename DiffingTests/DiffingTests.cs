@@ -47,7 +47,7 @@ using FluentAssertions;
 
 namespace BH.Tests.Diffing
 {
-    public class DiffingTests
+    public class DiffingTests : BH.oM.Test.NUnit.NUnitTest
     {
         [Test]
         public void IDiffing_DiffWithHash()

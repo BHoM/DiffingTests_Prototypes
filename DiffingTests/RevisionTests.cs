@@ -43,7 +43,7 @@ using NUnit.Framework;
 
 namespace BH.Tests.Diffing
 {
-    public class RevisionTests
+    public class RevisionTests : BH.oM.Test.NUnit.NUnitTest
     {
         // ---------------------------------------------------------- //
         // NOTE: AECDeltas-specific tests                             //

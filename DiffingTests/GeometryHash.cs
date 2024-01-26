@@ -39,7 +39,7 @@ using FluentAssertions.Execution;
 
 namespace BH.Tests.Diffing
 {
-    public class GeometryHash
+    public class GeometryHash : BH.oM.Test.NUnit.NUnitTest
     {
         List<object> m_previousHashes = new();
 
