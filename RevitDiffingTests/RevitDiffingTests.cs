@@ -63,7 +63,7 @@ namespace BH.Tests.Diffing.Revit
                 BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, id, dc);
                 BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, id, cc);
                 BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, null!, false);
-                BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, null!, null!);
+                BH.Engine.Adapters.Revit.Compute.RevitDiffing(pastObjs, follObjs, default(List<string>), null!);
             });
         }
 
