@@ -55,11 +55,8 @@ namespace BH.Tests.Diffing.Revit
             // Set SignificantFigures (different from the default value).
             RevitComparisonConfig cc = new RevitComparisonConfig()
             {
-                NumericalApproximationConfig = new RevitNumericalApproximationConfig()
-                {
-                    NumericTolerance = 1E-3,
-                    ParameterNumericTolerances = new HashSet<NamedNumericTolerance>() { new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-1 } }
-                }
+                NumericTolerance = 1E-3,
+                ParameterNumericTolerances = new HashSet<NamedNumericTolerance>() { new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-1 } }
             };
 
             // Create one bhomobject.
@@ -91,14 +88,11 @@ namespace BH.Tests.Diffing.Revit
             // Set SignificantFigures (different from the default value).
             RevitComparisonConfig cc = new RevitComparisonConfig()
             {
-                NumericalApproximationConfig = new RevitNumericalApproximationConfig()
+                NumericTolerance = 1E-2,
+                ParameterNumericTolerances = new HashSet<NamedNumericTolerance>()
                 {
-                    NumericTolerance = 1E-2,
-                    ParameterNumericTolerances = new HashSet<NamedNumericTolerance>()
-                    {
-                        new NamedNumericTolerance() { Name = "*.Y", Tolerance = 1E-3 },
-                        new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-3 },
-                    }
+                    new NamedNumericTolerance() { Name = "*.Y", Tolerance = 1E-3 },
+                    new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-3 },
                 }
             };
 

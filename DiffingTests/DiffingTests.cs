@@ -505,7 +505,7 @@ namespace BH.Tests.Diffing
         public void ObjectDifferences_NumericTolerance_Equal()
         {
             // Set a numerical tolerance (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig() { NumericalApproximationConfig = new() { NumericTolerance = 0.01 } };
+            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 0.01 };
 
             // Create one node.
             Node node1 = new Node();
@@ -525,7 +525,7 @@ namespace BH.Tests.Diffing
         public void ObjectDifferences_SignificantFigures_Equal()
         {
             // Set SignificantFigures (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig() { NumericalApproximationConfig = new() { SignificantFigures = 3 } };
+            ComparisonConfig cc = new ComparisonConfig() { SignificantFigures = 3 };
 
             // Create one node.
             Node node1 = new Node();
@@ -556,14 +556,14 @@ namespace BH.Tests.Diffing
 
             // Set significantFigures so that X and Y are rounded to 0.312, while Z is rounded to 122.
             // This means that only Z should be identified as different.
-            cc.NumericalApproximationConfig.SignificantFigures = 3;
+            cc.SignificantFigures = 3;
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 1, $"Wrong number of differences identified. Differences: {objectDifferences?.ToText()}");
 
             // Set significantFigures so that X and Y are rounded to 0.31, while Z is rounded to 120.
             // This means that only X and Y should be identified as different.
-            cc.NumericalApproximationConfig.SignificantFigures = 2;
+            cc.SignificantFigures = 2;
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count != 2, $"Wrong number of differences identified. Differences: {objectDifferences?.ToText()}");
         }
 
@@ -574,11 +574,8 @@ namespace BH.Tests.Diffing
             // Set SignificantFigures (different from the default value).
             ComparisonConfig cc = new ComparisonConfig()
             {
-                NumericalApproximationConfig = new()
-                {
-                    SignificantFigures = 3,
-                    PropertySignificantFigures = new HashSet<NamedSignificantFigures>() { new NamedSignificantFigures() { Name = "*.Z", SignificantFigures = 1 } }
-                }
+                SignificantFigures = 3,
+                PropertySignificantFigures = new HashSet<NamedSignificantFigures>() { new NamedSignificantFigures() { Name = "*.Z", SignificantFigures = 1 } }
             };
 
             // Create one node.
@@ -602,11 +599,8 @@ namespace BH.Tests.Diffing
             // Set SignificantFigures (different from the default value).
             ComparisonConfig cc = new ComparisonConfig()
             {
-                NumericalApproximationConfig = new()
-                {
-                    NumericTolerance = 1E-3,
-                    PropertyNumericTolerances = new HashSet<NamedNumericTolerance>() { new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-1 } }
-                }
+                NumericTolerance = 1E-3,
+                PropertyNumericTolerances = new HashSet<NamedNumericTolerance>() { new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-1 } }
             };
 
             // Create one node.
@@ -630,16 +624,13 @@ namespace BH.Tests.Diffing
             // Set SignificantFigures (different from the default value).
             ComparisonConfig cc = new ComparisonConfig()
             {
-                NumericalApproximationConfig = new()
+                NumericTolerance = 1E-2,
+                PropertyNumericTolerances = new HashSet<NamedNumericTolerance>()
                 {
-                    NumericTolerance = 1E-2,
-                    PropertyNumericTolerances = new HashSet<NamedNumericTolerance>()
-                    {
-                        new NamedNumericTolerance() { Name = "*.Y", Tolerance = 1E-3 },
-                        new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-3 },
-                    }
+                    new NamedNumericTolerance() { Name = "*.Y", Tolerance = 1E-3 },
+                    new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-3 },
                 }
-            );
+            };
 
             // Create one node.
             Node node1 = new Node();
