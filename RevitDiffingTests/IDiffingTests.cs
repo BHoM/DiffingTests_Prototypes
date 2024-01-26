@@ -59,7 +59,7 @@ namespace BH.Tests.Diffing.Revit
             DiffingConfig dc = new DiffingConfig();
             dc.ComparisonConfig = new RevitComparisonConfig()
             {
-                PropertiesToConsider = new List<string>() { "Only consider RevitParameter differences." } // an improbable "PropertyName" in PropertiesToConsider means we will ignore differences that are not in RevitParameters.
+                PropertiesToConsider = new() { "Only consider RevitParameter differences." } // an improbable "PropertyName" in PropertiesToConsider means we will ignore differences that are not in RevitParameters.
             };
 
             // Despite the objects not having an identifier assigned, IDiffing will return a result by comparing each object one by one (it will call DiffOneByOne).

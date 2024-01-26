@@ -164,7 +164,7 @@ namespace BH.Tests.Diffing.Revit
             // and verify that no difference is then found.
             RevitComparisonConfig cc = new RevitComparisonConfig()
             {
-                ParametersToConsider = new List<string>() { "Somename.X" }
+                ParametersToConsider = new() { "Somename.X" }
             };
 
             if (directRevitDiff)
@@ -218,7 +218,7 @@ namespace BH.Tests.Diffing.Revit
             // and verify that no difference is then found.
             RevitComparisonConfig cc = new RevitComparisonConfig()
             {
-                ParametersExceptions = new List<string>() { "Somename.Y", "Somename.Z" }
+                ParametersExceptions = new() { "Somename.Y", "Somename.Z" }
             };
 
             if (directRevitDiff)

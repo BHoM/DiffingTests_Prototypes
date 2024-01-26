@@ -83,14 +83,14 @@ namespace BH.Tests.Diffing
             ComparisonConfig? cc = null;
 
             // Use CustomdataKeysExceptions to disregard the difference in the input key.
-            cc = new ComparisonConfig() { CustomdataKeysExceptions = new List<string>() { "testKey" } };
+            cc = new ComparisonConfig() { CustomdataKeysExceptions = new() { "testKey" } };
             hash1 = testObject1.Hash(cc);
             hash2 = testObject2.Hash(cc);
             Assert.IsTrue(hash1 == hash2, "The two CustomObjects must be seen as equal when using the CustomdataKeysExceptions to disregard the different CustomData key.");
 
             // For CustomObjects, differences in customData keys should _also_ be disregarded by using PropertyExceptions.
             // NOTE: this is done _on purpose_ for UX/UI consistency: when dealing with CustomObjects, we conflate object properties and CustomData keys.
-            cc = new ComparisonConfig() { PropertyExceptions = new List<string>() { "testKey" } };
+            cc = new ComparisonConfig() { PropertyExceptions = new() { "testKey" } };
             hash1 = testObject1.Hash(cc);
             hash2 = testObject2.Hash(cc);
             Assert.IsTrue(hash1 == hash2, "The two CustomObjects must be seen as equal when using the PropertyExceptions to disregard the different CustomData key.");
@@ -398,7 +398,7 @@ namespace BH.Tests.Diffing
 
             ComparisonConfig cc = new ComparisonConfig()
             {
-                PropertiesToConsider = new List<string>() { "SomeRandomNotExistingPropertyName" }
+                PropertiesToConsider = new() { "SomeRandomNotExistingPropertyName" }
             };
 
             Assert.IsTrue(bar1.Hash(cc) == bar2.Hash(cc), "Objects should be seen as equal.");
