@@ -829,9 +829,6 @@ namespace BH.Tests.Diffing
             Bar? bar = null;
             ComparisonConfig cc = new ComparisonConfig();
 
-            // Set newtonsoft serialization settings to handle automatically any type.
-            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
-
             if (resetSerialisedObject)
             {
                 bar = BH.Engine.Base.Create.RandomObject(typeof(Bar)) as Bar;
@@ -842,15 +839,14 @@ namespace BH.Tests.Diffing
                 // (The HashFragment is always ignored when computing a Hash.)
                 bar = bar.SetHashFragment(generatedObjectHash);
 
-                System.IO.File.WriteAllText(filePath, JsonConvert.SerializeObject(bar, settings));
+                System.IO.File.WriteAllText(filePath, BH.Engine.Serialiser.Convert.ToJson(bar));
             }
 
             if (!resetSerialisedObject)
             {
                 // deserialize JSON directly from a file
                 using (StreamReader file = File.OpenText(filePath))
-                    bar = JsonConvert.DeserializeObject<Bar>(file.ReadToEnd(), settings);
-
+                    bar = (Bar)BH.Engine.Serialiser.Convert.FromJson(file.ReadToEnd());
             }
 
             // Compute the hash of the object that was serialised.
