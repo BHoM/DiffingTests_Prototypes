@@ -179,11 +179,7 @@ namespace BH.Tests.Diffing
             var v = new BH.oM.Geometry.Vector() { X = x, Y = y, Z = z };
 
             var hash = v.GeometryHash();
-
-            if ((v.X.HasValue() && v.X != 0) || (v.Y.HasValue() && v.Y != 0) || (v.Z.HasValue() && v.Z != 0))
-            {
-                hash.Should().NotBeNull();
-            }
+            hash.Should().NotBeNull();
 
             m_previousHashes.Should().NotContain(hash);
             m_previousHashes.Add(hash);
