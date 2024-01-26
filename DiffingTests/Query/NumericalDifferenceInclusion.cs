@@ -43,9 +43,12 @@ namespace BH.Test.Engine.Diffing
         [TestCase(false, 1.5, 2, 0.51)]
         public void NumericalDifferenceInclusion_Tolerance(bool seenAsDifferent, double number1, double number2, double tolerance)
         {
-            NumericalApproximationConfig num = new NumericalApproximationConfig() { NumericTolerance = tolerance };
+            var comparisonConfig = new ComparisonConfig()
+            {
+                NumericTolerance = tolerance,
+            };
 
-            BH.Engine.Diffing.Query.NumericalDifferenceInclusion(number1, number2, numericalApproxConfig: num).Should().Be(seenAsDifferent);
+            BH.Engine.Diffing.Query.NumericalDifferenceInclusion(number1, number2, comparisonConfig: comparisonConfig).Should().Be(seenAsDifferent);
         }
 
         // Test parameters:
@@ -55,9 +58,12 @@ namespace BH.Test.Engine.Diffing
         [TestCase(true, 1.5, 2, 2)]
         public void NumericalDifferenceInclusion_SignificantFigures(bool seenAsDifferent, double number1, double number2, int significantFigures)
         {
-            NumericalApproximationConfig num = new NumericalApproximationConfig() { SignificantFigures = significantFigures };
+            var comparisonConfig = new ComparisonConfig()
+            {
+                SignificantFigures = significantFigures,
+            };
 
-            BH.Engine.Diffing.Query.NumericalDifferenceInclusion(number1, number2, numericalApproxConfig: num).Should().Be(seenAsDifferent);
+            BH.Engine.Diffing.Query.NumericalDifferenceInclusion(number1, number2, comparisonConfig: comparisonConfig).Should().Be(seenAsDifferent);
         }
     }
 }

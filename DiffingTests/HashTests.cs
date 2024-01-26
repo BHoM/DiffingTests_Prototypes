@@ -132,10 +132,7 @@ namespace BH.Tests.Diffing
         [Test]
         public void DifferentObjects_DifferentEnums_DifferentHash()
         {
-            ComparisonConfig cc = new ComparisonConfig()
-            {
-                NumericalApproximationConfig = new() { NumericTolerance = 3 }
-            };
+            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 3 };
 
             // Create one random object. This object has an Enum property which is left "undefined".
             TestObject testObject1 = new TestObject();
@@ -167,10 +164,7 @@ namespace BH.Tests.Diffing
         public void RemoveDuplicatesByHash()
         {
             // Set numerical precision
-            ComparisonConfig cc = new ComparisonConfig()
-            {
-                NumericalApproximationConfig = new() { NumericTolerance = 1E-3 }
-            };
+            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
 
             // Instantiate hashcomparer for nodes. The `true` boolean means it should assign the calculated hashes to objects. 
             HashComparer<Node> hashComparer = new HashComparer<Node>(cc, true);
@@ -596,7 +590,7 @@ namespace BH.Tests.Diffing
             Node startNode2 = new Node();
             startNode2.Position = new Point() { X = 55, Y = 0, Z = 0 };
             Node endNode2 = new Node();
-            endNode2.Position = new Point() { X = 99, Y = 0, Z = 0 };
+            endNode2.Position = new Point() { X = 99, Y = 0, Z = 0 }; 
             Bar bar2 = new Bar();
             bar2.Start = startNode2;
             bar2.End = endNode2;
@@ -612,10 +606,7 @@ namespace BH.Tests.Diffing
         public void NumericTolerance_DifferentObjects_SeenAsEqual()
         {
             // Set a numerical tolerance (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig()
-            {
-                NumericalApproximationConfig = new() { NumericTolerance = 1E-3 }
-            };
+            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
 
             // Create one node.
             Node node1 = new Node();
@@ -631,11 +622,11 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(hash1 == hash2);
         }
 
-        [Test]
+        [Test]  
         public void SignificantFigures_DifferentObjects_SeenAsEqual()
         {
             // Set a numerical SignificantFigures (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig() { NumericalApproximationConfig = new() { SignificantFigures = 3 } };
+            ComparisonConfig cc = new ComparisonConfig() { SignificantFigures = 3 };
 
             // Create one node.
             Node node1 = new Node();
@@ -655,7 +646,7 @@ namespace BH.Tests.Diffing
         public void NumericTolerance_DifferentObjects_SeenAsDifferent()
         {
             // Set a numerical tolerance (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig() { NumericalApproximationConfig = new() { NumericTolerance = 1E-3 } };
+            ComparisonConfig cc = new ComparisonConfig() { NumericTolerance = 1E-3 };
 
             // Create one node.
             Node node1 = new Node();
@@ -675,7 +666,7 @@ namespace BH.Tests.Diffing
         public void SignificantFigures_DifferentObjects_SeenAsDifferent()
         {
             // Set a numerical SignificantFigures (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig() { NumericalApproximationConfig = new() { SignificantFigures = 3 } };
+            ComparisonConfig cc = new ComparisonConfig() { SignificantFigures = 3 };
 
             // Create one node.
             Node node1 = new Node();
@@ -707,12 +698,12 @@ namespace BH.Tests.Diffing
 
             // Set the global tolerance to be larger than X and Y, but smaller than Z.
             // The two objects must still be seen as different just because of the Z property large variation.
-            cc.NumericalApproximationConfig.NumericTolerance = 1e-1;
+            cc.NumericTolerance = 1e-1;
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
 
             // Set the global tolerance to be larger than X, Y and Z.
             // The two objects must be seen as equal.
-            cc.NumericalApproximationConfig.NumericTolerance = 1;
+            cc.NumericTolerance = 1;
             Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc));
         }
 
@@ -731,12 +722,12 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
 
             // Set the global significant figures so we disregard the variations of X and Y, but not Z. The objects must still be seen as different.
-            cc.NumericalApproximationConfig.SignificantFigures = 3;
+            cc.SignificantFigures = 3;
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
 
             // Set the global significant figures so that we disregard all variations.
             // The two objects must be seen as equal.
-            cc.NumericalApproximationConfig.SignificantFigures = 1;
+            cc.SignificantFigures = 1;
             Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc));
         }
 
@@ -756,17 +747,17 @@ namespace BH.Tests.Diffing
 
             // Set the global tolerance to be larger than X and Y, but smaller than Z.
             // The two objects must still be seen as different just because of the Z property large variation.
-            cc.NumericalApproximationConfig.NumericTolerance = 1e-1;
+            cc.NumericTolerance = 1e-1;
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
 
             // Set the global tolerance to be larger than X, Y and Z.
             // The two objects must be seen as equal.
-            cc.NumericalApproximationConfig.NumericTolerance = 1;
+            cc.NumericTolerance = 1;
             Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc));
 
             // Set a custom tolerance for just the variable Z, to be smaller than Z's updated value.
             // The two objects must again be seen as different.
-            cc.NumericalApproximationConfig.PropertyNumericTolerances.Add(new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1e-3 });
+            cc.PropertyNumericTolerances.Add(new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1e-3 });
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
         }
 
@@ -786,16 +777,16 @@ namespace BH.Tests.Diffing
 
             // Set the global significant figures to be larger than X and Y, but smaller than Z.
             // The two objects must still be seen as different just because of the Z property large variation.
-            cc.NumericalApproximationConfig.SignificantFigures = 3;
+            cc.SignificantFigures = 3;
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
 
             // Set the global significant figures so the two objects must be seen as equal.
-            cc.NumericalApproximationConfig.SignificantFigures = 1;
+            cc.SignificantFigures = 1;
             Assert.IsTrue(node1.Hash(cc) == node2.Hash(cc));
 
             // Set a custom significant figures for just the variable Z, to be smaller than Z's updated value.
             // The two objects must again be seen as different, because this overcomes the global significant figures settings.
-            cc.NumericalApproximationConfig.PropertySignificantFigures.Add(new NamedSignificantFigures() { Name = "*.Z", SignificantFigures = 3 });
+            cc.PropertySignificantFigures.Add(new NamedSignificantFigures() { Name = "*.Z", SignificantFigures = 3 });
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
         }
 
@@ -813,14 +804,14 @@ namespace BH.Tests.Diffing
             node.Position = new Point() { X = 0.169, Y = 0.169, Z = 1.01 };
 
             // Set Numerical tolerance.
-            cc.NumericalApproximationConfig.NumericTolerance = 1e-2; // This will round as: X = 0.17, Y = 0.17, Z = 1.01.
+            cc.NumericTolerance = 1e-2; // This will round as: X = 0.17, Y = 0.17, Z = 1.01.
             controlNode = new Node();
             controlNode.Position = new Point() { X = 0.17, Y = 0.17, Z = 1.01 };
 
             Assert.IsTrue(controlNode.Hash(cc) == node.Hash(cc));
 
             // Also set SignificantFigures in the same ComparisonConfig.
-            cc.NumericalApproximationConfig.SignificantFigures = 1; // This will round as: X = 0.2, Y = 0.2, Z = 1.
+            cc.SignificantFigures = 1; // This will round as: X = 0.2, Y = 0.2, Z = 1.
             controlNode = new Node();
             controlNode.Position = new Point() { X = 0.2, Y = 0.2, Z = 1 };
 
@@ -828,7 +819,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestCase(true)] // Setting this to true updates the serialized object.
-        [TestCase(false)]
+        [TestCase(false)] 
         public void SerialisedObject_RandomObject_HashDidNotChange(bool resetSerialisedObject = false)
         {
             string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location)!, @"..\..\..\..\Datasets\211117_HashTest_SerialisedObject_RandomObject.json"));
