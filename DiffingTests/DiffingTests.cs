@@ -93,6 +93,7 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(!objectDifferences?.Differences?.Any() ?? true, "HashDiffing cannot return property Differences, but some were returned.");
         }
 
+
         [Test]
         public void DiffWithFragmentId_allModifiedObjects()
         {
@@ -283,9 +284,10 @@ namespace BH.Tests.Diffing
             Bar bar1 = Engine.Diffing.Tests.Create.RandomObject<Bar>();
             Bar bar2 = Engine.Diffing.Tests.Create.RandomObject<Bar>();
 
-            ComparisonConfig cc = new ComparisonConfig(
-                propertiesToConsider: new HashSet<string>() { "SomeRandomNotExistingPropertyName" }
-            );
+            ComparisonConfig cc = new ComparisonConfig()
+            {
+                PropertiesToConsider = new() { "SomeRandomNotExistingPropertyName" }
+            };
 
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
@@ -316,7 +318,7 @@ namespace BH.Tests.Diffing
             };
 
             // Consider ONLY differences in terms of `BH.oM.Structure.Elements.Bar.Start.Name`. We should not find any.
-            ComparisonConfig cc = new ComparisonConfig(propertiesToConsider: new HashSet<string>() { $"{typeof(BH.oM.Structure.Elements.Bar).FullName}.Start.Name" });
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new() { $"{typeof(BH.oM.Structure.Elements.Bar).FullName}.Start.Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
@@ -346,7 +348,7 @@ namespace BH.Tests.Diffing
             };
 
             // Consider ONLY differences in terms of `Location.Position`. We should not find any.
-            ComparisonConfig cc = new ComparisonConfig(propertiesToConsider: new HashSet<string>() { "Location.Position" }); // using "partial property path"
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new() { "Location.Position" } }; // using "partial property path"
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(object1, object2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
@@ -376,7 +378,7 @@ namespace BH.Tests.Diffing
             };
 
             // Consider ONLY differences in terms of `Location.Position`
-            ComparisonConfig cc = new ComparisonConfig(propertiesToConsider: new HashSet<string>() { "Location.Position" }); // using "partial property path"
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new() { "Location.Position" } }; // using "partial property path"
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(object1, object2, cc);
 
             Assert.IsTrue(objectDifferences.Differences.Where(d => d.Name.Contains("Location.Position")).Count() == 3, "3 differences in terms of Location.Position should have been found.");
@@ -407,13 +409,13 @@ namespace BH.Tests.Diffing
             };
 
             // Consider ONLY differences in terms of names: `*.Name`.  We should not find any.
-            ComparisonConfig cc = new ComparisonConfig(propertiesToConsider: new HashSet<string>() { "*.Name" });
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new() { "*.Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
 
             // Or equivalently, without any wildcard: `Name`. Result should be the same, we should not find any.
-            cc = new ComparisonConfig(propertiesToConsider: new HashSet<string>() { "Name" });
+            cc = new ComparisonConfig() { PropertiesToConsider = new() { "Name" } };
             objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
@@ -453,7 +455,7 @@ namespace BH.Tests.Diffing
             };
 
             // Consider ONLY differences in terms of Start AND End names: `Bar.*.Name`. We should not find any.
-            ComparisonConfig cc = new ComparisonConfig(propertiesToConsider: new HashSet<string>() { "Bar.*.Name" });
+            ComparisonConfig cc = new ComparisonConfig() { PropertiesToConsider = new() { "Bar.*.Name" } };
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(bar1, bar2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 0, $"No difference should have been found. Differences: {objectDifferences?.ToText()}");
@@ -503,7 +505,7 @@ namespace BH.Tests.Diffing
         public void ObjectDifferences_NumericTolerance_Equal()
         {
             // Set a numerical tolerance (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig(numericTolerance: 0.01);
+            ComparisonConfig cc = new ComparisonConfig() { NumericalApproximationConfig = new() { NumericTolerance = 0.01 } };
 
             // Create one node.
             Node node1 = new Node();
@@ -523,7 +525,7 @@ namespace BH.Tests.Diffing
         public void ObjectDifferences_SignificantFigures_Equal()
         {
             // Set SignificantFigures (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig(significantFigures: 3);
+            ComparisonConfig cc = new ComparisonConfig() { NumericalApproximationConfig = new() { SignificantFigures = 3 } };
 
             // Create one node.
             Node node1 = new Node();
@@ -554,14 +556,14 @@ namespace BH.Tests.Diffing
 
             // Set significantFigures so that X and Y are rounded to 0.312, while Z is rounded to 122.
             // This means that only Z should be identified as different.
-            cc = new ComparisonConfig(significantFigures: 3);
+            cc.NumericalApproximationConfig.SignificantFigures = 3;
             ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(node1, node2, cc);
 
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count == 1, $"Wrong number of differences identified. Differences: {objectDifferences?.ToText()}");
 
             // Set significantFigures so that X and Y are rounded to 0.31, while Z is rounded to 120.
             // This means that only X and Y should be identified as different.
-            cc = new ComparisonConfig(significantFigures: 2);
+            cc.NumericalApproximationConfig.SignificantFigures = 2;
             Assert.IsTrue(objectDifferences == null || objectDifferences.Differences.Count != 2, $"Wrong number of differences identified. Differences: {objectDifferences?.ToText()}");
         }
 
@@ -570,10 +572,14 @@ namespace BH.Tests.Diffing
         {
             // Testing property-specific Significant Figures.
             // Set SignificantFigures (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig(
-                significantFigures: 3,
-                propertySignificantFigures: new HashSet<NamedSignificantFigures>() { new NamedSignificantFigures() { Name = "*.Z", SignificantFigures = 1 } }
-            );
+            ComparisonConfig cc = new ComparisonConfig()
+            {
+                NumericalApproximationConfig = new()
+                {
+                    SignificantFigures = 3,
+                    PropertySignificantFigures = new HashSet<NamedSignificantFigures>() { new NamedSignificantFigures() { Name = "*.Z", SignificantFigures = 1 } }
+                }
+            };
 
             // Create one node.
             Node node1 = new Node();
@@ -594,10 +600,14 @@ namespace BH.Tests.Diffing
         {
             // Testing property-specific Significant Figures.
             // Set SignificantFigures (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig(
-                numericTolerance: 1E-3,
-                propertyNumericTolerances: new HashSet<NamedNumericTolerance>() { new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-1 } }
-            );
+            ComparisonConfig cc = new ComparisonConfig()
+            {
+                NumericalApproximationConfig = new()
+                {
+                    NumericTolerance = 1E-3,
+                    PropertyNumericTolerances = new HashSet<NamedNumericTolerance>() { new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-1 } }
+                }
+            };
 
             // Create one node.
             Node node1 = new Node();
@@ -618,12 +628,16 @@ namespace BH.Tests.Diffing
         {
             // Testing property-specific Significant Figures.
             // Set SignificantFigures (different from the default value).
-            ComparisonConfig cc = new ComparisonConfig(
-                numericTolerance: 1E-2,
-                propertyNumericTolerances: new HashSet<NamedNumericTolerance>()
+            ComparisonConfig cc = new ComparisonConfig()
+            {
+                NumericalApproximationConfig = new()
                 {
-                    new NamedNumericTolerance() { Name = "*.Y", Tolerance = 1E-3 },
-                    new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-3 },
+                    NumericTolerance = 1E-2,
+                    PropertyNumericTolerances = new HashSet<NamedNumericTolerance>()
+                    {
+                        new NamedNumericTolerance() { Name = "*.Y", Tolerance = 1E-3 },
+                        new NamedNumericTolerance() { Name = "*.Z", Tolerance = 1E-3 },
+                    }
                 }
             );
 
