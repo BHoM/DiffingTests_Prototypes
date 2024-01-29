@@ -31,12 +31,22 @@ namespace BH.Tests.Diffing
 {
     class Program
     {
+
+        static bool m_allAssembliesLoaded = false;
         public static void Main(string[] args = null)
         {
             /// ***************************************************************************/
             ///                                PROFILING
             /// Performance profiling.
             /// ***************************************************************************/
+
+            if (!m_allAssembliesLoaded)
+            {
+                Console.WriteLine("Profiling setup: load all assemblies...");
+                BH.Engine.Base.Compute.LoadAllAssemblies();
+                m_allAssembliesLoaded = true;
+                Console.WriteLine("Loading all assemblies done.");
+            }
 
             var asteriskRow = $"\n{string.Join("", Enumerable.Repeat("*", 50))}";
 
