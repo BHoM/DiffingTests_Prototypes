@@ -45,6 +45,7 @@ using System.Security.Principal;
 using BH.oM.Diffing.Tests;
 using AutoBogus;
 using NUnit.Framework;
+using BH.Engine.Serialiser;
 
 namespace BH.Tests.Diffing
 {
@@ -70,7 +71,7 @@ namespace BH.Tests.Diffing
             // Create two customObjects with a same key that has different values.
             CustomObject testObject1 = new CustomObject();
             testObject1.CustomData["testKey"] = 999;
-            
+
             CustomObject testObject2 = new CustomObject();
             testObject2.CustomData["testKey"] = 0;
 
@@ -124,9 +125,13 @@ namespace BH.Tests.Diffing
             cc.PropertiesToConsider = null;
             cc.TypeExceptions = null;
 
+            Console.WriteLine($"Value of comparisonConfig:\n\t{cc.ToJson()}");
+
             string hash1 = testObject1.Hash(cc);
             string hash2 = testObject2.Hash(cc);
+
             Assert.IsTrue(hash1 == hash2, "Two equal objects must have the same hash.");
+
         }
 
         [Test]
@@ -590,7 +595,7 @@ namespace BH.Tests.Diffing
             Node startNode2 = new Node();
             startNode2.Position = new Point() { X = 55, Y = 0, Z = 0 };
             Node endNode2 = new Node();
-            endNode2.Position = new Point() { X = 99, Y = 0, Z = 0 }; 
+            endNode2.Position = new Point() { X = 99, Y = 0, Z = 0 };
             Bar bar2 = new Bar();
             bar2.Start = startNode2;
             bar2.End = endNode2;
@@ -622,7 +627,7 @@ namespace BH.Tests.Diffing
             Assert.IsTrue(hash1 == hash2);
         }
 
-        [Test]  
+        [Test]
         public void SignificantFigures_DifferentObjects_SeenAsEqual()
         {
             // Set a numerical SignificantFigures (different from the default value).
@@ -819,7 +824,7 @@ namespace BH.Tests.Diffing
         }
 
         [TestCase(true)] // Setting this to true updates the serialized object.
-        [TestCase(false)] 
+        [TestCase(false)]
         public void SerialisedObject_RandomObject_HashDidNotChange(bool resetSerialisedObject = false)
         {
             string filePath = Path.GetFullPath(Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location)!, @"..\..\..\..\Datasets\211117_HashTest_SerialisedObject_RandomObject.json"));

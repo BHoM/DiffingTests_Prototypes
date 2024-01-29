@@ -38,7 +38,7 @@ using NUnit.Framework;
 
 namespace BH.Tests.Diffing.Revit
 {
-    public class HashTests
+    public class HashTests : BH.oM.Test.NUnit.NUnitTest
     {
         [Test]
         public void RevitParameter_ExtensionMethod_SameHash()
