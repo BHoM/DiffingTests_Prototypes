@@ -234,5 +234,36 @@ namespace BH.Tests.Diffing
             // Check that the two hashes are different.
             hash1.Should().NotBe(hash2);
         }
+
+        /// <summary>
+        /// Tests whether the GeometryHashes for the same mesh are different when including/not including a type of Point in the TypeExceptions.
+        /// </summary>
+        /// <param name="t"></param>
+        [TestCase(typeof(Mesh))]
+        [TestCase(typeof(Mesh3D))]
+        public void MeshTopology(Type t)
+        {
+            IGeometry mesh1 = (IGeometry)BH.Engine.Base.Create.RandomObject(t);
+
+            var mesh1Hash = mesh1.GeometryHash();
+            mesh1Hash.Should().NotBeNull();
+
+            Console.WriteLine(mesh1Hash);
+
+            ComparisonConfig cc = new() { TypeExceptions = new() { typeof(BH.oM.Geometry.Point) } };
+            var meshHashWithPointException = mesh1.GeometryHash(cc);
+
+            mesh1Hash.Should().NotBe(meshHashWithPointException);
+
+            // Also make sure that the Geometry Hash for another completely different mesh
+            // is equal to the GeometryHash for the first mesh 
+            // when both Point and Face are specified in the TypeExceptions.
+            IGeometry mesh2 = (IGeometry)BH.Engine.Base.Create.RandomObject(t);
+            ComparisonConfig cc2 = new() { TypeExceptions = new() { typeof(BH.oM.Geometry.Point), typeof(BH.oM.Geometry.Face) } };
+            var mesh1HashWithPointAndFaceExceptions = mesh1.GeometryHash(cc2);
+            var mesh2HashWithPointAndFaceExceptions = mesh2.GeometryHash(cc2);
+
+            mesh1HashWithPointAndFaceExceptions.Should().Be(mesh2HashWithPointAndFaceExceptions);
+        }
     }
 }
