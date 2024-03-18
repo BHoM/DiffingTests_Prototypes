@@ -29,6 +29,7 @@
     <ProjectReference Include="..\..\BHoM_Engine\BHoM_Engine\BHoM_Engine.csproj" />
     <ProjectReference Include="..\..\BHoM_Engine\Diffing_Engine\Diffing_Engine.csproj" />
     <ProjectReference Include="..\..\BHoM_Engine\Geometry_Engine\Geometry_Engine.csproj" />
+    <ProjectReference Include="..\..\Test_Toolkit\NUnit_Engine\NUnit_Engine.csproj" />
     <ProjectReference Include="..\DiffingTests_Engine\DiffingTests_Engine.csproj" />
     <ProjectReference Include="..\DiffingTests_oM\DiffingTests_oM.csproj" />
   </ItemGroup>
@@ -42,9 +43,6 @@
     </Reference>
     <Reference Include="Geometry_oM">
       <HintPath>$(ProgramData)\BHoM\Assemblies\Geometry_oM.dll</HintPath>
-    </Reference>
-    <Reference Include="NUnit_Engine">
-      <HintPath>C:\ProgramData\BHoM\Assemblies\NUnit_Engine.dll</HintPath>
     </Reference>
     <Reference Include="Reflection_Engine">
       <HintPath>$(ProgramData)\BHoM\Assemblies\Reflection_Engine.dll</HintPath>
