@@ -10,7 +10,7 @@ using FluentAssertions;
 
 namespace BH.Tests.Diffing
 {
-    public class PerformanceTests
+    public class PerformanceDiffing
     {
         [Test]
         public void ObjectDifferences_StaticProperties_100Color()
