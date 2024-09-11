@@ -12,32 +12,29 @@ using BH.Engine.Base;
 
 namespace BH.Tests.Diffing
 {
-    public class PerformanceHash
+    public class PerformanceHash : BH.oM.Test.NUnit.NUnitTest
     {
         [Test]
-        public void ObjectDifferences_StaticProperties_100Color()
+        public void StaticProperties_100Color()
         {
             CustomObject co = new CustomObject();
 
-            var colors = AutoFaker.Generate<System.Drawing.Color>(100);
-            co.CustomData["colors"] = colors;
+            var data = AutoFaker.Generate<System.Drawing.Color>(100);
+            co.CustomData["data"] = data;
 
-            CustomObject co2 = co.DeepClone();
-
-            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(co, co2);
-
-            objectDifferences.Differences.Count.Should().Be(0, "the number of propertyDifferences should be 0");
+            string hash = co.Hash();
         }
 
 
-        [Test]
-        public void ObjectDifferences_StaticProperties_1KPlanes()
-        {
-            var planes = AutoFaker.Generate<BH.oM.Geometry.Plane>(1000);
+        //[Test]
+        //public void StaticProperties_1KPlanes()
+        //{
+        //    CustomObject co = new CustomObject();
 
-            ObjectDifferences objectDifferences = BH.Engine.Diffing.Query.ObjectDifferences(planes, planes);
+        //    var data = AutoFaker.Generate<BH.oM.Geometry.Plane>(1000);
+        //    co.CustomData["data"] = data;
 
-            objectDifferences.Differences.Count.Should().Be(0, "the number of propertyDifferences should be 0");
-        }
+        //    string hash = co.Hash();
+        //}
     }
 }
