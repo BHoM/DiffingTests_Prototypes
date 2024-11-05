@@ -696,7 +696,7 @@ namespace BH.Tests.Diffing
             Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
             Node node2 = new Node();
-            node2.Position = new Point() { X = 0.0003, Y = 0.0003, Z = 0.9 }; // X and Y have very small variation, Z has large variation.
+            node2.Position = new Point() { X = 0.0003, Y = 0.0003, Z = 0.4 }; // X and Y have very small variation, Z has large variation.
 
             // With the default tolerance, the objects must be seen as different.
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
@@ -745,7 +745,7 @@ namespace BH.Tests.Diffing
             Node node1 = new Node();
             node1.Position = new Point() { X = 0, Y = 0, Z = 0 };
             Node node2 = new Node();
-            node2.Position = new Point() { X = 0.0003, Y = 0.0003, Z = 0.9 }; // X and Y have very small variation, Z has large variation.
+            node2.Position = new Point() { X = 0.0003, Y = 0.0003, Z = 0.4 }; // X and Y have very small variation, Z has large variation.
 
             // With the default tolerance, the objects must be seen as different.
             Assert.IsTrue(node1.Hash(cc) != node2.Hash(cc));
